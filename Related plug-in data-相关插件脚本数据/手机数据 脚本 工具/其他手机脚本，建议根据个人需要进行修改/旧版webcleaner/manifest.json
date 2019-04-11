@@ -1,0 +1,25 @@
+{
+   "background": {
+      "scripts": [ "background.js" ]
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "filters.js", "mutation_summary.js", "PNG.js", "Deflate.js", "Base64.js", "jpg.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Filters inappropriate content from the internet.",
+   "icons": {
+      "128": "joseph'slogo2(transparent).png",
+      "16": "joseph'slogo2(white).png",
+      "48": "joseph'slogo2(white).png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDQXFR8u7c/LqBN3AWY9/RLZQhm1RqFdqJEMtvtNEavYovpcKrFUKm7RfcapwC7sxAgvn/OMp6Yjyg9xSXliB0Nuw9zk5g5ZCoCx9/2egurjOi+9HiIVpa9VAA5UIcVM9sSMqdwe8GzjLOICz8mcUrYEsBnK3zrnj1GFUJ2DSbYOwIDAQAB",
+   "manifest_version": 2,
+   "name": "Web Cleaner",
+   "options_page": "options.html",
+   "permissions": [ "http://*/", "https://*/" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.0",
+   "web_accessible_resources": [ "joseph'slogo.png", "joseph'slogo2(transparent).png", "joseph'slogo2(white).png" ]
+}

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+    <title>AdminLTE 3 | Dashboard 2</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/datatables/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="/css/adminlte.min.css"/>
+    <link rel="stylesheet" href="https://3vshej.cn/AdminLTE/AdminLTE-2.4/dist/css/AdminLTE.min.css"/>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+    <style>
+        .operation{
+            padding-top: 200px;
+        }
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            box-shadow: inset 0 0 0 transparent;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+
+        .table td, .table th {
+            padding: 0;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+        .operation_origial_information{
+            width: 400px;
+        }
+        .table td, .table th{
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div  th:include="top::topbar"></div>
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100%">
+        <!-- Brand Logo -->
+        <!-- Sidebar -->
+        <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h5>冠豪高新</h5>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">企业门户体系</a></li>
+                            <li class="breadcrumb-item active">系统管理</li>
+                            <li class="breadcrumb-item active">冠豪高新</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- /.slider -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c567746b.jpg" alt="First slide"/>
+                                        </div>
+                                        <div class="carousel-item active carousel-item-left">
+                                            <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c5761ddc.jpg" alt="Second slide"/>
+                                        </div>
+                                        <div class="carousel-item carousel-item-next carousel-item-left">
+                                            <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c5828fa0.jpg" alt="Third slide"/>
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 m-t-30">
+                        <!--<h4 class="m-b-0">Card with Deck</h4>-->
+                        <p class="text-muted m-t-0 font-12">新闻热点</p>
+                        <div class="card-deck">
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="http://img95.699pic.com/photo/10000/9695.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">钟天崎总经理参加湛江市政府代表团出访俄罗斯</h4>
+                                    <p class="card-text">为更好地贯彻落实党的十九大精神和习近平总书记重要讲话精神，深入参与“一带一路”建设，加强湛江与东欧及北欧有关国家的务实交流合作，加快形成全面开放新格局，助力省域副中心城市建设，7月20日至24日，湛江市委书记、市人大常委会主任郑人豪应俄方邀请率代表团赴俄罗斯开展系列经贸活动。广东冠豪高新技术股份有限公司总经理钟天崎应邀随团出访，期间参观考察了莫斯科诚通集团格林伍德国际贸易中心，并在代表团的见证下与俄罗斯下诺夫哥罗德“Technology Pro”有限责任公司（简称NBK公司）签订了热敏纸涂布产能合作备忘录。
+                                        学习“走出去”成功经验，厚积薄发蓄后劲
+                                        7月22日，冠豪高新总经理钟天崎、总经理助理朱伟南随市政府考察团一行参观考察了莫斯科诚通集团格林伍德国际贸易中心。在格林伍德国际贸易中心人员的带领下，考察团参观了格林伍德国际贸易中心展厅，了解了中心发展历程、建设情况、发展战略情况等，并与格林伍德国际贸易中心人员在会议室进行了座谈交流，学习格林伍德国际贸易中心“走出去”的成功经验。
+                                        格林伍德国际贸易中心是国资委管理的中国诚通集团支持所属欧洲商业开发投资管理中心在俄联邦莫斯科州投资建设的国际贸易中心项目，是目前我国在俄联邦最大的商贸类投资项目。它是中国企业进入俄罗斯市场的桥梁，为中国企业提供一个安全、规范、有形象、有档次的经营平台，提高了在俄中国商人和企业的经商层次和水平。
+                                        格林伍德项目是中国企业"走出去"的成功典范。此次出访参观，让公司将来做大做强在俄业务提供经验借鉴，为公司顺利开展国际业务提供战略参考。
+                                        完成项目合作签约，开创良好新开端
+                                        7月23日，在访问团郑人豪书记等成员的共同见证下，广东冠豪高新技术股份有限公司与NBK公司在艾米瑞达格兰德酒店会议室签订了热敏纸涂布产能合作备忘录。广东冠豪高新技术股份有限公司总经理钟天崎与NBK公司总经理古里科夫互相赠送纪念礼品。
+                                        湛江市委书记郑人豪发表致辞，他代表市委市政府对冠豪高新和NBK公司热敏纸涂布产能项目合作备忘录的签订表示热烈祝贺。他表示，湛江市委市政府紧抓国家“一带一路”重大战略带来的机遇，积极助推本土品牌企业打入国际市场。冠豪高新在大力拓展国内市场的同时，聚焦国际市场，努力寻求海外业务合作，扩张国际市场，积极响应了湛江市委、市政府“走出去”战略的号召。希望双方以此次签约为契机，加快项目落地建设，拓展合作领域，实现互利共赢。郑人豪还介绍了湛江社会经济建设、交通设施等方面情况。
+                                        钟天崎总经理代表冠豪高新向积极促成项目签约领导和朋友表示感谢，对项目的顺利签约表示祝贺。他表示，冠豪高新在立足发展本土市场的同时积极拓展国际业务市场，紧紧抓住全球热敏纸需求不断增长和国家加快推进“一带一路”建设与欧亚经济联盟建设带来的新机遇，积极“走出去”，努力寻求国际业务合作。NBK公司是俄罗斯举足轻重的热敏纸分切销售公司，热敏纸加工生产经验丰富，销售网络完善，长期占据俄罗斯热敏纸中高端市场。此前NBK公司已就项目合作事宜访问冠豪高新，并已达成基本共识。此次双方合作，将实现资源优势整合，促进双方延伸产业链，拓宽经营业务，提升企业综合实力，同时有效地推动冠豪高新拓展俄罗斯市场战略落地实施，实现互利共赢。
+                                        据悉，此次冠豪高新与NBK公司签订热敏纸涂布产能合作备忘录，旨在新建一条热敏纸涂布生产线，项目建成投产后将具有良好的经济效益和社会效益。
+                                        本次钟天崎总经理随团出访，受益良多，既学习了诚通集团格林伍德国际贸易中心等优秀企业的先进管理经验，又完成了与俄罗斯NBK公司热敏纸涂布项目合作备忘录的签约，为冠豪高新拓展国际业务开创了良好的新开端，冠豪高新将坚持实施“走出去，引进来”发展战略，积极参与“一带一路”建设，加大对国际业务拓展的力度，推动公司迈上发展新征程。</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="http://img95.699pic.com/photo/50058/3329.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">欧盟或推废纸新标准 引发造纸企业恐慌</h4>
+                                    <p class="card-text">从《欧洲时报》日前的报道中获悉，9月11日，6个巨大的废纸垛在欧盟委员会大楼前一字排开，这不是哪位艺术家的展品，而是欧洲造纸行业在抗议欧委会正在制定的废纸定义标准，因为这可能导致他们未来“无米下锅”。
+                                        欧盟将要推出废纸的新标准，引起欧洲造纸业的恐慌。以废纸为主要原料的当地许多造纸企业担忧今后会“无米下锅”。
+                                        从《欧洲时报》日前的报道中获悉，9月11日，6个巨大的废纸垛在欧盟委员会大楼前一字排开，这不是哪位艺术家的展品，而是欧洲造纸行业在抗议欧委会正在制定的废纸定义标准，因为这可能导致他们未来“无米下锅”。
+                                        由旧报纸、破纸板等堆积而成的纸垛到底是废纸还是经过回收后的商品?这个定义很快可能改变。在欧洲，一张纸的循环旅程包括：使用、丢弃、收集、再造、加工。依照目前的标准，用过的纸制品在送入造纸厂再造前都是“废纸”，必须遵守欧盟废弃物指令，只有经过严格分拣的纸品才能转运、买卖。但欧委会打算改变这个定义标准：一旦进入“收集”环节，经过简单的分拣打包，这些旧报纸、破纸盒就不再是废纸，而变成了可买卖的商品。
+                                        欧盟如今是废纸回收界的世界冠军，去年，约5800万吨的废纸被回收利用，回收率达71.7%。其中大多数回炉再造成为新的纸制品，对于欧盟的造纸业来说，废纸是其主要原料之一，不少工厂甚至完全依赖于废纸进行生产。欧洲造纸工业联合会担心，标准出台后会降低分拣废纸的严格度，进一步分拣回收的压力将落在造纸企业身上，这意味着更多设备和人员的投入。此外，大批废纸可能被欧盟以外的国家进口，让欧盟造纸行业“无米下锅”。“在过去几年，欧洲的造纸厂数量锐减”，欧洲造纸工业联合会回收与环境部主管雷蒙在抗议现场对记者说，“这是在出口污染的同时，进口失业率。”</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="http://img95.699pic.com/photo/40006/8283.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">印尼浆纸业欲大力进军中国市场</h4>
+                                    <p class="card-text">据印度尼西亚《商报》报道，印度尼西亚国内纸浆与造纸企业家希望政府提供优惠政策，以便提高造纸业在国际市场的竞争力。
+                                        印尼廖内省安达兰纸浆公司总经理古斯南表示，中国和亚洲纸浆与造纸市场的前景仍明朗，希望政府能提供优惠政策，提高国内纸浆与造纸业的竞争力，以便持续突破国际市场，特别是中国的市场。
+                                        古斯南称，2013年至2017年，中国在全球纸张市场仍处于优势，中国对纸张需求远高于东盟国家和日本、印度，这使印尼浆纸业进入中国市场更有机会。</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 m-t-30">
+                        <!--<h4 class="m-b-0">Card columns</h4>-->
+                        <p class="text-muted m-t-0 font-12">技术研发TECH</p>
+                        <div class="card-columns">
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="http://img95.699pic.com/photo/50049/4132.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">Card title that wraps to a new line</h4>
+                                    <p class="card-text">原纸生产线
+                                        从欧洲引进，生产速度可达1200米/分，年产能12.5万无碳纸、热敏纸涂布生产线——从瑞士BMB公司引进，具有喷泉式上料刮刀涂布和帘式涂布两个涂布头，可同时进行双面涂布，正反涂布面可选，生产车速达1000米/分钟，并配备德国PARSYTEC公司的纸病在线检测系统，可精确检测漏涂、刮痕、孔洞等缺陷，有效保证产品质量。</p>
+                                </div>
+                            </div>
+                            <div class="card p-3">
+                                <p>不干胶涂布生产线——从瑞士BMB公司引进，采用先进的六辊式硅油涂布和帘式胶水涂布，配套硅油、胶水高精度在线制料系统和先进的NDC在线检测系统，实现750米/分钟高速自动控制生产，可年产3.8亿平方米优质不干胶标签材料。为保证产品分切质量，公司引进了德国KAMPF公司高速不干胶标签材料分切机，产品分切张力控制好，分切精度高。</p>
+                                <footer>
+                                    <small class="text-muted">
+                                        Someone famous in <cite title="Source Title">Source Title</cite>
+                                    </small>
+                                </footer>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="http://www.guanhao.com/vancheerfile/Images/2018/6/2018062602119764.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">热升华转印纸系列</h4>
+                                    <p class="card-text">·快干
+                                        ·低克重
+                                        ·优异的转印清晰度
+                                        ·优异的色彩呈现
+                                        ·针对工业生产特点设计的产品性能，将生产质量及效率最大化
+                                        ·适用于配备高速工业扫描机或Single-Pass的企业
+                                        1.产品使用前建议在打印环境中保存一天后再打开使用。
+                                        2.产品使用前需在打印室内打开，使产品在该环境中达到平衡，而环境最好控制在45%至 60%湿度之间，这样能保证良好的打印转印效果，整个使用过程中应尽量避免手指与打印面接触。
+                                    </p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card card-inverse card-primary p-3 text-center">
+                                <p>1、优质三防热敏纸不干胶，优异的无荧光三防热敏纸，兼具优秀的水、油、酒精等防护性能，条码打印清晰，多用于医疗卫
+                                    　生、食品等具有较高要求的标签应用；【S2HG3】<br/>
+
+                                    2、经济三防热敏纸不干胶，具有较好的防水、防油、耐增塑剂以及耐刮擦性能，针对物流行业开发，轻微的碰撞和雨水润湿
+                                    　不会对信息造成损坏；【S3MG3】<br/>
+
+                                    3、普通热敏纸不干胶，此款标签主要针对商超电子秤使用，对于信息保留时间和耐候性方面没有太高的要求，使用时打印清
+                                    　晰，扫条码快捷，经济实用；【S4370】<br/>
+
+                                    4、热敏复合膜不干胶，该产品赋予优质的防水、防油、防酒精性能，搭配水性胶水和热熔胶，适合在对材料具有耐破性需求
+                                    　的可变信息领域使用，如食品、航空行李条、低温冷链运输存储等【S7572  S8605】</p>
+                                <footer>
+                                    <small>
+                                        Someone famous in <cite title="Source Title">Source Title</cite>
+                                    </small>
+                                </footer>
+                            </div>
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h4 class="card-title">铜版纸类不干胶</h4>
+                                    <p class="card-text">1、优质铜版纸不干胶，搭配优质的太空梭面材，具有完美的色彩承载性能，在需要精美印刷和精准套印的领域应用广泛，现
+                                        　多用于药品类标签、精美图文标签等；【A1/AA系列】<br/>
+
+                                        2、普通铜版纸不干胶，该产品较为普遍，能够满足基本的印刷需求，根据胶水的配置可以在诸如食品、药品、空白标签、贴
+                                        　纸、酒类标签应用；【A6/A8系列】</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img img-fluid" src="http://www.guanhao.com/vancheerfile/Images/2018/6/2018062406017212.jpg" alt="Card image"/>
+                            </div>
+                            <div class="card p-3 text-right">
+                                <p>·快干
+                                    ·低克重
+                                    <br/>
+                                    ·良好的转印清晰度
+                                    <br/>
+                                    ·较好的色彩呈现
+                                    <br/>
+                                    ·稳定的纸张性能
+                                    <br/>
+                                    ·适用于成本及产能驱动的企业
+                                    <br/>
+                                    常规规格：
+                                    <br/>
+                                    48g/㎡：600mm-1900mm
+                                    转印条件建议：
+                                    <br/>
+                                    48g/㎡：205℃,20s
+                                    <br/>
+                                    保质条件：
+                                    <br/>
+                                    ·包装完好，储存在密闭，空气湿度在40~50%的环境内，保质期一年。
+                                </p>
+                                <footer>
+                                    <small class="text-muted">
+                                        Someone famous in <cite title="Source Title">Source Title</cite>
+                                    </small>
+                                </footer>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">不干胶标签材料LABELSTOCK MATERIALS</h4>
+                                    <p class="card-text">不干胶标签材料广泛应用于物流、医药、日化、食品、酒类等行业的可变信息标签、防伪标签及基础标签。公司相继开发出包括铜版纸类不干胶、热敏纸类不干胶、膜类不干胶及其他类（格拉辛离型纸、PET离型膜及其它离型底材）等系列产品，质量达到国际先进水平，获得了行业客户的好评。</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Main row -->
+                <!-- /.row -->
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-sm-none d-md-block">
+            Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="/js/demo.js"></script>
+
+<!-- PAGE  -->
+<!-- SparkLine -->
+<script src="/sparkline/jquery.sparkline.min.js"></script>
+<!-- jVectorMap -->
+<script src="/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="/chartjs-old/Chart.min.js"></script>
+
+<!-- PAGE SCRIPTS -->
+<script src="/js/pages/dashboard2.js"></script>
+<script th:inline="javascript">
+    $(function () {
+        var add_success=[[${add_success}]];
+        var del_success=[[${del_success}]];
+        var risk_library_edit=[[${risk_library_edit}]];
+        var risk_library_update_success=[[${risk_library_update_success}]];
+        if(add_success==1){
+            alert("创建成功!");
+        };
+        if(del_success==1){
+            alert("删除成功!")
+        };
+        if(risk_library_update_success==1){
+            alert("更新成功!")
+        };
+        if(risk_library_edit==1){
+            $("#modal-risk_library_edit").modal('show');
+        };
+        $(".fa-trash-o").click(function () {
+            var id= $(this).parent().siblings(".id").html();
+            $("#del_risk_library_ready").modal('show');
+            $("#del_confirm").click(function () {
+                window.location.href='/riskeventlibrary/del/'+id;
+            })
+        });
+        $(".fa-edit").click(function () {
+            var id= $(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/edit/'+id;
+
+        });
+
+    })
+</script>
+<script>
+    $(function () {
+        $(".fa-eye").click(function () {
+            var id =$(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/risk_recognize/'+id;
+        });
+        $(".fa-hourglass-end").click(function () {
+            var id =$(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/risk_analysis/'+id;
+        });
+        $(".fa-hand-rock-o").click(function () {
+            var id =$(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/risk_controller/'+id;
+        })
+    })
+</script>
+</body>
+</html>

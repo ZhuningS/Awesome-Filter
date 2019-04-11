@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>AdminLTE 3 | User Profile</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!-- Font Awesome -->
+  <link href="https://wrappixel.com/demos/admin-templates/material-pro/material/css/style.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+  <!-- Ionicons -->
+  <link href="https://wrappixel.com/demos/admin-templates/material-pro/material/css/colors/blue.css" id="theme" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+  <!-- You can change the theme colors from here -->
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <div  th:include="top::topbar"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100%">
+    <!-- Brand Logo -->
+    <!-- Sidebar -->
+    <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!--<section class="content-header">-->
+      <!--<div class="container-fluid">-->
+        <!--<div class="row mb-2">-->
+          <!--<div class="col-sm-6">-->
+            <!--<h1>Profile</h1>-->
+          <!--</div>-->
+          <!--<div class="col-sm-6">-->
+            <!--<ol class="breadcrumb float-sm-right">-->
+              <!--<li class="breadcrumb-item"><a href="#">Home</a></li>-->
+              <!--<li class="breadcrumb-item active">User Profile</li>-->
+            <!--</ol>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+    <!--</section>-->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Column -->
+          <div class="col-lg-4 col-xlg-3 col-md-5">
+            <div class="card">
+              <div class="card-body">
+                <center class="m-t-30"> <img src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/users/5.jpg" class="img-circle" width="150"/>
+                  <h4 class="card-title m-t-10" th:text="${session.user.getWorkerName()}"></h4>
+                  <h6 class="card-subtitle" th:text="${session.user.getMenuRole()}" style="margin-top: 8px"></h6>
+                  <div class="row text-center justify-content-md-center">
+                    <div class="col-4"><a href="javascript:void(0)" class="link"><i class="fa fa-male"></i> <font class="font-medium">254</font></a></div>
+                    <div class="col-4"><a href="javascript:void(0)" class="link"><i class="fa fa-heart-o"></i> <font class="font-medium">54</font></a></div>
+                  </div>
+                </center>
+              </div>
+              <div>
+                <hr/> </div>
+              <div class="card-body"> <small class="text-muted">Email address </small>
+                <h6 th:text="${session.user.getUsername()+'@gmail.com'}"></h6> <small class="text-muted p-t-30 db">Phone</small>
+                <h6 th:text="${session.user.getMobilePhone()}"></h6> <small class="text-muted p-t-30 db">Address</small>
+                <h6 th:text="${session.user.getUserAddress()}"></h6>
+                <div class="map-box">
+                  <img src="http://img95.699pic.com/photo/50033/5237.jpg_wh300.jpg"   style="width: 227px;height: 150px" />
+                </div> <small class="text-muted p-t-30 db">Social Profile</small>
+                <br/>
+                <button class="btn btn-circle btn-secondary"><i class="fa fa-facebook"></i></button>
+                <button class="btn btn-circle btn-secondary"><i class="fa fa-twitter"></i></button>
+                <button class="btn btn-circle btn-secondary"><i class="fa fa-youtube"></i></button>
+                <div class="row" style="margin-top: 20px">
+                  <button type="button" class="btn btn-block btn-lg btn-danger" onclick="window.location.href='/logout'">注销</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Column -->
+          <!-- Column -->
+          <div class="col-lg-8 col-xlg-9 col-md-7">
+            <div class="card">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs profile-tab" role="tablist">
+                <!--<li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Timeline</a> </li>-->
+                <!--<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a> </li>-->
+                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#settings" role="tab">Settings</a> </li>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <!--<div class="tab-pane active" id="home" role="tabpanel">-->
+                  <!--<div class="card-body">-->
+                    <!--<div class="profiletimeline">-->
+                      <!--<div class="sl-item">-->
+                        <!--<div class="sl-left"> <img src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/users/1.jpg" alt="user" class="img-circle"/> </div>-->
+                        <!--<div class="sl-right">-->
+                          <!--<div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>-->
+                            <!--<p>assign a new task <a href="#"> Design weblayout</a></p>-->
+                            <!--<div class="row">-->
+                              <!--<div class="col-lg-3 col-md-6 m-b-20"><img src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/big/img1.jpg" class="img-responsive radius"/></div>-->
+                              <!--<div class="col-lg-3 col-md-6 m-b-20"><img src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/big/img2.jpg" class="img-responsive radius"/></div>-->
+                              <!--<div class="col-lg-3 col-md-6 m-b-20"><img src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/big/img3.jpg" class="img-responsive radius"/></div>-->
+                              <!--<div class="col-lg-3 col-md-6 m-b-20"><img src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/big/img4.jpg" class="img-responsive radius"/></div>-->
+                            <!--</div>-->
+                            <!--<div class="like-comm"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<hr/>-->
+                      <!--<div class="sl-item">-->
+                        <!--<div class="sl-left"> <img src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/users/2.jpg" alt="user" class="img-circle"/> </div>-->
+                        <!--<div class="sl-right">-->
+                          <!--<div> <a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>-->
+                            <!--<div class="m-t-20 row">-->
+                              <!--<div class="col-md-3 col-xs-12"><img src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/big/img1.jpg" alt="user" class="img-responsive radius"/></div>-->
+                              <!--<div class="col-md-9 col-xs-12">-->
+                                <!--<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. </p> <a href="#" class="btn btn-success"> Design weblayout</a></div>-->
+                            <!--</div>-->
+                            <!--<div class="like-comm m-t-20"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<hr/>-->
+                      <!--<div class="sl-item">-->
+                        <!--<div class="sl-left"> <img src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/users/3.jpg" alt="user" class="img-circle"/> </div>-->
+                        <!--<div class="sl-right">-->
+                          <!--<div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>-->
+                            <!--<p class="m-t-10"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper </p>-->
+                          <!--</div>-->
+                          <!--<div class="like-comm m-t-20"> <a href="javascript:void(0)" class="link m-r-10">2 comment</a> <a href="javascript:void(0)" class="link m-r-10"><i class="fa fa-heart text-danger"></i> 5 Love</a> </div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <!--<hr/>-->
+                      <!--<div class="sl-item">-->
+                        <!--<div class="sl-left"> <img src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/users/4.jpg" alt="user" class="img-circle"/> </div>-->
+                        <!--<div class="sl-right">-->
+                          <!--<div><a href="#" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>-->
+                            <!--<blockquote class="m-t-10">-->
+                              <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt-->
+                            <!--</blockquote>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;second tab&ndash;&gt;-->
+                <!--<div class="tab-pane" id="profile" role="tabpanel">-->
+                  <!--<div class="card-body">-->
+                    <!--<div class="row">-->
+                      <!--<div class="col-md-3 col-xs-6 b-r"> <strong>Full Name</strong>-->
+                        <!--<br/>-->
+                        <!--<p class="text-muted" th:text="${session.user.getWorkerName()}"></p>-->
+                      <!--</div>-->
+                      <!--<div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>-->
+                        <!--<br/>-->
+                        <!--<p class="text-muted" th:text="${session.user.getMobilePhone()}"></p>-->
+                      <!--</div>-->
+                      <!--<div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>-->
+                        <!--<br/>-->
+                        <!--<p class="text-muted" th:text="${session.user.getUsername()+'@gmail.com'}"></p>-->
+                      <!--</div>-->
+                      <!--<div class="col-md-3 col-xs-6"> <strong>浙江省宁波市北仑区梅山大道商务中心十一号</strong>-->
+                        <!--<br/>-->
+                        <!--<p class="text-muted"></p>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                    <!--<hr/>-->
+                    <!--<p class="m-t-30" th:text="${session.user.getUserMessage()}"></p>-->
+                    <!--&lt;!&ndash;<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries </p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>&ndash;&gt;-->
+                    <!--<h4 class="font-medium m-t-30">Skill Set</h4>-->
+                    <!--<hr/>-->
+                    <!--<h5 class="m-t-30">Wordpress <span class="pull-right">80%</span></h5>-->
+                    <!--<div class="progress">-->
+                      <!--<div class="progress-bar bg-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%; height:6px;"> <span class="sr-only">50% Complete</span> </div>-->
+                    <!--</div>-->
+                    <!--<h5 class="m-t-30">HTML 5 <span class="pull-right">90%</span></h5>-->
+                    <!--<div class="progress">-->
+                      <!--<div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%; height:6px;"> <span class="sr-only">50% Complete</span> </div>-->
+                    <!--</div>-->
+                    <!--<h5 class="m-t-30">jQuery <span class="pull-right">50%</span></h5>-->
+                    <!--<div class="progress">-->
+                      <!--<div class="progress-bar bg-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%; height:6px;"> <span class="sr-only">50% Complete</span> </div>-->
+                    <!--</div>-->
+                    <!--<h5 class="m-t-30">Photoshop <span class="pull-right">70%</span></h5>-->
+                    <!--<div class="progress">-->
+                      <!--<div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%; height:6px;"> <span class="sr-only">50% Complete</span> </div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <div class="tab-pane active" id="settings" role="tabpanel" >
+                <form class="form-horizontal form-material" th:action="@{/user/user_update}" th:object="${uo}">
+                <div th:each="u:${user}">
+                  <div class="card-body">
+                      <div class="form-group">
+                        <label class="col-md-12">User name</label>
+                        <div class="col-md-12">
+                          <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line" th:text="${u.username}" th:field="*{username}"/>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="example-email" class="col-md-12">Email</label>
+                        <div class="col-md-12">
+                          <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email" th:text="${u.userEmail}" th:field="*{userEmail}"/>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-12">Password</label>
+                        <div class="col-md-12">
+                          <input type="password" value="password" class="form-control form-control-line" th:text="${u.password}" th:field="*{password}"/>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-12">Phone No</label>
+                        <div class="col-md-12">
+                          <input type="text" th:placeholder="${u.mobilePhone}" class="form-control form-control-line" th:field="*{mobilePhone}"/>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-12">Message</label>
+                        <div class="col-md-12">
+                          <textarea rows="5" class="form-control form-control-line" th:text="${u.userMessage}" th:field="*{userMessage}"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-12">Select city</label>
+                        <div class="col-sm-12">
+                          <select class="form-control form-control-line" th:field="*{userAddress}" th:selected="${u.userAddress}">
+                            <option value="浙江省宁波市">浙江省宁波市</option>
+                            <option value="湖南省岳阳市">湖南省岳阳市</option>
+                            <option value="广东省湛江区">广东省湛江区</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-12">
+                          <input class="btn btn-success" type="submit" value="Update Profile"/>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Column -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.0-alpha
+    </div>
+    <strong>Copyright &copy; 2014-2018 <a href="#">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- FastClick -->
+<script src="/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/js/demo.js"></script>
+<script th:inline="javascript">
+  $(function () {
+      var user_update_success=[[${user_update_success}]];
+      if(user_update_success==1){
+          alert("更新成功,请重新登录!")
+      }
+  })
+</script>
+</body>
+</html>

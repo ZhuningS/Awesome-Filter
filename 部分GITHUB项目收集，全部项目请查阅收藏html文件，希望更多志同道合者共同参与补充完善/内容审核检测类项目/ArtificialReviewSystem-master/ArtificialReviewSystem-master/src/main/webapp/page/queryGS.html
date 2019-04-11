@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>工商问题查询</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../assets/css/animate.css" rel="stylesheet">
+    <!--<link href="/assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">-->
+    <link href="../assets/css/style.css?v=4.1.0" rel="stylesheet">
+
+    <!-- 引入bootstrap样式 -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入bootstrap-table样式 -->
+    <link href="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.css" rel="stylesheet">
+    <style>
+        table{
+            table-layout: fixed;
+        }
+    </style>
+</head>
+<body class="gray-bg top-navigation">
+
+<div id="wrapper" >
+    <div id="page-wrapper" class="gray-bg">
+        <div class="wrapper wrapper-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>查询问题内容</h5>
+                            </div>
+
+                            <div class="ibox-content">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">问题</span>
+                                            <input type="text" placeholder="主题" class="input-sm form-control" name="title" id="title">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">问题内容</span>
+                                            <input type="text" placeholder="内容" class="input-sm form-control" name="askContent" id="askContent">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">回答内容</span>
+                                            <input type="text" placeholder="内容" class="input-sm form-control" name="replyContent" id="replyContent">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <button id="button" class="btn btn-sm btn-primary">查询</button>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table
+                                            id="stAudit"
+                                            data-toggle="table"
+                                            data-query-params="queryParams"
+                                            data-mobile-responsive="true"
+                                            data-pagination="true"
+                                            data-icon-size="outline"
+                                            data-search="false"
+                                            data-striped="true"
+                                            data-page-size="25"
+                                            data-page-number="1"
+                                            data-show-columns="true"
+                                            data-page-list="[1, 5, 10, 15, 20, 25]">
+                                        <!--data-search="true">-->
+                                        <!--data-show-export="true"-->
+                                        <!--data-export-type="['excel']"-->
+                                        <thead>
+                                        <tr>
+                                            <th data-checkbox="true"></th>
+                                            <th data-field="id" data-visible="false">项目编号</th>
+                                            <th data-field="style" >企业类型</th>
+                                            <th data-field="title" >问题标题</th>
+                                            <th data-field="askContent" >问题内容</th>
+                                            <th data-field="replyContent" >回答内容</th>
+                                            <th data-field="consultant">提问人</th>
+                                            <th data-field="askTime" data-formatter="dateformatter1">询问时间</th>
+                                            <th data-field="backTime" data-formatter="dateformatter2">回答时间</th>
+
+                                            <!--<th data-field="shyj2">专家评定结果</th>-->
+                                            <th data-field="operate"  data-formatter="edit" data-visible="false">操作</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 全局js -->
+<script src="../assets/js/jquery.min.js?v=2.1.4"></script>
+<script src="../assets/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="../assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../assets/js/plugins/layer/layer.min.js"></script>
+<!-- 自定义js -->
+<script src="../assets/js/content.js?v=1.0.0"></script>
+<script src="../assets/js/hplus.js?v=4.1.0"></script>
+<script src="../assets/js/myjs.js"></script>
+<!-- Bootstrap table -->
+<script src="../assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="../assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<!--生成表格-->
+<script src="../assets/js/plugins/bootstrap-table/export/bootstrap-table-export.min.js"></script>
+<script src="../assets/js/plugins/bootstrap-table/export/tableExport.js"></script>
+<script src="../assets/js/plugins/bootstrap-table/export/xlsx.core.min.js"></script>
+<script src="../assets/js/plugins/bootstrap-table/export/FileSaver.min.js"></script>
+<!-- Peity -->
+<script src="../assets/js/demo/bootstrap-table-demo.js"></script>
+
+</body>
+<script type="text/javascript">
+    //查询按钮点击事件
+    $("#button").click(function () {
+        initTable();
+        //$("#btn1").click();
+    })
+    $("document").ready(function () {
+        initTable();
+    })
+
+
+    //渲染表格时将日期类型转好格式
+    function dateformatter1(value,row,index) {
+        var date=TimestampToDate(row.askTime);
+        return date
+    }
+    //渲染表格时将日期类型转好格式
+    function dateformatter2(value,row,index) {
+        var date=TimestampToDate(row.backTime);
+        return date
+    }
+
+    //传参数到后台
+    function initTable() {
+        var title = $.trim(document.getElementById("title").value);
+        var askContent = $.trim(document.getElementById("askContent").value);
+        var replyContent = $.trim(document.getElementById("replyContent").value);
+        var url = baseUrl+"/gsquestion/list.do?title="+title+"&askContent="+askContent+"&replyContent="+replyContent;
+        url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
+        //先销毁表格
+        $('#stAudit').bootstrapTable('destroy');
+        //初始化表格,动态从服务器加载数据
+        $("#stAudit").bootstrapTable({
+            method: "get",  //使用get请求到服务器获取数据
+            url: url,
+            queryParams:  function(params) {
+                return {
+                pageNumber: params.offset/params.limit+1,
+                pageSize: params.limit,
+                };
+            },
+            //
+
+            // showExport: phoneOrPc(),              //是否显示导出按钮(此方法是自己写的目的是判断终端是电脑还是手机,电脑则返回true,手机返回falsee,手机不显示按钮)
+            showExport: "true",              //是否显示导出按钮(此方法是自己写的目的是判断终端是电脑还是手机,电脑则返回true,手机返回falsee,手机不显示按钮)
+            exportDataType: "basic",              //'basic', 'all', 'selected'.
+            exportTypes:['excel','xlsx'],	    //导出类型
+            exportButton: $('#btn_export'),     //为按钮btn_export  绑定导出事件  自定义导出按钮(可以不用)
+            exportOptions:{
+                ignoreColumn: [0,0],            //忽略某一列的索引
+                fileName: '数据导出',              //文件名称设置
+                worksheetName: 'Sheet1',          //表格工作区名称
+                tableName: '工商数据表',
+                excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+                //onMsoNumberFormat: DoOnMsoNumberFormat
+            },
+            //
+            pagination: true,//页码
+            sidePagination: "server",
+
+        });
+    }
+
+    $('#btn_export').html("导出")
+    //table初始化的时候把按钮插入
+    function edit (value, row, index) {
+        var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="enterprise(\'' + "enterpriseDetail.html" + '\',\'' + row.sn + '\')">人工审核</button>';
+
+        return a ;
+    }
+    //跳转到编辑页面
+    function enterprise(url,id) {
+        window.location.href=baseUrl+"/page/stAudit/"+url+"?sn="+id;
+    }
+</script>
+</html>

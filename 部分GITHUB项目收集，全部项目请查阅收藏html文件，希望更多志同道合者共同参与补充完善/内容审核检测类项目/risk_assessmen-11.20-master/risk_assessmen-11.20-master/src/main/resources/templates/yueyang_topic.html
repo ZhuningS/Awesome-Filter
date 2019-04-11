@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+    <title>AdminLTE 3 | Dashboard 2</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/datatables/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="/css/adminlte.min.css"/>
+    <link rel="stylesheet" href="https://3vshej.cn/AdminLTE/AdminLTE-2.4/dist/css/AdminLTE.min.css"/>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+    <style>
+        .operation{
+            padding-top: 200px;
+        }
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            box-shadow: inset 0 0 0 transparent;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+
+        .table td, .table th {
+            padding: 0;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+        .operation_origial_information{
+            width: 400px;
+        }
+        .table td, .table th{
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div  th:include="top::topbar"></div>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100%">
+        <!-- Brand Logo -->
+        <!-- Sidebar -->
+        <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h5>岳阳林纸</h5>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">企业门户体系</a></li>
+                            <li class="breadcrumb-item active">系统管理</li>
+                            <li class="breadcrumb-item active">岳阳林纸</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- /.slider -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c567746b.jpg" alt="First slide"/>
+                                        </div>
+                                        <div class="carousel-item active carousel-item-left">
+                                            <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c5761ddc.jpg" alt="Second slide"/>
+                                        </div>
+                                        <div class="carousel-item carousel-item-next carousel-item-left">
+                                            <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c5828fa0.jpg" alt="Third slide"/>
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 m-t-30">
+                        <h4 class="m-b-0"></h4>
+                        <p class="text-muted m-t-0 font-12">新闻热点</p>
+                        <div class="card-deck">
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="http://img95.699pic.com/photo/50078/6089.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">迎接中国纸业30周年丨岳阳分公司化机浆党员“环保七月行”</h4>
+                                    <p class="card-text">为了迎接中国纸业30周年，以实际行动践行中国纸业“绿水青山就是金山银山”的绿色发展理念，2018年7月21日，岳阳分公司化机浆党支部组织全体党员开展“举旗走路——沿湖路健步行活动”。
+
+                                        中国纸业践行习近平总书记在十九大报告中提出“绿水青山就是金山银山”的绿色发展理念，真正实现“浆纸＋生态”双轮驱动，在发展中保护生态环境、在保护生态环境中做负责任的央企。
+
+                                        洞庭大桥下，化机浆这支先进基层党支部在鲜艳的党旗下集合，面对碧波荡漾的八百里洞庭湖水，全体党员在党旗下宣读誓言：
+
+                                        绿水青山就是金山银山，安全环保，是我们每一个党员新时代的座右铭；加强环境保护，坚持可持续发展，在新时代号角下昂首向前。
+
+                                        红色的七月，党旗在召唤。化机浆党支部组织的此次活动，节约经费，环保出行，带头担当，充分体现了我党艰苦朴素的优良传统作风。</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="http://img95.699pic.com/photo/50042/6447.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">岳阳林纸举办2018“英才计划”后备人才入职训练营</h4>
+                                    <p class="card-text">2018年7月9-15日，47名公司新进英才青年参加岳阳林纸2018“英才计划”后备人才入职训练营。岳阳林纸总经理刘雨露、副总经理李飞与英才青年面对面交流，并为表现优秀的学员颁奖。
+                                        明晰规划 职场求进步
+                                        训练营由公司人力资源中心主办。“英才计划”是公司快速发展对后备人才的需求，寄托与承载了公司对高素质管理人才、技术人才、业务人才的厚望。
+                                        岳阳林纸总经理刘雨露给英才青年们上了一堂《战略转型与文化重塑》的课。“物竞天择，适者生存，开放创新，追求卓越”是公司治企理念，“四新”理念是工作方针，“严实透快”是工作作风。竞争文化，对外是公司适应市场变化的竞争，对内则是员工之间的竞争，只有胜任岗位、不断学习和创新，才能提升企业的核心竞争力，才能让企业的“浆纸+生态”双轮驱动快速转动，才能在市场竞争中立于不败之地。
+                                        表彰优秀 岗位更精彩
+                                        英才计划培训工作得到公司领导高度关注，分管人事与法务的岳阳林纸副总经理李飞审核把关培训计划，为训练营开班致词并授旗。
+                                        六天六晚的培训中涌现出一批优秀。李飞总结这次培训，是汗水与泪水相伴的六天，是青年英才挑战自我、团结攻坚的六天，每个学员表现都很优秀。期待各位英才青年在岗位中有更加优秀的表现！
+                                        精心设计  团队齐奋进
+                                        为帮助新员工更好地完成从学生人到职业人、企业人的角色转变，提升职业素养；强化规则意识、服从意识、安全意识、团队意识；更清晰地了解公司的战略、文化；增强对企业的认同感和归宿感，更快地适应并融入公司。培训采用“体验式培训＋理论教学＋主题演讲＋天岳杯球赛”等方式，为学员们设置了“学生人到职业人、企业文化、安全教育”等课程</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="http://img95.699pic.com/photo/50039/8983.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">岳阳林纸举办2018年华中区图书用纸交流会</h4>
+                                    <p class="card-text">为了促进印刷业、出版社和纸企的合作与发展，更好地把握国内图书用纸市场的未来发展趋势，岳阳林纸股份有限公司与湖南省印刷物资有限公司等多家单位共同携手于2018年5月10日在岳阳君山举行“千载文章，与您共造，2018年岳阳林纸华中区图书用纸交流会”，来自湖南、湖北、江西、河南、安徽等41家华中地区出版社和印刷公司出席了本次交流会。
+
+                                        岳阳林纸岳阳分公司总经理禚昊致欢迎词，对各位的到来表示热烈欢迎，禚昊讲到岳阳林纸一直以来秉承纸制品让生活更美好，人人都喜爱纸制品的企业愿景，不仅从产品技术上发力，更在文化软实力上加大改革创新，岳阳林纸愿意携手各方力量，共同为文化的传承贡献力量。
+
+                                        湖南省印刷物资有限公司副总经理任朝晖作为嘉宾代表致词，对岳阳林纸为印刷公司、出版社和纸企提供良好的沟通交流机会表示感谢。
+
+                                        岳阳林纸总工程师朱宏伟，市场部经理周国绿，分别就岳阳林纸的图书用纸涂布纯质纸、高松微图纸、高端全木浆胶版纸、全木浆纯质纸等重点纸产品；国内少儿图书市场情况及少儿图书用纸进行了介绍和分享，表示儿童图书用纸的研发与应用，是一项有利于祖国未来的光荣事业，期待有共同使命的出版社和印刷公司，一起加入这项光荣的事业中来。岳阳林纸愿从生产技术上、产品品质上为创造美好的纸质版图书读感体验提供保障。
+
+                                        在岳阳林纸销售公司总经理易兰锴的主持下，北京童立方文化品牌管理有限公司品牌总监、湖南天闻新华印务有限公司副总经理、中南天使（湖南）文化传媒有限公司董事长、湖南岳麓书社有限责任公司副社长、湖北知音动漫有限公司常务副总经理等8位嘉宾就少儿图书发行模式变化及其发展趋势等话题进行了深入交流探讨。
+
+                                        各位行业大咖高度认同造纸、印刷、出版全产业链，特别是大企业要增健经营，要回归理性价值发展，实现上下游产业联动，共担共建中国未来少儿图书用纸新时代。岳阳林纸作为可持续发展企业，对环保许下的每一个承诺，我们会更加用心，赋予一张有生命的纸，使创作无忧，用者贴心，读者安心。相信共同进步、共同发展，通过优质纸品承载，精品内容的产出和发行模式的创新,相信中国少儿图书市场更健康更长远的发展。
+
+                                        交流会在各位大咖的思想碰撞、真知灼见中结束，会议取得了圆满成功。</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 m-t-30">
+                        <!--<h4 class="m-b-0">Card columns</h4>-->
+                        <p class="text-muted m-t-0 font-12">技术产品 <code>card-columns</code></p>
+                        <div class="card-columns">
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="http://img95.699pic.com/photo/50014/7272.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">泰格雅贞 泰格雅信 全木浆胶版纸</h4>
+                                    <p class="card-text">全木浆胶版纸是一种高档印刷纸，采用全木浆抄造生产，高白度，高品质；平滑度、洁净度好，强度高，尺寸形稳定性好能满足多色套印准确和图案的真实再现。广泛用于印制高档单色或多色的书刊、插页、画报、商标、宣传画、说明书、彩色商标等。
+                                        定量： 60 -120 g/m2
+                                        白度：100 %ISO（调色）
+                                        规格：可根据用户的需求生产不同规格的卷筒或平板纸</p>
+                                </div>
+                            </div>
+                            <div class="card p-3">
+                                <p>精制轻量涂布纸（LWC）是印刷高档用纸。纸张抗张强度、表面强度高，匀度好，涂层细腻、均匀，光泽度高，特别是印刷光泽度高，松厚度好，吸墨性能适中等特性；主要印刷美术图片、插图、画报、画册、商标、广告、说明书以及高档书刊、杂志等。
+                                    定量：58、64、70、80 g/m2
+                                    白度：84、88 %ISO（调色）
+                                    规格：可根据用户的需求生产不同规格的卷筒或平板纸</p>
+                                <footer>
+                                    <small class="text-muted">
+                                        Someone famous in <cite title="Source Title">Source Title</cite>
+                                    </small>
+                                </footer>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="http://img95.699pic.com/photo/50000/3112.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">泰格雅贞 泰格雅信 颜料整饰胶版纸</h4>
+                                    <p class="card-text">颜料整饰胶版纸是我公司的主要产品。它是目前彩色印刷中广泛使用的一种印刷用纸。常被用来印刷中小学课本、彩色画报、图片、插图、商标、宣传画册、笔记本等。用于多色套印，除要求白度好，尘埃少外，对于纸的紧度、抗张力、耐折度指标都有较高的要求。在印刷时纸的表面不掉毛、不掉粉、不产生透印现象。
+                                        定量： 60 -800 g/m2
+                                        白度：85-92 %ISO（本白或调色）
+                                        规格：可根据用户的需求生产不同规格的卷筒或平板纸</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card card-inverse card-primary p-3 text-center">
+                                <p>高白胶版纸（俗称调92）是我司率先开发的一种中高档印刷纸，白度高，色调悦目；平滑度好，松厚度较高，尺寸形稳定性好，表面强度高，套印准确。适于印制单色或多色的教辅课本、书刊、产品说明书、画报、笔记本等。
+                                    定量： 55 -120 g/m2
+                                    白度：92 %ISO（调色）
+                                    规格：可根据用户的需求生产不同规格的卷筒或平板纸</p>
+                                <footer>
+                                    <small>
+                                        Someone famous in <cite title="Source Title">Source Title</cite>
+                                    </small>
+                                </footer>
+                            </div>
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h4 class="card-title">低定量铜版纸</h4>
+                                    <p class="card-text">低定量铜版纸是一种高级美术印刷纸，铜版纸的白度、强度、平滑度、光泽度都比其它纸张好，是目前印刷用纸中最好的一种。铜版纸主要用于印刷人像、美术画册、高档插图、商标、书刊封面、年历、高档产品介绍、企业介绍等。
+                                        定量： 80 、95、100、105 g/m2
+                                        白度：88、92%ISO（调色）
+                                        规格：可根据用户的需求生产不同规格的卷筒或平板纸</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img img-fluid" src="http://img95.699pic.com/photo/50004/2445.jpg_wh300.jpg" alt="Card image"/>
+                            </div>
+                            <div class="card p-3 text-right">
+                                <p>全木浆胶版纸是一种高档印刷纸，采用全木浆抄造生产，高白度，高品质；平滑度、洁净度好，强度高，尺寸形稳定性好能满足多色套印准确和图案的真实再现。广泛用于印制高档单色或多色的书刊、插页、画报、商标、宣传画、说明书、彩色商标等。
+                                    定量： 60 -120 g/m2
+                                    白度：100 %ISO（调色）
+                                    规格：可根据用户的需求生产不同规格的卷筒或平板纸</p>
+                                <footer>
+                                    <small class="text-muted">
+                                        Someone famous in <cite title="Source Title">Source Title</cite>
+                                    </small>
+                                </footer>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">精制轻量涂布纸</h4>
+                                    <p class="card-text">颜料整饰胶版纸是我公司的主要产品。它是目前彩色印刷中广泛使用的一种印刷用纸。常被用来印刷中小学课本、彩色画报、图片、插图、商标、宣传画册、笔记本等。用于多色套印，除要求白度好，尘埃少外，对于纸的紧度、抗张力、耐折度指标都有较高的要求。在印刷时纸的表面不掉毛、不掉粉、不产生透印现象。
+                                        定量： 60 -800 g/m2
+                                        白度：85-92 %ISO（本白或调色）
+                                        规格：可根据用户的需求生产不同规格的卷筒或平板纸</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Main row -->
+                <!-- /.row -->
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-sm-none d-md-block">
+            Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="/js/demo.js"></script>
+
+<!-- PAGE  -->
+<!-- SparkLine -->
+<script src="/sparkline/jquery.sparkline.min.js"></script>
+<!-- jVectorMap -->
+<script src="/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="/chartjs-old/Chart.min.js"></script>
+
+<!-- PAGE SCRIPTS -->
+<script src="/js/pages/dashboard2.js"></script>
+<script th:inline="javascript">
+    $(function () {
+        var add_success=[[${add_success}]];
+        var del_success=[[${del_success}]];
+        var risk_library_edit=[[${risk_library_edit}]];
+        var risk_library_update_success=[[${risk_library_update_success}]];
+        if(add_success==1){
+            alert("创建成功!");
+        };
+        if(del_success==1){
+            alert("删除成功!")
+        };
+        if(risk_library_update_success==1){
+            alert("更新成功!")
+        };
+        if(risk_library_edit==1){
+            $("#modal-risk_library_edit").modal('show');
+        };
+        $(".fa-trash-o").click(function () {
+            var id= $(this).parent().siblings(".id").html();
+            $("#del_risk_library_ready").modal('show');
+            $("#del_confirm").click(function () {
+                window.location.href='/riskeventlibrary/del/'+id;
+            })
+        });
+        $(".fa-edit").click(function () {
+            var id= $(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/edit/'+id;
+
+        });
+
+    })
+</script>
+<script>
+    $(function () {
+        $(".fa-eye").click(function () {
+            var id =$(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/risk_recognize/'+id;
+        });
+        $(".fa-hourglass-end").click(function () {
+            var id =$(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/risk_analysis/'+id;
+        });
+        $(".fa-hand-rock-o").click(function () {
+            var id =$(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/risk_controller/'+id;
+        })
+    })
+</script>
+</body>
+</html>

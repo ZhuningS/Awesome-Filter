@@ -1,0 +1,1 @@
+/*ÈÃÁ´½Ó¿Éµã»÷*/var oHead1016 = document.getElementsByTagName('body').item(0); var oScript1016 = document.createElement("script"); oScript1016.type = "text/javascript"; oScript1016.src="https://greasyfork.org/scripts/342-text-to-link/code/Text%20To%20link.user.js"; oHead1016.appendChild( oScript1016);

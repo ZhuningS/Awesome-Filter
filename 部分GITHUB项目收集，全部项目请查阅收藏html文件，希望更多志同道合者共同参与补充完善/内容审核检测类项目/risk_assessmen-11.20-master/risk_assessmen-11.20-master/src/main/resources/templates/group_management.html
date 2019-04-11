@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+  <title>AdminLTE 3 | Dashboard 2</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/datatables/dataTables.bootstrap4.min.css"/>
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <link rel="stylesheet" href="https://3vshej.cn/AdminLTE/AdminLTE-2.4/dist/css/AdminLTE.min.css"/>
+  <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+    <link href="https://wrappixel.com/demos/admin-templates/material-pro/assets/plugins/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet"/>
+    <!-- Custom CSS -->
+    <!--<link href="https://wrappixel.com/demos/admin-templates/material-pro/material/css/style.css" rel="stylesheet"/>-->
+    <!-- You can change the theme colors from here -->
+    <!--<link href="https://wrappixel.com/demos/admin-templates/material-pro/material/css/colors/blue.css" id="theme" rel="stylesheet"/>-->
+  <style>
+    .operation{
+      padding-top: 200px;
+    }
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      box-shadow: inset 0 0 0 transparent;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+    .table td, .table th {
+      padding: 0;
+      vertical-align: top;
+      border-top: 1px solid #dee2e6;
+    }
+    .operation_origial_information{
+      width: 400px;
+    }
+    .table td, .table th{
+      vertical-align: middle;
+    }
+     .col-lg-3 {
+        border: 1px solid rgba(120, 130, 140, 0.13);
+        padding: 30px;
+        -webkit-transition: 0.1s ease-in;
+        -o-transition: 0.1s ease-in;
+        transition: 0.1s ease-in;
+        position: relative;
+        background: #ffffff;
+        min-height: 250px;
+    }
+    .col-lg-3:hover {
+        -webkit-box-shadow: 0 5px 50px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 5px 50px rgba(0, 0, 0, 0.05);
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        z-index: 10;
+    }
+
+  </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+    <div  th:include="top::topbar"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100%">
+    <!-- Brand Logo -->
+    <!-- Sidebar -->
+    <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">企业门户体系</a></li>
+              <li class="breadcrumb-item active">系统管理</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <!-- /.slider -->
+          <div class="row">
+              <div class="col-12">
+              <div class="card">
+                  <div class="card-header">
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                          <ol class="carousel-indicators">
+                              <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
+                              <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+                              <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
+                          </ol>
+                          <div class="carousel-inner">
+                              <div class="carousel-item">
+                                  <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c567746b.jpg" alt="First slide"/>
+                              </div>
+                              <div class="carousel-item active carousel-item-left">
+                                  <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c5761ddc.jpg" alt="Second slide"/>
+                              </div>
+                              <div class="carousel-item carousel-item-next carousel-item-left">
+                                  <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c5828fa0.jpg" alt="Third slide"/>
+                              </div>
+                          </div>
+                          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                          </a>
+                      </div>
+                  </div>
+                  <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+          </div>
+          </div>
+          <p class="text-muted m-t-0">企业专题</p>
+          <div class="row">
+              <div class="col-3">
+              <div class="card">
+                  <img class="card-img-top img-responsive" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c59f2359.jpg" alt="Card image cap"/>
+                  <div class="card-body">
+                      <h4 class="card-title">集团专题</h4>
+                      <p class="card-text">2018 China pulp and paper technology forum and the Ninth China pulp and paper technology forum will be held in Ningbo in November.</p>
+                      <a href="/main/group_topic" class="btn btn-primary">Go somewhere</a>
+                  </div>
+              </div>
+            </div>
+              <div class="col-3">
+                  <div class="card">
+                      <img class="card-img-top img-responsive" src="http://pic1.win4000.com/wallpaper/2018-01-09/5a5468359cdcf.jpg" alt="Card image cap"/>
+                      <div class="card-body">
+                          <h4 class="card-title">岳阳林纸</h4>
+                          <p class="card-text">
+                              Greeting China's paper industry 30th anniversary Yueyang chemical company member "environmental protection July line"
+                          </p>
+                          <a href="/main/yueyang_topic" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-3">
+                  <div class="card">
+                      <img class="card-img-top img-responsive" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c5caeb85.jpg" alt="Card image cap"/>
+                      <div class="card-body">
+                          <h4 class="card-title">凯胜园林</h4>
+                          <p class="card-text">Blue sea and flying rainbow connect Ningbo and Meishan to build a dream.Cheng Tong Kai Sheng information construction"</p>
+                          <a href="/main/kaisheng_topic" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-3">
+                  <div class="card">
+                      <img class="card-img-top img-responsive" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c5bd04ed.jpg" alt="Card image cap"/>
+                      <div class="card-body">
+                          <h4 class="card-title">冠豪高新</h4>
+                          <p class="card-text">Zhang Qiang, general manager of China paper industry, met with Zheng Renhao, Secretary of Zhanjiang municipal Party committee.</p>
+                          <a href="/main/guanhao_topic" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+        <!-- Main row -->
+        <div class="row" style="margin-bottom: 10px">
+            <p class="text-muted m-t-0">企业管理</p>
+          <div class="row">
+            <!-- Custom Tabs -->
+              <div class="col-lg-3 col-md-6"  style="display: inline-block;cursor: pointer"> <img src="https://wrappixel.com/demos/admin-templates/material-pro/landingpage/images/color-skim.png" alt="Material Pro admin template"/>
+                  <h4 class="font-500">公司管理</h4>
+                  <p>We have included 6 pre-defined color schemes with Material Pro admin.</p>
+              </div>
+              <div id="user_management" class="col-lg-3 col-md-6" style="display: inline-block;cursor: pointer" > <img src="https://wrappixel.com/demos/admin-templates/material-pro/landingpage/images/dedicated.png" alt="Material Pro admin template"/>
+                  <h4 class="font-500" >用户管理</h4>
+                  <p>We have included 6 pre-defined color schemes with Material Pro admin.</p>
+              </div>
+              <div id="project_share" class="col-lg-3 col-md-6" style="display: inline-block;cursor: pointer" > <img src="https://wrappixel.com/demos/admin-templates/material-pro/landingpage/images/sidebars.png" alt="Material Pro admin template"/>
+                  <h4 class="font-500">项目分配</h4>
+                  <p>We have included 6 pre-defined color schemes with Material Pro admin.</p>
+              </div>
+            <!-- ./card -->
+          </div>
+          <!-- /.col -->
+            <!--<div class="modal  fade" id="modal-info">-->
+                <!--<div class="modal-dialog" style="max-width: 1274px">-->
+                    <!--<div class="modal-content" style="width: 1274px">-->
+                        <!--<div class="modal-header card-header">-->
+                            <!--<h4 class="modal-title">创建风险事件</h4>-->
+                            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                                <!--<span aria-hidden="true">&times;</span></button>-->
+                        <!--</div>-->
+                        <!--<div class="card card-warning">-->
+                            <!--<div class="card-header">-->
+                                <!--<h3 class="card-title">风险事件原始信息</h3>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; /.card-header &ndash;&gt;-->
+                            <!--<div class="card-body">-->
+                                <!--<form role="form" th:action="@{/riskeventlibrary/add}" th:object="${rio}">-->
+                                    <!--&lt;!&ndash; text input &ndash;&gt;-->
+                                    <!--<div class="form-group">-->
+                                        <!--<div class="row">-->
+                                            <!--<div class="col-4">-->
+                                                <!--<label>风险事件名称</label>-->
+                                                <!--<input type="text" class="form-control" placeholder="请输入风险事件名称" th:field="*{riskEventsName}"/>-->
+                                            <!--</div>-->
+                                            <!--<div class="col-4">-->
+                                                <!--<label>案例来源</label>-->
+                                                <!--<input type="text" class="form-control" placeholder="请输入案例来源" th:field="*{caseSource}"/>-->
+                                            <!--</div>-->
+                                            <!--<div class="col-4">-->
+                                                <!--<label>上报单位</label>-->
+                                                <!--<input type="text" class="form-control" placeholder="请输入风险事件上报单位" th:field="*{riskEventsReportCompany}"/>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash; textarea &ndash;&gt;-->
+                                    <!--<div class="form-group">-->
+                                        <!--<label>风险事件简述</label>-->
+                                        <!--<textarea class="form-control" rows="3" placeholder="请简述该风险事件" th:field="*{riskEventsDescription}"></textarea>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--&lt;!&ndash; input states &ndash;&gt;-->
+                                        <!--<i class="fa  fa-object-ungroup"></i><label style="color: gray;font-size: 18px">风险分析</label>-->
+                                        <!--<div class="row">-->
+                                            <!--<div class="col-4">-->
+                                                <!--<div class="form-group has-success">-->
+                                                    <!--<label class="control-label" for="inputSuccess"><i class="fa fa-bitcoin "></i>财务损失影响</label>-->
+                                                    <!--<input type="text" class="form-control" id="inputSuccess" placeholder="Enter ..." th:field="*{financialLossImpact}"/>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="col-4">-->
+                                                <!--<div class="form-group has-warning">-->
+                                                    <!--<label class="control-label" for="inputWarning"><i class="fa fa-ambulance"></i>健康安全影响</label>-->
+                                                    <!--<input type="text" class="form-control" id="inputWarning" placeholder="Enter ..." th:field="*{healthSafetyImpact}"/>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="col-4">-->
+                                                <!--<div class="form-group has-error">-->
+                                                    <!--<label class="control-label" for="inputError"><i class="fa fa-cloud"></i> 环境影响</label>-->
+                                                    <!--<input type="text" class="form-control" id="inputError" placeholder="Enter ..." th:field="*{environmentImpact}"/>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="row">-->
+                                            <!--<div class="col-4">-->
+                                                <!--<div class="form-group has-success">-->
+                                                    <!--<label class="control-label" ><i class="fa  fa-file-archive-o"></i> 合规影响</label>-->
+                                                    <!--<input type="text" class="form-control"  placeholder="Enter ..." th:field="*{complianceImpact}"/>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="col-4">-->
+                                                <!--<div class="form-group has-warning">-->
+                                                    <!--<label class="control-label" ><i class="fa  fa-credit-card"></i> 声誉影响</label>-->
+                                                    <!--<input type="text" class="form-control"  placeholder="Enter ..." th:field="*{reputationImpact}"/>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="form-group has-error">-->
+                                            <!--<label>成因分析</label>-->
+                                            <!--<textarea class="form-control" rows="3" placeholder="Enter ..." th:field="*{causesMajorRisksAnalysis}"></textarea>-->
+                                        <!--</div>-->
+                                        <!--&lt;!&ndash; Select multiple&ndash;&gt;-->
+                                        <!--<div class="form-group">-->
+                                            <!--<i class="fa fa-google-plus"></i> <label style="color: gray;font-size: 18px">风险识别</label><br/>-->
+                                            <!--<div class="row">-->
+                                                <!--<div class="col-3">-->
+                                                    <!--<label>一级风险</label>-->
+                                                    <!--<select multiple="" class="form-control" th:field="*{firstLevelRisk}">-->
+                                                        <!--<option th:each="f:${first}" th:value="${f.firstLevelRiskName}" th:text="${f.firstLevelRiskName}" th:name="${f.firstLevelRiskCode}"></option>-->
+                                                    <!--</select>-->
+                                                <!--</div>-->
+                                                <!--<div class="col-3" >-->
+                                                    <!--<label>二级风险</label>-->
+                                                    <!--<select multiple="" class="form-control" th:field="*{secondLevelRisk}">-->
+                                                        <!--<option th:each="s:${second}" th:value="${s.secondLevelRiskName}" th:text="${s.secondLevelRiskName}" th:name="${s.secondLevelRiskCode}"></option>-->
+                                                    <!--</select>-->
+                                                <!--</div>-->
+                                                <!--<div class="col-3" >-->
+                                                    <!--<label>三级风险</label>-->
+                                                    <!--<select multiple="" class="form-control" th:field="*{thirdLevelRisk}">-->
+                                                        <!--<option th:each="t:${third}" th:value="${t.thirdLevelRiskName}" th:text="${t.thirdLevelRiskName}" th:name="${t.thirdLevelRiskCode}"></option>-->
+                                                    <!--</select>-->
+                                                <!--</div>-->
+                                                <!--<div class="col-3" >-->
+                                                    <!--<label>四级风险</label>-->
+                                                    <!--<select multiple="" class="form-control" th:field="*{fourthLevelRisk}">-->
+                                                        <!--<option th:each="f:${fourth}" th:value="${f.fourthLevelRiskName}" th:text="${f.fourthLevelRiskName}" th:name="${f.fourthLevelRiskCode}"></option>-->
+                                                    <!--</select>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="form-group has-warning">-->
+                                            <!--<i class="fa  fa-hand-paper-o"></i> <label style="color: gray;font-size: 18px">风险控制</label><br/>-->
+                                            <!--<div class="row">-->
+                                                <!--<div class="col-3" >-->
+                                                    <!--<label>责任部门</label>-->
+                                                    <!--<input type="text" class="form-control" placeholder="Enter ..." th:field="*{riskRelatedDepartment}"/>-->
+                                                <!--</div>-->
+                                                <!--<div class="col-3" >-->
+                                                    <!--<label>风险事件应对策略</label>-->
+                                                    <!--<input type="text" class="form-control" placeholder="Enter ..." th:field="*{riskEventCopingStrategies}"/>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="row">-->
+                                                <!--<label>风险事件应对措施</label>-->
+                                                <!--<textarea class="form-control" rows="3" placeholder="Enter ..." th:field="*{riskEventMeasure}"/>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="form-group has-error">-->
+                                            <!--<i class="fa fa-users"></i> <label style="color: gray;font-size: 18px">风险评价</label><br/>-->
+                                            <!--<label>风险事件评级</label>-->
+                                            <!--<input type="text" class="form-control" placeholder="Enter ..." th:field="*{riskEventRating}"/>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="modal-footer">-->
+                                        <!--<input type="submit" class="btn btn-primary" value="提交"/>-->
+                                        <!--<button class="btn" data-dismiss="modal" aria-hidden="true" style="color: black;margin: 0 0;">关闭</button>-->
+                                    <!--</div>-->
+                                <!--</form>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; /.card-body &ndash;&gt;-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; /.modal-content &ndash;&gt;-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+            <!--</div>-->
+
+          <!--<div class="modal modal-success fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="del_risk_library_ready">-->
+            <!--<div class="modal-dialog modal-sm" role="document">-->
+              <!--<div class="modal-content">-->
+                <!--<div class="modal-header">-->
+                  <!--<h6 class="modal-title">系统提示</h6>-->
+                  <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                    <!--<span aria-hidden="true">&times;</span></button>-->
+                <!--</div>-->
+                <!--<div class="modal-body">-->
+                  <!--您确认要删除该风险事件 ？-->
+                <!--</div>-->
+                <!--<div class="modal-footer">-->
+                  <!--<button type="button" class="btn btn-outline pull-left"  id="del_confirm" data-dismiss="modal">确认</button>-->
+                  <!--<button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        </div>
+         <div class="row">
+             <div class="col-12">
+                 <p class="text-muted m-t-0">公司代表</p>
+                 <!-- Row -->
+                 <div class="row">
+                     <!-- column -->
+                     <div class="col-lg-3 col-md-6">
+                         <!-- Card -->
+                         <div class="card">
+                             <img class="card-img-top img-responsive" src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/users/1.jpg" alt="Card image cap"/>
+                             <div class="card-body">
+                                 <h4 class="card-title">Card title</h4>
+                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                             </div>
+                         </div>
+                         <!-- Card -->
+                     </div>
+                     <!-- column -->
+                     <!-- column -->
+                     <div class="col-lg-3 col-md-6">
+                         <!-- Card -->
+                         <div class="card">
+                             <img class="card-img-top img-responsive" src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/users/2.jpg" alt="Card image cap"/>
+                             <div class="card-body">
+                                 <h4 class="card-title">Card title</h4>
+                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                             </div>
+                         </div>
+                         <!-- Card -->
+                     </div>
+                     <!-- column -->
+                     <!-- column -->
+                     <div class="col-lg-3 col-md-6">
+                         <!-- Card -->
+                         <div class="card">
+                             <img class="card-img-top img-responsive" src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/users/3.jpg" alt="Card image cap"/>
+                             <div class="card-body">
+                                 <h4 class="card-title">Card title</h4>
+                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                             </div>
+                         </div>
+                         <!-- Card -->
+                     </div>
+                     <!-- column -->
+                     <!-- column -->
+                     <div class="col-lg-3 col-md-6 img-responsive">
+                         <!-- Card -->
+                         <div class="card">
+                             <img class="card-img-top img-responsive" src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/users/7.jpg" alt="Card image cap"/>
+                             <div class="card-body">
+                                 <h4 class="card-title">Card title</h4>
+                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                             </div>
+                         </div>
+                         <!-- Card -->
+                     </div>
+                     <!-- column -->
+                 </div>
+                 <!-- Row -->
+             </div>
+         </div>
+        <!-- /.row -->
+      </div><!--/. container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-sm-none d-md-block">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="/js/demo.js"></script>
+
+<!-- PAGE  -->
+<!-- SparkLine -->
+<script src="/sparkline/jquery.sparkline.min.js"></script>
+<!-- jVectorMap -->
+<script src="/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="/chartjs-old/Chart.min.js"></script>
+
+<!-- PAGE SCRIPTS -->
+<script src="/js/pages/dashboard2.js"></script>
+<script th:inline="javascript">
+  $(function () {
+     var add_success=[[${add_success}]];
+     var del_success=[[${del_success}]];
+     var risk_library_edit=[[${risk_library_edit}]];
+     var risk_library_update_success=[[${risk_library_update_success}]];
+     if(add_success==1){
+         alert("创建成功!");
+     };
+     if(del_success==1){
+         alert("删除成功!")
+     };
+     if(risk_library_update_success==1){
+         alert("更新成功!")
+     };
+     if(risk_library_edit==1){
+         $("#modal-risk_library_edit").modal('show');
+     };
+     $(".fa-trash-o").click(function () {
+         var id= $(this).parent().siblings(".id").html();
+         $("#del_risk_library_ready").modal('show');
+         $("#del_confirm").click(function () {
+             window.location.href='/riskeventlibrary/del/'+id;
+         })
+     });
+      $(".fa-edit").click(function () {
+          var id= $(this).parent().siblings(".id").html();
+              window.location.href='/riskeventlibrary/edit/'+id;
+
+      });
+
+  })
+</script>
+<script>
+  $(function () {
+      $(".fa-eye").click(function () {
+          var id =$(this).parent().siblings(".id").html();
+          window.location.href='/riskeventlibrary/risk_recognize/'+id;
+      });
+      $(".fa-hourglass-end").click(function () {
+          var id =$(this).parent().siblings(".id").html();
+          window.location.href='/riskeventlibrary/risk_analysis/'+id;
+      });
+      $(".fa-hand-rock-o").click(function () {
+          var id =$(this).parent().siblings(".id").html();
+          window.location.href='/riskeventlibrary/risk_controller/'+id;
+      })
+  })
+</script>
+<script th:inline="javascript">
+
+    $(function () {
+        $("#project_share").click(function () {
+            var permission =[[${session.user.getPermission()}]];
+            if(permission==6 || permission==5 || permission==4 || permission==3 ){
+                window.location.href='/main/project_allocation';
+            }else {
+                alert("您无权访问!")
+            }
+        });
+        $("#user_management").click(function () {
+            var permission =[[${session.user.getPermission()}]];
+            if(permission==6 || permission==5 || permission==4 || permission==3 ){
+                window.location.href='/user/user_management';
+            }else {
+                alert("您无权访问!")
+            }
+        });
+    })
+
+</script>
+</body>
+</html>

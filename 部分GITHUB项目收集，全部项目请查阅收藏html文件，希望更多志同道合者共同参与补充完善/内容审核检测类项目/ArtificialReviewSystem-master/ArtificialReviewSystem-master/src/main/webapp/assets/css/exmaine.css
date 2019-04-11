@@ -1,0 +1,131 @@
+/* 人工预审改版css样式 */
+/* 容器 */
+#page-wrapper{
+    padding:0;
+}
+.top-navigation .wrapper.wrapper-content{
+    width:100%;
+    background:#fff;
+    padding:0;
+    margin-top:10px;
+    padding-top:10px;
+}
+.ibox-content{
+    margin-bottom:30px;
+    border-width:0;
+    border:solid 1px #f2f3f4;
+    box-shadow: 6px 6px 2px #ccc;
+    padding:0 20px;
+}
+/* 标题 */
+.ibox-title{
+    border-style:none;
+    border-bottom:solid 4px #e1f4ff;
+    position:relative;
+    margin-bottom:10px;
+}
+.ibox-title:before{
+    content:"";
+    position:absolute;
+    height:4px;
+    width:188px;
+    background:#fff;
+    bottom:-4px;
+    left:0;
+}
+.common-header{
+    display:inline-block;
+    background:#1ab394;
+    padding:10px 22px;
+    border-radius:12px;
+    color:#fff;
+}
+.img-eva{
+    position:absolute;
+    width:56px;
+    height:66px;
+    top:-20px;
+    left:-41px;
+}
+/* 表格 */
+.table>tbody>tr>td,
+.table > tbody > tr > th{
+    border:0;
+}
+.table tr{
+    border-bottom:dashed 1px #33cc99;
+}
+.table.table-noBoder tr{
+    border-bottom:0;
+    color:#25be1e;
+}
+.table.table-noBoder tr.audit1{
+    color:#ff0606;
+}
+.table.table-noBoder tr span{
+    font-size:16px;
+    margin-right:10px;
+}
+/* 审核情况说明 */
+.auditExplain{
+    text-align:center;
+    font-size:16px;
+    line-height:30px;
+    margin-top:-20px;
+    margin-bottom:20px;
+}
+.auditExplain-green{
+    color:#25be1e;
+}
+.auditExplain-red{
+    color:#ff0606;
+}
+.auditExplain-mr10{
+    margin-right:10px;
+}
+/* 待审资料 */
+.dl-horizontal .imagesListes{
+    height:140px;
+    border:solid 2px #33cc99;
+    border-radius:10px;
+    padding:0;
+    overflow:hidden;
+}
+.dl-horizontal .imagesListes.imageIDcard{
+    height:190px;
+}
+.dl-horizontal .imagesListes.imageNoBorder{
+    border:0;
+}
+.dl-horizontal .AIrecog{
+    padding-top:50px;
+    height:140px;
+    line-height:16px;
+}
+.dl-horizontal .AIrecog #source{
+    font-size:16px;
+    color:#33cc99;
+}
+.dl-horizontal .imagesListes li,.dl-horizontal .imagesListes li img{
+    width:100%;
+    height:100%;
+}
+.cursorPointer li{
+    cursor:pointer;
+}
+/* 审核意见 */
+.auditOpinionText{
+    border:solid 2px #33cc99;
+    border-radius:10px;
+    resize:none;
+}
+.submitAduit{
+    text-align:center;
+    margin-top:-10px;
+}
+.submitAduit .btn-primary{
+    width:200px;
+    height:66px;
+    border-radius:10px;
+    font-size:28px;
+}

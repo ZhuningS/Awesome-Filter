@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div  th:fragment="sidebar">
+    <style>
+        .main-sidebar{
+            padding-top: 0;
+            position: fixed;
+        }
+        .checkbox label:before {
+            content: initial;
+        }
+        #sidebar{
+            background: linear-gradient(0deg,rgba(44,44,44,.2),rgba(224,23,3,.6));
+            transform: translate3d(0px, 0px, 0px);
+        }
+        .sidebar{
+            background-image: url("https://demos.creative-tim.com/now-ui-kit/assets/img/bg5.jpg");
+            transform: translate3d(0px, 0px, 0px);;
+            opacity: 7.9;
+             padding-bottom: 0;
+        }
+        .page-header-image{
+            position: absolute;
+            background-size: cover;
+            background-position: 50%;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+
+        }
+        .page-header:before {
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            left: 0;
+            top: 0;
+            content: "";
+            background-color: rgba(0,0,0,.5);
+        }
+        .sidebar a p {
+            color: white;
+        }
+        .sidebar i{
+            color: white;
+        }
+        .sidebar .nav-treeview>.nav-item>.nav-link:hover {
+            color: #fff;
+            background-color: rgba(255,255,255,.1);
+        }
+        .sidebar .nav-treeview>.nav-item:hover{
+            color: #fff;
+            background-color: rgba(255,255,255,.1);
+        }
+        .page-header{
+            margin:0;
+            font-size: 16px;
+        }
+    </style>
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="cursor: pointer" onclick="window.location.href='/user/user_information'">
+            <div class="image">
+                <img src="/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"/>
+            </div>
+            <div class="info">
+                <a href="#" class="d-block" th:text="${session.user.getWorkerName()}" style="color: white"></a>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                <li class="nav-item" style="cursor: pointer" onclick="window.location.href='/main/notification_project/new_project'">
+                    <a  class="nav-link">
+                        <i class="nav-icon fa  fa-folder"></i>
+                        <p style="color: white">
+                            我的项目
+
+                        </p>
+                    </a>
+                </li>
+                <!--<li class="nav-item has-treeview ">-->
+                    <!--<a href="/main/notification_project/new_project" class="nav-link ">-->
+                        <!--<i class="nav-icon fa fa-dashboard"></i>-->
+                        <!--<p>-->
+                            <!--我的项目-->
+                            <!--<i class="right fa fa-angle-left"></i>-->
+                        <!--</p>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fa fa-dashboard"></i>
+                        <p style="color: white">
+                            风险控制
+                            <i class="right fa fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item" onclick="window.location.href='/firstlevel/risk_type#risk_list'"  style="cursor: pointer">
+                            <a  class="nav-link ">
+                                <i class="fa fa-circle-o nav-icon" style="color: white"></i>
+                                <p style="color: white">风险清单</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" onclick="window.location.href='/riskeventlibrary/index'"  style="cursor: pointer">
+                            <a  class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>风险事件库</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" onclick="window.location.href='/firstlevel/risk_type#risk_list'"  style="cursor: pointer">
+                            <a  class="nav-link">
+                                <i class="fa fa-circle-o nav-icon" style="color: white"></i>
+                                <p style="color: white">风险数据分析</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item has-treeview menu-open" th:if="${session.user.getPermission()==3 or session.user.getPermission()==4 or session.user.getPermission()==5 or session.user.getPermission()==6}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-pie-chart"></i>
+                        <p>
+                            系统管理
+                            <i class="right fa fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"   style="cursor: pointer">
+                            <a  class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>公司管理</p>
+                            </a>
+                        </li>
+                        <li id="user_management_s" class="nav-item"   style="cursor: pointer">
+                            <a  class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>用户管理</p>
+                            </a>
+                        </li>
+                        <li id="project_share_s" class="nav-item"  style="cursor: pointer">
+                            <a  class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>项目管理</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li class="nav-item has-treeview">-->
+                    <!--<a href="#" class="nav-link">-->
+                        <!--<i class="nav-icon fa fa-tree"></i>-->
+                        <!--<p>-->
+                            <!--规章制度-->
+                            <!--<i class="fa fa-angle-left right"></i>-->
+                        <!--</p>-->
+                    <!--</a>-->
+                    <!--<ul class="nav nav-treeview">-->
+                        <!--<li class="nav-item">-->
+                            <!--<a  class="nav-link">-->
+                                <!--<i class="fa fa-circle-o nav-icon"></i>-->
+                                <!--<p>统计</p>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="nav-item">-->
+                            <!--<a  class="nav-link">-->
+                                <!--<i class="fa fa-circle-o nav-icon"></i>-->
+                                <!--<p>标准</p>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="nav-item">-->
+                            <!--<a  class="nav-link">-->
+                                <!--<i class="fa fa-circle-o nav-icon"></i>-->
+                                <!--<p>公告</p>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fa fa-edit"></i>
+                        <p>
+                            新闻热点
+                            <i class="fa fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item" onclick="window.location.href='/main/group_topic'"  style="cursor: pointer">
+                            <a  class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>集团专题</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" onclick="window.location.href='/main/yueyang_topic'"  style="cursor: pointer">
+                            <a  class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>岳阳林纸</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" onclick="window.location.href='/main/kaisheng_topic'"  style="cursor: pointer">
+                            <a  class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>凯胜园林</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" onclick="window.location.href='/main/guanhao_topic'"  style="cursor: pointer">
+                            <a  class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>冠豪高新</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!--<li class="nav-header">Tool</li>-->
+
+                <!--<li class="nav-item has-treeview">-->
+                    <!--<a href="#" class="nav-link">-->
+                        <!--<i class="nav-icon fa fa-envelope-o"></i>-->
+                        <!--<p>-->
+                            <!--Mailbox-->
+                            <!--<i class="fa fa-angle-left right"></i>-->
+                        <!--</p>-->
+                    <!--</a>-->
+                    <!--<ul class="nav nav-treeview">-->
+                        <!--<li class="nav-item" onclick="window.location.href='/mail/list'" style="cursor: pointer">-->
+                            <!--<a  class="nav-link">-->
+                                <!--<i class="fa fa-circle-o nav-icon"></i>-->
+                                <!--<p>Inbox</p>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="nav-item" onclick="window.location.href='/mail/compose'" style="cursor: pointer">-->
+                            <!--<a  class="nav-link">-->
+                                <!--<i class="fa fa-circle-o nav-icon"></i>-->
+                                <!--<p>Compose</p>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                        <!--<li class="nav-item" onclick="window.location.href='/mail/read'" style="cursor: pointer">-->
+                            <!--<a  class="nav-link">-->
+                                <!--<i class="fa fa-circle-o nav-icon"></i>-->
+                                <!--<p>Read</p>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        $(function () {
+            $("#project_share_s").click(function () {
+                var permission =[[${session.user.getPermission()}]];
+                if(permission==6 || permission==5 || permission==4 || permission==3 ){
+                    window.location.href='/main/project_allocation';
+                }else {
+                    alert("您无权访问!")
+                }
+            });
+            $("#user_management_s").click(function () {
+                var permission =[[${session.user.getPermission()}]];
+                if(permission==6 || permission==5 || permission==4 || permission==3 ){
+                    window.location.href='/user/user_management';
+                }else {
+                    alert("您无权访问!")
+                }
+            });
+        })
+        /*]]>*/
+    </script>
+</div>
+
+</html>

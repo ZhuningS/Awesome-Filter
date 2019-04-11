@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+  <title>AdminLTE 3 | Dashboard 2</title>
+
+  <!-- Font Awesome Icons -->
+  <link href="https://wrappixel.com/demos/admin-templates/material-pro/material/css/style.css" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <link rel="stylesheet" href="/css/original_ADminLTE.min.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <div  th:include="top::topbar"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100%">
+    <!-- Brand Logo -->
+
+
+
+
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+         </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v2</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid" id="risk_list">
+        <!-- Info boxes -->
+
+        <!-- /.row -->
+      </div>
+
+      <div class="row" style="margin-left: 20px;margin-top: 20px">
+        <div class="row el-element-overlay">
+          <div class="col-md-12">
+            <h6 class="card-subtitle m-b-20 text-muted"> 风险事件展示</h6>
+            </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card" >
+              <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50021/6461.jpg_wh300.jpg" alt="user"/>
+                  <div class="el-overlay">
+                    <ul class="el-info">
+                      <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                      <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="el-card-content">
+                  <h5 class="box-title">海外投资项目管理难</h5> <small>战略风险</small>
+                  <br/> </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card">
+              <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50043/1009.jpg_wh300.jpg" alt="user"/>
+                  <div class="el-overlay">
+                    <ul class="el-info">
+                      <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                      <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="el-card-content">
+                  <h5 class="box-title">大额费用无前置审批</h5> <small>财务风险</small>
+                  <br/> </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card">
+              <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/00030/6162.jpg_wh300.jpg" alt="user"/>
+                  <div class="el-overlay">
+                    <ul class="el-info">
+                      <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                      <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="el-card-content">
+                  <h5 class="box-title">潘荣堂、陈登响商业合同纠纷</h5> <small>法律风险
+                  运营风险</small>
+                  <br/> </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card">
+              <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50049/7275.jpg_wh300.jpg" alt="user"/>
+                  <div class="el-overlay">
+                    <ul class="el-info">
+                      <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                      <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="el-card-content">
+                  <h5 class="box-title">未履行合资经营合同条款程序</h5> <small>财务风险、运营风险、法律风险</small>
+                  <br/> </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card">
+              <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50058/4497.jpg_wh300.jpg" alt="user"/>
+                  <div class="el-overlay">
+                    <ul class="el-info">
+                      <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                      <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="el-card-content">
+                  <h5 class="box-title">支付二笔服务费未见服务协议</h5> <small>财务风险</small>
+                  <br/> </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card">
+              <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50010/8516.jpg_wh300.jpg" alt="user"/>
+                  <div class="el-overlay">
+                    <ul class="el-info">
+                      <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                      <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="el-card-content">
+                  <h5 class="box-title">销售提成不利于费用控制及考核</h5> <small>财务风险</small>
+                  <br/> </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card">
+              <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50017/7324.jpg_wh300.jpg" alt="user"/>
+                  <div class="el-overlay">
+                    <ul class="el-info">
+                      <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                      <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="el-card-content">
+                  <h5 class="box-title">现金管理不规范</h5> <small>财务风险</small>
+                  <br/> </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="card">
+              <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50052/5266.jpg_wh300.jpg" alt="user"/>
+                  <div class="el-overlay">
+                    <ul class="el-info">
+                      <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                      <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="el-card-content">
+                  <h5 class="box-title">部分物质采购未见合同</h5> <small>运营风险</small>
+                  <br/> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-sm-none d-md-block">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="/js/demo.js"></script>
+
+<!-- PAGE  -->
+<!-- SparkLine -->
+<script src="/sparkline/jquery.sparkline.min.js"></script>
+<!-- jVectorMap -->
+<script src="/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="/chartjs-old/Chart.min.js"></script>
+
+<!-- PAGE SCRIPTS -->
+<script src="/js/pages/dashboard2.js"></script>
+<script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+
+<script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+<script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+<script>
+    var chart = Highcharts.chart('top_percent_container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '中华纸业各公司风险效率分布'
+        },
+        xAxis: {
+            categories: [
+                '总部',
+                '岳阳林纸',
+                '红塔仁恒',
+                '诚通凯盛',
+                '冠豪高新'
+            ]
+        },
+        yAxis: [{
+            min: 0,
+            title: {
+                text: '风险处理效率'
+            }
+        }, {
+            title: {
+                text: '风险预防效率'
+            },
+            opposite: true
+        }],
+        legend: {
+            shadow: false
+        },
+        tooltip: {
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '金融市场风险',
+            color: 'rgba(165,170,217,1)',
+            data: [120,230,150, 73, 20],
+            pointPadding: 0.3, // 通过 pointPadding 和 pointPlacement 控制柱子位置
+            pointPlacement: -0.2
+        }, {
+            name: '企业制度风险',
+            color: 'rgba(126,86,134,.9)',
+            data: [230,120,140, 90, 40],
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+        }, {
+            name: '企业战略风险',
+            color: 'rgba(248,161,63,1)',
+            data: [120.2,160.3,183.6, 178.8, 198.5],
+            tooltip: {  // 为当前数据列指定特定的 tooltip 选项
+                valuePrefix: '$',
+                valueSuffix: ' M'
+            },
+            pointPadding: 0.3,
+            pointPlacement: 0.2,
+            yAxis: 1  // 指定数据列所在的 yAxis
+        }, {
+            name: '其他类风险',
+            color: 'rgba(186,60,61,.9)',
+            data: [180.2,150.9,203.6, 198.8, 208.5],
+            tooltip: {
+                valuePrefix: '$',
+                valueSuffix: ' M'
+            },
+            pointPadding: 0.4,
+            pointPlacement: 0.2,
+            yAxis: 1
+        }]
+    });
+</script>
+<script>
+    var chart = Highcharts.chart('topic_container', {
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: '各风险标准所占比重分布图'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '浏览器占比',
+            data: [
+                ['战略风险',  6.2 ],
+                ['市场风险',       6.8],
+                {
+                    name: '廉洁风险',
+                    y: 0.7,
+                    sliced: true,
+                    selected: true
+                },
+                ['法律风险',    18.5],
+                ['运营风险',    45.0],
+                ['财务风险',  22.8 ]
+            ]
+        }]
+    });
+</script>
+</body>
+</html>

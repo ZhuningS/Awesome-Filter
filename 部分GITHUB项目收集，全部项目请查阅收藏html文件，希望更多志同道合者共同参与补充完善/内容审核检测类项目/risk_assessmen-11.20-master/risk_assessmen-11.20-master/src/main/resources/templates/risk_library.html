@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+  <title>AdminLTE 3 | Dashboard 2</title>
+
+  <!-- Font Awesome Icons -->
+  <link href="https://wrappixel.com/demos/admin-templates/material-pro/material/css/style.css" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <link rel="stylesheet" href="/css/original_ADminLTE.min.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <div  th:include="top::topbar"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100%">
+    <!-- Brand Logo -->
+    <!-- Sidebar -->
+    <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">企业风险事件库</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">风险管理策略</a></li>
+              <li class="breadcrumb-item active">企业风险事件库</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h6 class="card-subtitle m-b-20 text-muted">风险事件多角度分析</h6>
+          </div>
+          <div class="row">
+            <div class="col-md-3" style="cursor: pointer" onclick="window.location.href='/riskeventlibrary/main'">
+              <div class="card blog-widget">
+                <div class="card-body">
+                  <div class="blog-image"><img src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/big/img1.jpg" alt="img" class="img-responsive"/></div>
+                  <h3>集团风险事件更新</h3>
+                  <label class="label label-rounded label-success">Technology</label>
+                  <p class="m-t-20 m-b-20">
+                   记录公司各风险对应的风险事件清单，作为风险事件仓库
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3" style="cursor: pointer;display: inline-block" onclick="window.location.href='/riskeventlibrary/risk_topic/风险识别'">
+              <div class="card blog-widget">
+                <div class="card-body">
+                  <div class="blog-image"><img src="/img/risk_recognize.jpg" alt="img" class="img-responsive"/></div>
+                  <h3>风险识别</h3>
+                  <label class="label label-rounded label-success">Technology</label>
+                  <p class="m-t-20 m-b-20">
+                    罗列每个风险事件对应的风险类型，达到与风险清单关联
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3" style="cursor: pointer" onclick="window.location.href='/riskeventlibrary/risk_topic/风险分析'">
+              <div class="card blog-widget">
+                <div class="card-body">
+                  <div class="blog-image"><img src="/img/risk_analysis.jpg" alt="img" class="img-responsive"/></div>
+                  <h3>风险分析</h3>
+                  <label class="label label-rounded label-success">Technology</label>
+                  <p class="m-t-20 m-b-20">
+                   从损失影响和事件主要风险成因的分析风险事件&nbsp;&nbsp;
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3" style="cursor: pointer" onclick="window.location.href='/riskeventlibrary/risk_topic/风险控制'">
+              <div class="card blog-widget">
+                <div class="card-body">
+                  <div class="blog-image"><img src="/img/risk_controll.jpg" alt="img" class="img-responsive"/></div>
+                  <h3>风险控制</h3>
+                  <label class="label label-rounded label-success">Technology</label>
+                  <p class="m-t-20 m-b-20">
+                   记录通过何种风险应对措施控制和应对风险事件的发生
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+          <div class="col-md-12">
+            <h6 class="card-subtitle m-b-20 text-muted">图表分析</h6>
+          </div>
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title">风险事件月统计表</h5>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-wrench"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                      <a href="#" class="dropdown-item">Action</a>
+                      <a href="#" class="dropdown-item">Another action</a>
+                      <a href="#" class="dropdown-item">Something else here</a>
+                      <a class="dropdown-divider"></a>
+                      <a href="#" class="dropdown-item">Separated link</a>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-tool" data-widget="remove">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-8">
+                    <p class="text-center">
+                      <strong>风险事件时间统计图</strong>
+                    </p>
+
+                    <div class="chart">
+                      <!-- Sales Chart Canvas -->
+                      <canvas id="salesChart" height="180" style="height: 180px;"></canvas>
+                    </div>
+                    <!-- /.chart-responsive -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-md-4">
+                    <p class="text-center">
+                      <strong>风险事件库主要风险所占比例</strong>
+                    </p>
+
+                    <div class="progress-group">
+                      运营风险
+                      <span class="float-right"><b>33</b>/36</span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-primary" style="width: 80%"></div>
+                      </div>
+                    </div>
+                    <!-- /.progress-group -->
+
+                    <div class="progress-group">
+                      金融风险
+                      <span class="float-right"><b>31</b>/38</span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-danger" style="width: 75%"></div>
+                      </div>
+                    </div>
+
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                      <span class="progress-text">财务风险</span>
+                      <span class="float-right"><b>30</b>/45</span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-success" style="width: 60%"></div>
+                      </div>
+                    </div>
+
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                      法律风险
+                      <span class="float-right"><b>10</b>/25</span>
+                      <div class="progress progress-sm">
+                        <div class="progress-bar bg-warning" style="width: 50%"></div>
+                      </div>
+                    </div>
+                    <!-- /.progress-group -->
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- ./card-body -->
+              <div class="card-footer">
+                <div class="row">
+                  <div class="col-sm-3 col-6">
+                    <div class="description-block border-right">
+                      <span class="description-percentage text-success"><i class="fa fa-caret-up"></i> 17%</span>
+                      <h5 class="description-header">67</h5>
+                      <span class="description-text">金融风险</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-3 col-6">
+                    <div class="description-block border-right">
+                      <span class="description-percentage text-warning"><i class="fa fa-caret-left"></i> 0%</span>
+                      <h5 class="description-header">48</h5>
+                      <span class="description-text">运营风险</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-3 col-6">
+                    <div class="description-block border-right">
+                      <span class="description-percentage text-success"><i class="fa fa-caret-up"></i> 20%</span>
+                      <h5 class="description-header">75</h5>
+                      <span class="description-text">财务风险</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-3 col-6">
+                    <div class="description-block">
+                      <span class="description-percentage text-danger"><i class="fa fa-caret-down"></i> 18%</span>
+                      <h5 class="description-header">45</h5>
+                      <span class="description-text">法律风险</span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                </div>
+                <!-- /.row -->
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- Main row -->
+        <div class="row" style="margin-left: 20px;margin-top: 20px">
+          <div class="row el-element-overlay">
+            <div class="col-md-12">
+              <h6 class="card-subtitle m-b-20 text-muted"> 风险事件展示</h6>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="card" >
+                <div class="el-card-item">
+                  <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50021/6461.jpg_wh300.jpg" alt="user"/>
+                    <div class="el-overlay">
+                      <ul class="el-info">
+                        <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                        <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="el-card-content">
+                    <h5 class="box-title">海外投资项目管理难</h5> <small>战略风险</small>
+                    <br/> </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="el-card-item">
+                  <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50043/1009.jpg_wh300.jpg" alt="user"/>
+                    <div class="el-overlay">
+                      <ul class="el-info">
+                        <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                        <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="el-card-content">
+                    <h5 class="box-title">大额费用无前置审批</h5> <small>财务风险</small>
+                    <br/> </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="el-card-item">
+                  <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/00030/6162.jpg_wh300.jpg" alt="user"/>
+                    <div class="el-overlay">
+                      <ul class="el-info">
+                        <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                        <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="el-card-content">
+                    <h5 class="box-title">潘荣堂、陈登响商业合同纠纷</h5> <small>法律风险
+                    运营风险</small>
+                    <br/> </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="el-card-item">
+                  <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50049/7275.jpg_wh300.jpg" alt="user"/>
+                    <div class="el-overlay">
+                      <ul class="el-info">
+                        <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                        <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="el-card-content">
+                    <h5 class="box-title">未履行合资经营合同条款程序</h5> <small>财务风险、运营风险、法律风险</small>
+                    <br/> </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="el-card-item">
+                  <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50058/4497.jpg_wh300.jpg" alt="user"/>
+                    <div class="el-overlay">
+                      <ul class="el-info">
+                        <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                        <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="el-card-content">
+                    <h5 class="box-title">支付二笔服务费未见服务协议</h5> <small>财务风险</small>
+                    <br/> </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="el-card-item">
+                  <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50010/8516.jpg_wh300.jpg" alt="user"/>
+                    <div class="el-overlay">
+                      <ul class="el-info">
+                        <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                        <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="el-card-content">
+                    <h5 class="box-title">销售提成不利于费用控制及考核</h5> <small>财务风险</small>
+                    <br/> </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="el-card-item">
+                  <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50017/7324.jpg_wh300.jpg" alt="user"/>
+                    <div class="el-overlay">
+                      <ul class="el-info">
+                        <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                        <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="el-card-content">
+                    <h5 class="box-title">现金管理不规范</h5> <small>财务风险</small>
+                    <br/> </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="card">
+                <div class="el-card-item">
+                  <div class="el-card-avatar el-overlay-1" style="height: 152px"> <img src="http://img95.699pic.com/photo/50052/5266.jpg_wh300.jpg" alt="user"/>
+                    <div class="el-overlay">
+                      <ul class="el-info">
+                        <li><a class="btn default btn-outline image-popup-vertical-fit" href="../assets/images/users/1.jpg"><i class="fa fa-search"></i></a></li>
+                        <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="fa fa-link"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="el-card-content">
+                    <h5 class="box-title">部分物质采购未见合同</h5> <small>运营风险</small>
+                    <br/> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+      </div><!--/. container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-sm-none d-md-block">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="/js/demo.js"></script>
+
+<!-- PAGE  -->
+<!-- SparkLine -->
+<script src="/sparkline/jquery.sparkline.min.js"></script>
+<!-- jVectorMap -->
+<script src="/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="/chartjs-old/Chart.min.js"></script>
+
+<!-- PAGE SCRIPTS -->
+<script src="/js/pages/dashboard2.js"></script>
+</body>
+</html>

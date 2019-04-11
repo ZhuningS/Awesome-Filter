@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div  th:fragment="sidebar">
+    <link rel="stylesheet" href="/css/original_ADminLTE.min.css"/>
+    <ul class="nav nav-pills flex-column">
+        <li class="nav-item active">
+            <a href="/main/notification_project/new_project" class="nav-link">
+                <i class="fa fa-inbox"></i> 新项目
+                <span class="badge bg-primary float-right" th:text="${new_count}"></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/main/notification_project/ready" class="nav-link">
+                <i class="fa fa-envelope-o"></i>待审批
+                <span class="badge bg-green float-right" th:text="${ready_count}"></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/main/notification_project/ing" class="nav-link">
+                <i class="fa fa-file-text-o"></i>审批中
+                <span class="badge bg-gray float-right" th:text="${ing_count}"></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/main/notification_project/pass" class="nav-link">
+                <i class="fa fa-file-text-o"></i>审批通过
+                <span class="badge bg-purple float-right" th:text="${pass_count}"></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/main/notification_project/failure" class="nav-link">
+                <i class="fa fa-file-text-o"></i>审批失败
+                <span class="badge bg-warning float-right" th:text="${failure_count}"></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/main/notification_project/published" class="nav-link">
+                <i class="fa fa-filter"></i>已发布
+                <span class="badge bg-maroon float-right" th:text="${published_count}"></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/main/notification_project/审批通过" class="nav-link">
+                <i class="fa fa-trash-o"></i> 垃圾箱
+            </a>
+        </li>
+    </ul>
+
+</div>
+
+</html>

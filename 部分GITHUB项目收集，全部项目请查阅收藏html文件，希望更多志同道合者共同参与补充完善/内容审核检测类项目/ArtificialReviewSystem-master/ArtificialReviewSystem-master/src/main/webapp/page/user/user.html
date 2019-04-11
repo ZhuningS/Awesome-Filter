@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>行政人员管理</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../../assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../../assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../../assets/css/animate.css" rel="stylesheet">
+    <link href="../../assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="../../assets/css/style.css?v=4.1.0" rel="stylesheet">
+</head>
+<body class="gray-bg top-navigation">
+
+<div id="wrapper">
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom white-bg">
+            <nav class="navbar navbar-static-top" role="navigation">
+                <div class="navbar-collapse collapse" id="navbar">
+                    <!--<ul class="nav navbar-top-links navbar-right">-->
+                        <!--<li><a id="back"> <i class="fa fa-reply"></i>-->
+                            <!--返回-->
+                        <!--</a></li>-->
+                    <!--</ul>-->
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li><a id="adduser"> <i class="fa fa-file-text"></i>
+                            新建
+                        </a></li>
+                    </ul>
+                    <!--<ul class="nav navbar-top-links navbar-right">-->
+                        <!--<li><a href="login.html"> <i class="fa fa-question"></i>-->
+                            <!--帮助-->
+                        <!--</a></li>-->
+                    <!--</ul>-->
+                </div>
+            </nav>
+        </div>
+        <div class="wrapper wrapper-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>用户管理</h5>
+                            </div>
+
+
+
+                            <div class="ibox-content">
+                                <div class="table-responsive">
+                                    <table  id="linkManTable"
+                                            data-toggle="table"
+                                            data-query-params="queryParams"
+                                            data-mobile-responsive="true"
+                                            data-pagination="true"
+                                            data-icon-size="outline"
+                                            data-search="false"
+                                            data-striped="true"
+                                            data-page-size="5"
+                                            data-page-number="1"
+                                            data-page-list="[1, 5, 10, 15, 20, 25]">
+                                        <!--data-search="true">-->
+                                        <thead>
+                                        <tr>
+                                            <!--<th data-field="state" data-checkbox="true"></th>-->
+                                            <th data-field="userId" data-visible="false">编号</th>
+                                            <th data-field="userName">姓名</th>
+                                            <th data-field="sex" data-visible="false">性别</th>
+                                            <th data-field="deptName">部门</th>
+                                            <!--<th data-field="officePhone">办公电话</th>-->
+                                            <th data-field="phone">手机</th>
+                                            <th data-field="remark">权限</th>
+                                            <!--<th data-field="remark">备注</th>-->
+                                            <th data-field="operate"  data-formatter="edit">操作</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 全局js -->
+<script src="../../assets/js/jquery.min.js?v=2.1.4"></script>
+<script src="../../assets/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="../../assets/js/myjs.js"></script>
+
+<!-- 自定义js -->
+<script src="../../assets/js/content.js?v=1.0.0"></script>
+
+
+<!-- Bootstrap table -->
+<script src="../../assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="../../assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<!-- Peity -->
+<script src="../../assets/js/demo/bootstrap-table-demo.js"></script>
+
+</body>
+<script type="text/javascript">
+    $("#back").click(function(){
+        window.history.go(-1);
+    })
+    $("document").ready(function () {
+        initTable();
+    })
+
+    //传参数到后台
+    function initTable() {
+//        var url=window.location.search;
+//    var str=url.substr(1);
+//    var strs=str.split("=");
+        url = baseUrl+"/user/selectlist.do";
+        url=encodeURI(encodeURI(url));//对URL的地址进行两次encodeURI编码，实际上只有中文的部分被修改编码
+        console.info(url+"编码后的url")
+        //先销毁表格
+        $('#linkManTable').bootstrapTable('destroy');
+        //初始化表格,动态从服务器加载数据
+        $("#linkManTable").bootstrapTable({
+            method: "get",  //使用get请求到服务器获取数据
+            url: url,
+        });
+    }
+
+    //table初始化的时候把按钮插入
+    function edit (value, row, index) {
+        var a = '<button type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="editUser(\'' + "update_user.html" + '\',\'' + row.userId + '\')">编辑</button>';
+        var b = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return deleteUser(\'' + row.userId + '\')">删除</a> ';
+        var c = '<button type="button" class="RoleOfEdit btn btn-primary  btn-sm"  style="margin-right:15px;" onclick="return resetPassword(\'' + row.userId + '\')">重置密码</a> ';
+        return a + b + c;
+    }
+    $("#adduser").click(function () {
+       var url=window.location.search;
+//    var str=url.substr(1);
+//    var strs=str.split("=");
+        console.info(url);
+        url = baseUrl+"/page/user/add_user.html";
+        window.location.href=url;
+    })
+    function editUser(url,userId) {
+        window.location.href=baseUrl+"/page/user/"+url+"?userId="+userId;
+    }
+
+    function deleteUser(userId) {
+        $.ajax({
+            type:'post',
+            url:baseUrl+'/user/delUser.do',
+            data:{'userId':userId},
+            dataType:'json',
+            success:function (data) {
+                if(data.status==0){
+                    alert("删除成功")
+//                    initTable();
+                    window.location.reload(true)
+                }
+            },
+            error:function (data) {
+                console.info("发生了错误",data)
+            }
+        })
+    }
+    function resetPassword(userId) {
+        $.ajax({
+            type:'post',
+            url:baseUrl+'/user/resetPassword.do',
+            data:{'userId':userId},
+            dataType:'json',
+            success:function (data) {
+                if(data.status==0){
+                    alert("重置密码为手机号")
+                }
+            },
+            error:function (data) {
+                console.info("发生了错误",data)
+            }
+        })
+    }
+</script>
+</html>

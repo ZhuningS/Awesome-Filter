@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Progress Dashboard</title>
+		<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="../js/d3.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.drawDoughnutChart.js"></script>
+		<script type="text/javascript" src="../js/cal-heatmap.min.js"></script>
+		<script type="text/javascript" src="../js/progress-milestones.js"></script>
+		<script type="text/javascript" src="../js/stats.js"></script>
+		<script type="text/javascript" src="../js/questions.js"></script>
+		<script type="text/javascript" src="../js/progress.js"></script>
+		<script type="text/javascript" src="../js/intro.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/cal-heatmap.css" />
+		<link rel="stylesheet" type="text/css" href="../css/introjs.css" />
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/progress.css" />
+	</head>
+	<body>
+		<div class="windowBar" id="main-windowBar">
+			<div id="countdown">
+				<p id="days">000</p>
+				<p>days</p>
+				<p id="hours">00</p>
+				<p>hours</p>
+				<p id="minutes">00</p>
+				<p>minutes</p>
+				<p id="seconds">00</p>
+				<p>seconds</p>
+				<p>until your next <span style="font-weight: bold; color: #50C46E" data-hint="A countdown until your next milestone or orgasm as decided by the Web Cleaner extension. Other messages may also display here." data-position="bottom">milestone.</span></p>
+			</div>
+		</div>
+		<div class="container" id="mainContainer">
+			<div class="progress">
+				<div class="progress-toplabels">
+					<span class="progress-labels-wrapper">
+						<span style="left: 0%;" class="progress-mslabel progress-firstms">0</span>
+						<span style="left: 3.39893%;" class="progress-mslabel">1</span>
+						<span style="left: 6.79785%;" class="progress-mslabel">2</span>
+						<span style="left: 14.1324%;" class="progress-mslabel">5</span>
+						<span style="left: 28.4436%;" class="progress-mslabel">10</span>
+						<span style="left: 42.7549%;" class="progress-mslabel">14</span>
+						<span style="left: 67.7996%;" class="progress-mslabel">21</span>
+						<span style="left: 100%;" class="progress-mslabel progress-lastms">30</span>
+					</span>
+				</div>
+				<div class="progress-wrapper">
+					<span class="progress-bar">
+						<span class="progress-curr" style="width: 0%;" data-hint="As you abstain from porn and orgasms for a select period of time, you will be rewarded on good behavior such as permission to cum, or the ability to look at porn. This may occur at each milestone or after completing a session up to a maximum of 31 days, whichever is set in your extension settings. You can track your session progress here." data-position="bottom"></span>
+						<span class="progress-mss-wrapper">
+							<span class="progress-mss">
+								<span class="progress-ms progress-firstms" style="left: 0%;"></span>
+								<span class="progress-ms" style="left: 3.39893%;"></span>
+								<span class="progress-ms" style="left: 6.79785%;"></span>
+								<span class="progress-ms" style="left: 14.1324%;"></span>
+								<span class="progress-ms" style="left: 28.4436%;"></span>
+								<span class="progress-ms" style="left: 42.7549%;"></span>
+								<span class="progress-ms" style="left: 67.7996%;"></span>
+								<span class="progress-ms progress-lastms" style="left: 100%;"></span>
+							</span>
+						</span>
+					</span>
+				</div>
+			</div>
+			<div id="cal-heatmap" data-hint="This is a color coded calendar for tracking your orgasms over a 6 month period.<span id=calendar-today>01</span>The current day is highlighted to help you easily track the number of orgasms you had.<span id=calendar-hl>01</span> Your next milestone or orgasm date is also highlighted to help you hold out for longer." data-position="left"></div>
+			<script type="text/javascript" src="../js/heatmap.js"></script>
+            <div class="reportChartHolder">    
+				<ul>
+					<li><span class="glyphicon glyphicon-signal" aria-hidden="true"></span> <h3>Orgasm Statistics</h3></li>
+                </ul>         
+				<div id="doughnutChart" class="chart" data-hint="Orgasming <i>is</i> needing CPR: Cumming, Prostate Milking, or Ruining. This graph displays a simple visual breakdown of all the orgasms you had this month." data-position="right"></div>
+				<div id="lock" data-role="lock" data-hint="If you are in a chastity session and are locked up by an accountability partner, it will display so here. This feature is still in development." data-position="right"></div>
+				<div class="reportCommon">
+					<h3>
+						<span class="reportCommon_Left">Last Orgasm<br /><span class="hlBlue" id="field-last-orgasm"></span></span>
+						<span class="reportCommon_Right">Edges Since<br /><span class="hlBlue" id="field-edges-since-last-orgasm"></span></span>
+						<span class="reportCommon_Left">Next Milestone<br /><span class="hlBlue" id="field-next-milestone"></span></span>
+						<span class="reportCommon_Right">Longest Streak<br /><span class="hlBlue" id="field-longest-streak"></span></span>
+						<span class="reportCommon_Left">Freq. Relapse Day<br /><span class="hlRed" id="field-frequent-relapse"></span></span>
+						<span class="reportCommon_Right">Mood<br /><span class="hlBlue" id="field-mood"></span></span>
+						<span class="reportCommon_Left">---<br /><span class="hlRed">N/A</span></span>
+						<span class="reportCommon_Right">---<br /><span class="hlRed">N/A</span></span>
+					</h3>
+				</div>
+				<div id="buttons">
+					<div class="button" data-role="report-cpr" data-hint="If you orgasm with or without permission, you must report it." data-position="top">Report CPR</div>
+					<div class="button" data-role="report-edge">I Edged</div>
+					<div class="button-disabled" data-role="play">Play Time (??:??)</div>
+				</div>
+				<div class="liquidBubble">
+					<div class="blue">
+						<div class="outer">
+							<div class="inner">
+							<div class="percent"><span>00:</span>00</div>
+							<div class="water" data-hint="If you are permitted to look at porn, all filters are disabled for the time displayed in this countdown timer. When the water depletes, play time is over and you will be instructed to lock back up if in chastity. This feature has yet to be developed.<span id=porn-timer><span style=color:#2BE12B><b>Green:</b></span> You may orgasm once<br /><span style=color:#C82525><b>Red:</b></span> Only edging is permitted<br /><span style=color:#2571C8><b>Blue:</b></span> No touching whatsoever</span>" data-position="right"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+            <div class="reportHolder">
+                <ul>		
+					<li>
+						<h3>
+							<select>
+								<option>N/A</option>
+							</select>
+						</h3>
+						<span style="float: right; margin-left: -145px"><h3><a class="switch" data-box="feels" data-hint="This extension keeps track of your overall mood every month to help you you better understand the effects of porn, orgasming or lack thereof. This data is stored locally and will not leave your browser. This feature is non-functional at this time." data-position="right">Mood</a> / <a class="switchHl" data-box="tickets" data-hint="Tickets are given to you at every milestone and can be taken away if you relapse or orgasm without permission." data-position="left">Tickets</a></h3></span>
+					</li>
+                </ul>
+                <div id="feels-box">
+					<ul class="statsLeft">
+						<li><span><div class="happy" title="Happy">&nbsp;</div></span> <h3 data-feel="happy"></h3></li>
+						<li><span><div class="unhappy" title="Unhappy">&nbsp;</div></span> <h3 data-feel="unhappy"></h3></li>
+						<li><span><div class="shocked" title="Shocked">&nbsp;</div></span> <h3 data-feel="shocked"></h3></li>
+					</ul>
+					<ul class="statsRight">
+						<li><span><div class="angry" title="Angry">&nbsp;</div></span> <h3 data-feel="angry"></h3></li>
+						<li><span><div class="upset" title="Upset">&nbsp;</div></span> <h3 data-feel="upset"></h3></li>
+						<li><span><div class="unsure" title="Unsure">&nbsp;</div></span> <h3 data-feel="unsure"></h3></li>
+					</ul>
+					<ul class="statsRight">
+						<li><span><div class="stressed" title="Stressed">&nbsp;</div></span> <h3 data-feel="stressed"></h3></li>
+						<li><span><div class="frustrated" title="Frustrated">&nbsp;</div></span> <h3 data-feel="frustrated"></h3></li>
+						<li><span><div class="turnedOn" title="Turned On">&nbsp;</div></span> <h3 data-feel="turnedOn"></h3></li>
+					</ul>
+					<ul class="statsRight">
+						<li><span><div class="addicted" title="Addicted">&nbsp;</div></span> <h3 data-feel="addicted"></h3></li>
+						<li><span><div class="bored" title="Bored">&nbsp;</div></span> <h3 data-feel="bored"></h3></li>
+						<li><span><div class="hero" title="I can do it!">&nbsp;</div></span> <h3 data-feel="hero"></h3></li>
+					</ul>
+				</div>
+				<div id="ticket-box" style="display: none">
+					<div class="arrowLeft"></div>
+					<div class="arrowRight"></div>
+					<div class="ticket-pages">
+						<div class="ticket-page">
+							<img style="width: 213px" src="../img/ticket-1.svg" />
+							<img style="width: 213px" src="../img/ticket-2.svg" />
+							<img style="width: 213px" src="../img/ticket-5.svg" />
+							<img style="width: 213px" src="../img/ticket-10.svg" />
+						</div>
+						<div class="ticket-page">
+							<img style="width: 213px" src="../img/ticket-14.svg" />
+							<img style="width: 213px" src="../img/ticket-21.svg" />
+							<img style="width: 213px" src="../img/ticket-30.svg" />
+							<img style="width: 213px" src="../img/ticket-45.svg" />
+						</div>
+						<div class="ticket-page">
+							<img style="width: 213px" src="../img/ticket-60.svg" />
+							<img style="width: 213px" src="../img/ticket-75.svg" />
+							<img style="width: 213px" src="../img/ticket-90.svg" />
+							<img style="width: 213px" src="../img/ticket-120.svg" />
+						</div>
+						<div class="ticket-page">
+							<img style="width: 213px" src="../img/ticket-180.svg" />
+							<img style="width: 213px" src="../img/ticket-270.svg" />
+							<img style="width: 213px" src="../img/ticket-365.svg" />
+							<img style="width: 213px" src="../img/ticket-blank.svg" />
+						</div>
+					</div>
+				</div>
+				<div id="questions">
+					<div data-question="feel">
+		                <ul>
+							<li class="noSelect"><h3>How are you feeling?</h3></li>
+		                </ul>
+						<ul class="reportFeelings">
+							<li><div class="smileyContainer"><div data-answer="happy" class="happy">&nbsp;</div></div>Happy</li>
+							<li><div class="smileyContainer"><div data-answer="unhappy" class="unhappy">&nbsp;</div></div>Unhappy</li>
+							<li><div class="smileyContainer"><div data-answer="shocked" class="shocked">&nbsp;</div></div>Shocked</li>
+							<li><div class="smileyContainer"><div data-answer="angry" class="angry">&nbsp;</div></div>Angry</li>
+							<li><div class="smileyContainer"><div data-answer="upset" class="upset">&nbsp;</div></div>Upset</li>
+							<li><div class="smileyContainer"><div edata-answer="unsure" class="unsure">&nbsp;</div></div>Unsure</li>
+							<li><div class="smileyContainer"><div data-answer="stressed" class="stressed">&nbsp;</div></div>Stressed</li>
+							<li><div class="smileyContainer"><div data-answer="frustrated" class="frustrated">&nbsp;</div></div>Frustrated</li>
+							<li><div class="smileyContainer"><div data-answer="turnedOn" class="turnedOn">&nbsp;</div></div>Turned On</li>
+							<li><div class="smileyContainer"><div data-answer="addicted" class="addicted">&nbsp;</div></div>Addicted</li>
+							<li><div class="smileyContainer"><div data-answer="bored" class="bored">&nbsp;</div></div>Bored</li>
+							<li><div class="smileyContainer"><div data-answer="hero" class="hero">&nbsp;</div></div>I can do it!</li>
+						</ul>
+					</div>
+				</div>
+            </div>
+        </div>
+		<div id="modalBackground">
+			<div class="modal" data-form="edges">
+				<div class="windowBar modal-windowBar">
+					<p>Edges</p>
+				</div>
+				<div class="container modalContainer">
+					<div class="modalContent">
+						<input class="fillin_blank" data-role="amount" type="text" maxlength="3" size="1" placeholder="0" required>
+						<br />
+						<div class="button" data-role="add-edges" data-type="submit">Add Edges</div>
+						<div class="button" data-role="cancel-modal">Cancel</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal" data-form='cpr'>
+				<div class="windowBar modal-windowBar">
+					<p>Report CPR</p>
+				</div>
+				<div class="container modalContainer">
+					<div class="modalContent">
+						<div class="button" data-role="answer" data-answer="cummed">I Cummed</div>
+						<div class="button" data-role="answer" data-answer="milked">I Milked</div>
+						<div class="button" data-role="answer" data-answer="ruined">I Ruined</div>
+						<div class="button" data-role="cancel-modal">Cancel</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal" data-form='lock-up'>
+				<div id="steps-bar">
+					<div id="steps-title">
+						LOCK UP INSTRUCTIONS!
+					</div>
+					<div id="steps">
+						<div id="step">
+							<img src="..\img\I1.png">
+							<ol>
+								<li>OPEN lock and turn shackle 90*. Push down and and turn to indicated position.
+							</ol>
+						</div>
+						<div id="step">
+							<img src="..\img\I2.png">
+							<ol start="2">
+								<li>SET a random code WITHOUT looking.
+							</ol>
+						</div>
+						<div id="step">
+							<div id="steps-upload">
+									<div id="steps-drop">
+										Upload
+									</div>
+							</div>
+							<ol start="3">
+								<li>TAKE a photo of the code and DRAG here to upload. DELETE ALL copies of the file.
+							</ol>
+						</div>
+						<div id="step">
+							<img src="..\img\I4.png">
+							<ol start="4">
+								<li>PUT ON chastity device and LOCK UP the keys.
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

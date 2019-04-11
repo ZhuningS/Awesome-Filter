@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+<!--spring mvc 配置-->
+    <!--扫描control类注解-->
+    <context:component-scan base-package="com.duruo" annotation-config="true"/>
+
+    <!--通知spring使用cglib而不是jdk的来生成代理方法AOP可以拦截到control-->
+    <!--<aop:aspectj-autoproxy proxy-target-class="true"/>-->
+    <!--<bean id="userInterceptor" class="111"/>-->
+    <!--配置拦截器来设置token-->
+    <mvc:interceptors>
+        <!--<bean class="com.duruo.common.intereceptor.AuthorityInterceptor"></bean>-->
+        <mvc:interceptor>
+            <mvc:mapping path="/token/test.do"/>
+            <bean class="com.duruo.common.intereceptor.AuthorityInterceptor"/>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
+
+    <!--拦截器配置用户登录-->
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<mvc:exclude-mapping path="/user/**"/>-->
+            <!--<mvc:exclude-mapping path="/Assembly/**"/>-->
+            <!--<bean class="com.duruo.util.LoginInterceptor"></bean>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+
+    <!--&lt;!&ndash;对下面的页面不做拦截&ndash;&gt;-->
+    <!--<mvc:resources location="/page/" mapping="/queryGS.html" />-->
+
+    <!--<mvc:resources location="/page/fileUp/" mapping="/fileUp/**" />-->
+
+
+
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/plain;charset=UTF-8</value>
+                        <value>text/html;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+            <!--自动反序列化配置类-->
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!-- 多部分文件上传 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="104857600" />
+        <property name="maxInMemorySize" value="4096" />
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="resolveLazily" value="true"/>
+    </bean>
+
+
+</beans>

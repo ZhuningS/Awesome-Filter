@@ -1,0 +1,30 @@
+{
+  "name": "aliyun-cdi",
+  "version": "0.1.8",
+  "description": "阿里云内容检测API",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhujun24/aliyun-cdi.git"
+  },
+  "keywords": [
+    "阿里云",
+    "绿网",
+    "内容检测API"
+  ],
+  "author": "zhujun24",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhujun24/aliyun-cdi/issues"
+  },
+  "homepage": "https://github.com/zhujun24/aliyun-cdi#readme",
+  "dependencies": {
+    "crypto": "^0.0.3"
+  },
+  "devDependencies": {
+    "request": "^2.74.0"
+  }
+}

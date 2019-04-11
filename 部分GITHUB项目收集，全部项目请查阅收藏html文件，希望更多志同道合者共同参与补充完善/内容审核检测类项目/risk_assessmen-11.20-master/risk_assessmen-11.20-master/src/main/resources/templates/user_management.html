@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>AdminLTE 3 | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="http://www.ampleadmin.wrappixel.com/ampleadmin-html/ampleadmin-material/css/style.css"/>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/adminlte.min.css"/>
+    <link rel="stylesheet" href="https://3vshej.cn/AdminLTE/AdminLTE-2.4/dist/css/AdminLTE.min.css"/>
+
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/iCheck/flat/blue.css"/>
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="/morris/morris.css"/>
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="/jvectormap/jquery-jvectormap-1.2.2.css"/>
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="/datepicker/datepicker3.css"/>
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="/daterangepicker/daterangepicker-bs3.css"/>
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"/>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+    <style>
+        #container {
+            min-width: 310px;
+            max-width: 800px;
+            margin: 0 auto
+        }
+        .wt-img {
+            background-image: url("http://www.ampleadmin.wrappixel.com/ampleadmin-html/plugins/images/weather-bg.jpg")
+        }
+        .sidebar{
+            width: 250px;
+        }
+        .sidebar:not(.nohover):hover {
+            z-index: 1001;
+            position: fixed;
+            width: 250px;
+            padding-top: 0px;
+            height: 100%;
+            -webkit-transition: 0.05s ease-in;
+            -o-transition: 0.05s ease-in;
+            transition: 0.05s ease-in;
+        }
+        .fade:not(.show) {
+            opacity: 0.76;
+        }
+        .modal-open .modal {
+            overflow-x: inherit;
+            overflow-y: inherit;
+        }
+        .modal {
+            position: fixed;
+            top: 216px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+             overflow: inherit;
+            outline: 0;
+        }
+        .main-sidebar {
+            position: fixed;
+        }
+        .table tbody tr.advance-table-row.active {
+            border: 2px solid rgba(120, 130, 140, 0.13);
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <div  th:include="top::topbar"></div>
+    <!-- /.navbar -->
+    <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >手机网站模板</a></div>
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar  elevation-4" id="sidebar" style="height: 100%">
+        <!-- Brand Logo -->
+        <!-- Sidebar -->
+        <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">企业门户体系</a></li>
+                            <li class="breadcrumb-item active">用户管理</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- /.slider -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="manage-users">
+                            <div class="sttabs tabs-style-iconbox">
+                                <nav>
+                                    <ul>
+                                        <li class="tab-current" id="user"><a  class="fa  fa-user" ><br/><span style="display: block;margin-top: 15px">Select Users</span></a></li>
+                                        <li class="" id="permission"><a  class="fa fa-lock"><br/><span style="display: block;margin-top: 15px">Set Permissions</span></a></li>
+                                        <li class=""><a  class="fa fa-envelope"><br/><span style="display: block;margin-top: 15px">Message Users</span></a></li>
+                                    </ul>
+                                </nav>
+                                <div class="content-wrap">
+                                    <section id="section-iconbox-1" class="content-current">
+                                        <div class="alert alert-danger alert-dismissible" th:if="${add_failure}">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <h5><i class="icon fa fa-ban"></i> 失败!</h5>
+                                            <div th:text="${add_failure}"></div>
+                                        </div>
+                                        <div class="alert alert-success alert-dismissible" th:if="${add_success}">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <h5><i class="icon fa fa-check"></i> 成功!</h5>
+                                            <div th:text="${add_success}+' 添加成功!'"></div>
+                                        </div>
+                                        <div class="p-20 row">
+                                            <div class="col-sm-6">
+                                                <h3 class="m-t-0" style="color: gray">用户管理</h3>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <button id="add" type="button" class="btn bg-purple btn-flat margin " style="margin-left: 408px">新增用户</button>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive manage-table">
+                                            <table class="table" cellspacing="14">
+                                                <thead>
+                                                <tr>
+                                                    <th style="text-align: center">序号</th>
+                                                    <th style="text-align: center">公司代表</th>
+                                                    <th style="text-align: center">姓名</th>
+                                                    <th style="text-align: center">所属公司</th>
+                                                    <th style="text-align: center">所属部门</th>
+                                                    <th style="text-align: center">所在职位</th>
+                                                    <th style="text-align: center">工号</th>
+                                                    <th style="text-align: center">系统职位</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr th:each="u,i:${user}" class="advance-table-row active" th:class="${i.even}? 'bg-gray disabled color-palette'">
+                                                    <td th:text="${i.count}" style="text-align: center" class="id"></td>
+                                                    <td width="60"><img src="http://www.ampleadmin.wrappixel.com/ampleadmin-html/plugins/images/users/genu.jpg" class="img-circle" width="30"/></td>
+                                                    <td th:text="${u.id}" style="display: none" class="id"></td>
+                                                    <td th:text="${u.workerName}"  style="text-align: center" class="user_name"></td>
+                                                    <td th:text="${u.userCompany}" style="text-align: center"></td>
+                                                    <td th:text="${u.department}" style="text-align: center"></td>
+                                                    <td th:text="${u.position}"  style="text-align: center"></td>
+                                                    <td th:text="${u.workNumber}" class="workNumber" style="text-align: center"></td>
+                                                    <td th:text="${u.menuRole}"  style="text-align: center"></td>
+                                                    <td ><a th:href="@{'/user/edit/'+${u.id}}" href=""><i class="fa fa-edit sm" style="cursor: pointer"></i> </a><a th:href="@{/user/del/{id}(id=${u.id})}"><i class="fa  fa-trash-o sm" style="cursor: pointer"></i></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="7" class="sm-pd"></td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="p-10 row">
+                                            <div class="col-sm-2 pull-right m-t-10" onclick="window.location.href='/main/group_management'"><a href="javascript:void(0);" class="btn btn-block p-10 btn-rounded btn-danger"><span>返回</span></a></div>
+                                        </div>
+                                    </section>
+                                    <section id="section-iconbox-2" class="">
+                                        <h3 class="m-t-0" style="color: gray">权限管理</h3>
+                                        <div class="table-responsive manage-table">
+                                            <table class="table" cellspacing="14">
+                                                <thead>
+                                                <tr>
+
+                                                    <th>用户名</th>
+                                                    <th>公司</th>
+                                                    <th>部门</th>
+                                                    <th>工号</th>
+                                                    <th>能否管理用户</th>
+                                                    <th>能否创建新项目</th>
+                                                    <th>能否审批新项目</th>
+                                                    <th>能否修改项目</th>
+                                                    <th>能否发布项目</th>
+                                                    <th th:if="${session.user.getPermission()==4 or session.user.getPermission()==3}">操作</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="userpermissionmanagement" th:each="p:${permission}">
+                                                    <td style="text-align: center;display: none" class="user_name ready_review_td pid" th:text="${p.id}"  ><input type="text" th:name="ID" th:value="${p.id}" style="display: none"/></td>
+                                                    <td style="text-align: center" class="user_name ready_review_td" th:text="${p.userName}"  ><input type="text" th:name="用户名" th:value="${p.userName}" style="display: none"/></td>
+                                                    <td style="text-align: center" class="user_name ready_review_td" th:text="${p.userCompany}"><input type="text" th:name="公司" th:value="${p.userName}" style="display: none"/></td>
+                                                    <td style="text-align: center" class="user_name ready_review_td" th:text="${p.userDepartment}"><input type="text" th:name="部门" th:value="${p.userName}" style="display: none"/></td>
+                                                    <td style="text-align: center" class="user_name ready_review_td worknum" th:text="${p.workNumber}"><input type="text" th:name="工号" th:value="${p.workNumber}" style="display: none"/></td>
+                                                    <td style="text-align: center" class="user_name ready_review_td able_manage_user" ><input type="checkbox" th:checked="${p.ableManageUser eq '能'}"  th:value="${p.ableManageUser}"  th:name="能否管理用户"/></td>
+                                                    <td style="text-align: center" class="user_name ready_review_td" ><input type="checkbox" th:checked="${p.ableCreateNewProject} eq '能'"  th:value="${p.ableCreateNewProject}" th:name="能否创建新项目"/></td>
+                                                    <td style="text-align: center" class="user_name ready_review_td able_review_project" ><input type="checkbox" th:checked="${p.ableExaminationApprovalProject eq '能'}"  th:value="${p.ableExaminationApprovalProject}" th:name="能否审批新项目"/></td>
+                                                    <td style="text-align: center" class="user_name ready_review_td" ><input type="checkbox" th:checked="${p.ableModifyProject eq '能'}"  th:value="${p.ableModifyProject}" th:name="能否修改项目"/></td>
+                                                    <td style="text-align: center" class="user_name ready_review_td able_push_project" ><input type="checkbox" th:checked="${p.ablePushProject eq '能'}"  th:value="${p.ablePushProject}" th:name="能否发布项目"/></td>
+                                                    <td th:if="${session.user.getPermission()==4 or session.user.getPermission()==3}"><i class="fa  fa-check edit_permission_label_save"  style="cursor: pointer;font-size: 20px"></i></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="7" class="sm-pd"></td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="p-10 row">
+                                            <div class="col-sm-2 pull-right m-t-10" onclick="window.location.href='/main/group_management'"><a href="javascript:void(0);" class="btn btn-block p-10 btn-rounded btn-danger"><span>返回</span></a></div>
+                                        </div>
+                                    </section>
+                                    <section id="section-iconbox-3" class="">
+                                        <h2>Tabbing 3</h2></section>
+                                </div>
+                                <!-- /content -->
+                            </div>
+                            <!-- /tabs -->
+                        </div>
+                        </div>
+                    <div class="modal  fade" id="add_user">
+                        <div class="modal-dialog" style="width: 800px">
+                            <div class="modal-content">
+                                <div class="modal-header" style="background-color: purple">
+                                    <h4 class="modal-title" style="color: white">添加新用户</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true" onclick="window.location.href='/user/user_management'">&times;</span></button>
+                                </div>
+                                <form id="form" action="#"  th:action='@{/user/department_doadd}'    th:method="post"  th:object="${uo}"  class="user">
+                                    <div class="modal-body">
+                                        <div class="form-group has-feedback">
+                                            <input type="text" class="form-control" placeholder="请输入用户名" th:field="*{username}" onblur="isUserName(this.value)"/>
+                                            <span class="fa fa-user form-control-feedback"></span>
+                                            <div id="user_name" style="color: red;text-align: center;display: inline-block"></div>
+
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <input type="text" class="form-control"  placeholder="请输入密码"  th:field="*{password}" onblur="isPassword(this.value)" id="password"/>
+                                            <span class="fa fa-lock form-control-feedback"></span>
+                                            <div id="user_password" style="color: red;text-align: center;display: inline-block"></div>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <input type="text" class="form-control" placeholder="Retype password" onblur="isRetypePassword(this.value)" id="Retype_password"/>
+                                            <span class="fa fa-mail-forward (alias) form-control-feedback"></span>
+                                            <div id="user_Retype_password" style="color: red;text-align: center;display: inline-block"></div>
+                                        </div>
+
+                                        <div class="form-group has-feedback">
+                                            <input type="text" class="form-control"  placeholder="请输入用户真实姓名"  th:field="*{workerName}" onblur="isRealname(this.value)"/>
+                                            <span class="fa fa-envelope form-control-feedback"></span>
+                                            <div id="real_name" style="color: red;text-align: center;display: inline-block"></div>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <input type="text" class="form-control"  placeholder="请输入用户的工号"  th:field="*{workNumber}" onblur="isworknumber(this.value)"/>
+                                            <span class="fa fa-amazon form-control-feedback"></span>
+                                            <div id="user_number" style="color: red;text-align: center;display: inline-block"></div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="submit" class="btn "  value="提交" style="color: #222222"/>
+                                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal" style="color: #222222" onclick="window.location.href='/user/user_management'">Close</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+
+        </section>
+
+        <div id="modaluseredit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 700px">
+            <div class="modal-content radius">
+                <div class="modal-header">
+                    <h3 class="modal-title">修改用户信息</h3>
+                    <a class="close"  href="/user/user_management" >×</a>
+                </div>
+                <form action="#" th:action="@{'/user/update/'+${id}}" th:object="${uo1}" >
+                    <div class="modal-body">
+
+                        <div th:each="u:${uo1}">
+                        <div class="modal-body">
+                            <div class="form-group has-feedback">
+                                <input type="text" class="form-control" placeholder="请输入用户名" th:field="*{username}" th:value="${u.username}" onblur="isUserName(this.value)"/>
+                                <span class="fa fa-user form-control-feedback"></span>
+                                <div id="user_name" style="color: red;text-align: center;display: inline-block"></div>
+
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="text" class="form-control"  placeholder="请输入用户真实姓名"  th:field="*{workerName}" th:value="${u.workerName}" onblur="isRealname(this.value)" id="workerName_edit"/>
+                                <span class="fa fa-envelope form-control-feedback"></span>
+                                <div id="real_name" style="color: red;text-align: center;display: inline-block"></div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="text" class="form-control"  placeholder="请输入密码"  th:field="*{password}" th:value="${password}" onblur="isPassword(this.value)" id="password_edit"/>
+                                <span class="fa fa-lock form-control-feedback"></span>
+                                <div id="user_password" style="color: red;text-align: center;display: inline-block"></div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="text" class="form-control" placeholder="Retype password" onblur="isRetypePassword(this.value)"  id="Retype_password_edit"/>
+                                <span class="fa fa-lock form-control-feedback"></span>
+                                <div id="user_Retype_password" style="color: red;text-align: center;display: inline-block"></div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">确定</button>
+                        <button class="btn" data-dismiss="modal" aria-hidden="true" style="color: black" onclick="window.location.href='/user/user_management'">关闭</button>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="del_user_ready" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 400px ">
+            <div class="modal-content radius">
+                <div class="modal-header">
+                    <h3 class="modal-title">删除用户</h3>
+                    <a class="close" data-dismiss="modal" aria-hidden="true" href="/user/user_management">×</a>
+                </div>
+                <div class="modal-body">
+                    <p>您确认要删除用户 ：<span id="del_user_name"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="del_user_ready_button">确定</button>
+                    <button class="btn" data-dismiss="modal" aria-hidden="true" style="color: black">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-sm-none d-md-block">
+            Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="/datatables/jquery.dataTables.min.js"></script>
+<script src="/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- SlimScroll -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/js/demo.js"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="http://www.ampleadmin.wrappixel.com/ampleadmin-html/ampleadmin-material/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="http://www.ampleadmin.wrappixel.com/ampleadmin-html/plugins/bower_components/owl.carousel/owl.custom.js"></script>
+<script src="http://www.ampleadmin.wrappixel.com/ampleadmin-html/ampleadmin-material/js/cbpFWTabs.js"></script>
+<script type="text/javascript">
+    (function() {
+        [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
+            new CBPFWTabs(el);
+        });
+    })();
+</script>
+
+<script>
+    $(function () {
+        $("#add").click(function () {
+            $('#add_user').modal('show')
+        })
+    })
+</script>
+<script>
+    //<![CDATA[
+    function isUserName(val) {
+        var reg = /^[a-zA-Z0-9_-]{4,16}$/;
+        if(val!=''){
+            if (!reg.test(val)) {
+                $("#user_name").html("请输入 4到16位（字母，数字，下划线，减号）");
+                return false ;
+            } else {
+                $("#user_name").html("");
+                return true;
+            }
+        } else {
+            $("#user_name").html("用户名不能为空");
+            return false;
+        }
+
+    }
+    function isRealname(val) {
+        var reg = /^[\u4E00-\u9FA5]{1,5}$/;
+        if(val!=''){
+            if (!reg.test(val)) {
+                $("#real_name").html("请输入正确的中文字符，最多5位");
+                return false;
+            } else {
+                $("#real_name").html("");
+                return true;
+            }
+        } else {
+            $("#real_name").html("真实姓名不能为空");
+            return false;
+        }}
+    function isPassword(val) {
+        var reg =  /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/;
+        if(val!=''){
+            if (!reg.test(val)) {
+                $("#user_password").html("密码格式不对，密码最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符");
+                return false ;
+            } else {
+                $("#user_password").html("");
+                return true;
+            }
+        }else {
+            $("#user_password").html("用户密码不能为空");
+            return false;
+        }
+    }
+    function isRetypePassword(val) {
+        var password_original=$("#password").val();
+        if(val !=''){
+            if(val!=password_original){
+                $("#user_Retype_password").html("重复密码不正确，请重新输入!");
+
+            }else {
+                $("#user_Retype_password").html("");
+                return true;
+            }
+        }else {
+            $("#user_Retype_password").html("密码不能为空");
+            return false;
+        }
+    }
+    function isPosition(val) {
+        var reg = /^[\u4E00-\u9FA5]{1,5}$/;
+        if (val != '') {
+            if (!reg.test(val)) {
+                $("#user_position").html("职业格式不正确，请输入正确的中文格式，最多5位");
+                return false;
+            } else {
+                $("#user_position").html("");
+                return true;
+            }
+        }else {
+            $("#user_position").html("职位不能为空");
+            return false;
+        }
+    }
+    function isworknumber(val) {
+        var reg = /^\d{5}$/;
+        if (val != '') {
+            if (!reg.test(val)) {
+                $("#user_number").html("工号格式不对，为5位正整数");
+                return false;
+            } else {
+                $("#user_number").html("");
+                return true;
+            }
+        }else {
+            $("#user_number").html("工号不能为空");
+            return false;
+        }
+    }
+
+    function isTelephone(val) {
+        var reg = /^1[34578]\d{9}$/;
+        if (val != '') {
+            if (!reg.test(val)) {
+                $("#user_telephone").html("请输入正确的手机号");
+                return false;
+            } else {
+                $("#user_telephone").html("");
+                return true;
+            }
+        }else {
+            $("#user_telephone").html("手机号不能为空");
+            return false;
+        }
+
+    }
+
+    //]]>
+</script>
+<script>
+    //<![CDATA[
+    $(function () {
+        $("#submit").click(function () {
+            var user_name=isUserName($("#username").val());
+            var real_name=isRealname($("#workerName").val());
+            var user_password=isPassword($("#password").val());
+            var user_position=isPosition($("#position").val());
+            var user_number=isworknumber($("#workNumber").val());
+            var user_telephone=isTelephone($("#mobilePhone").val());
+            if(user_name==true && real_name==true && user_position==true && user_password==true && user_number==true && user_telephone==true ){
+                if($("#agreement").is(':checked')){
+                    $(this).attr("type","submit");
+                    $(this).click();
+                }else {
+                    alert("请阅读协议!")
+                }
+            } else {
+                alert("输入格式有误，请重新提交!")
+            }
+
+
+        })
+    })
+    //]]>
+</script>
+<script th:inline="javascript">
+    var add_user_success=[[${add_user_success}]];
+    var point_permission=[[${point_permission}]];
+    if(point_permission==1){
+        $("#permission").click();
+    }
+    if(add_user_success==1){
+        alert("系统用户创建成功!")
+    }
+   var user_edit=[[${user_edit}]];
+    if(user_edit==1){
+        $("#modaluseredit").modal('show');
+    }
+    var user_del_success=[[${user_del_success}]];
+    if(user_del_success==1){
+        alert("用户删除成功!")
+    }
+    var user_name_exist=[[${user_name_exist}]];
+    if(user_name_exist==1){
+        alert("用户名已存在，请重新输入!")
+    }
+    var user_update_success=[[${user_update_success}]];
+    if(user_update_success==1){
+        alert("更新成功!")
+    }
+    var user_WorkNumber_exist=[[${user_WorkNumber_exist}]];
+    if(user_WorkNumber_exist==1){
+        alert("用户工号已存在，请重新输入!")
+    }
+
+</script>
+<script th:inline="javascript">
+    $(function () {
+        var worknum=[[${worknum}]];
+        // alert(worknum)
+        $(".usermanagement").each(function () {
+            if($(this).find(".worknum").html()==worknum){
+                $(this).find("td").css("color","red")
+            }
+        });
+
+        // alert(worknum)
+        $(".userpermissionmanagement").each(function () {
+            if($(this).find(".worknum").html()==worknum){
+                $(this).find("td").css("color","red")
+            }
+        });
+        $(".userpermissionmanagement").each(function () {
+            if(worknum.substring(0,1)==3){
+                if ($(this).find(".worknum").html().substring(0,1)>=worknum.substring(0,1)){
+                    $(this).find("input").each(function () {
+                        $(this).attr("disabled","disabled")
+                    });
+                    $(this).find("i").each(function () {
+                        $(this).hide();
+                    })
+
+
+                }else {
+                    $(this).find(".able_manage_user,.able_review_project,.able_push_project").find("input").each(function () {
+                        $(this).attr("disabled","disabled")
+                    });
+                    $(this).find(".able_manage_user,.able_review_project,.able_push_project").find("i").each(function () {
+                        $(this).hide();
+                    })
+                }
+            }
+        });
+        $(".userpermissionmanagement").each(function () {
+            if(worknum.substring(0,1)==2){
+                if ($(this).find(".worknum").html().substring(0,1)>=worknum.substring(0,1)){
+                    $(this).find("input").each(function () {
+                        $(this).attr("disabled","disabled")
+                    });
+                    $(this).find("i").each(function () {
+                        $(this).hide();
+                    })
+
+
+                }else {
+                    $(this).find(".able_manage_user,.able_review_project,.able_push_project").find("input").each(function () {
+                        $(this).attr("disabled","disabled")
+                    });
+                    $(this).find(".able_manage_user,.able_review_project,.able_push_project").find("i").each(function () {
+                        $(this).hide();
+                    })
+                }
+            }
+        })
+        $(".userpermissionmanagement").each(function () {
+            if(worknum.substring(0,1)==1){
+                if ($(this).find(".worknum").html().substring(0,1)>=worknum.substring(0,1)){
+                    $(this).find("input").each(function () {
+                        $(this).attr("disabled","disabled")
+                    });
+                    $(this).find("i").each(function () {
+                        $(this).hide();
+                    })
+
+
+                }else {
+                    $(this).find(".able_manage_user,.able_review_project,.able_push_project").find("input").each(function () {
+                        $(this).attr("disabled","disabled")
+                    });
+                    $(this).find(".able_manage_user,.able_review_project,.able_push_project").find("i").each(function () {
+                        $(this).hide();
+                    })
+                }
+            }
+        })
+        $(".userpermissionmanagement").each(function () {
+            if(worknum.substring(0,1)==4 ){
+                if ($(this).find(".worknum").html().substring(0,1)>=worknum.substring(0,1) ||$(this).find(".worknum").html().substring(0,1)==3){
+                    $(this).find("input").each(function () {
+                        $(this).attr("disabled","disabled")
+                    });
+                    $(this).find("i").each(function () {
+                        $(this).hide();
+                    })
+
+
+                }else {
+                    $(this).find(".able_manage_user,.able_review_project,.able_push_project").find("input").each(function () {
+                        $(this).attr("disabled","disabled")
+                    });
+                    $(this).find(".able_manage_user,.able_review_project,.able_push_project").find("i").each(function () {
+                        $(this).hide();
+                    })
+                }
+            }
+        })
+        $(".userpermissionmanagement").each(function () {
+            if(worknum.substring(0,1)==5){
+                if ($(this).find(".worknum").html().substring(0,1)>=worknum.substring(0,1)){
+                    $(this).find("input").each(function () {
+                        $(this).attr("disabled","disabled")
+                    });
+                    $(this).find("i").each(function () {
+                        $(this).hide();
+                    })
+
+
+                }else {
+                    $(this).find(".able_manage_user").find("input").each(function () {
+                        $(this).attr("disabled","disabled")
+                    });
+                    $(this).find(".able_manage_user").find("i").each(function () {
+                        $(this).hide();
+                    })
+                }
+            }
+        })
+        $(".userpermissionmanagement").each(function () {
+            if(worknum.substring(0,1)==6){
+                if ($(this).find(".worknum").html().substring(0,1)>=worknum.substring(0,1)||$(this).find(".worknum").html().substring(0,1)==5){
+                    $(this).find("input").each(function () {
+                        $(this).attr("disabled","disabled")
+                    });
+                    $(this).find("i").each(function () {
+                        $(this).hide();
+                    })
+
+
+                }else {
+                    $(this).find(".able_manage_user").find("input").each(function () {
+                        $(this).attr("disabled","disabled")
+                    });
+                    $(this).find(".able_manage_user").find("i").each(function () {
+                        $(this).hide();
+                    })
+                }
+            }
+        })
+    })
+</script>
+<script>
+    $(function () {
+        //<![CDATA[
+        ;(function($) {
+            'use strict';
+            $.fn.serializeJSON = function() {
+                var json = {};
+                $.each(this.find('input,select,textarea'), function(i) {
+                    var el = $(this),
+                        key = el.attr('name'),
+                        val = el.val();
+
+                    if (val != '' && val !== undefined && val !== null) {
+                        if (el.is(':checkbox')) {
+                            el.prop('checked') && ($.isArray(json[key]) ? json[key].push(val) : json[key] = "能");
+                            if(!el.is(':checked')){
+                                json[key] = "不能";
+                            }
+
+
+                        } else if (el.is(':radio')) {
+                            el.prop('checked') && (json[key] = val);
+                        } else {
+                            json[key] = val;
+                        }
+                    }
+                });
+                json["ID"]=$(this).siblings(".pid").html();
+                return json;
+            };
+        })(jQuery);
+        //]]>
+    })
+</script>
+<script th:inline="javascript">
+    $(function () {
+
+
+        $(".edit_permission_label_save").click(function () {
+            var data = JSON.stringify($(this).parent().siblings("td").serializeJSON());
+
+            $.ajax({
+                type: "post",
+                url: "/main/update",
+                contentType: "application/json;charset=UTF-8",
+                datatype: 'json',
+                data: data,
+                success: function (result) {
+                    window.location.href="/main/update_success";
+
+                }
+            })
+        });
+
+
+        var msg=[[${msg}]];
+        if(msg==1){
+            alert("更新成功!")
+        }
+    })
+</script>
+</body>
+</html>

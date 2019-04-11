@@ -1,0 +1,106 @@
+// color
+//
+//  [ $color-white ]
+//  1. 背景色
+//
+$color-white: #fff;
+//
+//  [ $color-black ]
+//  1. 首页图片背景色
+//
+$color-black: #333;
+//
+//  [ $color-link ]
+//  1. 链接颜色
+//  2. 主标题颜色
+//  3. title 颜色
+//
+$color-link: #222;
+
+//
+//  [ $color-pink-light ]
+//  1. 日常粉
+//
+$color-pink-light: #ffafc9;
+//
+//  [ $color-pink-light ]
+//  1. 有动态色
+//
+$color-pink-normal: #ff8eb3;
+//
+//  [ $color-pink-normal ]
+//  1. 排行榜前列，醒目色
+//
+$color-pink-deep: #f25d8e;
+
+//
+//  [ $color-blue-light ]
+//  1. 蓝色背景元素 hover 色
+//
+$color-blue-light: #00b5e5;
+//
+//  [ $color-blue-normal ]
+//  1. 链接 hover 颜色
+//
+$color-blue-normal: #409EFF;
+//
+//  [ $color-blue-deep ]
+//  1. 蓝色背景元素 border 色
+//
+$color-blue-deep: #0381aa;
+
+//
+//  [ $color-text-light ]
+//  1. 点赞量，评论数等
+//  2. summary，content 等
+//
+$color-text-light: #99a2aa;
+//
+//  [ $color-text-normal ]
+//  1. 副标题字色
+//
+$color-text-normal: #6d757a;
+//
+//  [ $color-text-deep ]
+//  1. 选项卡标题色
+//  2. HTML 默认字色
+//
+$color-text-deep: black;
+
+//
+//  [ $color-gray-light ]
+//  1. 淡灰背景元素
+//
+$color-gray-light: #f6f9fa;
+//
+//  [ $color-gray-normal ]
+//  1. 白色背景 hover 时使用
+//  2. 淡灰色背景元素的 border
+//  3. 灰色背景元素
+//  4. 浅色分割线
+//
+$color-gray-normal: #e5e9ef;
+//
+//  [ $color-gray-deep ]
+//  1. 灰色背景元素的 hover
+//  2. 白色背景 hover 时使用
+//  3. 白色背景元素的 border
+//  4. 深色分割线
+//
+$color-gray-deep: #ccd0d7;
+
+//
+//  [ $color-dark-light ]
+//  1. 排行榜后面数字排名的背景色
+//
+$color-dark-light: #b8c0cc;
+
+// size
+$font-size: 14px;
+$banner-hgt: 170px;
+
+// index
+
+// other
+$fade-time: .2s;
+$preview-footer-height: 60px;

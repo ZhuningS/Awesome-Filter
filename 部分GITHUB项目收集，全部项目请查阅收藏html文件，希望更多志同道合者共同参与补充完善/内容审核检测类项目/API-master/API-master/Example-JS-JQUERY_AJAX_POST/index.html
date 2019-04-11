@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ModerateContent.com - The FREE Content Moderation API</title>
+  
+  <!-- Your going to need to include the jquery library, this example leverages the google cdn -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+</head>
+<body style="font-family: verdana;">
+    <a href="https://www.moderatecontent.com" target="_blank"><img src="http://www.moderatecontent.com/img/logo.png" alt="ModerateContent.com" /></a><hr />
+    <h1>Example: Javascript - jQuery && AJAX && POST</h1>
+    
+    <div id="this_is_where_we_put_the_results">Loading...</div>
+
+    <script>
+        
+        // URL to connect to the api http|https
+        
+        var ajax_url = "https://www.moderatecontent.com/api/";
+        
+        // URL of our image, change it to your URL
+        
+        var image_url = "http://www.moderatecontent.com/img/logo.png"; 
+        
+        // call the api 
+        
+        function moderate_url(ajax_url, image_url){
+            var el = $('#this_is_where_we_put_the_results');
+            jQuery.ajax({
+                type: "POST",
+                url: ajax_url,
+                data: { url: image_url },
+                dataType: "json",
+                success: function (response_json) {
+                    if (response_json.error_code != 0){
+
+                        // error raised by the content moderation api
+
+                        el.html( "Error - " + response_json.error + "<p><code>" + JSON.stringify(response_json) + "</code></p>" );
+                    } else {
+
+                        // no errors, the api rated our image
+
+                        el.html( "Success<p><code>" + JSON.stringify(response_json) + "</code></p>" );
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+
+                    // error raised by the ajax call
+                    
+                    el.html( 'Error - Status: ' + xhr.status + ' Ready State: ' + xhr.readyState + ' Status Text: ' + xhr.statusText );
+                }
+            });
+        }
+        
+        // start the request after the jquery library has loaded
+        
+        $(document).ready(function(){
+            moderate_url(ajax_url, image_url);
+        });
+
+    </script>
+</body>
+</html>

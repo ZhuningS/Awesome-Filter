@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>加计扣除联系人</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../../assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../../assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../../assets/css/animate.css" rel="stylesheet">
+    <link href="../../assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="../../assets/css/style.css?v=4.1.0" rel="stylesheet">
+    <style>
+        .form-tr{
+            width: auto;
+        }
+        .formTitle {
+            width:180px !important;
+            font-size:15px !important;
+            color:#888 !important;
+            border:1px solid #ccc;
+        }
+        .formValue {
+            border:1px solid #ccc;
+        }
+    </style>
+</head>
+<body class="gray-bg top-navigation">
+
+<div id="page-wrapper" class="gray-bg">
+    <div class="row border-bottom white-bg">
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button aria-controls="navbar" aria-expanded="false"
+                        data-target="#navbar" data-toggle="collapse"
+                        class="navbar-toggle collapsed" type="button">
+                    <i class="fa fa-reorder"></i>
+                </button>
+                <a href="stAudit.html" class="navbar-brand">科委形式审核</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-top-links navbar-right">
+                    <li><a id="projectbudget">
+                        项目开发预算
+                    </a></li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li><a id="persions">
+                        项目参与人员情况
+                    </a></li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li><a id="projectdetail">
+                        项目信息
+                    </a></li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li><a id="contact">
+                        加计扣除联系人
+                    </a></li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li><a id="enterpriseDetail">
+                        企业信息
+                    </a></li>
+                </ul>
+                <!--<ul class="nav navbar-top-links navbar-right">-->
+                <!--<li><a id="linkmanlist">-->
+                <!--加计扣除联系人-->
+                <!--</a></li>-->
+                <!--</ul>-->
+            </div>
+        </nav>
+    </div>
+    <div class="wrapper wrapper-content center-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="ibox float-e-margins">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--审核结果-->
+
+        <div class="container">
+            <div class="ibox float-e-margins col-lg-10">
+                <!--<div class="ibox-title">-->
+                <!--<h5>科委形式审核意见</h5>-->
+                <!--</div>-->
+                <div class="ibox-content">
+
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th class="formTitle">科委形式审核意见：</th>
+                            <td class="formValue">
+                                <label id="opinion"></label>
+                            </td>
+                            <!--<th class="formTitle">科委形式审核意见：</th>-->
+                            <!--<td class="formValue">-->
+                            <!--<label id="opinion2"></label>-->
+                            <!--</td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- 全局js -->
+<script src="../../assets/js/jquery.min.js?v=2.1.4"></script>
+<script src="../../assets/js/bootstrap.min.js?v=3.3.6"></script>
+
+<!-- 自定义js -->
+<script src="../../assets/js/content.js?v=1.0.0"></script>
+<script src="../../assets/js/myjs.js"></script>
+
+<!-- Bootstrap table -->
+<script src="../../assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="../../assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<!-- Peity -->
+<script src="../../assets/js/demo/bootstrap-table-demo.js"></script>
+</body>
+<script type="text/javascript">
+    $("#back").click(function() {
+        window.history.go(-1);
+    })
+
+</script>
+</html>

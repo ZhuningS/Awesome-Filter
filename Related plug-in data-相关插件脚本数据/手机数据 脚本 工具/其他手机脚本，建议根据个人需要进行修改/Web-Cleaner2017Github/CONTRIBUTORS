@@ -1,0 +1,22 @@
+Original work:
+
+Name: Web Cleaner Extension
+Author: Joseph Gray, with contributions from:
+		Maria Solomond (Logo)
+		Notmasteryet (jpg.js, Base64.js, Deflate.js)
+		Sebastian Markbåge (PNG.js)
+		Jonleighton (base64ArrayBuffer)
+		Google (mutation_summary.js)
+
+#######################################################
+
+Modifications:
+
+This version contains some modifications from rob204 and Mopar though.
+Actually rob204 did some changes in the image file handling etc while
+Mopar revamped the options page and added the stats/progress page and stuff.
+
+Following a (probably incomplete) list of things used for the modifications:
+ - Nude.js (MIT License) by Patrick Wied https://www.patrick-wied.at/static/nudejs/
+ - Progress Bar Liquid Bubble (MIT License) by John Mothershed https://codepen.io/smeeckaert/pen/ojNLYj
+ - Silk icons (CC Attribution 2.5 License) by Mark James http://famfamfam.com/lab/icons/silk/

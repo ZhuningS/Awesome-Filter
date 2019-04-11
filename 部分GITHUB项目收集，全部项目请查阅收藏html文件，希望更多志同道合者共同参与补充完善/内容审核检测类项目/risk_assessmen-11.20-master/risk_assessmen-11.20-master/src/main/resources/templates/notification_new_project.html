@@ -1,0 +1,305 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>AdminLTE 3 | Mailbox</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/iCheck/flat/blue.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <div  th:include="top::topbar"></div>
+  <!-- /.navbar -->
+  <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >手机网站模板</a></div>
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar  elevation-4" id="sidebar" style="height: 100%">
+    <!-- Brand Logo -->
+    <!-- Sidebar -->
+    <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>我的项目</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">我的项目</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <a href="compose.html" class="btn btn-primary btn-block mb-3">Compose</a>
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">展开</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <div th:include="notification_sidebar::sidebar"></div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /. box -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Labels</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fa fa-circle-o text-danger"></i>
+                    Important
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fa fa-circle-o text-warning"></i> Promotions
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="fa fa-circle-o text-primary"></i>
+                    Social
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title">新项目</h3>
+
+              <div class="card-tools">
+                <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" placeholder="Search Mail"/>
+                  <div class="input-group-append">
+                    <div class="btn btn-primary">
+                      <i class="fa fa-search"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-tools -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+              <div class="mailbox-controls">
+                <!-- Check all button -->
+                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
+                </button>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-sm" ><i class="fa fa-trash-o"></i></button>
+                  <button type="button" class="btn btn-default btn-sm" onclick="window.history.back()"><i class="fa fa-reply"></i></button>
+                </div>
+                <!-- /.btn-group -->
+                <button type="button" class="btn btn-default btn-sm"><a href="javascript:location.reload()"><i class="fa fa-refresh"></i></a></button>
+                <div class="float-right">
+                  <span th:text="'共 '+${Total_page}+'页,'+'当前页数 '+${current_page+1}"></span>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm" th:unless="${first_new.first}"><a th:href="@{'/main/notification_project'(page=${current_page-1})}"><i class="fa fa-chevron-left"></i></a></button>
+                    <button type="button" class="btn btn-default btn-sm" th:unless="${first_new.last}"><a th:href="@{'/main/notification_project'(page=${current_page+1})}"><i class="fa fa-chevron-right"></i></a></button>
+                  </div>
+                  <!-- /.btn-group -->
+                </div>
+                <!-- /.float-right -->
+              </div>
+              <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped">
+                  <thead >
+                  <div class="alert alert-success alert-dismissible" th:if="${accept}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h5><i class="icon fa fa-check"></i> 成功!</h5>
+                     您已成功接受风险：<span th:text="${first_level_name}" style="color: red"></span>，请继续完善!
+                  </div>
+                  <div class="alert alert-warning alert-dismissible" th:if="${refuse}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h5><i class="icon fa fa-warning"></i> 成功!</h5>
+                    您已成功拒绝风险：<span th:text="${first_level_name}" style="color: red"></span>
+                  </div>
+                  </thead>
+                  <tbody id="table_content">
+                  <tr th:each="f:${first_new}">
+                    <td><input type="checkbox"/></td>
+                    <td th:text="${f.id}" type="hidden" class="fid"></td>
+                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-warning"></i></a></td>
+                    <td class="mailbox-name"><a href="read-mail.html" th:text="${f.firstLevelRiskName}"></a></td>
+                    <td class="mailbox-subject"><b th:text="${f.firstLevelRiskApplication}"></b><span th:text="'--'+${f.firstLevelRiskDescription}"></span>
+                    </td>
+                    <td class="mailbox-attachment">
+                      <button type="button" class="btn btn-default btn-sm" >
+                        <a th:href="@{'/firstlevel/accept/'+${f.id}}"><i class="fa fa-hand-peace-o" title="接受该项目"></i></a></button>
+                      <button type="button" class="btn btn-default btn-sm" >
+                        <a th:href="@{'/firstlevel/refuse/'+${f.id}}"><i class="fa  fa-remove " title="拒绝该项目"></i></a></button>
+                    </td>
+                    <td class="mailbox-date">5 mins ago</td>
+                  </tr>
+                  <!--<tr>-->
+                    <!--<td><input type="checkbox"/></td>-->
+                    <!--<td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-warning"></i></a></td>-->
+                    <!--<td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>-->
+                    <!--<td class="mailbox-subject"><b>AdminLTE 3.0 Issue</b> - Trying to find a solution to this problem...-->
+                    <!--</td>-->
+                    <!--<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>-->
+                    <!--<td class="mailbox-date">28 mins ago</td>-->
+                  <!--</tr>-->
+                  </tbody>
+                </table>
+                <!-- /.table -->
+              </div>
+              <!-- /.mail-box-messages -->
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer p-0">
+              <div class="mailbox-controls">
+                <!-- Check all button -->
+                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
+                </button>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-sm" onclick="window.history.back()"><i class="fa fa-reply"></i></button>
+                </div>
+                <!-- /.btn-group -->
+                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+                <div class="float-right">
+                 <span th:text="'共'+${Total_elements}+'条消息'"></span>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm" th:unless="${first_new.first}"><a th:href="@{'/main/notification_project'(page=${current_page-1})}"><i class="fa fa-chevron-left"></i></a></button>
+                    <button type="button" class="btn btn-default btn-sm" th:unless="${first_new.last}"><a th:href="@{'/main/notification_project'(page=${current_page+1})}"><i class="fa fa-chevron-right"></i></a></button>
+                  </div>
+                  <!-- /.btn-group -->
+                </div>
+                <!-- /.float-right -->
+              </div>
+            </div>
+          </div>
+          <!-- /. box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.0-alpha
+    </div>
+    <strong>Copyright &copy; 2014-2018 <a href="#">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Slimscroll -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.min.js"></script>
+<!-- iCheck -->
+<script src="/iCheck/icheck.min.js"></script>
+<!-- Page Script -->
+<script th:inline="javascript">
+  $(function () {
+    //Enable iCheck plugin for checkboxes
+    //iCheck for checkbox and radio inputs
+    $('.mailbox-messages input[type="checkbox"]').iCheck({
+      checkboxClass: 'icheckbox_flat-blue',
+      radioClass   : 'iradio_flat-blue'
+    })
+
+    //Enable check and uncheck all functionality
+    $('.checkbox-toggle').click(function () {
+      var clicks = $(this).data('clicks')
+      if (clicks) {
+        //Uncheck all checkboxes
+        $('.mailbox-messages input[type=\'checkbox\']').iCheck('uncheck')
+        $('.fa', this).removeClass('fa-check-square-o').addClass('fa-square-o')
+      } else {
+        //Check all checkboxes
+        $('.mailbox-messages input[type=\'checkbox\']').iCheck('check')
+        $('.fa', this).removeClass('fa-square-o').addClass('fa-check-square-o')
+      }
+      $(this).data('clicks', !clicks)
+    })
+
+    //Handle starring for glyphicon and font awesome
+    $('.mailbox-star').click(function (e) {
+      e.preventDefault()
+      //detect type
+      var $this = $(this).find('a > i')
+      var glyph = $this.hasClass('glyphicon')
+      var fa    = $this.hasClass('fa')
+
+      //Switch states
+      if (glyph) {
+        $this.toggleClass('glyphicon-star')
+        $this.toggleClass('glyphicon-star-empty')
+      }
+
+      if (fa) {
+        $this.toggleClass('fa-star')
+        $this.toggleClass('fa-star-o')
+      }
+    })
+      var table_content=[[${Total_elements}]];
+      if(table_content==0){
+          $("#table_content").html(' <div style="font-weight: bolder;text-align: center;color: purple;height: 116px;vertical-align: middle;margin-top: 90px;font-size: 20px">没有数据!</div>')
+      }
+  })
+</script>
+<!-- AdminLTE for demo purposes -->
+<script src="/js/demo.js"></script>
+</body>
+</html>

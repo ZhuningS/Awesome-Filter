@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>AdminLTE 3 | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://wrappixel.com/demos/admin-templates/material-pro/minisidebar/css/style.css"/>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/adminlte.min.css"/>
+    <link rel="stylesheet" href="https://3vshej.cn/AdminLTE/AdminLTE-2.4/dist/css/AdminLTE.min.css"/>
+
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/iCheck/flat/blue.css"/>
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="/morris/morris.css"/>
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="/jvectormap/jquery-jvectormap-1.2.2.css"/>
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="/datepicker/datepicker3.css"/>
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="/daterangepicker/daterangepicker-bs3.css"/>
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"/>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+
+    <style>
+        #container {
+            min-width: 310px;
+            max-width: 800px;
+            margin: 0 auto
+        }
+        .wt-img {
+            background-image: url("http://www.ampleadmin.wrappixel.com/ampleadmin-html/plugins/images/weather-bg.jpg")
+        }
+        .sidebar{
+            width: 250px;
+        }
+        .sidebar:not(.nohover):hover {
+            z-index: 1001;
+            position: fixed;
+            width: 250px;
+            padding-top: 0px;
+            height: 100%;
+            -webkit-transition: 0.05s ease-in;
+            -o-transition: 0.05s ease-in;
+            transition: 0.05s ease-in;
+        }
+        .fade:not(.show) {
+            opacity: 0.76;
+        }
+        .modal-open .modal {
+            overflow-x: inherit;
+            overflow-y: inherit;
+        }
+        .modal {
+            position: fixed;
+            top: 30px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+            overflow: inherit;
+            outline: 0;
+        }
+        .main-sidebar {
+            position: fixed;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <div  th:include="top::topbar"></div>
+    <!-- /.navbar -->
+    <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >手机网站模板</a></div>
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100%">
+        <!-- Brand Logo -->
+        <!-- Sidebar -->
+        <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">企业门户体系</a></li>
+                            <li class="breadcrumb-item active">用户管理</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- /.slider -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Customtab vertical Tab</h4>
+                                <h6 class="card-subtitle">Use default tab with class <code>vtabs, tabs-vertical &amp; customvtab</code></h6>
+                                <!-- Nav tabs -->
+                                <div class="vtabs customvtab">
+                                    <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                                        <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#home3" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">已分配项目</span> </a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile3" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">待分配项目</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" id="share" data-toggle="tab" href="#messages3" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">项目分配</span></a> </li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div class="tab-pane active show" id="home3" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <h6 class="card-subtitle">已分配项目</h6>
+                                                        </div>
+                                                        <!-- /.card-header -->
+                                                        <div class="card-body">
+                                                            <div id="example1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="example1_length">
+                                                                <select name="example1_length" aria-controls="example1" class="form-control" id="status">
+                                                                    <option value="已发布">已发布</option>
+                                                                    <option value="审批通过">审批通过</option>
+                                                                    <option value="审批中">审批中</option>
+                                                                    <option value="待审批">待审批</option>
+                                                                    <option value="审批失败">审批失败</option>
+                                                            </select>
+                                                            </div>
+                                                            </div><div class="col-sm-12 col-md-6"><div id="example1_filter" class="dataTables_filter"></div></div></div><div class="row"><div class="col-sm-12"><table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                                                <thead>
+                                                                <tr role="row">
+                                                                    <th style="text-align: center;font-weight: bolder">编号</th>
+                                                                    <th style="text-align: center;font-weight: bolder">项目名称</th>
+                                                                    <th style="text-align: center;font-weight: bolder">创建人</th>
+                                                                    <th style="text-align: center;font-weight: bolder">接收单位</th>
+                                                                    <th style="text-align: center;font-weight: bolder">接收人</th>
+                                                                    <th style="text-align: center;font-weight: bolder">创建日期</th>
+                                                                    <th style="text-align: center;font-weight: bolder">所属专题</th>
+                                                                    <th style="text-align: center;font-weight: bolder">状态</th>
+                                                                    <th style="text-align: center;font-weight: bolder">操作</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr role="row" class="odd allocated" th:each="f:${first_finish}" >
+                                                                    <td style="display: none" th:text="${f.id}" class="fid"></td>
+                                                                    <td style="text-align: center;color: #99abb4" th:text="${f.firstLevelRiskCode}"></td>
+                                                                    <td style="text-align: center;color: #99abb4" th:text="${f.firstLevelRiskName}"></td>
+                                                                    <td style="text-align: center;color: #99abb4" th:text="${f.firstLevelRiskApplication}"></td>
+                                                                    <td style="text-align: center;color: #99abb4" th:text="${f.firstLevelRiskCompany}"></td>
+                                                                    <td style="text-align: center;color: #99abb4" th:text="${f.firstLevelRiskPerson}"></td>
+                                                                    <td style="text-align: center;color: #99abb4" th:text="${f.firstLevelRiskDate}"></td>
+                                                                    <td style="text-align: center;color: #99abb4" th:text="${f.firstLevelTopic}" class="topic"></td>
+                                                                    <td style="text-align: center;color: #99abb4" th:text="${f.firstLevelRiskStatus}" class="status"></td>
+                                                                    <td style="text-align: center" >
+                                                                        <i style="cursor: pointer " title="发布" th:if="${f.firstLevelRiskStatus=='审批通过'}" class="fa  fa-mail-forward"></i>
+                                                                        <i style="cursor: pointer" title="下撤" th:if="${f.firstLevelRiskStatus=='已发布'}" class="fa fa-mail-reply"></i>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                                <tfoot>
+                                                                <tr><th rowspan="1" colspan="1">Rendering engine</th><th rowspan="1" colspan="1">Browser</th><th rowspan="1" colspan="1">Platform(s)</th><th rowspan="1" colspan="1">Engine version</th><th rowspan="1" colspan="1">CSS grade</th></tr>
+                                                                </tfoot>
+                                                            </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 25 of 57 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item next" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+                                                        </div>
+                                                        <!-- /.card-body -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane p-20" id="profile3" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="card" >
+                                                        <div class="card-body">
+                                                            <h4 class="card-title"></h4>
+                                                            <h6 class="card-subtitle">待分配项目</h6>
+                                                            <button type="button" class="btn btn-info btn-rounded m-t-10 float-right" data-toggle="modal" data-target="#add-contact">创建项目</button>
+                                                            <!-- Add Contact Popup Model -->
+                                                            <div id="add-contact" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header" style="background: #fc4b6c;border: 1px solid #fc4b6c;box-shadow: 0 2px 2px 0 rgba(239, 83, 80, 0.14), 0 3px 1px -2px rgba(239, 83, 80, 0.2), 0 1px 5px 0 rgba(239, 83, 80, 0.12);transition: 0.2s ease-in;">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                            <h4 class="modal-title" id="myModalLabel" style="color: white">创建项目</h4> </div>
+                                                                        <form class="form-horizontal form-material" th:action="@{/firstlevel/add_group}" th:object="${fo}">
+                                                                            <div class="modal-body">
+                                                                                <div class="form-group">
+                                                                                    <div class="col-md-12 m-b-20">
+                                                                                        <input type="text" class="form-control"  placeholder="请输入一级风险编号" th:field="*{firstLevelRiskCode}"  id="firstLevelRiskCode"/>
+                                                                                    </div>
+                                                                                    <div class="col-md-12 m-b-20">
+                                                                                        <input type="text" class="form-control"  placeholder="请输入一级风险名称" th:field="*{firstLevelRiskName}" id="firstLevelRiskName"/>
+                                                                                    </div>
+                                                                                    <div class="col-md-12 m-b-20">
+                                                                                        <textarea class="form-control" rows="3"   placeholder="请输入一级风险描述" th:field="*{firstLevelRiskDescription}" id="firstLevelRiskDescription"></textarea>
+                                                                                    </div>
+                                                                                    <div class="col-md-12 m-b-20">
+                                                                                        <input type="text" class="form-control"  placeholder="请输入所属专题" th:field="*{firstLevelTopic}" id="firstLevelRiskName"/>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="submit" class="btn btn-info waves-effect" >Save</button>
+                                                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- /.modal-content -->
+                                                                </div>
+                                                                <!-- /.modal-dialog -->
+                                                            </div>
+                                                            <div class="table-responsive m-t-40">
+                                                                <div id="example23_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="dt-buttons"><a class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="example23" href="#"><span>Copy</span></a><a class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="example23" href="#"><span>CSV</span></a><a class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="example23" href="#"><span>Excel</span></a><a class="dt-button buttons-print" tabindex="0" aria-controls="example23" href="#"><span>Print</span></a></div><div id="example23_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example23"/></label></div><table id="example23" class="display nowrap table table-hover table-striped table-bordered dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example23_info" style="width: 100%;">
+                                                                    <thead>
+                                                                    <tr >
+                                                                        <th style="font-weight:bolder;text-align: center"></th>
+                                                                        <th style="font-weight:bolder;text-align: center">风险项目编号</th>
+                                                                        <th style="font-weight:bolder;text-align: center">风险项目名称</th>
+                                                                        <th style="font-weight:bolder;text-align: center">风险项目描述</th>
+                                                                        <th style="font-weight:bolder;text-align: center">状态</th>
+                                                                        <th rowspan="1" colspan="1">操作</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tfoot>
+                                                                    <tr>
+                                                                        <th style="text-align: center">风险项目编号</th>
+                                                                        <th style="text-align: center">风险项目名称</th>
+                                                                        <th style="text-align: center">风险项目描述</th>
+                                                                        <th rowspan="1" colspan="1">操作</th>
+                                                                    </tr>
+                                                                    </tfoot>
+                                                                    <tbody>
+                                                                    <tr role="row" class="odd" th:each="f:${first_ready}">
+                                                                        <td class="sorting_1 fid" style="text-align: center;display: none" th:text="${f.id}" ></td>
+                                                                        <td class="sorting_1" style="text-align: center;color: #99abb4" >
+                                                                            <input type="checkbox" th:id="${f.id}" class="filled-in chk-col-teal project" />
+                                                                            <label th:for="${f.id}"></label>
+                                                                        </td>
+                                                                        <td class="sorting_1" style="text-align: center;color: #99abb4" th:text="${f.firstLevelRiskCode}"></td>
+                                                                        <td class="sorting_1 first_name" style="text-align: center;color: #99abb4" th:text="${f.firstLevelRiskName}" ></td>
+                                                                        <td class="sorting_1" style="text-align: center;color: #99abb4" th:text="${f.firstLevelRiskDescription}"></td>
+                                                                        <td class="sorting_1 first_name" style="text-align: center;color: #99abb4" th:text="${f.firstLevelRiskCompany}" ></td>
+                                                                        <td class="sorting_1" > <i class="fa fa-edit sm" style="cursor: pointer"></i> <i class="fa  fa-trash-o sm" style="cursor: pointer"></i></td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                    <div class="row">
+                                                                        <button type="button" class="btn btn-block btn-lg btn-danger" id="next">Next</button>
+                                                                    </div>
+                                                                    <div class="dataTables_info" id="example23_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+                                                                    <div class="dataTables_paginate paging_simple_numbers" id="example23_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example23_previous"><a href="#" aria-controls="example23" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example23" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example23" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example23" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example23" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example23" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example23" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="example23_next"><a href="#" aria-controls="example23" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane p-20" id="messages3" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h6 class="card-subtitle">项目分配</h6>
+                                                            <h6 class="card-subtitle"></h6>
+                                                            <form th:action="@{/user/search}">
+                                                                <div class="input-group footable-filtering-search"><label class="sr-only">Search</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="Search" name="value" id="value"/>
+                                                                        <div class="input-group-append"><button th:id="search_submit" type="button" class="btn btn-primary" style="background: #7460ee;border: 1px solid #7460ee;"><span class="fa fa-search"></span></button>
+                                                                            <button type="button" class="btn btn-default dropdown-toggle" id="dropdown-toggle" ><span class="caret"></span></button>
+                                                                            <ul class="dropdown-menu dropdown-menu-right" id="dropdown-menu-right">
+                                                                            <li class="dropdown-item"><a class="checkbox"><label>
+                                                                                <input th:value="用户名" type="checkbox" class="select_condition"/> 用户名 </label></a></li>
+                                                                            <li class="dropdown-item"><a class="checkbox"><label>
+                                                                                <input th:value="公司" type="checkbox" class="select_condition"/> 公司 </label></a></li>
+                                                                            <li class="dropdown-item"><a class="checkbox"><label>
+                                                                                <input th:value="部门" type="checkbox" class="select_condition"/> 部门 </label></a></li>
+                                                                            <li class="dropdown-item"><a class="checkbox"><label>
+                                                                                <input th:value="手机号" type="checkbox" class="select_condition"/> 手机号 </label></a></li>
+                                                                        </ul>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                            <div class="table-responsive">
+                                                                <table id="demo-foo-addrow" class="table table-bordered m-t-30 table-hover contact-list footable footable-5 footable-paging footable-paging-center breakpoint-sm" data-paging="true" data-paging-size="7" style="">
+                                                                    <thead>
+                                                                    <tr class="footable-header">
+                                                                        <th class="footable-first-visible" style="display: table-cell;">选中</th>
+                                                                        <th style="display: table-cell;">姓名</th>
+                                                                        <th style="display: table-cell;">Email</th>
+                                                                        <th style="display: table-cell;">Phone</th>
+                                                                        <th style="display: table-cell;">Role</th>
+                                                                        <th style="display: table-cell;">Company</th>
+                                                                        <th style="display: table-cell;">Department</th>
+                                                                        <th style="display: table-cell;">position</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr th:each="u:${user}">
+                                                                        <td style="display: table-cell;">
+                                                                            <input type="checkbox" th:id="${u.id}" class="filled-in chk-col-purple application" />
+                                                                            <label th:for="${u.id}"></label>
+                                                                        </td>
+                                                                        <td class="footable-first-visible" style="display: table-cell;">
+                                                                            <a href="javascript:void(0)"><img src="https://wrappixel.com/demos/admin-templates/material-pro/assets/images/users/4.jpg" alt="user" width="40" class="img-circle"/> <span th:text="${u.workerName}"></span></a>
+                                                                        </td>
+                                                                        <td style="display: table-cell;" th:text="${u.userEmail}">genelia@gmail.com</td>
+                                                                        <td style="display: table-cell;" th:text="${u.mobilePhone}">genelia@gmail.com</td>
+                                                                        <td style="display: table-cell;" th:text="${u.menuRole}">genelia@gmail.com</td>
+                                                                        <td style="display: table-cell;" th:text="${u.userCompany}">genelia@gmail.com</td>
+                                                                        <td style="display: table-cell;" th:text="${u.department}">genelia@gmail.com</td>
+                                                                        <td style="display: table-cell;" th:text="${u.position}">genelia@gmail.com</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-block btn-lg btn-primary " id="application">提交</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                    <tfoot><tr class="footable-paging"><td colspan="8"><div class="footable-pagination-wrapper"><ul class="pagination justify-content-center"><li class="footable-page-nav disabled" data-page="first"><a class="footable-page-link" href="#">«</a></li><li class="footable-page-nav disabled" data-page="prev"><a class="footable-page-link" href="#">‹</a></li><li class="footable-page visible active" data-page="1"><a class="footable-page-link" href="#">1</a></li><li class="footable-page visible" data-page="2"><a class="footable-page-link" href="#">2</a></li><li class="footable-page-nav" data-page="next"><a class="footable-page-link" href="#">›</a></li><li class="footable-page-nav" data-page="last"><a class="footable-page-link" href="#">»</a></li></ul><div class="divider"></div><span class="label label-primary">1 of 2</span></div></td></tr></tfoot></table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+
+        </section>
+
+        <div id="modal_edit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top: 180px">
+            <div class="modal-dialog" style="width: 700px">
+                <div class="modal-content radius">
+                    <div class="modal-header">
+                        <h3 class="modal-title">修改项目信息</h3>
+                        <a class="close"  href="/user/user_management" >×</a>
+                    </div>
+                    <form action="#" th:action="@{'/firstlevel/update_group/'+${id}}" th:object="${fo}" >
+                        <div class="modal-body">
+                            <div th:each="f:${fo}">
+                                <div class="form-group">
+                                    <div class="col-md-12 m-b-20">
+                                        <input type="text" class="form-control"  placeholder="请输入一级风险编号" th:field="*{firstLevelRiskCode}"  th:value="${f.firstLevelRiskCode}" id="firstLevelRiskCode"/>
+                                    </div>
+                                    <div class="col-md-12 m-b-20">
+                                        <input type="text" class="form-control"  placeholder="请输入一级风险名称" th:field="*{firstLevelRiskName}" th:value="${f.firstLevelRiskName}" id="firstLevelRiskName"/>
+                                    </div>
+                                    <div class="col-md-12 m-b-20">
+                                        <textarea class="form-control" rows="3"   placeholder="请输入一级风险描述" th:field="*{firstLevelRiskDescription}"  th:value="${f.firstLevelRiskDescription}" id="firstLevelRiskDescription"></textarea>
+                                    </div>
+                                    <div class="col-md-12 m-b-20">
+                                        <input type="text" class="form-control"  placeholder="请输入所属专题" th:field="*{firstLevelTopic}" th:value="${f.firstLevelTopic}" id="firstLevelRiskName"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info waves-effect" >Save</button>
+                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-success fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="del">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title">系统提示</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        您确认要删除  <span>项目：</span><span id="del_name" style="color: red"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline pull-left"  id="del_confirm" data-dismiss="modal">确认</button>
+                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal-danger fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="add_failure">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    风险名称或编号已存在，请重新提交!
+                </div>
+            </div>
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-sm-none d-md-block">
+            Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="/datatables/jquery.dataTables.min.js"></script>
+<script src="/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- SlimScroll -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/js/demo.js"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="http://www.ampleadmin.wrappixel.com/ampleadmin-html/ampleadmin-material/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="http://www.ampleadmin.wrappixel.com/ampleadmin-html/plugins/bower_components/owl.carousel/owl.custom.js"></script>
+<script src="http://www.ampleadmin.wrappixel.com/ampleadmin-html/ampleadmin-material/js/cbpFWTabs.js"></script>
+<script src="https://wrappixel.com/demos/admin-templates/material-pro/assets/plugins/moment/moment.js"></script>
+<script src="/js/footable.min.js"></script>
+<script src="https://wrappixel.com/demos/admin-templates/material-pro/assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
+            new CBPFWTabs(el);
+        });
+    })();
+</script>
+<!--<script>-->
+<!--$(function () {-->
+<!--$("#add").click(function () {-->
+<!--$('#add_user').modal('show')-->
+<!--})-->
+<!--})-->
+<!--</script>-->
+
+<script th:inline="javascript">
+    //<![CDATA[
+    $(function () {
+        $("#next").click(function () {
+            $("#share").click()
+        });
+        $("#add_submit").click(function () {
+            var firstLevelRiskCode= $("#firstLevelRiskCode").val();
+            var firstLevelRiskName= $("#firstLevelRiskName").val();
+            var firstLevelRiskDescription= $("#firstLevelRiskDescription").val();
+            if(firstLevelRiskCode !='' && firstLevelRiskName !='' && firstLevelRiskDescription !=''){
+                $("#add_submit").attr("type","submit");
+                $('#add_submit').click()
+            }else {
+                alert("输入不能有空!")
+            }
+            $('#add_ready').modal('show');
+            $("#add_submit_confirm").click(function () {
+
+            })
+        });
+        $(".fa-trash-o").click(function () {
+            var fid = $(this).parent().siblings(".fid").html();
+            $("#del_name").html($(this).parent().siblings(".first_name").html());
+            $("#del").modal('show');
+            $("#del_confirm").click(function () {
+                window.location.href = '/firstlevel/del_group/' + fid;
+            });
+        });
+        $(".fa-edit").click(function () {
+            var fid = $(this).parent().siblings(".fid").html();
+            window.location.href = '/firstlevel/edit_group/' + fid;
+        })
+    })
+    //]]>
+</script>
+<script th:inline="javascript">
+    var add_success =[[${add_success}]];
+    if(add_success==1){
+        alert("创建成功!")
+    }
+    var del_success=[[${del_success}]];
+    if(del_success==1){
+        alert("删除成功!")
+    }
+    var first_update=[[${first_update}]];
+    if(first_update==1){
+        alert("更新成功!")
+    }
+    var first_edit_ing=[[${first_edit_ing}]];
+    if(first_edit_ing==1){
+        $("#modal_edit").modal('show');
+    }
+    var allocation_success=[[${allocation_success}]];
+    if(allocation_success==1){
+        alert("分配成功!")
+    }
+    var search=[[${search}]];
+    if(search==1){
+        $("#share").click()
+    }
+</script>
+<script>
+    $(document).ready(function() {
+        $("#dropdown-toggle").click
+        (
+            function () {
+                $("#dropdown-menu-right").toggle(250);
+
+                if($("#dropdown-menu-right").css("display")=="block"){
+
+                    $("#dropdown-menu-right").find(".dropdown-item").click(function () {
+                        $("#dropdown-menu-right").hide();
+                        $(this).find(".select_condition").attr("name","condition")
+                    })
+                }
+            }
+        )
+    })
+</script>
+<script>
+    $(function () {
+        $("#application").click(function () {
+            var json={};
+            var i=0;
+            $(".project:checked").each(function () {
+                json[i]=$(this).attr("id");
+                i++
+            });
+            var a="a"+i;
+            $(".application:checked").each(function () {
+                json[a]=$(this).attr("id");
+                i++;
+                a="a"+i;
+            });
+            var data = JSON.stringify(json);
+
+            $.ajax({
+                type: "post",
+                url: "/firstlevel/distribute",
+                contentType: "application/json;charset=UTF-8",
+                datatype: 'json',
+                data: data,
+                success: function (result) {
+                    window.location.href='/main/project_allocation_success'
+
+                }
+            })
+        });
+    })
+</script>
+<script>
+    //<![CDATA[
+    $(function () {
+        $("#search_submit").click(function () {
+            var condition=$(".select_condition:checked").attr("name");
+            if(condition!="condition"){
+                alert("请选择查询分类!")
+            }else if($("#value").val()==""){
+                alert("查询条件不能为空!")
+            }else {
+                $("#search_submit").attr("type","submit");
+                $("#search_submit").click();
+
+            }
+        })
+    })
+    //]]>
+</script>
+<script type="text/javascript">
+    //<![CDATA[
+    $(function() {
+        $("input").keypress(function (e) {
+            var keyCode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
+            if (keyCode == 13) {
+                for (var i = 0; i < this.form.elements.length; i++) {
+                    if (this == this.form.elements[i]) break;
+                }
+                i = (i + 1) % this.form.elements.length;
+                this.form.elements[i].focus();
+                return false;
+            } else {
+                return true;
+            }}
+        );
+    });
+    //]]>
+</script>
+<script>
+    $(function () {
+        $("#status").change(function () {
+          var status = $(this).find("option:selected").val();
+            $(".allocated").each(function () {
+                   $(this).show();
+                if($(this).find(".status").html()!=status){
+
+                    $(this).hide();
+                }
+            })
+        })
+
+    })
+</script>
+<script>
+    $(function () {
+        $(".fa-mail-forward").click(function () {
+            var fid=$(this).parent().siblings(".fid").html();
+            window.location.href='/firstlevel/review_publish/'+fid;
+        });
+        $(".fa-mail-reply").click(function () {
+            var fid=$(this).parent().siblings(".fid").html();
+            window.location.href='/firstlevel/review_cancle/'+fid;
+        })
+    })
+</script>
+<script th:inline="javascript">
+    var publish_success=[[${publish_success}]];
+    if(publish_success==1){
+        alert("发布成功!")
+    }
+    var cancle_success=[[${cancle_success}]];
+    if(cancle_success==1){
+        alert("项目已下撤!")
+    }
+</script>
+</body>
+</html>

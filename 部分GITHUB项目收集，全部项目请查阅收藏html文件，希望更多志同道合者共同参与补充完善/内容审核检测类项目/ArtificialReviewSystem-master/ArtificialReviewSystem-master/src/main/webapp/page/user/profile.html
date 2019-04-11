@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>修改密码</title>
+
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../../assets/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="../../assets/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="../../assets/css/animate.css" rel="stylesheet">
+    <link href="../../assets/css/style.css?v=4.1.0" rel="stylesheet">
+    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
+
+</head>
+
+<body class="gray-bg">
+
+<div class="middle-box text-center loginscreen   animated fadeInDown">
+    <div>
+        <div>
+
+            <!--<h1 class="logo-name">修改密码</h1>-->
+
+        </div>
+        <h3>修改密码</h3>
+        <!--<p>创建一个H+新账户</p>-->
+        <form class="m-t" role="form" >
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="请输入原密码" required="" name="oldPassword">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="请输入新密码" required="" name="newPassword" id="newPassword">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="请再次输入新密码" required="" id="password">
+            </div>
+            <!--<div class="form-group text-left">-->
+                <!--<div class="checkbox i-checks">-->
+                    <!--<label class="no-padding">-->
+                        <!--<input type="checkbox"><i></i> 我同意注册协议</label>-->
+                <!--</div>-->
+            <!--</div>-->
+            <button type="submit" class="btn btn-primary block full-width m-b" id="sure">确 认</button>
+
+            <p class="text-muted text-center"><small>不想改了</small><a  id="back">点此取消</a>
+            </p>
+
+        </form>
+    </div>
+</div>
+
+<!-- 全局js -->
+<script src="../../assets/js/jquery.min.js?v=2.1.4"></script>
+<script src="../../assets/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="../../assets/js/jquery.serializejson.js"></script>
+<script src="../../assets/js/myjs.js"></script>
+
+<!-- iCheck -->
+<script src="../../assets/js/plugins/iCheck/icheck.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+
+    $("form").on('submit',function (e) {
+        e.preventDefault();
+        var passwordFirst=$("#newPassword").val();
+        var passwordThred=$("#password").val();
+        if(passwordFirst!=passwordThred){
+            alert("前后输入的密码不一致")
+            return false
+        }
+        var params = $("form").serializeJSON();
+        $.ajax({
+            type:'post',
+            url:baseUrl+"/user/updatePassword.do",
+            data:params,
+            dataType:'json',
+            success:function(data){
+                alert(data.msg)
+                if(data.status==0){
+                    window.history.go(-1);
+                }else if(data.status==1){
+
+                }
+
+            },
+            error:function (data) {
+                console.info(data)
+            }
+        })
+
+    })
+    $("#back").click(function () {
+        window.history.go(-1);
+    })
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>AdminLTE 3 | Registration Page</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/iCheck/square/blue.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+  <style>
+    body{
+      background: url("https://wrappixel.com/demos/admin-templates/material-pro/assets/images/big/img2.jpg");
+      background-size:100% 100%;
+      background-attachment: fixed;
+      /*opacity:0.6*/
+    }
+  </style>
+</head>
+<body  >
+<div class="register-box" style="width: 800px">
+  <div class="register-logo">
+    <a href="../../index2.html"><b>Admin</b>LTE</a>
+  </div>
+
+  <div class="card" style="width: 800px">
+    <div class="card-body register-card-body" style="width: 800px">
+      <p class="login-box-msg">Register a new membership</p>
+
+      <form id="form" action="#"  th:action='@{/user/doadd}'    th:method="post"  th:object="${uo}"  class="user">
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control" placeholder="请输入您的用户名" th:field="*{username}" onblur="isUserName(this.value)"/>
+          <span class="fa fa-user form-control-feedback"></span>
+          <div id="user_name" style="color: red;text-align: center;display: inline-block"></div>
+
+        </div>
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control"  placeholder="请输入您的密码"  th:field="*{password}" onblur="isPassword(this.value)" id="password"/>
+          <span class="fa fa-lock form-control-feedback"></span>
+          <div id="user_password" style="color: red;text-align: center;display: inline-block"></div>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control" placeholder="Retype password" onblur="isRetypePassword(this.value)" id="Retype_password"/>
+          <span class="fa fa-lock form-control-feedback"></span>
+          <div id="user_Retype_password" style="color: red;text-align: center;display: inline-block"></div>
+        </div>
+
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control"  placeholder="请输入您的真实姓名"  th:field="*{workerName}" onblur="isRealname(this.value)"/>
+          <span class="fa fa-envelope form-control-feedback"></span>
+          <div id="real_name" style="color: red;text-align: center;display: inline-block"></div>
+        </div>
+        <div class="form-group has-feedback">
+          <select class="form-control" size="1" name="sex" th:field="*{sex}">
+            <option value="男">男</option>
+            <option value="女">女</option>
+          </select>
+          <span class="fa  fa-male form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <select class="form-control" size="1" name="sex" th:field="*{userCompany}" >
+            <option value="集团" selected="selected" style="height: 38px">集团</option>
+            <option th:each="c:${company}" th:value="${c.companyName}" th:text="${c.companyName}" style="height: 38px"></option>
+          </select>
+          <span class="fa  fa-group form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <select class="form-control" size="1" name="sex" th:field="*{department}"  >
+            <option value="人力资源部" selected="selected" style="height: 38px">人力资源部</option>
+            <option value="风控部" selected="selected" style="height: 38px">风控部</option>
+          </select>
+          <span class="fa fa-map-signs form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control"  placeholder="请输入您职位"  th:field="*{position}" onblur="isPosition(this.value)"/>
+          <span class="fa fa-street-view form-control-feedback"></span>
+          <div id="user_position" style="color: red;text-align: center;display: inline-block"></div>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control"  placeholder="请输入您的工号"  th:field="*{workNumber}" onblur="isworknumber(this.value)"/>
+          <span class="fa fa-amazon form-control-feedback"></span>
+          <div id="user_number" style="color: red;text-align: center;display: inline-block"></div>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control"  placeholder="请输入您的手机号码"  th:field="*{mobilePhone}" onblur="isTelephone(this.value)"/>
+          <span class="fa  fa-phone-square form-control-feedback"></span>
+          <div id="user_telephone" style="color: red;text-align: center;display: inline-block"></div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="checkbox icheck">
+              <label>
+                <input type="checkbox" id="agreement" value="同意"/> I agree to the <a href="#">terms</a>
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="button" class="btn btn-primary btn-block btn-flat" id="submit">Register</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <div class="social-auth-links text-center">
+        <p>- OR -</p>
+        <a href="#" class="btn btn-block btn-primary">
+          <i class="fa fa-facebook mr-2"></i>
+          Sign up using Facebook
+        </a>
+        <a href="#" class="btn btn-block btn-danger">
+          <i class="fa fa-google-plus mr-2"></i>
+          Sign up using Google+
+        </a>
+      </div>
+
+      <a href="/login" class="text-center">I already have a membership</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- iCheck -->
+<script src="/iCheck/icheck.min.js"></script>
+<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass   : 'iradio_square-blue',
+      increaseArea : '20%' // optional
+    })
+  })
+</script>
+<script>
+    //<![CDATA[
+    function isUserName(val) {
+        var reg = /^[a-zA-Z0-9_-]{4,16}$/;
+        if(val!=''){
+            if (!reg.test(val)) {
+                $("#user_name").html("请输入 4到16位（字母，数字，下划线，减号）");
+                return false ;
+            } else {
+                $("#user_name").html("");
+                return true;
+            }
+        } else {
+            $("#user_name").html("用户名不能为空");
+            return false;
+        }
+
+    }
+    function isRealname(val) {
+        var reg = /^[\u4E00-\u9FA5]{1,5}$/;
+        if(val!=''){
+            if (!reg.test(val)) {
+                $("#real_name").html("请输入正确的中文字符，最多5位");
+                return false;
+            } else {
+                $("#real_name").html("");
+                return true;
+            }
+        } else {
+            $("#real_name").html("真实姓名不能为空");
+            return false;
+        }}
+    function isPassword(val) {
+        var reg =  /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/;
+        if(val!=''){
+            if (!reg.test(val)) {
+                $("#user_password").html("密码格式不对，密码最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符");
+                return false ;
+            } else {
+                $("#user_password").html("");
+                return true;
+            }
+        }else {
+            $("#user_password").html("用户密码不能为空");
+            return false;
+        }
+    }
+    function isRetypePassword(val) {
+        var password_original=$("#password").val();
+        if(val !=''){
+            if(val!=password_original){
+                $("#user_Retype_password").html("密码格式不正确，请重新输入!");
+
+            }else {
+                $("#user_Retype_password").html("");
+                return true;
+            }
+        }else {
+            $("#user_Retype_password").html("密码不能为空");
+            return false;
+        }
+    }
+    function isPosition(val) {
+        var reg = /^[\u4E00-\u9FA5]{1,5}$/;
+        if (val != '') {
+            if (!reg.test(val)) {
+                $("#user_position").html("职业格式不正确，请输入正确的中文格式，最多5位");
+                return false;
+            } else {
+                $("#user_position").html("");
+                return true;
+            }
+        }else {
+            $("#user_position").html("职位不能为空");
+            return false;
+        }
+    }
+    function isworknumber(val) {
+        var reg = /^\d{5}$/;
+        if (val != '') {
+            if (!reg.test(val)) {
+                $("#user_number").html("工号格式不对，为5位正整数");
+                return false;
+            } else {
+                $("#user_number").html("");
+                return true;
+            }
+        }else {
+            $("#user_number").html("工号不能为空");
+            return false;
+        }
+    }
+
+    function isTelephone(val) {
+        var reg = /^1[34578]\d{9}$/;
+        if (val != '') {
+            if (!reg.test(val)) {
+                $("#user_telephone").html("请输入正确的手机号");
+                return false;
+            } else {
+                $("#user_telephone").html("");
+                return true;
+            }
+        }else {
+            $("#user_telephone").html("手机号不能为空");
+            return false;
+        }
+
+    }
+
+    //]]>
+</script>
+<script>
+    //<![CDATA[
+    $(function () {
+        $("#submit").click(function () {
+            var user_name=isUserName($("#username").val());
+            var real_name=isRealname($("#workerName").val());
+            var user_password=isPassword($("#password").val());
+            var user_position=isPosition($("#position").val());
+            var user_number=isworknumber($("#workNumber").val());
+            var user_telephone=isTelephone($("#mobilePhone").val());
+            if(user_name==true && real_name==true && user_position==true && user_password==true && user_number==true && user_telephone==true ){
+                if($("#agreement").is(':checked')){
+                    $(this).attr("type","submit");
+                    $(this).click();
+                }else {
+                    alert("请阅读协议!")
+                }
+            } else {
+                alert("输入格式有误，请重新提交!")
+            }
+
+
+        })
+    })
+    //]]>
+</script>
+<script th:inline="javascript">
+  var user_name_exist=[[${user_name_exist}]];
+  if(user_name_exist==1){
+      alert("用户名已存在，请重新输入!")
+  }
+  var user_WorkNumber_exist=[[${user_WorkNumber_exist}]];
+  if(user_WorkNumber_exist==1){
+      alert("用户工号已存在，请重新输入!")
+  }
+</script>
+</body>
+</html>

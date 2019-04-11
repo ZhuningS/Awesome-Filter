@@ -1,0 +1,178 @@
+@charset 'utf-8';
+
+@import 'reset';
+
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+.clear {
+  float: right;
+}
+
+.list-content {
+  padding-top: 20px;
+}
+
+.search-header {
+  border: 1px solid #ccc;
+
+  .el-button--primary {
+    float: right;
+  }
+
+  .name {
+    padding-left: 20px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #ccc;
+    background: #EDF0F1;
+  }
+
+  .el-row {
+    padding: 20px 20px 0 20px;
+  }
+
+  .el-input {
+    width: 120px;
+  }
+
+  .el-select {
+    width: 120px;
+  }
+
+  .el-date-editor {
+    width: 120px;
+  }
+
+  .el-button {
+    padding: 8px 10px;
+  }
+}
+
+.table-content {
+  margin-top: 16px;
+}
+
+.el-icon {
+  color: #666;
+}
+
+// dialog样式
+//.el-dialog, .el-dialog--small {
+//  .el-dialog__header {
+//    display: none;
+//  }
+//}
+//
+.el-dialog__body {
+
+  .dialog-header {
+    padding: 12px;
+    font-size: 20px;
+    // text-align: center;
+
+    .del {
+      position: absolute;
+      right: 12px;
+      cursor: pointer;
+    }
+  }
+
+  .dialog-body {
+    padding: 40px 30px 30px;
+    .cell {
+      text-align: right;
+    }
+    .cell-right{
+      display: inline-block;
+      padding-left: 10px;
+    }
+  }
+}
+
+
+
+/*
+* 改写 element UI 样式
+*/
+// NAV导航菜单
+.el-menu {
+  background-color: #fff;
+}
+.el-submenu {
+  .el-submenu__title {
+    border-bottom: 1px solid #ccc;
+    color: #090A0C;
+  }
+  &.is-active {
+
+    .el-submenu__title {
+      border-bottom: 1px solid #ccc;
+    }
+  }
+  .el-menu {
+    background-color: #fff;
+  }
+  .el-menu-item {
+    border-bottom: 1px solid #ccc;
+    color: #090A0C;
+  }
+}
+.el-menu-item-group__title {
+  padding-top: 0;
+}
+.el-menu-item{
+  border-bottom: 1px solid #ccc;
+  &.is-active{
+    background-color: #c8cacd;
+    color: #20a0ff;
+  }
+}
+
+// 表格样式
+.el-table {
+  border-color: #82858b;
+  color: #090A0C;
+  font-size: 12px;
+}
+.el-table__body-wrapper{
+  overflow: auto;
+}
+.el-table::after {
+  background-color: #82858b;
+}
+.el-table::before {
+  background-color: #82858b;
+}
+.el-table td, .el-table th.is-leaf{
+  border-color: #82858b;
+}
+.el-table__footer-wrapper thead div, .el-table__header-wrapper thead div{
+  color: #090A0C;
+}
+
+// 按钮样式
+.el-button--text {
+  font-size: 12px;
+}
+.el-button--primary {
+  background-color: #816300;
+  border-color: #714400;
+  &:hover {
+    background-color: #bb9002;
+    border-color: #a06102;
+  }
+  &:active {
+    background-color: #bb9002;
+    border-color: #a06102;
+  }
+  &:focus {
+    background-color: #bb9002;
+    border-color: #a06102;
+  }
+}

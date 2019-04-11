@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+    <title>AdminLTE 3 | Dashboard 2</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/datatables/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="/css/adminlte.min.css"/>
+    <link rel="stylesheet" href="https://3vshej.cn/AdminLTE/AdminLTE-2.4/dist/css/AdminLTE.min.css"/>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+    <style>
+        .operation{
+            padding-top: 200px;
+        }
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            box-shadow: inset 0 0 0 transparent;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+
+        .table td, .table th {
+            padding: 0;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+        .operation_origial_information{
+            width: 400px;
+        }
+        .table td, .table th{
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <!-- Navbar -->
+    <div  th:include="top::topbar"></div>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100%">
+        <!-- Brand Logo -->
+        <!-- Sidebar -->
+        <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h5>凯胜园林</h5>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">企业门户体系</a></li>
+                            <li class="breadcrumb-item active">系统管理</li>
+                            <li class="breadcrumb-item active">凯胜园林</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- /.slider -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c567746b.jpg" alt="First slide"/>
+                                        </div>
+                                        <div class="carousel-item active carousel-item-left">
+                                            <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c5761ddc.jpg" alt="Second slide"/>
+                                        </div>
+                                        <div class="carousel-item carousel-item-next carousel-item-left">
+                                            <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c5828fa0.jpg" alt="Third slide"/>
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 ">
+                        <!--<h4 class="m-b-0">Card with Deck</h4>-->
+                        <p class="text-muted m-t-0 font-12">新闻热点</p>
+                        <div class="card-deck">
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="http://img95.699pic.com/photo/50038/6323.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">碧海飞虹连两岸 海天一色共筑梦——诚通凯胜承建宁波梅山湾沙滩公园建设纪实</h4>
+                                    <p class="card-text">7月17日，宁波市梅山湾沙滩公园（原名宁波万人沙滩）开始试运营，局部对外开放，一批批游客满心欢喜地在海水里嬉戏游玩。在蓝天白云的映衬下，碧海金沙、青山红桥格外吸引眼球，这几天到梅山湾沙滩公园游玩的照片频频刷爆朋友圈。
+                                        勇于担当  再硬的“骨头”也要啃下
+                                        去年6月，诚通凯胜成功中标宁波万人沙滩绿化景观工程，9月27日，宁波万人沙滩项目正式开工，按照当地政府在2018年7月“开门迎客”的目标，算上所有的法定节假日，总共也就258天的施工时间，且需要提前1个月完工移交给运营单位，留给诚通凯胜万人沙滩项目部的工期被严重“缩水”。如何在工期紧张的情况下完成施工任务，无疑成为横亘在诚通凯胜面前最大的一道难题。
+                                        “目标已定，决不言弃!”为兑现对地方政府的承诺，满足宁波市民对沙滩殷切的期盼，诚通凯胜上下高度重视，向困难发起了进攻，势把这块硬“骨头”啃下。公司副总经理郭波常驻现场，在板房办公，为项目建设解决各种棘手难题；项目经理李伟平做完头部开颅手术不久，顾不及多加休息，便投身到项目部，走遍每一个施工角落。甚至，他们与员工一起坐在沙滩上召开“露天会议”，成立包干小组、划定施工区域、调度资源等措施都是第一时间在现场拍板。
+                                        “说实话，当时接到通知的时候，感觉工程量太大，而且工期太短，心里没有一点底，可公司上下一心，给予了很多支持，我们也受到很大的鼓舞，憋着一股气就干了。”对于刚接手工程时的种种心情，现场负责人何杰记忆犹新。
+                                        时间与速度博弈，激情与汗水共舞。去年9月进场施工后，万人沙滩项目部实行倒排工期，顺排工序，分项突击，将工期节点精确到了每一天。在海边的建设施工受天气影响较大，用何杰的话说：“看得最多的就是天气预报，恨不得能跟老天多要点时间”。一旦遇下雨天气，项目部就要及时调整施工区域或施工节点，有时工序紧迫，就需要搭建雨棚，让工人在雨棚下继续施工，耽误的工期只能加班加点抢回来。
+                                        据介绍，项目部管理人员每天上午7时开工，甚至更早，除去中午吃饭休息的一个小时，到下午18时下班，工作时长超过10小时，而一线的工人天刚亮就开始进工地施工，通常夜如白昼，施工高峰期现场有近百人交叉作业。
+                                    </p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="http://img95.699pic.com/photo/2016/08/26/6d361885-4db6-4f48-920a-bdb490a06375.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">诚通凯胜信息化建设——项目管理系统启动会</h4>
+                                    <p class="card-text">为了更好的提高我司员工的工作效率，凯胜请来北京广联达梦龙科技有限公司为凯胜打造新的项目管理系统。7月20日在我司原设计大楼二楼会议室召开项目管理系统启动会。
+                                        会议上，信息小组组长陈强提出：一个信念，两个原则，三点要求。强调以项目为主，互联网技术为辅，全力支持信息建设等。信息小组副组长戎久杰陈述该项目的项目职责分工。广联达集团项目经理介绍了广联达集团、而后着重讲解关于新的项目管理系统相关内容以及管理系统完成后的展望。广联达集团浙沪地区负责人孙文发表此次合作的感想。在会议的最后，陈强进行此次会议的总结并宣布管理系统正式启动。此次项目预计十月份完成，届时凯胜的员工适应新的项目管理系统之后，在工作上会有极大的便利。诚通凯胜尽一切努力为同事们打造一个高效便捷的工作环境，提高工作效率，响应了公司的宗旨：开心工作，快乐生活！</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="http://img95.699pic.com/photo/50035/4328.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">2018年浙江省“优秀园林工程奖经验交流会”</h4>
+                                    <p class="card-text">  近日，浙江省风景园林学会为积极宣传我省的园林绿化事业发展情况，于12月份在湖州举办了浙江省“优秀园林工程”奖经验交流会，会议主要议程是现场观摩获奖工程，包括织里利济文化公园建设项目，南浔申苏浙皖至练杭高速公路连接线工程、安吉竹博园等金奖项目和南浔古镇。现场由专家讲解工程优点、难点、施工理念及后期养护，整个现场交流氛围非常好，全省各市的行业精英汇聚一堂，我司项目人员表示受益匪浅、这也将指导我们如何提升自身的管理水平。</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 ">
+                        <!--<h4 class="m-b-0">Card columns</h4>-->
+                        <p class="text-muted m-t-0 font-12">项目专题</p>
+
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="http://img95.699pic.com/photo/50029/7112.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">宁波国际马拉松赛事沿线环境整治及形象提升工程设计施工二标段</h4>
+                                    <p class="card-text"> 工程位于宁波市春晓街道，由宁波梅山岛开发投资有限公司和宁波滨海新城建设投资有限公司建设，由浙江凯胜园林市政建设有限公司承接，为设计施工一体化项目，项目结束后受到业主和广大群众的大力表扬，为滨海新城步的建设做出了一定的贡献。</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="http://img95.699pic.com/photo/50043/0044.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">东部新城市民广场景观工程Ⅱ标段</h4>
+                                    <p class="card-text">本工程建设单位：宁波市市政工程前期办公室；监督单位：宁波市市政公用工程安全质量监督站；设计单位：宁波市城建设计研究院有限公司；监理单位：宁波市斯正建设监理有限公司施工单位：浙江凯胜园林市政建设有限公司；勘察单位：浙江省工程勘察院；审计单位：宁波中诚造价咨询有限公司。
+                                        工程位于东部新城核心区行政中心南侧，与西侧宁波文化广场一路之隔，西临河清路，东靠福庆路，南临中山路、北靠宁穿路，总用地面积为14.6万平方米，整个工程主要包括：园林绿化、园林景观、市政道路给排水、河道河坎、景观桥梁、土建、安装，工程合同造价1.52亿元。市民广场作为东部新城的重要景观空间节点，未来将是广大市民以及游客休闲、游憩的场所，成为展示宁波城市新形象的一个窗口。</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="http://img95.699pic.com/photo/50021/6461.jpg_wh300.jpg" alt="Card image cap"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">凤城文化广场</h4>
+                                    <p class="card-text">  本工程建设单位为清远市清城区机关事务管理局，由本公司负责施工，由佛山市顺德设计院有限公司设计。本工程地处市中心，又是原有的凤城文化体育公园改造升级，属公用基础设施，施工场地比较复杂，但场地交通比较方便，我公司本着优秀的管理水平和一流的施工技术，发扬吃苦耐劳的精神圆满完成此工程，该工程荣获中国优秀园林工程全国金奖。</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img img-responsive" src="http://img95.699pic.com/photo/50002/1801.jpg_wh300.jpg" alt="Card image"/>
+                                <div class="card-body">
+                                    <h4 class="card-title">和风江岸</h4>
+                                    <p class="card-text">  和风·江岸项目室外工程及园林绿化工程位于海南省海口市，工程于2011年12月份开工，2012年4月竣工，工程造价为4043万元，工期110日历天。</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <img class="card-img img-responsive" src="http://img95.699pic.com/photo/50045/7246.jpg_wh300.jpg" alt="Card image"/>
+                                    <h4 class="card-title">余杭区良睦路</h4>
+                                    <p class="card-text"> 余杭区良睦路（创新路-余杭塘河）路基桥梁工程位于杭州市余杭区，道路全长1440m,三连跨、跨径分别为13m+16m+13m,总计梁板120块，桥梁和道路呈正交南北走向。该工程建设单位为杭州余杭创新投资有限公司，设计单位为杭州市城建设计研究院有限公司，监理单位为浙江中誉工程管理有限公司，施工单位为浙江凯胜园林市政建设有限公司。</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+                <!-- Main row -->
+                <!-- /.row -->
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-sm-none d-md-block">
+            Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="/js/demo.js"></script>
+
+<!-- PAGE  -->
+<!-- SparkLine -->
+<script src="/sparkline/jquery.sparkline.min.js"></script>
+<!-- jVectorMap -->
+<script src="/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="/chartjs-old/Chart.min.js"></script>
+
+<!-- PAGE SCRIPTS -->
+<script src="/js/pages/dashboard2.js"></script>
+<script th:inline="javascript">
+    $(function () {
+        var add_success=[[${add_success}]];
+        var del_success=[[${del_success}]];
+        var risk_library_edit=[[${risk_library_edit}]];
+        var risk_library_update_success=[[${risk_library_update_success}]];
+        if(add_success==1){
+            alert("创建成功!");
+        };
+        if(del_success==1){
+            alert("删除成功!")
+        };
+        if(risk_library_update_success==1){
+            alert("更新成功!")
+        };
+        if(risk_library_edit==1){
+            $("#modal-risk_library_edit").modal('show');
+        };
+        $(".fa-trash-o").click(function () {
+            var id= $(this).parent().siblings(".id").html();
+            $("#del_risk_library_ready").modal('show');
+            $("#del_confirm").click(function () {
+                window.location.href='/riskeventlibrary/del/'+id;
+            })
+        });
+        $(".fa-edit").click(function () {
+            var id= $(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/edit/'+id;
+
+        });
+
+    })
+</script>
+<script>
+    $(function () {
+        $(".fa-eye").click(function () {
+            var id =$(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/risk_recognize/'+id;
+        });
+        $(".fa-hourglass-end").click(function () {
+            var id =$(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/risk_analysis/'+id;
+        });
+        $(".fa-hand-rock-o").click(function () {
+            var id =$(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/risk_controller/'+id;
+        })
+    })
+</script>
+</body>
+</html>

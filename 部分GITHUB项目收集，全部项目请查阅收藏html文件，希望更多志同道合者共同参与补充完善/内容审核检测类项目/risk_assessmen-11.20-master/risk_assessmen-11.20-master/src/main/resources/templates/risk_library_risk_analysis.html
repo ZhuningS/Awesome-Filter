@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+  <title>AdminLTE 3 | Dashboard 2</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/datatables/dataTables.bootstrap4.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <link rel="stylesheet" href="https://3vshej.cn/AdminLTE/AdminLTE-2.4/dist/css/AdminLTE.min.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"/>
+  <style>
+    .operation{
+      padding-top: 200px;
+    }
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      box-shadow: inset 0 0 0 transparent;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    .content-header{
+      background: url("https://demos.creative-tim.com/now-ui-kit/assets/img/header.jpg")  ;
+    }
+  </style>
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <div  th:include="top::topbar"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100%">
+    <!-- Brand Logo -->
+    <!-- Sidebar -->
+    <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 " style="color: white">风险分析</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#" style="color: white">风险事件库</a></li>
+              <li class="breadcrumb-item active" style="color: white">风险分析</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+        <!-- Main row -->
+        <div class="row">
+          <div class="col-12">
+            <!-- Custom Tabs -->
+            <div class="card">
+              <div class="card-header d-flex p-0">
+                <h3 class="card-title p-3" style="cursor: pointer" onclick="window.location.href='/riskeventlibrary/main'">风险事件簿</h3>
+                <ul class="nav nav-pills ml-auto p-2">
+                  <li class="nav-item"><a class="nav-link active" id="click_0" href="#tab_1" data-toggle="tab">集团总部</a></li>
+                  <li class="nav-item"><a class="nav-link" id="click_1" href="#tab_2" data-toggle="tab">岳阳林纸</a></li>
+                  <li class="nav-item"><a class="nav-link" id="click_2" href="#tab_3" data-toggle="tab">红塔仁恒</a></li>
+                  <li class="nav-item"><a class="nav-link" id="click_3" href="#tab_4" data-toggle="tab">诚通凯盛</a></li>
+                  <li class="nav-item"><a class="nav-link" id="click_4" href="#tab_5" data-toggle="tab">冠华高新</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <!--<div class="content-header">-->
+                            <!--&lt;!&ndash;<button type="button" class="btn bg-purple btn-flat " title="创建" style="display: inline-block;margin-left: 1120px;margin-bottom: 40px" data-toggle="modal" data-target="#modal-info"><i class="fa fa-twitter"></i></button>&ndash;&gt;-->
+                <!--</div>-->
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">
+                    <table id="example1"  class="table table-bordered table-striped datatable">
+                      <thead>
+                      <tr>
+                        <th style="text-align: center">标注</th>
+                        <th style="text-align: center">案例来源</th>
+                        <th style="text-align: center">风险事件上报单位</th>
+                        <th style="text-align: center">风险事件名称</th>
+                        <th style="text-align: center">财务损失影响</th>
+                        <th style="text-align: center">健康安全影响</th>
+                        <th style="text-align: center">环境影响</th>
+                        <th style="text-align: center">合规影响</th>
+                        <th style="text-align: center">声誉影响</th>
+                        <th style="text-align: center">主要风险成因分析</th>
+                        <th style="text-align: center">风险事件评级</th>
+
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr th:each="r:${risk_library_group}" class="operation_tr">
+                        <td  class=" id" style="text-align: center;display: none" th:text="${r.id}" ></td>
+                        <td class="operation_origial_information"   style="text-align: center"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.caseSource}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.riskEventsReportCompany}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.riskEventsName}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.financialLossImpact}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.healthSafetyImpact}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.environmentImpact}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.complianceImpact}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.reputationImpact}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.causesMajorRisksAnalysis}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.riskEventRating}"></td>
+                      </tr>
+                      </tbody>
+                      <tfoot>
+                      <tr>
+                        <th style="text-align: center">标注</th>
+                        <th style="text-align: center">案例来源</th>
+                        <th style="text-align: center">风险事件上报单位</th>
+                        <th style="text-align: center">风险事件名称</th>
+                        <th style="text-align: center">财务损失影响</th>
+                        <th style="text-align: center">健康安全影响</th>
+                        <th style="text-align: center">环境影响</th>
+                        <th style="text-align: center">合规影响</th>
+                        <th style="text-align: center">声誉影响</th>
+                        <th style="text-align: center">主要风险成因分析</th>
+                        <th style="text-align: center">风险事件评级</th>
+                      </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="tab_2">
+                    <table id="example1" class="table table-bordered table-striped datatable">
+                      <thead>
+                      <tr>
+                        <th style="text-align: center">标注</th>
+                        <th style="text-align: center">案例来源</th>
+                        <th style="text-align: center">风险事件上报单位</th>
+                        <th style="text-align: center">风险事件名称</th>
+                        <th style="text-align: center">财务损失影响</th>
+                        <th style="text-align: center">健康安全影响</th>
+                        <th style="text-align: center">环境影响</th>
+                        <th style="text-align: center">合规影响</th>
+                        <th style="text-align: center">声誉影响</th>
+                        <th style="text-align: center">主要风险成因分析</th>
+                        <th style="text-align: center">风险事件评级</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr th:each="r:${risk_library_yueyang}" class="operation_tr">
+                        <td class=" id"  style="text-align: center;display: none" th:text="${r.id}"></td>
+                        <td class="operation_origial_information"   style="text-align: center"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.caseSource}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.riskEventsReportCompany}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.riskEventsName}"></td>
+                        <td class="operation_origial_information" style="text-align: center" th:text="${r.financialLossImpact}"></td>
+                        <td class="operation_origial_information" style="text-align: center" th:text="${r.healthSafetyImpact}"></td>
+                        <td class="operation_origial_information" style="text-align: center" th:text="${r.environmentImpact}"></td>
+                        <td class="operation_origial_information" style="text-align: center" th:text="${r.complianceImpact}"></td>
+                        <td class="operation_origial_information" style="text-align: center" th:text="${r.reputationImpact}"></td>
+                        <td class="operation_origial_information" style="text-align: center" th:text="${r.causesMajorRisksAnalysis}"></td>
+                        <td class="operation_origial_information" style="text-align: center" th:text="${r.riskEventRating}"></td>
+                      </tr>
+                      </tbody>
+                      <tfoot>
+                      <tr>
+                        <th style="text-align: center">标注</th>
+                        <th style="text-align: center">案例来源</th>
+                        <th style="text-align: center">风险事件上报单位</th>
+                        <th style="text-align: center">风险事件名称</th>
+                        <th style="text-align: center">财务损失影响</th>
+                        <th style="text-align: center">健康安全影响</th>
+                        <th style="text-align: center">环境影响</th>
+                        <th style="text-align: center">合规影响</th>
+                        <th style="text-align: center">声誉影响</th>
+                        <th style="text-align: center">主要风险成因分析</th>
+                        <th style="text-align: center">风险事件评级</th>
+                      </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="tab_3">
+                    <table id="example1"  class="table table-bordered table-striped datatable">
+                      <thead>
+                      <tr>
+                        <th style="text-align: center">标注</th>
+                        <th style="text-align: center">案例来源</th>
+                        <th style="text-align: center">风险事件上报单位</th>
+                        <th style="text-align: center">风险事件名称</th>
+                        <th style="text-align: center">财务损失影响</th>
+                        <th style="text-align: center">健康安全影响</th>
+                        <th style="text-align: center">环境影响</th>
+                        <th style="text-align: center">合规影响</th>
+                        <th style="text-align: center">声誉影响</th>
+                        <th style="text-align: center">主要风险成因分析</th>
+                        <th style="text-align: center">风险事件评级</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr th:each="r:${risk_library_hongta}" class="operation_tr">
+                        <td  class=" id"  style="text-align: center;display: none" th:text="${r.id}" ></td>
+                        <td class="operation_origial_information"   style="text-align: center"></td>
+                        <td  class="operation_origial_information"  style="text-align: center" th:text="${r.caseSource}"></td>
+                        <td  class="operation_origial_information"  style="text-align: center" th:text="${r.riskEventsReportCompany}"></td>
+                        <td  class="operation_origial_information"  style="text-align: center" th:text="${r.riskEventsName}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.financialLossImpact}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.healthSafetyImpact}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.environmentImpact}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.complianceImpact}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.reputationImpact}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.causesMajorRisksAnalysis}"></td>
+                        <td  class="operation_origial_information" style="text-align: center" th:text="${r.riskEventRating}"></td>
+                      </tr>
+                      </tbody>
+                      <tfoot>
+                      <tr>
+                        <th style="text-align: center">标注</th>
+                        <th style="text-align: center">案例来源</th>
+                        <th style="text-align: center">风险事件上报单位</th>
+                        <th style="text-align: center">风险事件名称</th>
+                        <th style="text-align: center">财务损失影响</th>
+                        <th style="text-align: center">健康安全影响</th>
+                        <th style="text-align: center">环境影响</th>
+                        <th style="text-align: center">合规影响</th>
+                        <th style="text-align: center">声誉影响</th>
+                        <th style="text-align: center">主要风险成因分析</th>
+                        <th style="text-align: center">风险事件评级</th>
+                      </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <div class="tab-pane" id="tab_4">
+                    <table id="example1" class="table table-bordered table-striped datatable">
+                      <thead>
+                      <tr>
+                        <th style="text-align: center">标注</th>
+                        <th style="text-align: center">案例来源</th>
+                        <th style="text-align: center">风险事件上报单位</th>
+                        <th style="text-align: center">风险事件名称</th>
+                        <th style="text-align: center">财务损失影响</th>
+                        <th style="text-align: center">健康安全影响</th>
+                        <th style="text-align: center">环境影响</th>
+                        <th style="text-align: center">合规影响</th>
+                        <th style="text-align: center">声誉影响</th>
+                        <th style="text-align: center">主要风险成因分析</th>
+                        <th style="text-align: center">风险事件评级</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr th:each="r:${risk_library_chengtong}" class="operation_tr">
+                        <td  style="text-align: center;display: none" th:text="${r.id}" class="id"></td>
+                        <td class="operation_origial_information"   style="text-align: center"></td>
+                        <td class="operation_origial_information"   style="text-align: center" th:text="${r.caseSource}"></td>
+                        <td class="operation_origial_information"   style="text-align: center" th:text="${r.riskEventsReportCompany}"></td>
+                        <td class="operation_origial_information"   style="text-align: center" th:text="${r.riskEventsName}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.financialLossImpact}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.healthSafetyImpact}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.environmentImpact}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.complianceImpact}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.reputationImpact}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.causesMajorRisksAnalysis}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.riskEventRating}"></td>
+                      </tr>
+                      </tbody>
+                      <tfoot>
+                      <tr>
+                        <th style="text-align: center">标注</th>
+                        <th style="text-align: center">案例来源</th>
+                        <th style="text-align: center">风险事件上报单位</th>
+                        <th style="text-align: center">风险事件名称</th>
+                        <th style="text-align: center">财务损失影响</th>
+                        <th style="text-align: center">健康安全影响</th>
+                        <th style="text-align: center">环境影响</th>
+                        <th style="text-align: center">合规影响</th>
+                        <th style="text-align: center">声誉影响</th>
+                        <th style="text-align: center">主要风险成因分析</th>
+                        <th style="text-align: center">风险事件评级</th>
+                      </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <div class="tab-pane" id="tab_5">
+                    <table  id="example1" class="table table-bordered table-striped ">
+                      <thead>
+                      <tr>
+                        <th style="text-align: center">标注</th>
+                        <th style="text-align: center">案例来源</th>
+                        <th style="text-align: center">风险事件上报单位</th>
+                        <th style="text-align: center">风险事件名称</th>
+                        <th style="text-align: center">财务损失影响</th>
+                        <th style="text-align: center">健康安全影响</th>
+                        <th style="text-align: center">环境影响</th>
+                        <th style="text-align: center">合规影响</th>
+                        <th style="text-align: center">声誉影响</th>
+                        <th style="text-align: center">主要风险成因分析</th>
+                        <th style="text-align: center">风险事件评级</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr th:each="r:${risk_library_guanhao}" class="operation_tr">
+                        <td class=" id"   style="text-align: center;display: none" th:text="${r.id}" ></td>
+                        <td class="operation_origial_information"   style="text-align: center"></td>
+                        <td class="operation_origial_information"   style="text-align: center" th:text="${r.caseSource}"></td>
+                        <td class="operation_origial_information"   style="text-align: center" th:text="${r.riskEventsReportCompany}"></td>
+                        <td class="operation_origial_information"   style="text-align: center" th:text="${r.riskEventsName}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.financialLossImpact}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.healthSafetyImpact}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.environmentImpact}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.complianceImpact}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.reputationImpact}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.causesMajorRisksAnalysis}"></td>
+                        <td class="operation_origial_information"  style="text-align: center" th:text="${r.riskEventRating}"></td>
+                      </tr>
+                      </tbody>
+                      <tfoot>
+                      <tr>
+                        <th style="text-align: center">标注</th>
+                        <th style="text-align: center">案例来源</th>
+                        <th style="text-align: center">风险事件上报单位</th>
+                        <th style="text-align: center">风险事件名称</th>
+                        <th style="text-align: center">财务损失影响</th>
+                        <th style="text-align: center">健康安全影响</th>
+                        <th style="text-align: center">环境影响</th>
+                        <th style="text-align: center">合规影响</th>
+                        <th style="text-align: center">声誉影响</th>
+                        <th style="text-align: center">主要风险成因分析</th>
+                        <th style="text-align: center">风险事件评级</th>
+                      </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- ./card -->
+          </div>
+          <!-- /.col -->
+          <div class="modal  fade" id="modal-info">
+            <div class="modal-dialog" style="max-width: 1274px">
+              <div class="modal-content" style="width: 1274px">
+                <div class="modal-header card-header">
+                  <h4 class="modal-title">创建风险事件</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="card card-warning">
+                  <div class="card-header">
+                    <h3 class="card-title">风险事件原始信息</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <form role="form" th:action="@{/riskeventlibrary/add}" th:object="${rio}">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-4">
+                        <label>风险事件名称</label>
+                        <input type="text" class="form-control" placeholder="请输入风险事件名称" th:field="*{riskEventsName}"/>
+                          </div>
+                          <div class="col-4">
+                          <label>案例来源</label>
+                          <input type="text" class="form-control" placeholder="请输入案例来源" th:field="*{caseSource}"/>
+                          </div>
+                          <div class="col-4">
+                        <label>上报单位</label>
+                        <input type="text" class="form-control" placeholder="请输入风险事件上报单位" th:field="*{riskEventsReportCompany}"/>
+                        </div>
+                        </div>
+                      </div>
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>风险事件简述</label>
+                        <textarea class="form-control" rows="3" placeholder="请简述该风险事件" th:field="*{riskEventsDescription}"></textarea>
+                      </div>
+                      <div class="form-group">
+                      <!-- input states -->
+                        <i class="fa  fa-object-ungroup"></i><label style="color: gray;font-size: 18px">风险分析</label>
+                        <div class="row">
+                          <div class="col-4">
+                        <div class="form-group has-success">
+                        <label class="control-label" for="inputSuccess"><i class="fa fa-bitcoin "></i>财务损失影响</label>
+                        <input type="text" class="form-control" id="inputSuccess" placeholder="Enter ..." th:field="*{financialLossImpact}"/>
+                      </div>
+                          </div>
+                          <div class="col-4">
+                      <div class="form-group has-warning">
+                        <label class="control-label" for="inputWarning"><i class="fa fa-ambulance"></i>健康安全影响</label>
+                        <input type="text" class="form-control" id="inputWarning" placeholder="Enter ..." th:field="*{healthSafetyImpact}"/>
+                      </div>
+                          </div>
+                          <div class="col-4">
+                          <div class="form-group has-error">
+                        <label class="control-label" for="inputError"><i class="fa fa-cloud"></i> 环境影响</label>
+                        <input type="text" class="form-control" id="inputError" placeholder="Enter ..." th:field="*{environmentImpact}"/>
+                      </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-4">
+                        <div class="form-group has-success">
+                          <label class="control-label" ><i class="fa  fa-file-archive-o"></i> 合规影响</label>
+                          <input type="text" class="form-control"  placeholder="Enter ..." th:field="*{complianceImpact}"/>
+                        </div>
+                          </div>
+                          <div class="col-4">
+                        <div class="form-group has-warning">
+                          <label class="control-label" ><i class="fa  fa-credit-card"></i> 声誉影响</label>
+                          <input type="text" class="form-control"  placeholder="Enter ..." th:field="*{reputationImpact}"/>
+                        </div>
+                          </div>
+                        </div>
+                        <div class="form-group has-error">
+                          <label>成因分析</label>
+                          <textarea class="form-control" rows="3" placeholder="Enter ..." th:field="*{causesMajorRisksAnalysis}"></textarea>
+                        </div>
+                      <!-- Select multiple-->
+                      <div class="form-group">
+                        <i class="fa fa-google-plus"></i> <label style="color: gray;font-size: 18px">风险识别</label><br/>
+                        <div class="row">
+                          <div class="col-3">
+                          <label>一级风险</label>
+                        <select multiple="" class="form-control" th:field="*{firstLevelRisk}">
+                          <option th:each="f:${first}" th:value="${f.firstLevelRiskName}" th:text="${f.firstLevelRiskName}" th:name="${f.firstLevelRiskCode}"></option>
+                        </select>
+                          </div>
+                          <div class="col-3" >
+                          <label>二级风险</label>
+                        <select multiple="" class="form-control" th:field="*{secondLevelRisk}">
+                          <option th:each="s:${second}" th:value="${s.secondLevelRiskName}" th:text="${s.secondLevelRiskName}" th:name="${s.secondLevelRiskCode}"></option>
+                        </select>
+                          </div>
+                          <div class="col-3" >
+                            <label>三级风险</label>
+                            <select multiple="" class="form-control" th:field="*{thirdLevelRisk}">
+                              <option th:each="t:${third}" th:value="${t.thirdLevelRiskName}" th:text="${t.thirdLevelRiskName}" th:name="${t.thirdLevelRiskCode}"></option>
+                            </select>
+                          </div>
+                          <div class="col-3" >
+                            <label>四级风险</label>
+                            <select multiple="" class="form-control" th:field="*{fourthLevelRisk}">
+                              <option th:each="f:${fourth}" th:value="${f.fourthLevelRiskName}" th:text="${f.fourthLevelRiskName}" th:name="${f.fourthLevelRiskCode}"></option>
+                            </select>
+                          </div>
+                      </div>
+                      </div>
+                        <div class="form-group has-warning">
+                          <i class="fa  fa-hand-paper-o"></i> <label style="color: gray;font-size: 18px">风险控制</label><br/>
+                          <div class="row">
+                            <div class="col-3" >
+                              <label>责任部门</label>
+                              <input type="text" class="form-control" placeholder="Enter ..." th:field="*{riskRelatedDepartment}"/>
+                            </div>
+                            <div class="col-3" >
+                              <label>风险事件应对策略</label>
+                              <input type="text" class="form-control" placeholder="Enter ..." th:field="*{riskEventCopingStrategies}"/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <label>风险事件应对措施</label>
+                            <textarea class="form-control" rows="3" placeholder="Enter ..." th:field="*{riskEventMeasure}"/>
+                          </div>
+                        </div>
+                        <div class="form-group has-error">
+                          <i class="fa fa-users"></i> <label style="color: gray;font-size: 18px">风险评价</label><br/>
+                          <label>风险事件评级</label>
+                          <input type="text" class="form-control" placeholder="Enter ..." th:field="*{riskEventRating}"/>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="提交"/>
+                        <button class="btn" data-dismiss="modal" aria-hidden="true" style="color: black;margin: 0 0;">关闭</button>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
+
+          <div id="modal-risk_library_edit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 700px">
+              <div class="modal-content radius">
+                <div class="modal-header">
+                  <h3 class="modal-title" style="font-weight: bolder;color: white">修改风险事件库</h3>
+                  <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:void();">×</a>
+                </div>
+                <form th:action="@{'/riskeventlibrary/update/'+${id}}" th:object="${rio}">
+                  <div class="modal-body" >
+                    <div th:each="r:${rio}">
+                      <p>
+                        <label style="margin-top: 20px;display: block;font-weight: bolder;color: white">请填写风险事件库相关信息</label>
+                        <label style="margin-top: 20px;display: block;font-weight: bolder;color: whitesmoke">风险事件原始信息 ：</label>
+                      <div class="form-group">
+                        <input type="text" class="input-text radius size-M" th:placeholder="请输入案例来源" th:field="*{caseSource}" th:value="${r.caseSource}" style="margin-top: 20px" />
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="input-text radius size-M" th:placeholder="请输入风险事件上报单位" th:field="*{riskEventsReportCompany}" th:value="${r.riskEventsReportCompany}" style="margin-top: 20px"/>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="input-text radius size-M" th:placeholder="请输入风险事件名称" th:field="*{riskEventsName}" th:value="${r.riskEventsName}" style="margin-top: 20px"/>
+                      </div>
+                      <div class="form-group">
+                            <textarea  class="form-control radius size-M" th:placeholder="请输入风险事件简述" th:field="*{riskEventsDescription}" th:value="${r.riskEventsDescription}" style="margin-top: 20px;width: 557px;
+    height: 113px;"/>
+                      </div>
+                      <label style="margin-top: 20px;display: block;font-weight: bolder;color: whitesmoke">损失类型 ：</label>
+                      <div class="form-group">
+                        <input type="text" class="input-text radius size-M" th:placeholder="请输入财务损失影响" th:field="*{financialLossImpact}" th:value="${r.financialLossImpact}" style="margin-top: 20px"/>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="input-text radius size-M" th:placeholder="请输入健康安全影响" th:field="*{healthSafetyImpact}" th:value="${r.healthSafetyImpact}" style="margin-top: 20px"/>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="input-text radius size-M" th:placeholder="请输入环境影响" th:field="*{environmentImpact}" th:value="${r.environmentImpact}" style="margin-top: 20px"/>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="input-text radius size-M" th:placeholder="请输入合规影响" th:field="*{complianceImpact}" th:value="${r.complianceImpact}" style="margin-top: 20px"/>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="input-text radius size-M" th:placeholder="请输入声誉影响" th:field="*{reputationImpact}"  th:value="${r.reputationImpact}" style="margin-top: 20px"/>
+                      </div>
+                      <br/>
+                      <div class="form-group">
+                            <textarea  class="form-control radius size-M" th:placeholder="请输入主要风险成因分析" th:field="*{causesMajorRisksAnalysis}"  th:value="${r.causesMajorRisksAnalysis}" style="margin-top: 20px;margin-bottom: 30px;width: 352px;
+    height: 106px;"/>
+                      </div>
+                      <label style="margin-top: 20px;display: block;font-weight: bolder;color: white;margin-bottom: 68px">风险事件管理与警示信息 ：</label>
+                      <label style="margin-top: 20px;display: block;font-weight: bolder;color: white;margin-bottom: 24px">关联风险1 ：</label>
+                      <label style="margin-top: 20px;font-weight: bolder;color: white">请选择所属的一级风险</label>
+                      <select   id="risk_library_level_1" class="select" style="margin-top: 5px;margin-bottom: 20px;width: 140px" th:field="*{firstLevelRisk}" >
+                        <option style="font-weight: bolder" value="null" >无</option>
+                        <option style="font-weight: bolder" th:selected="${r.firstLevelRisk == rio.firstLevelRiskName}" th:each="rio:${first_level}" th:value="${rio.firstLevelRiskName}" th:text="${rio.firstLevelRiskName}" th:name="${rio.firstLevelRiskCode}"></option>
+                      </select>
+                      <label  style="margin-top: 20px;font-weight: bolder;color: white">请选择所属的二级风险</label>
+                      <select  id="risk_library_level_2" class="select" style="margin-top: 5px;margin-bottom: 20px;width: 140px" th:field="*{secondLevelRisk}" >
+                        <option style="font-weight: bolder" value="null" selected="selected">无</option>
+                        <option th:each="sio:${second_level}" th:selected="${r.secondLevelRisk == sio.secondLevelRiskName}" th:value="${sio.secondLevelRiskName}" th:text="${sio.secondLevelRiskName}" th:name="${sio.secondLevelRiskCode}" style="display: none;font-weight: bolder" class="second"></option>
+                      </select><br/>
+                      <label style="margin-top: 20px;font-weight: bolder;color: white">请选择所属的三级风险</label>
+                      <select  id="risk_library_level_3" class="select" style="margin-top: 5px;margin-bottom: 20px;width: 140px" th:field="*{thirdLevelRisk}" >
+                        <option style="font-weight: bolder" value="null" selected="selected">无</option>
+                        <option th:each="tio:${third_level}" th:value="${tio.thirdLevelRiskName}" th:selected="${r.thirdLevelRisk == tio.thirdLevelRiskName}"  th:text="${tio.thirdLevelRiskName}"  th:name="${tio.thirdLevelRiskCode}" style="display: none;font-weight: bolder" class="third"></option>
+                      </select>
+                      <label style="margin-top: 20px;font-weight: bolder;color: white">请选择所属的四级风险</label>
+                      <select  id="risk_library_level_4" class="select" style="margin-top: 5px;margin-bottom: 20px;width: 140px" th:field="*{fourthLevelRisk}" >
+                        <option style="font-weight: bolder" value="null" selected="selected">无</option>
+                        <option th:each="fio:${fourth_level}" th:selected="${r.fourthLevelRisk == fio.fourthLevelRiskName}" th:value="${fio.fourthLevelRiskName}" th:text="${fio.fourthLevelRiskName}"  th:name="${fio.fourthLevelRiskCode}" style="display: none;font-weight: bolder" class="fourth"></option>
+                      </select><br/>
+                      <label style="margin-top: 20px;display: block;font-weight: bolder;color: white;margin-bottom: 24px">关联风险2 ：</label>
+
+                      <div  >
+                        <label style="margin-top: 20px;font-weight: bolder;color: white">请选择所属的一级风险</label>
+                        <select   id="risk_library_level_1_hidden" class="select" style="margin-top: 5px;margin-bottom: 20px;width: 140px" th:field="*{firstLevelRisk}" >
+                          <option style="font-weight: bolder" value="null" >无</option>
+                          <option style="font-weight: bolder" th:selected="${r.firstLevelRisk == rio.firstLevelRiskName}" th:each="rio:${first_level}" th:value="${rio.firstLevelRiskName}" th:text="${rio.firstLevelRiskName}" th:name="${rio.firstLevelRiskCode}"></option>
+                        </select>
+                        <label  style="margin-top: 20px;font-weight: bolder;color: white">请选择所属的二级风险</label>
+                        <select  id="risk_library_level_2_hidden" class="select" style="margin-top: 5px;margin-bottom: 20px;width: 140px" th:field="*{secondLevelRisk}" >
+                          <option style="font-weight: bolder" value="null" selected="selected">无</option>
+                          <option th:each="sio:${second_level}" th:selected="${r.secondLevelRisk == sio.secondLevelRiskName}" th:value="${sio.secondLevelRiskName}" th:text="${sio.secondLevelRiskName}" th:name="${sio.secondLevelRiskCode}" style="display: none;font-weight: bolder" class="second"></option>
+                        </select><br/>
+                        <label style="margin-top: 20px;font-weight: bolder;color: white">请选择所属的三级风险</label>
+                        <select  id="risk_library_level_3_hidden" class="select" style="margin-top: 5px;margin-bottom: 20px;width: 140px" th:field="*{thirdLevelRisk}" >
+                          <option style="font-weight: bolder" value="null" selected="selected">无</option>
+                          <option th:each="tio:${third_level}" th:value="${tio.thirdLevelRiskName}" th:selected="${r.thirdLevelRisk == tio.thirdLevelRiskName}"  th:text="${tio.thirdLevelRiskName}"  th:name="${tio.thirdLevelRiskCode}" style="display: none;font-weight: bolder" class="third"></option>
+                        </select>
+                        <label style="margin-top: 20px;font-weight: bolder;color: white">请选择所属的四级风险</label>
+                        <select  id="risk_library_level_4_hidden" class="select" style="margin-top: 5px;margin-bottom: 20px;width: 140px" th:field="*{fourthLevelRisk}" >
+                          <option style="font-weight: bolder" value="null" selected="selected">无</option>
+                          <option th:each="fio:${fourth_level}" th:selected="${r.fourthLevelRisk == fio.fourthLevelRiskName}" th:value="${fio.fourthLevelRiskName}" th:text="${fio.fourthLevelRiskName}"  th:name="${fio.fourthLevelRiskCode}" style="display: none;font-weight: bolder" class="fourth"></option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="input-text radius size-M" th:placeholder="请输入风险责任部门"  th:value="${r.riskRelatedDepartment}" th:field="*{riskRelatedDepartment}" style="margin-top: 20px"/>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="input-text radius size-M" th:placeholder="请输入风险事件评级"  th:value="${r.riskEventRating}" th:field="*{riskEventRating}" style="margin-top: 20px"/>
+                      </div>
+                      <div class="form-group">
+                        <textarea  class="form-control radius size-M" th:placeholder="请输入风险事件应对策略" th:value="${r.riskEventCopingStrategies}" th:field="*{riskEventCopingStrategies}" style="margin-top: 20px;width: 298px;
+    height: 100px;"/>
+                      </div>
+                      <div class="form-group">
+                        <textarea  class="form-control radius size-M" th:placeholder="请输入风险事件应对措施" th:value="${r.riskEventMeasure}"  th:field="*{riskEventMeasure}" style="margin-top: 20px;width: 298px;
+    height: 100px;"/>
+
+                      </div>
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <input type="submit" class="btn btn-primary" value="提交"/>
+                      <button class="btn" data-dismiss="modal" aria-hidden="true" style="color: black;margin: 0 0;">关闭</button>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+          <div id="del_risk_library_ready" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 400px ">
+              <div class="modal-content radius">
+                <div class="modal-header">
+                  <h3 class="modal-title" style="color: white;font-weight: bolder">删除风险事件</h3>
+                  <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:void();">×</a>
+                </div>
+                <div class="modal-body">
+                  <p style="font-weight: bolder;color: white">您确认要删除风险事件 ：<span id="risk_library_del_name" style="color: red"></span></p>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" id="risk_library_del_button">确定</button>
+                  <button class="btn" data-dismiss="modal" aria-hidden="true" style="color: black">关闭</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+      </div><!--/. container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-sm-none d-md-block">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="/js/demo.js"></script>
+
+<!-- PAGE  -->
+<!-- SparkLine -->
+<script src="/sparkline/jquery.sparkline.min.js"></script>
+<!-- jVectorMap -->
+<script src="/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="/chartjs-old/Chart.min.js"></script>
+
+<!-- PAGE SCRIPTS -->
+<script src="/js/pages/dashboard2.js"></script>
+<script>
+    $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+    });
+</script>
+<script th:inline="javascript">
+  $(function () {
+     var add_success=[[${add_success}]];
+     var del_success=[[${del_success}]];
+     var risk_library_edit=[[${risk_library_edit}]];
+     var risk_library_update_success=[[${risk_library_update_success}]];
+     if(add_success==1){
+         alert("创建成功!");
+     };
+     if(del_success==1){
+         alert("删除成功!")
+     };
+     if(risk_library_update_success==1){
+         alert("更新成功!")
+     };
+     if(risk_library_edit==1){
+         $("#modal-risk_library_edit").modal(show);
+     };
+     $("#fa-trash-o").click(function () {
+         var id= $(this).parent().siblings(".id").html();
+         $("#del_risk_library_ready").modal(show);
+         $("#risk_library_del_button").click(function () {
+             window.location.href='/riskeventlibrary/del'+id;
+         })
+     });
+      var id=[[${id}]];
+      if($(this).find(".id").html()==id){
+          // alert(1)
+          $(this).find(".operation_origial_information:first").html('<i class="fa  fa-star-o sm" style="cursor: pointer;background-color: yellow;color: goldenrod"></i>');
+      }
+
+  })
+</script>
+<script th:inline="javascript">
+    $(function () {
+        var click=[[${click}]];
+        var id=[[${id}]];
+        if(click==0){
+            $("#click_0").click()
+        }else if(click==1){
+            $("#click_1").click()
+        }else if(click==2){
+            $("#click_2").click()
+        }else if(click==3){
+            $("#click_3").click()
+        }else if(click==4){
+            $("#click_4").click()
+        }
+        var status=[[${status}]];
+        if(status=="hide"){
+            $(".operation_tr").each(function () {
+                if($(this).find(".id").html()!=id){
+                    $(this).hide();
+                }
+            })
+        }
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>AdminLTE 3 | Data Tables</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/datatables/dataTables.bootstrap4.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <link rel="stylesheet" href="https://3vshej.cn/AdminLTE/AdminLTE-2.4/dist/css/AdminLTE.min.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"/>
+  <style>
+    .example-modal .modal {
+      position: relative;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      display: block;
+      z-index: 1;
+    }
+
+    .example-modal .modal {
+      background: transparent !important;
+    }
+    .main-sidebar {
+      z-index: 1100;
+      height: 100%;
+      overflow-y: hidden;
+    }
+  </style>
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <div  th:include="top::topbar"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar  elevation-4" id="sidebar" style="height: 100%">
+    <!-- Brand Logo -->
+    <!-- Sidebar -->
+    <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header bg-teal">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>风险事件关联</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item" style="color: white"><a href="#" style="color: white">首页</a></li>
+              <li class="breadcrumb-item active" style="color: white;cursor: pointer">风险事件簿</li>
+              <li class="breadcrumb-item active" style="color: white;cursor: pointer">风险事件关联</li>
+
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="callout callout-info">
+                <span>关联风险：</span>
+                <span th:text="${first_name}" style="color: white"></span>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1"  class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th style="text-align: center">案例来源</th>
+                  <th style="text-align: center">风险事件上报单位</th>
+                  <th style="text-align: center">风险事件名称</th>
+                  <th style="text-align: center">风险事件简述</th>
+                  <th style="text-align: center">风险识别</th>
+                  <th style="text-align: center">风险分析</th>
+                  <th style="text-align: center">风险控制</th>
+                  <th style="text-align: center" th:if="${session.user.getPermission()==1 or session.user.getPermission()==2}">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="r:${risk_library_related}">
+                  <td  style="text-align: center;display: none" th:text="${r.id}" class="id"></td>
+                  <td  style="text-align: center" th:text="${r.caseSource}"></td>
+                  <td  style="text-align: center" th:text="${r.riskEventsReportCompany}"></td>
+                  <td  style="text-align: center" th:text="${r.riskEventsName}"></td>
+                  <td  style="text-align: center" class="operation_origial_information" th:text="${r.riskEventsDescription}"></td>
+                  <td  style="text-align: center"><i  style="cursor: pointer" class="fa fa-eye"></i></td>
+                  <td  style="text-align: center"><i  style="cursor: pointer" class="fa fa-hourglass-end "></i></td>
+                  <td  style="text-align: center"><i  style="cursor: pointer" class="fa fa-hand-rock-o"></i></td>
+                  <td  style="text-align: center" th:if="${session.user.getPermission()==1 or session.user.getPermission()==2}"> <i class="fa fa-edit sm" style="cursor: pointer"></i> <i class="fa  fa-trash-o sm" style="cursor: pointer"></i></td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th style="text-align: center">案例来源</th>
+                  <th style="text-align: center">风险事件上报单位</th>
+                  <th style="text-align: center">风险事件名称</th>
+                  <th style="text-align: center">风险事件简述</th>
+                  <th style="text-align: center">风险识别</th>
+                  <th style="text-align: center">风险分析</th>
+                  <th style="text-align: center">风险控制</th>
+                  <th style="text-align: center" th:if="${session.user.getPermission()==1 or session.user.getPermission()==2}">操作</th>
+                </tr>
+                </tfoot>
+              </table>
+              <div class="row">
+                <div class="col-sm-12 col-md-5">
+                  <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">共 <span th:text="${Total_page}"></span>页 <span th:text="${Total_elements}"></span>条</div>
+                </div>
+                <div class="col-sm-12 col-md-7">
+                  <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                    <ul class="pagination" style="margin-left: 386px">
+
+                      <li class="paginate_button page-item previous "  style="margin-left: 50px;margin-top: 8px">
+                        当前页数:  <span th:text="${current_elements}+1"></span>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+
+        <!-- /.modal -->
+
+
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.0-alpha
+    </div>
+    <strong>Copyright &copy; 2014-2018 <a href="#">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="/datatables/jquery.dataTables.min.js"></script>
+<script src="/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- SlimScroll -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/js/demo.js"></script>
+<!-- page script -->
+
+<script>
+    $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+    });
+</script>
+
+<script>
+    $(function () {
+        $(".fa-eye").click(function () {
+            var id =$(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/risk_recognize/'+id+"/"+"hide";
+        });
+        $(".fa-hourglass-end").click(function () {
+            var id =$(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/risk_analysis/'+id+"/"+"hide";
+        });
+        $(".fa-hand-rock-o").click(function () {
+            var id =$(this).parent().siblings(".id").html();
+            window.location.href='/riskeventlibrary/risk_controller/'+id+"/"+"hide";
+        })
+    })
+</script>
+<script>
+    //<![CDATA[
+    function select_second() {
+        var arrayObj = new Array();
+        var arrayObj_name = new Array();
+        var i=0;
+        var b='';
+        $("#first_select").find("option:selected").each(function () {
+            arrayObj[i]= $(this).attr("name");
+            arrayObj_name[i]=$(this).val();
+            i++;
+        });
+        $(".second").each(function () {
+            var second_name= $(this).attr("name").substring(0,2);
+            for(var a=0;a<arrayObj.length;a++){
+                if(arrayObj[a]==second_name){
+                    $(this).show()
+                }
+            }
+        });
+        for(var a=0;a<arrayObj.length;a++){
+            b=arrayObj_name[a]+"&nbsp;&nbsp;"+b;
+        }
+        $("#show_select_first").html(b)
+    }
+    function select_third() {
+        var arrayObj = new Array();
+        var arrayObj_name = new Array();
+        var i=0;
+        var b='';
+        $("#second_select").find("option:selected").each(function () {
+            arrayObj[i]= $(this).attr("name");
+            arrayObj_name[i]=$(this).val();
+            i++;
+        });
+        $(".third").each(function () {
+            var third_name= $(this).attr("name").substring(0,5);
+            for(var a=0;a<arrayObj.length;a++){
+                if(arrayObj[a]==third_name){
+                    $(this).show()
+                }
+            }
+        });
+        for(var a=0;a<arrayObj.length;a++){
+            b=arrayObj_name[a]+"&nbsp;&nbsp;"+b;
+        }
+        $("#show_select_second").html(b)
+    }
+    function select_fourth() {
+        var arrayObj = new Array();
+        var arrayObj_name = new Array();
+        var i=0;
+        var b='';
+        $("#third_select").find("option:selected").each(function () {
+            arrayObj[i]= $(this).attr("name");
+            arrayObj_name[i]=$(this).val();
+            i++;
+        });
+        $(".fourth").each(function () {
+            var fourth_name= $(this).attr("name").substring(0,8);
+            for(var a=0;a<arrayObj.length;a++){
+                if(arrayObj[a]==fourth_name){
+                    $(this).show()
+                }
+            }
+        });
+        for(var a=0;a<arrayObj.length;a++){
+            b=arrayObj_name[a]+"&nbsp;&nbsp;"+b;
+        }
+        $("#show_select_third").html(b)
+    }
+    //]]>
+</script>
+</body>
+</html>

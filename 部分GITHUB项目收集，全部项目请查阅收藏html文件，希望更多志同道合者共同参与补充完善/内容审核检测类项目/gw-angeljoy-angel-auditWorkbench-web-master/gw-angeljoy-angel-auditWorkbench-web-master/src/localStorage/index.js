@@ -1,0 +1,18 @@
+export default {
+
+  USER_MENU_TREE: 'USER_MENU_TREE', // --- 用户操作树，，get_user_menu_tree
+  ROUTER_PATH: '', // --- 用户访问路径
+  CLUB_NAME: 'CLUB_NAME',
+  USER_REAL_NAME: 'USER_REAL_NAME',
+
+  USER_FUNCTION: 'USER_FUNCTION', // 按钮权限
+
+  // CHECK_RESULT: 'CHECK_RESULT', //
+
+  /*  后门  */
+  /*  此用window.localStorage 赋值  */
+  CLEAR_GET_TOHANDLE_LIST_TIMER: 'CLEAR_GET_TOHANDLE_LIST_TIMER', // 获取待处理列表timer
+  CLEAR_GET_HAVEHANDLE_LIST_TIMER: 'CLEAR_GET_HAVEHANDLE_LIST_TIMER', // 获取已处理列表timer
+  CLEAR_GET_INHANDLE_LIST_TIMER: 'CLEAR_GET_INHANDLE_LIST_TIMER',
+  CLEAR_UNDO_MSG_TIMER: 'CLEAR_UNDO_MSG_TIMER', //
+};

@@ -1,0 +1,372 @@
+<!doctype html>
+<!--
+	This is the options page.
+			Author: Joseph Gray & updated by Mopar
+			Date Created: 10/22/2012
+			Date Updated: 8/15/2017
+
+-->
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Options</title>
+		<link rel="stylesheet" type="text/css" href="../css/pikaday.css" />
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/options.css" />
+	</head>
+	<body>
+		<div id="settings_stuff" style="display:none" class="container">
+			<!-- 
+				 # SAVED NOTE #
+								-->
+			<div id="code_outer">
+				<span class="glyphicon glyphicon-qrcode" aria-hidden="true" title="Code"></span><span style="-webkit-user-select: none"> </span><span id="code"></span>
+				<div id="settings_links">
+						<a id="import" href="#"><span class="glyphicon glyphicon-open-file" aria-hidden="true"></span> Import</a> |
+						<a id="export" href="#"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> Export</a> | 
+						<a id="password" href="#"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Password Settings</a>
+				</div>
+			</div>
+			
+			<!-- Ensures the container div wraps around the two floating divs -->
+			<div class="clear"></div>
+
+			<div id="toggles">
+				<div id="toggle_container" data-color="blue">
+					<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+					<span class="toggle_title">Image Filter</span>
+					
+					<form class="inline" id="image_active">
+						<div class="chkbox-toggle" data-color="blue" data-text="true" title="Turn the Image Filter ON/OFF">
+							<input id="image_on" type="checkbox" name="image_on">
+							<label for="image_on"><i></i></label>
+						</div>
+					</form><!-- '#image_active' form -->
+				</div>
+				<div id="toggle_container" data-color="blue">
+					<span class="glyphicon glyphicon-font" aria-hidden="true"></span>
+					<span class="toggle_title">Text Filter</span>
+					
+					<form class="inline" id="text_active">
+						<div class="chkbox-toggle" data-color="blue" data-text="true" title="Turn the Text Filter ON/OFF">
+							<input id="text_on" type="checkbox" name="text_on">
+							<label for="text_on"><i></i></label>
+						</div>
+					</form><!-- '#text_active' form -->
+				</div>
+				<div id="toggle_container" data-color="blue">
+					<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+					<span class="toggle_title">Schedule</span>
+					
+					<form class="inline" id="schedule_active">
+						<div class="chkbox-toggle" data-color="blue" data-text="true" title="Turn the Schedule ON/OFF">
+							<input id="schedule_on" type="checkbox" name="schedule_on">
+							<label for="schedule_on"><i></i></label>
+						</div>
+					</form><!-- '#schedule_active' form -->
+				</div>
+				<div id="toggle_container" data-color="pink">
+					<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+					<span class="toggle_title">Help / Tips</span>
+					
+					<form class="inline" id="tips_active">
+						<div class="chkbox-toggle" data-color="pink" data-text="true" title="Toggle Help / Tips">
+							<input id="tips_on" type="checkbox" name="tips_on">
+							<label for="tips_on"><i></i></label>
+						</div>
+					</form><!-- '#tips_active' form -->
+				</div>
+			</div>
+			
+			<!-- Ensures the toggle area div wraps around the header-->
+			<div class="clear"></div>
+			
+			<!-- 
+				 # IMAGE FILTER #
+								  -->
+			
+			<div id="image_filter_wrapper" class="wrapper">
+				<h2 class="title">Image Filter</h2>
+				<br />
+				<!--
+					 @ SCANNER SENSITIVITY @
+											 -->
+				<div id="image_scanner_box">
+					<!-- The checkbox form that indicates if the image scanner is on or off. -->
+					<form id="image_scanner_form">
+						<input type="checkbox" id="image_scanner" name="image_scanner" value="true"> Scan Images for at least...
+					</form><!-- '#image_scanner' form -->
+					
+					<!-- The range form for adjusting the image scanner sensitivity. -->
+					<form class="inline">
+						<input id="scanner_sensitivity" name="scanner_sensitivity" class="range" type="range" min="0" max="100" step="1">
+						<span id="range2"></span>
+					</form><!-- '#scanner_sensitivity' form -->
+				</div><!-- '#image_scanner_box' div -->
+				
+				<!-- 
+					 @ IMAGE REPLACEMENT STRAGETY @
+													-->
+				<div id="image_replacement_box">
+					<!-- The radio button form for selecting the replacement image. -->
+					<form id="image_replacement_form">
+						<div style="float: right">
+							<input type="radio" name="image_replacement" value="pixels"> Pixelate
+							<br />
+							<input type="radio" name="image_replacement" value="logo"> Logo
+						</div>
+					</form><!-- '#image_replacement' form -->
+				</div><!-- '#image_replacement' div -->
+				
+				<!-- 
+					 @ IMAGE PIXELIZATION STRAGETY @
+													-->
+				<div id="image_pixelization_box">
+					<!-- The radio button form for selecting the replacement image. -->
+					<form id="image_pixelization_form">
+						<div style="float: right;margin-left: 15px">
+							<input type="radio" name="image_pixelization" value="50"> S<br /><img class="cen" src="../img/cen-s.png" />
+						</div>
+						<div style="float: right">
+							<input type="radio" name="image_pixelization" value="30"> L<br /><img class="cen" src="../img/cen-l.png" />
+						</div>
+					</form><!-- '#image_pixelization' form -->
+				</div><!-- '#image_pixelization' div -->
+				
+				<!-- 
+					 @ IMAGE SCANNER SETTINGS @
+												-->
+				<div id="image_settings_box">
+					<!-- The checkbox form that indicates if background images are scanned. -->
+					<form id="image_background_form">
+						<input type="checkbox" id="image_background" name="image_background">Background Images
+					</form><!-- '#image_background' form -->
+
+					<!-- The checkbox form that indicates if inital blur is on or off. -->
+					<form id="image_blurring_form">
+						<input type="checkbox" id="image_blurring" name="image_blurring">Initial Blurring
+					</form><!-- '#image_blurring' form -->
+
+					<!-- The checkbox form that indicates if inital block is on or off. -->
+					<form id="image_blocking_form">
+						<input type="checkbox" id="image_blocking" name="image_blocking">Initial Blocking
+					</form><!-- '#image_blocking' form -->
+					
+					<!-- The checkbox form that indicates if 2-Pass Scanning is on or off. -->
+					<form id="image_two_pass_form">
+						<input type="checkbox" id="image_two_pass" name="image_two_pass">2-Pass Scanning
+					</form><!-- '#image_two-pass' form -->
+				</div><!-- '#image_settings_box' div -->
+				
+				<!-- Ensures the container div wraps around. -->
+				<div class="clear"></div>
+				
+				<p class="notice">NOTE: Due to the nature of this scanner, it may block close-up facial images.</p>
+				
+				<!-- Image Filter explanation -->
+				<div class="paragraph">
+					<p class="text">The Image Filter scans image names and search tags for any of the 'Blocked Filenames'. If a match is found, the image will be replaced. Partial word matches are detected. If a listed word appears as part of a word that is in the image name or search tag, then the image will still be blocked. In other words, if you listed 'porn' as a blocked word, then the word 'pornography' will also be checked, since the word 'porn' appears in 'pornography'.</p>
+				</div><!-- '.paragraph' div for Image Filter -->
+				<br />
+				<div id="image_text_boxes">
+					<table>
+						<tr>
+							<th><input type="checkbox" id="image_block_words" name="image_block_words">Blocked Filenames<br /><span class="sub_text">(Partial matching of words, full <a href="https://www.debuggex.com/cheatsheet/regex/javascript" target="_blank">RegEx</a> support)</span><p /></th>
+							<th>Website Whitelist<br /><span class="sub_text">(Limited wildcard support,<br />format: www.foxnews.com or *.tumblr.com/post/*)</span></th>
+						</tr>
+						<tr>
+							<td><textarea id="image_blocked_words" name="image_blocked_words" rows="6"></textarea></td>
+							<td><textarea id="image_whitelisted_websites" name="image_whitelisted_websites" rows="6"></textarea></td>
+						</tr>
+					</table>
+					
+					<!-- This is used to ensure that the container div wraps around -->
+					<p class="notice">NOTE: Only place one word / website per line without punctuation.</p>
+				
+				</div><!-- '#image_text_boxes' div -->
+			</div><!-- '#image_filter_wrapper' div -->
+			
+			<!-- 
+				 # TEXT FILTER #
+								 -->
+			
+			<div id="text_filter_wrapper" class="wrapper">
+				<h2 class="title">Text Filter</h2>
+
+
+				<!-- The radio button form that controls wether or not the word or the sentence is replaced. -->
+				<div style="display:none" id="replace_word/sentence/paragraph">
+					<form id="word_or_sentence_form">
+						<input type="radio" name="WordOrSentence" value="word"> Only replace the blocked word.
+						<br />
+						<input type="radio" name="WordOrSentence" value="sentence"> Replace the entire sentence containing the blocked word.
+					</form><!-- 'word_or_sentence' form  -->
+				</div>
+				
+				<!-- The radio button form that controls when a paragraph is replaced or a webpage is blocked. -->
+				<form id="block_page/paragraph_form">
+					<input type="checkbox" id="block_paragraph" name="block_paragraph"> Replace all paragraphs containing <input type="text" class="fillin_blank" id="num_for_paragraph" name="num_for_paragraph" maxlength="3" size="1"> or more bad words with <input type="text" class="fillin_blank" id="paragraph_text" name="paragraph_text" size="26" value="[:Censored Paragraph:]">
+					<br />
+					<input type="checkbox" id="block_webpage" name="block_webpage"> Block the webpage after finding <input type="text" style="margin-top: 2px" class="fillin_blank" id="num_for_webpage" name="num_for_webpage" maxlength="3" size="1"> or more bad words.
+				</form><!-- '#block_page/paragraph' form -->
+				<br />
+				<div class="txt_button" style="color:#5E6086">Mild</div>
+				<div class="txt_button" style="color:#5C415D">Moderate</div>
+				<div class="txt_button" style="color:#773737">Strict</div>
+				<div id="text_boxes">
+					<table>
+						<tr>
+							<th>Bad Words<br /><span class="sub_text">(Partial matching of words, full <a href="https://www.debuggex.com/cheatsheet/regex/javascript" target="_blank">RegEx</a> support)</span><p /></th>
+							<th>Website Whitelist<br /><span class="sub_text">(Limited wildcard support,<br />format: www.foxnews.com or *.tumblr.com/post/*)</span></th>
+						</tr>
+						<tr>
+							<td><textarea id="blocked_words" name="blocked_words"rows="6"></textarea></td>
+							<td><textarea id="whitelisted_websites" name="whitelisted_websites" rows="6"></textarea></td>
+						</tr>
+					</table>
+					<p class="notice">NOTE: Only place one word / website per line without punctuation.</p>
+				</div><!-- 'text_boxes' div -->
+			</div><!-- 'text_filter_wrapper' div -->
+
+			<!-- 
+				 # SCHEDULE #
+								 -->
+			
+			<div id="schedule_wrapper" class="wrapper">		
+				<h2 class="title">Schedule</h2>
+
+				<input type="hidden" name="schedule">
+			
+				<div id="legend">
+					<ul class="legend">
+							<div id="legendlabel">LEGEND</div>
+							<li class="first"><span class="unset">&nbsp;</span>Disabled</li>
+							<li><span class="one">&nbsp;</span>Image Filter<span class="plus">(+)</span></li>
+							<li><span class="two">&nbsp;</span>Text Filter<span class="plus">(+)</span></li>
+							<li><span class="three">&nbsp;</span>???<span class="plus">(+)</span></li>
+							<li><span class="all">&nbsp;</span>???</li>	
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+				<div id="daygrid" class="clearfix">
+					<div class="day">
+						<label>Sun</label>
+						<ul class="clearfix"><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="middle"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li>
+						</ul>
+					</div>
+					<div class="day">
+						<label>Mon</label>
+						<ul class="clearfix"><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="middle"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li>
+						</ul>
+					</div>
+					<div class="day">
+						<label>Tue</label>
+						<ul class="clearfix"><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="middle"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li>
+						</ul>
+					</div>
+					<div class="day">
+						<label>Wed</label>
+						<ul class="clearfix"><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="middle"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li>
+						</ul>
+					</div>
+					<div class="day">
+						<label>Thu</label>
+						<ul class="clearfix"><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="middle"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li>
+						</ul>
+					</div>
+					<div class="day">
+						<label>Fri</label>
+						<ul class="clearfix"><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="middle"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li>
+						</ul>
+					</div>
+					<div class="day">
+						<label>Sat</label>
+						<ul class="clearfix"><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="middle"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li><li class="unset"></li>
+						</ul>
+					</div>
+				</div>
+				<div id="hoursgrid" class="clearfix">
+					<div class="day" style="margin-left: -40px; height: 51px">
+							<ul class="clearfix"><li class="unset">12</li><li class="unset">1</li><li class="unset">2</li><li class="unset">3</li><li class="unset">4</li><li class="unset">5</li><li class="unset">6</li><li class="unset">7</li><li class="unset">8</li><li class="unset">9</li><li class="unset">10</li><li class="unset">11<br /></li><li class="middle"></li><li class="unset">12</li><li class="unset">1</li><li class="unset">2</li><li class="unset">3</li><li class="unset">4</li><li class="unset">5</li><li class="unset">6</li><li class="unset">7</li><li class="unset">8</li><li class="unset">9</li><li class="unset">10</li><li class="unset">11</li>
+							<span class="ampmlabel">AM</span><span class="ampmlabel">PM</span>
+							</ul>
+					</div>
+				</div>
+			
+			</div><!-- 'schedule_wrapper' div -->
+			<!-- 
+				 # SAVE SETTINGS #
+								   -->
+			<div id="buttons" style="float: right">
+
+				<!-- The button form for saving Web-Cleaner settings. -->
+				<form>
+					<!-- 
+						 # WITH NOTE #
+									   -->
+					<input id="save_button" type="button" value="Save">
+				</form><!-- '#save_button' form -->
+			</div><!-- '#buttons' div -->
+		</div><!-- '#container' div -->
+		<div id="modalBackground">
+			<div class="modal" data-form="login">
+				<div id="logo">
+					<img src="../img/logo.svg" width="135px" height="135px"/>
+				</div><!-- '#logo' div -->
+				<div id="passwordBackdrop">
+					<ul class="bg-bubbles">
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+				<div class="container modalContainer">
+					<div class="windowBar modal-windowBar">
+						<div>Password Protected</div>
+					</div>
+					<div class="modalContent">
+						<span data-role="code"></span><br />
+						<input name="password" type="password" data-type="password" placeholder="Enter your password." data-role="password"/>
+					</div>
+				</div>
+			</div>
+			<div class="modal" data-form="password">
+				<div class="container modalContainer">
+					<div class="windowBar modal-windowBar">
+						<div>Password Settings</div>
+					</div>
+					<div class="modalContent">
+						<input type="text" data-type="text" placeholder="No password." data-role="password" />
+						<input type="button" data-role="submit" value="Save" />
+					</div>
+				</div>
+			</div>
+			<div class="modal" data-form="export">
+				<div class="container modalContainer">
+					<div class="windowBar modal-windowBar">
+						<div>Export Settings</div>
+					</div>
+					<div class="modalContent">
+						<div style="margin-top: 25px"></div>
+						<label for="expiry-date" style="margin-top: 50px">Expiration date:</label>
+						<input name="expiry-date" type="text" data-type="date" data-role="expiry-date" />
+						<br />
+						<label for="link">Link:</label> <span data-role="link"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/jquery-3.1.1.min.js"></script>
+		<script src="../js/pikaday.js"></script>
+		<script src="../js/pikaday.jquery.js"></script>
+		<script src="../js/schedule.js"></script>
+		<script src="../js/options.js"></script>
+	</body>
+</html>

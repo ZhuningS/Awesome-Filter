@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>AdminLTE 3 | Data Tables</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/datatables/dataTables.bootstrap4.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <link rel="stylesheet" href="/css/original_ADminLTE.min.css"/>  <!-- Google Font: Source Sans Pro -->
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"/>
+  <style>
+    .example-modal .modal {
+      position: relative;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      display: block;
+      z-index: 1;
+    }
+
+    .example-modal .modal {
+      background: transparent !important;
+    }
+    .main-sidebar {
+      z-index: 1100;
+      height: 100%;
+      overflow-y: hidden;
+    }
+  </style>
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <div  th:include="top::topbar"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar  elevation-4" id="sidebar" style="height: 100%">
+    <!-- Brand Logo -->
+    <!-- Sidebar -->
+    <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header bg-maroon">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>风险清单</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item" style="color: white"><a href="#" style="color: white">首页</a></li>
+              <li class="breadcrumb-item active" style="color: white;cursor: pointer">风险管理策略</li>
+              <li class="breadcrumb-item active" style="color: white;cursor: pointer">风险清单</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="row mb-2">
+                <div class="col-sm-11">
+                  <ul class="breadcrumb float-sm-right" style="position: absolute;left: 0;top: -1px;margin-bottom: 0;margin-top: 10px">
+                    <li class="breadcrumb-item active" style="color: purple;cursor: pointer;font-weight: bolder"><span th:text="${first_name}"></span></li>
+                    <li class="breadcrumb-item active" style="color: purple;cursor: pointer;font-weight: bolder"><span  th:text="${second_name}"></span></li>
+                    <li class="breadcrumb-item active" style="color: purple;cursor: pointer;font-weight: bolder"><span  th:text="${third_name}"></span></li>
+                  </ul>
+                </div>
+                <div class="col-sm-1">
+                  <span style="color: white;font-weight: bolder;margin-left: 700px;margin-bottom: 10px">状态: <span th:text="${status}" style="color: red;font-weight: bolder"></span></span>
+                </div>
+              </div>
+              <button th:if="${status=='待审批'}" type="button" class="btn bg-olive btn-flat " title="导入xls" style="display: inline-block;margin-left: 896px" data-toggle="modal" data-target="#modal-upload"><i class="fa fa-upload"></i></button>
+              <button th:if="${status=='待审批'}" type="button" class="btn bg-navy btn-flat " title="创建" style="display: inline-block;margin-left: 6px" data-toggle="modal" data-target="#modal-info"><i class="fa fa-twitter"></i></button>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="table" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th style="text-align: center">四级风险编号</th>
+                  <th style="text-align: center">四级风险名称</th>
+                  <th style="text-align: center">四级风险描述</th>
+                  <th style="text-align: center">关联风险事件</th>
+                  <th style="text-align: center" th:if="${session.user.getPermission()==1 or session.user.getPermission()==2}">操作</th>
+                  <th style="display: none"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="f:${list_fourth}">
+                  <td style="text-align: center;display: none" th:text="${f.id}" class="fid"></td>
+                  <td style="text-align: center" th:text="${f.fourthLevelRiskCode}"></td>
+                  <td style="text-align: center" th:text="${f.fourthLevelRiskName}" class="fourth_name"></td>
+                  <td style="text-align: center" th:text="${f.fourthLevelRiskDescription}"></td>
+                  <td style="text-align: center"><a th:href="@{'/riskeventlibrary/related_fourth/'+${f.id}}"><i class="fa fa-globe"></i></a></td>
+                  <td th:if="${session.user.getPermission()==1 or session.user.getPermission()==2}"> <i class="fa fa-edit sm" style="cursor: pointer"></i> <i class="fa  fa-trash-o sm" style="cursor: pointer"></i></td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th style="text-align: center">四级风险编号</th>
+                  <th style="text-align: center">四级风险名称</th>
+                  <th style="text-align: center">四级风险描述</th>
+                  <th style="text-align: center">关联风险事件</th>
+                  <th style="text-align: center" th:if="${session.user.getPermission()==1 or session.user.getPermission()==2}">操作</th>
+                  <th style="display: none"></th>
+                </tr>
+                </tfoot>
+              </table>
+              <div class="row">
+                <div class="col-sm-12 col-md-5">
+                  <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">共 <span th:text="${Total_page}"></span>页 <span th:text="${Total_elements}"></span>条</div>
+                </div>
+                <div class="col-sm-12 col-md-7">
+                  <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                    <ul class="pagination" style="margin-left: 386px">
+                      <li class="paginate_button page-item previous " id="example1_previous" >
+                        <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link" th:href="@{'/fourthlevel/list_fourth/'+${id}+'/'+${risk_level}+'/'+${status}(page=${list_fourth.number-1})}" th:unless="${list_fourth.first}" >Previous</a>
+                      </li>
+                      <li class="paginate_button page-item previous "  style="margin-left: 50px;margin-top: 8px">
+                        当前页数:  <span th:text="${current_elements}+1"></span>
+                      </li>
+                      <li class="paginate_button page-item next" id="example1_next" style="margin-left: 30px">
+                        <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link" th:href="@{'/fourthlevel/list_fourth/'+${id}+'/'+${risk_level}+'/'+${status}(page=${list_fourth.number+1})}" th:unless="${list_fourth.last}">Next</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <div class="modal modal-info fade" id="modal-info">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">创建四级风险</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <form role="form" th:action="@{'/fourthlevel/add/'+${id}}" th:object="${fro}" >
+              <div class="modal-body">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label >风险编号</label>
+                      <input type="text" class="form-control"  placeholder="请输入四级风险编号" th:field="*{fourthLevelRiskCode}"  id="fourthLevelRiskCode"/>
+                    </div>
+                    <div class="form-group">
+                      <label >风险名称</label>
+                      <input type="text" class="form-control"  placeholder="请输入四级风险名称" th:field="*{fourthLevelRiskName}" id="fourthLevelRiskName"/>
+                    </div>
+                    <div class="form-group">
+                      <label>风险描述</label>
+                      <textarea class="form-control" rows="3"   placeholder="请输入四级风险描述" th:field="*{fourthLevelRiskDescription}" id="fourthLevelRiskDescription"></textarea>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                    <div class="modal-dialog modal-sm" role="document">
+                      <div class="modal-content">
+                        ...
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <input type="button" class="btn btn-outline" id="add_submit" value="提交"/>
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
+              </div>
+              </form>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <div class="modal modal-info fade" id="modal-info-edit">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">修改四级风险</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <form role="form" th:action="@{'/fourthlevel/update/'+${id}}" th:object="${fro}">
+                <div class="modal-body">
+                  <div class="card-body">
+                    <div th:each="f:${fro}">
+                      <div class="form-group">
+                        <label >风险编号</label>
+                        <input type="text" class="form-control"  placeholder="请输入三级风险编号" th:field="*{fourthLevelRiskCode}"  id="thirdLevelRiskCode" th:value="${f.fourthLevelRiskCode}"/>
+                      </div>
+                      <div class="form-group">
+                        <label >风险名称</label>
+                        <input type="text" class="form-control"  placeholder="请输入三级风险名称" th:field="*{fourthLevelRiskName}" id="thirdLevelRiskName" th:value="${f.fourthLevelRiskName}"/>
+                      </div>
+                      <div class="form-group">
+                        <label>风险描述</label>
+                        <textarea class="form-control" rows="3"   placeholder="请输入三级风险描述" th:field="*{fourthLevelRiskDescription}" id="secondLevelRiskDescription" th:value="${f.fourthLevelRiskDescription}" ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                    <div class="modal-dialog modal-sm" role="document">
+                      <div class="modal-content">
+                        ...
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <input type="submit" class="btn btn-outline" id="update_submit" value="提交"/>
+                  <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <div class="modal modal-info fade" id="modal-upload">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">导入xls文件</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <form role="form" th:action="@{'/fourthlevel/uploading/'+${id}}"  enctype="multipart/form-data" th:method="post">
+                <div class="modal-body">
+                  <div class="card-body">
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="file"/>
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                    <div class="modal-dialog modal-sm" role="document">
+                      <div class="modal-content">
+                        ...
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <input type="submit" class="btn btn-outline"  value="提交"/>
+                  <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <div class="modal modal-success fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="add_success">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title">系统提示</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+              <span>四级风险：</span><span id="add_fourth_level_success" style="color: red"></span> 创建成功!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal modal-success fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="del">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title">系统提示</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                您确认要删除  <span>四级风险：</span><span id="del_name" style="color: red"></span>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left"  id="del_confirm" data-dismiss="modal">确认</button>
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal modal-danger fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="add_failure">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title">系统提示</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+              风险名称或编号已存在，请重新提交!
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.modal -->
+
+
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.0-alpha
+    </div>
+    <strong>Copyright &copy; 2014-2018 <a href="#">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="/datatables/jquery.dataTables.min.js"></script>
+<script src="/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- SlimScroll -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/js/demo.js"></script>
+<!-- page script -->
+
+<script>
+    $(function () {
+        $('#table').DataTable({
+            "paging": false,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": false,
+            "autoWidth": true
+        });
+    });
+</script>
+
+<script th:inline="javascript">
+    //<![CDATA[
+    $(function () {
+        $("#add_submit").click(function () {
+             var fourthLevelRiskCode= $("#fourthLevelRiskCode").val();
+             var  fourthLevelRiskName= $("#fourthLevelRiskName").val();
+              var fourthLevelRiskDescription= $("#fourthLevelRiskDescription").val();
+            if(fourthLevelRiskCode !='' && fourthLevelRiskName !='' && fourthLevelRiskDescription !=''){
+                $("#add_submit").attr("type","submit");
+                $('#add_submit').click()
+            }else {
+                alert("输入不能有空!")
+            }
+            $('#add_ready').modal('show');
+            $("#add_submit_confirm").click(function () {
+
+            })
+        });
+        var add_success=[[${add_success}]];
+        var fourth_name=[[${fourth_name}]];
+        var delet_fourth_success=[[${delet_fourth_success}]];
+        var edit_ing=[[${edit_ing}]];
+        var edit_success=[[${edit_success}]];
+        if(edit_success==1){
+            alert("更新成功!")
+        }
+        if(edit_ing==1){
+            $("#modal-info-edit").modal('show');
+        }
+        if(delet_fourth_success==1){
+            alert("删除成功!")
+        }
+        if(add_success==1){
+            $("#add_fourth_level_success").html(fourth_name);
+            $('#add_success').modal('show')
+        }else if(add_success==0){
+            $('#add_failure').modal('show')
+        }
+        $(".fa-trash-o").click(function () {
+            var fid=$(this).parent().siblings(".fid").html();
+            $("#del_name").html( $(this).parent().siblings(".fourth_name").html());
+            $("#del").modal('show');
+            $("#del_confirm").click(function () {
+                window.location.href='/fourthlevel/del/'+fid;
+            });
+        });
+        $(".fa-edit").click(function () {
+            var fid = $(this).parent().siblings(".fid").html();
+            window.location.href='/fourthlevel/edit/'+fid;
+        });
+        $(".see_second_level").click(function () {
+            var fid = $(this).parent().siblings(".fid").html();
+            window.location.href='/secondlevel/list_Enterprise_system_fourth/'+fid;
+        });
+        $(".see_first_level").click(function () {
+            var tid = $(this).parent().siblings(".fid").html();
+            window.location.href='/firstlevel/list_Enterprise_system_fourth/'+tid;
+        });
+        $(".see_third_level").click(function () {
+            var tid = $(this).parent().siblings(".fid").html();
+            window.location.href='/thirdlevel/list_Enterprise_system_fourth/'+tid;
+        });
+    })
+    //]]>
+</script>
+</body>
+</html>

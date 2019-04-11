@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="language" content="en" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>腾讯视频内容审核平台</title>
+    <link rel="shortcut icon" href="img/favicon.ico"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="css/base.css" rel="stylesheet" type="text/css">
+	
+	<script>
+		try{
+		    document.domain="qq.com";
+		}catch(e){
+		    
+		}
+	</script>
+  </head>
+
+  <body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	  <div class="container">
+		<div class="navbar-header" style="display:;">
+		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		 <a class="navbar-brand" style="width:50px;padding-bottom: 0px;padding-top: 0px;line-height:50px;" href="#"><img src="img/logo.png" style="width: 45px;height: 35px;"></a>
+		</div>
+		
+		<div class="navbar-header" style="float:right; padding-top:10px;">
+			<div id="islogin_cont" style="display:none;">
+				<a href="/" style="color:#fff; font-size:18px;" id="login_nickname">Anchel</a>
+				<button type="button" class="btn btn-link user-logout">Logout</button>
+			</div>
+			<div id="nologin_cont">
+				<button type="button" class="btn btn-link user-login">Login</button>
+			</div>
+        </div>
+		
+		<div class="collapse navbar-collapse">
+		  <ul class="nav navbar-nav">
+			<li class="active"><a style=" font-size: 18px;" href="#">腾讯视频内容审核平台</a></li>
+		  </ul>
+		</div><!--/.nav-collapse -->
+		
+	  </div>
+	</div>
+	
+    <div class="container">
+		
+      <div class="row">
+	  
+		<div class="col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+          <div class="list-group">
+            <a href="javascript:" class="list-group-item active">待审核视频</a>
+            <a href="yizhijian.html" class="list-group-item">已通过视频</a>
+			<a href="yijujue.html" class="list-group-item">已拒绝视频</a>
+          </div>
+        </div>
+		
+		<div class="col-md-10">
+			<form class="bs-example-form" role="form">
+                <div class="row" style="margin-bottom: 10px;">
+                    <div class="">
+                        <div class="input-group">
+                            <div class="input-group-btn" data-form-item="type">
+                                <button type="button" class="btn btn-default dropdown-toggle btn-group" data-toggle="dropdown" style="width:110px;">
+                                    <span data-form-cond="0">按分类</span><span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li data-form-val="0">
+                                        <a href="javascript:;">按分类</a>
+                                    </li>
+                                    <li data-form-val="1">
+                                        <a href="javascript:;">电影</a>
+                                    </li>
+                                    <li data-form-val="2">
+                                        <a href="javascript:;">电视剧</a>
+                                    </li>
+                                    <li data-form-val="3">
+                                        <a href="javascript:;">动漫</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="input-group-btn" data-form-item="source">
+                                <button type="button" class="btn btn-default dropdown-toggle btn-group" data-toggle="dropdown" style="width:110px;margin-right: 5px;">
+                                    <span data-form-cond="0">按类型查询</span><span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li data-form-val="0">
+                                        <a href="javascript:;">按类型查询</a>
+                                    </li>
+                                    <li data-form-val="1">
+                                        <a href="javascript:;">面包</a>
+                                    </li>
+                                    <li data-form-val="2">
+                                        <a href="javascript:;">V+</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <input type="text" class="form-control" name="keyword">
+                            <span class="input-group-btn">
+                                <button class="btn  btn-primary" type="button" data-form-button="submit">Go!</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+
+                </div><!-- /.row -->
+            </form>
+			<div class="row" style="margin-bottom:5px;">
+				<h5>
+					今天还有待审核任务：<strong id="video_total">0</strong>
+				</h5>			
+			</div>
+			
+			<div id="list_cont"></div>
+			
+			<div class="row " style="text-align:right;">
+				<div class="btn-toolbar  offset4" role="toolbar">
+					<div class="btn-group btn-group-lg" style="float:right">
+					  <button type="button" class="btn btn-primary" data-audit-submit="all">全部提交</button>
+					</div>
+				 </div>
+			</div>
+			
+			<!--分页-->
+            <div class="row " style="text-align:right; display:none;">
+                <div class="btn-toolbar  offset4" role="toolbar">
+                    <ul class="pagination" id="pager_cont">
+                        
+                    </ul>
+                 </div>
+            </div>
+
+        </div>
+      </div><!--/row-->		
+		<hr>
+		<footer>
+			<p class="muted credit" style="text-align:center;">Copyright © 1998 - 2014 TENCENT Inc. All Rights Reserved</p>
+			<p class="muted credit" style="text-align:center">腾讯公司 版权所有</p>
+		</footer>
+
+    </div><!--/.container-->
+	
+	<div class="modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+				  <h4 class="modal-title" id="myLargeModalLabel"></h4>
+				</div>
+				<div class="modal-body" id="modPopPlayer">
+				  
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div>
+	
+	<!--消息提示框浮层-->
+	<div class="modal message-alert-dlg" tabindex="-1" role="dialog" aria-labelledby="messageAlertModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-sm" style="margin-top: 110px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title" id="messageAlertModalLabel"></h4>
+                </div>
+                <div class="modal-body" id="modMessageAlert">
+                
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<textarea id="list_tpl" style="display: none;">
+	    {for item in data}
+        <div class="row">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h4 class="panel-title">视频ID：${item.vid}&nbsp;&nbsp;&nbsp;标题：${item.title}&nbsp;&nbsp;&nbsp;<a href="http://v.qq.com/search.html?ms_key=${item.title|encode}" style="color:red" target="_blank">腾讯视频搜索</a></h4>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="bs-example">
+                          <div class="row">
+                              <div class="col-xs-6 col-md-3">
+                                  <a href="#" class="thumbnail" data-toggle="modal" data-target=".bs-example-modal-lg" data-play="${item.vid}" title="${item.title}">
+                                      <img data-src="holder.js/200*120" alt="200*120" style="height: 120px; width: 200px; display: block;" src="${item.pic1}">
+                                  </a>
+                              </div>
+                              <div class="col-xs-6 col-md-3">
+                                  <a href="#" class="thumbnail" data-toggle="modal" data-target=".bs-example-modal-lg" data-play="${item.vid}" title="${item.title}">
+                                      <img data-src="holder.js/200*120" alt="200*120" style="height: 120px; width: 200px; display: block;" src="${item.pic2}">
+                                  </a>
+                              </div>
+                              <div class="col-xs-6 col-md-3">
+                                  <a href="#" class="thumbnail" data-toggle="modal" data-target=".bs-example-modal-lg" data-play="${item.vid}" title="${item.title}">
+                                      <img data-src="holder.js/200*120" alt="200*120" style="height: 120px; width: 200px; display: block;" src="${item.pic3}">
+                                  </a>
+                              </div>
+                              <div class="col-xs-6 col-md-3">
+                                  <a href="#" class="thumbnail" data-toggle="modal" data-target=".bs-example-modal-lg" data-play="${item.vid}" title="${item.title}">
+                                      <img data-src="holder.js/200*120" alt="200*120" style="height: 120px; width: 200px; display: block;" src="${item.pic4}">
+                                  </a>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><font color="red">*</font>标题：</label>
+                            <div class="col-md-4">
+                                <h4>${item.title}</h4>
+                            </div>
+                            <label class="col-md-2 control-label"><font color="red">*</font>分类：</label>
+                            <div class="col-md-4">
+                                <h4>${item.type|getTypeName}</h4>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><font color="red">*</font>标签：</label>
+                            <div class="col-md-4">
+                                <h4>${item.tag}</h4>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"><font color="red">*</font>简介：</label>
+                            <div class="col-md-4">
+                                <h4>${item.desc}</h4>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-xs-12" style="border-top:1px solid #e1e1e8; text-align:right;padding-top:7px;" data-audit-item="${item.vid}">
+                        <div class="btn-group">
+                            <label for="${item.vid}_result_1" style="color:green"> <input type="radio" value="1" data-audit-reason="0" name="${item.vid}_result" id="${item.vid}_result_1"/>通过</label>&nbsp;&nbsp;&nbsp;
+                            <label for="${item.vid}_result_2" style="color:red"><input type="radio" value="2" data-audit-reason="1" name="${item.vid}_result" id="${item.vid}_result_2"/>色情或反动</label> &nbsp;&nbsp;&nbsp;
+                            <label for="${item.vid}_result_3" style="color:blue"><input type="radio" value="2" data-audit-reason="2" name="${item.vid}_result" id="${item.vid}_result_3"/>境外网站</label> &nbsp;&nbsp;&nbsp;
+                            <label for="${item.vid}_result_4"><input type="radio" value="2" data-audit-reason="3" name="${item.vid}_result" id="${item.vid}_result_4"/>低俗</label> &nbsp;&nbsp;&nbsp;
+                            <label for="${item.vid}_result_5" style="color:purple"><input type="radio" value="2" data-audit-reason="4" name="${item.vid}_result" id="${item.vid}_result_5"/>资料填写违规</label> 
+                        </div>
+    
+                        <div class="input-group input-group-sm" style="text-align:right;padding-left:55%;">
+                            <span class="input-group-addon">备注</span>
+                            <input type="text" class="form-control" placeholder="信息备注" name="${item.vid}_remark">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {/for}
+    </textarea>
+    
+    <div id="mask_layer_ext" class="mask_layer" style="display:none;"></div>
+	
+	<!--
+    <script src="js/lib/txv.core.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/jquery.simplePagination.js"></script>
+    <script src="js/lib/json2.js"></script>
+    
+	<script src="js/common/login.js"></script>
+	<script src="js/common/player.js"></script>
+	<script src="js/common/request.js"></script>
+	<script src="js/common/shenhe.js"></script>
+	<script src="js/common/util.js"></script>
+	
+	<script src="js/typemap.js"></script>
+	<script src="js/dataquery.js"></script>
+	<script src="js/main.js"></script>
+	-->
+	
+	<script src="js/dist/zlsh.lib.js"></script>
+    <script src="js/dist/zlsh.main.js"></script>
+	
+	<script>
+		
+		$(function(){
+		    var config = {
+                pageType : 0,  //0-待审核  1-已审核 2-已拒绝
+                
+                pageConfig : {
+                    pager : {
+                        pagerContId : 'pager_cont',
+                        pageSize : 10
+                    }
+                },
+                dataQueryParam : {
+                    otype : 'json',
+                    offset : 0,
+                    limit : 10,
+                    audit_result : 1
+                },
+                flag : {
+                    needPager : false
+                },
+                template : {
+                    modId : 'list_cont',
+                    tplId : 'list_tpl'
+                }
+            };
+            ZLSH.main.init(config);
+		});
+	</script>
+  </body>
+</html>

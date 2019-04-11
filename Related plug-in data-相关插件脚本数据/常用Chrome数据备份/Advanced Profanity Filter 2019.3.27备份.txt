@@ -1,0 +1,133 @@
+{
+  "advancedDomains": [
+    "www.2345.com"
+  ],
+  "censorCharacter": "*",
+  "censorFixedLength": 0,
+  "defaultSubstitution": "censored",
+  "defaultWordMatchMethod": 0,
+  "defaultWordRepeat": false,
+  "disabledDomains": [
+    "360doc.com",
+    "douban.com",
+    "evernote.com",
+    "icloud.com",
+    "jianshu.com",
+    "note.youdao.com",
+    "segmentfault.com",
+    "shouqu.me",
+    "stackoverflow.com",
+    "yinxiang.com"
+  ],
+  "filterMethod": 2,
+  "filterWordList": true,
+  "globalMatchMethod": 3,
+  "muteAudio": false,
+  "muteMethod": 0,
+  "password": null,
+  "preserveCase": true,
+  "preserveFirst": true,
+  "preserveLast": false,
+  "showCounter": true,
+  "showSubtitles": 0,
+  "showSummary": true,
+  "showUpdateNotification": true,
+  "substitutionMark": true,
+  "words": {
+    "about??baidu": {
+      "matchMethod": 0,
+      "repeat": false,
+      "sub": ""
+    },
+    "ass": {
+      "matchMethod": 0,
+      "repeat": true,
+      "sub": "butt"
+    },
+    "asses": {
+      "matchMethod": 0,
+      "repeat": false,
+      "sub": "butts"
+    },
+    "asshole": {
+      "matchMethod": 1,
+      "repeat": true,
+      "sub": "butthole"
+    },
+    "av": {
+      "matchMethod": 0,
+      "repeat": false,
+      "sub": ""
+    },
+    "bastard": {
+      "matchMethod": 1,
+      "repeat": true,
+      "sub": "imperfect"
+    },
+    "bitch": {
+      "matchMethod": 1,
+      "repeat": true,
+      "sub": "jerk"
+    },
+    "cunt": {
+      "matchMethod": 1,
+      "repeat": true,
+      "sub": "explative"
+    },
+    "dammit": {
+      "matchMethod": 1,
+      "repeat": true,
+      "sub": "dangit"
+    },
+    "damn": {
+      "matchMethod": 1,
+      "repeat": true,
+      "sub": "dang"
+    },
+    "dumbass": {
+      "matchMethod": 0,
+      "repeat": true,
+      "sub": "idiot"
+    },
+    "fuck": {
+      "matchMethod": 1,
+      "repeat": true,
+      "sub": "freak"
+    },
+    "hell": {
+      "matchMethod": 0,
+      "repeat": true,
+      "sub": "heck"
+    },
+    "piss": {
+      "matchMethod": 1,
+      "repeat": true,
+      "sub": "pee"
+    },
+    "pissed": {
+      "matchMethod": 0,
+      "repeat": true,
+      "sub": "ticked"
+    },
+    "shit": {
+      "matchMethod": 1,
+      "repeat": true,
+      "sub": "crap"
+    },
+    "slut": {
+      "matchMethod": 1,
+      "repeat": true,
+      "sub": "imperfect"
+    },
+    "tits": {
+      "matchMethod": 1,
+      "repeat": true,
+      "sub": "explative"
+    },
+    "whore": {
+      "matchMethod": 1,
+      "repeat": true,
+      "sub": "harlot"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+   "manifest_version": 2,
+   "name": "Web Cleaner",
+   "options_page": "assets/html/options.html",
+   "permissions": [
+      "http://*/", "https://*/",
+      "tabs",
+      "notifications",
+      "webNavigation"
+   ],
+   "version": "1.0.0",
+   "background": {
+      "scripts": [ "assets/js/background.js", "assets/js/milestones.js" ]
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "match_about_blank": true,
+      "js": [
+         "assets/js/filters.js",
+         "assets/js/mutation_summary.js"
+      ],
+      "matches": [ "<all_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Filters inappropriate content from the internet.",
+   "icons": {
+      "16": "assets/img/logo-16.png",
+      "48": "assets/img/logo-48.png",
+      "128": "assets/img/logo-128.png"
+   },
+   "browser_action": {
+      "default_title": "Web Cleaner",
+      "default_popup": "assets/popup/popup.html"
+   },
+   "web_accessible_resources": [
+      "assets/css/blockimg.css",
+      "assets/js/worker.nude.js",
+      "assets/img/logo-16.png",
+      "assets/img/logo-48.png",
+      "assets/img/logo-128.png",
+      "assets/img/logo.svg"
+   ]
+}

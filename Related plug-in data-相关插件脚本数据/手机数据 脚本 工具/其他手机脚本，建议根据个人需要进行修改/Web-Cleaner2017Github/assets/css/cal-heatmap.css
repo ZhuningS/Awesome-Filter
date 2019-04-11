@@ -1,0 +1,153 @@
+/* Cal-HeatMap CSS */
+
+.cal-heatmap-container {
+	display: block;
+}
+
+.cal-heatmap-container .graph
+{
+	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+.cal-heatmap-container .graph-label
+{
+	fill: #999;
+	font-size: 10px
+}
+
+.cal-heatmap-container .graph, .cal-heatmap-container .graph-legend rect {
+	shape-rendering: crispedges
+}
+
+.cal-heatmap-container .graph-rect
+{
+	fill: #777777
+}
+
+.cal-heatmap-container .graph-subdomain-group rect:hover
+{
+	stroke: #000;
+	stroke-width: 1px
+}
+
+.cal-heatmap-container .subdomain-text {
+	font-size: 8px;
+	fill: #FFF;
+	pointer-events: none
+}
+
+.cal-heatmap-container .hover_cursor:hover {
+	cursor: pointer
+}
+
+.cal-heatmap-container .qi {
+	background-color: #999;
+	fill: #999
+}
+
+/*
+Remove comment to apply this style to date with value equal to 0
+.q0
+{
+	background-color: #fff;
+	fill: #fff;
+	stroke: #ededed
+}
+*/
+
+.cal-heatmap-container .q1
+{
+	background-color: #ad9343;
+	fill: #ad9343
+}
+
+.cal-heatmap-container .q2
+{
+	background-color: #a31919;
+	fill: #a31919
+}
+
+.cal-heatmap-container .q3
+{
+	background-color: #7A0A61;
+	fill: #7A0A61
+}
+
+.cal-heatmap-container .q4
+{
+	background-color: #5D0032;
+	fill: #5D0032
+}
+
+.cal-heatmap-container .q5
+{
+	background-color: #00235D;
+	fill: #00235D
+}
+
+.cal-heatmap-container .q6
+{
+	background-color: #000000;
+	fill: #000000
+}
+
+.cal-heatmap-container rect.highlight
+{
+	stroke: yellow;
+	stroke-width: 2
+}
+
+.cal-heatmap-container text.highlight
+{
+	fill: yellow
+}
+
+
+.cal-heatmap-container rect.highlight-now
+{
+	stroke: lime;
+	stroke-width: 2
+}
+
+
+.cal-heatmap-container text.highlight-now
+{
+	fill: lime;
+	font-weight: 800
+}
+
+.cal-heatmap-container .domain-background {
+	fill: none;
+	shape-rendering: crispedges
+}
+
+.ch-tooltip {
+	padding: 5px;
+	background: #222;
+	color: #bbb;
+	font-size: 12px;
+	line-height: 1.4;
+	width: 90px;
+	position: absolute;
+	z-index: 99999;
+	text-align: center;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+	display: none;
+	box-sizing: border-box;
+}
+
+.ch-tooltip::after{
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+	content: "";
+	padding: 0;
+	display: block;
+	bottom: -6px;
+	left: 50%;
+	margin-left: -6px;
+    border-width: 6px 6px 0;
+    border-top-color: #222;
+}

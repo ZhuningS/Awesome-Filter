@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- 告诉浏览器该页面是自适应布局 -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/css/adminlte.min.css"/>
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/iCheck/square/blue.css"/>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+    <style>
+        body{
+            background: url("http://pic1.win4000.com/wallpaper/2/53ad37a938001.jpg");
+            background-size:100% 100%;
+            background-attachment: fixed;
+            /*opacity:0.6*/
+        }
+    </style>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+
+
+
+                    <div class="row" style="margin-top: 372px;margin-left: 649px">
+                        <div class="col-xs-12 text-center" style="text-align: center;vertical-align: middle">
+                            <button type="button" class="btn btn-default btn-lrg ajax" title="Ajax Request">
+                                <i class="fa fa-spin fa-refresh"></i>&nbsp; 注册成功！即将跳转
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ajax-content">
+                    </div>
+                </div>
+<div class="codeView docs-example" style="display: none" >
+    <form action="/oauth" method="post">
+        <div class="row cl" id="welcome_register">
+            <label class="form-label col-xs-4 col-sm-3"><h4>Log In</h4></label>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><i  class="Hui-iconfont Hui-iconfont-user2 labelplaceholder"></i></label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text radius size-L" autocomplete="off" placeholder="请输入您的用户名" name="username" th:value="${username}"/>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"> <i class="Hui-iconfont Hui-iconfont-suoding labelplaceholder"></i></label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="password" class="input-text radius size-L" name="password" autocomplete="off" placeholder="请输入您的密码"  th:value="${password}"/>
+            </div>
+        </div>
+        <!--<div class="row cl">-->
+        <!--<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">-->
+        <input class="regist_btn" type="submit" value="登录"/>
+        <!--<input class="btn btn-success radius size-L" type="button" value="用户注册" onclick="window.location.href='/user/user_add'"/>-->
+        <a th:href="@{/user/user_add}" style="display: block;padding-left: 272px;font-size: 15px;margin-top: 5px;text-decoration: none;color: white;cursor: pointer">用户注册</a>
+        <!--</div>-->
+        <!--</div>-->
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+    <div class="control-sidebar-bg"></div>
+<!-- ./wrapper -->
+
+<!-- jQuery 3 -->
+<script src="https://3vshej.cn/AdminLTE/AdminLTE-2.4/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="https://3vshej.cn/AdminLTE/AdminLTE-2.4/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- PACE -->
+<script src="https://3vshej.cn/AdminLTE/AdminLTE-2.4/bower_components/PACE/pace.min.js"></script>
+<!-- SlimScroll -->
+<script src="https://3vshej.cn/AdminLTE/AdminLTE-2.4/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="https://3vshej.cn/AdminLTE/AdminLTE-2.4/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="https://3vshej.cn/AdminLTE/AdminLTE-2.4/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="https://3vshej.cn/AdminLTE/AdminLTE-2.4/dist/js/demo.js"></script>
+<script type="text/javascript" src="http://lib.h-ui.net/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- page script -->
+<!--<script type="text/javascript">-->
+    <!--// To make Pace works on Ajax calls-->
+    <!--$(document).ajaxStart(function () {-->
+        <!--Pace.restart()-->
+    <!--})-->
+    <!--$('.ajax').click(function () {-->
+        <!--$.ajax({-->
+            <!--url: '#', success: function (result) {-->
+                <!--$('.ajax-content').html('<hr/>Ajax 请求已完成！')-->
+            <!--}-->
+        <!--})-->
+    <!--})-->
+<!--</script>-->
+<script th:inline="javascript">
+    $(function () {
+        setTimeout(function () {  $(".regist_btn").click(); }, 3000);
+
+    })
+</script>
+</body>
+</html>

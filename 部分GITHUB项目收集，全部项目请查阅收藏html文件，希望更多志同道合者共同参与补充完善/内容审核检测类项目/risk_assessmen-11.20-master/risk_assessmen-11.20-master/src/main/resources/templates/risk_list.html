@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>AdminLTE 3 | Data Tables</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!-- Font Awesome -->
+
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/datatables/dataTables.bootstrap4.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <link rel="stylesheet" href="/css/original_ADminLTE.min.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+  <style>
+    .table tbody tr td{
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+    }
+    .table{
+      table-layout:fixed;
+    }
+    .content-header{
+      background: url("https://demos.creative-tim.com/material-dashboard-pro-angular2/assets/img/card-1.jpg")  ;
+    }
+  </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <div  th:include="top::topbar"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100%">
+    <!-- Brand Logo -->
+    <!-- Sidebar -->
+    <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header " >
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 style="color: white">风险清单</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item" style="color: white"><a href="#" style="color: white">首页</a></li>
+              <li class="breadcrumb-item active" style="color: white;cursor: pointer">风险管理策略</li>
+              <li class="breadcrumb-item active" style="color: white;cursor: pointer">风险清单</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content" style="width:1350px ">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header" style="width: 1275px">
+              <div class="row mb-2">
+                <div class="col-sm-11">
+                  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link " id="first_level" data-toggle="pill" href="#first_level_tab" role="tab" aria-controls="pills-home" aria-selected="true" style="font-weight: bolder">一级风险</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="second_level" data-toggle="pill" href="#second_level_tab" role="tab" aria-controls="pills-profile" aria-selected="false" style="font-weight: bolder">二级风险</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="third_level" data-toggle="pill" href="#third_level_tab" role="tab" aria-controls="pills-contact" aria-selected="false" style="font-weight: bolder">三级风险</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="fourth_level" data-toggle="pill" href="#fourth_level_tab" role="tab" aria-controls="pills-contact" aria-selected="false" style="font-weight: bolder">四级风险</a>
+                    </li>
+                  </ul>
+
+                </div>
+                <div class="col-sm-1">
+                  <span style="color: white;font-weight: bolder;margin-left: 700px;margin-bottom: 10px">状态: <span th:text="${status}" style="color: red;font-weight: bolder"></span></span>
+                </div>
+              </div>
+              <button th:if="${status=='待审批'}" type="button" class="btn bg-olive btn-flat " title="导入xls" style="display: inline-block;margin-left: 896px" data-toggle="modal" data-target="#modal-upload"><i class="fa fa-upload"></i></button>
+              <button th:if="${status=='待审批'}" type="button" class="btn bg-navy btn-flat " title="创建" style="display: inline-block;margin-left: 6px" data-toggle="modal" data-target="#modal-info"><i class="fa fa-twitter"></i></button>
+            </div>
+            <div class="alert alert-success alert-dismissible" th:if="${review_ing}">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <h5><i class="icon fa fa-check"></i> 审批提交成功!</h5>
+            </div>
+            <div class="alert alert-success alert-dismissible" th:if="${publish_success}">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <h5><i class="icon fa fa-check"></i> 发布成功!</h5>
+            </div>
+            <div class="card-body" style="width: 1275px">
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade " id="first_level_tab" role="tabpanel" aria-labelledby="first_level">
+                  <table style="width: 1290px;padding-right: 80px"  class="table table-bordered table-striped" data-tablesaw-mode="columntoggle" id="table">
+                    <thead style="width: 1288px">
+                    <tr>
+                      <th style="text-align: center;width:30px;height:49px ">序号</th>
+                      <th style="text-align: center;width: 54px;height:49px">编号</th>
+                      <th style="text-align: center;width:54px;height:49px">名称</th>
+                      <th style="text-align: center;width: 371px;height:49px">描述</th>
+                      <th style="text-align: center;width: 68px">风险事件</th>
+                      <th style="text-align: center;width: 50px">下载</th>
+                      <th style="width: 50px">状态</th>
+                      <th style="text-align: center;display: none" ></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="f,iterStat:${risk_list.content}">
+                      <td th:text="${iterStat.count}" style="text-align: center"></td>
+                      <td style="text-align: center;display: none" th:text="${f.id}" class="fid" ></td>
+                      <td style="text-align: center" th:text="${f.firstLevelRiskCode}">
+
+                      </td>
+                      <td style="text-align: center"  class="first_name">
+                        <a th:href="@{'/firstlevel/list/'+${f.id}+'/已发布'}" th:text="${f.firstLevelRiskName}"></a>
+                      </td>
+                      <td style="text-align: center;width: 60%" th:text="${f.firstLevelRiskDescription}">
+                      </td>
+                      <td style="text-align: center"><a th:href="@{'/riskeventlibrary/related_first/'+${f.id}}"><i class="fa fa-globe"></i></a></td>
+                      <td style="text-align: center"><i class="fa fa-download sm" style="cursor: pointer"></i></td>
+                      <td><span class="label label-danger">已发布</span></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                  <div class="col-sm-12 col-md-5">
+                  <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">共 <span th:text="${Total_page}"></span>页 <span th:text="${Total_elements}"></span>条</div>
+                  </div>
+                  <div class="col-sm-12 col-md-7">
+                  <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                  <ul class="pagination" style="margin-left: 386px">
+                  <li class="paginate_button page-item previous " id="example1_previous" >
+                  <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link" th:href="@{/firstlevel/list_Enterprise_strategy(page=${risk_list.number-1})}" th:unless="${risk_list.first}" >上一页</a>
+                  </li>
+                  <li class="paginate_button page-item previous "  >
+                  当前页数:  <span th:text="${current_elements}+1"></span>
+                  </li>
+                  <li class="paginate_button page-item next" id="example1_next">
+                  <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link" th:href="@{/firstlevel/list_Enterprise_strategy(page=${risk_list.number+1})}" th:unless="${risk_list.last}">下一页</a>
+                  </li>
+                  </ul>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="second_level_tab" role="tabpanel" aria-labelledby="second_level">
+                  <table id="table2" class="table table-bordered table-striped" style="width: 1290px">
+                    <thead style="width: 1288px;padding-right: 80px">
+                    <tr>
+                      <th style="text-align: center;width:30px;height:49px ">序号</th>
+                      <th style="text-align: center;width: 54px;height:49px">编号</th>
+                      <th style="text-align: center;width:54px;height:49px">名称</th>
+                      <th style="text-align: center;width: 371px;height:49px">描述</th>
+                      <th style="text-align: center;width: 68px">风险事件</th>
+                      <th style="width: 50px">状态</th>
+                      <th style="display: none"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="s,iterStat:${list_second}">
+                      <td style="text-align: center;display: none" th:text="${s.id}" class="sid"></td>
+                      <td style="text-align: center;" th:text="${iterStat.count+page2_plus}" ></td>
+                      <td style="text-align: center" th:text="${s.secondLevelRiskCode}">
+
+                      </td>
+                      <td style="text-align: center" class="second_name">
+                        <a th:href="@{'/secondlevel/list/'+${s.id}}"  th:text="${s.secondLevelRiskName}"></a>
+                      </td>
+                      <td style="text-align: center;width: 60%" th:text="${s.secondLevelRiskDescription}"></td>
+                      <td style="text-align: center"><a th:href="@{'/riskeventlibrary/related_second/'+${s.id}}"><i class="fa fa-globe"></i></a>
+                      </td>
+                      <td ><span class="label label-success">已发布</span></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="row">
+                  <div class="col-sm-12 col-md-5">
+                  <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">共 <span th:text="${Total_page2}"></span>页 <span th:text="${Total_elements2}"></span>条</div>
+                  </div>
+                  <div class="col-sm-12 col-md-7">
+                  <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                  <ul class="pagination" style="margin-left: 386px">
+                  <li class="paginate_button page-item previous " id="example1_previous" >
+                  <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link" th:href="@{'/firstlevel/risk_list_all/'(page2=${list_second.number-1},level=2)}" th:unless="${list_second.first}" >上一页</a>
+                  </li>
+                  <li class="paginate_button page-item previous "  style="margin-left: 50px;margin-top: 8px">
+                  当前页数:  <span th:text="${current_elements2}+1"></span>
+                  </li>
+                  <li class="paginate_button page-item next" id="example1_next" style="margin-left: 30px">
+                  <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link" th:href="@{'/firstlevel/risk_list_all/'(page2=${list_second.number+1},level=2)}" th:unless="${list_second.last}">下一页</a>
+                  </li>
+                  </ul>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="third_level_tab" role="tabpanel" aria-labelledby="third_level">
+                  <table id="table3" class="table table-bordered table-striped" style="width: 1290px;margin-right: 80px">
+                  <thead style="width: 1288px;">
+                  <tr>
+                    <th style="text-align: center;width:30px;height:49px ">序号</th>
+                    <th style="text-align: center;width: 54px;height:49px">编号</th>
+                    <th style="text-align: center;width:54px;height:49px">名称</th>
+                    <th style="text-align: center;width: 371px;height:49px">描述</th>
+                    <th style="text-align: center;width: 68px">风险事件</th>
+                    <th style="width: 50px">状态</th>
+                    <th style="display: none"></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr th:each="t,iterStat:${list_third}">
+                  <td style="text-align: center;display: none" th:text="${t.id}" class="tid"></td>
+                    <td style="text-align: center" th:text="${iterStat.count+page3_plus}"></td>
+                  <td style="text-align: center" th:text="${t.thirdLevelRiskCode}"></td>
+                  <td style="text-align: center"  class="second_name">
+                    <a th:href="@{'/thirdlevel/list_third/'+${t.id}+'/3/'+'已发布'}" th:text="${t.thirdLevelRiskName}"></a>
+                  </td>
+                  <td style="text-align: center;width: 60%" th:text="${t.thirdLevelRiskDescription}"></td>
+                  <td style="text-align: center"><a th:href="@{'/riskeventlibrary/related_third/'+${t.id}}"><i class="fa fa-globe"></i></a></td>
+                    <td ><span class="label label-warning">已发布</span></td>
+                  </tr>
+                  </tbody>
+                  </table>
+                  <div class="row">
+                  <div class="col-sm-12 col-md-5">
+                  <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">共 <span th:text="${Total_page3}"></span>页 <span th:text="${Total_elements3}"></span>条</div>
+                  </div>
+                  <div class="col-sm-12 col-md-7">
+                  <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                  <ul class="pagination" style="margin-left: 386px">
+                  <li class="paginate_button page-item previous " id="example1_previous" >
+                  <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link" th:href="@{'/firstlevel/risk_list_all/'(page3=${list_third.number-1},level=3)}" th:unless="${list_third.first}" >上一页</a>
+                  </li>
+                  <li class="paginate_button page-item previous "  style="margin-left: 50px;margin-top: 8px">
+                  当前页数:  <span th:text="${current_elements3}+1"></span>
+                  </li>
+                  <li class="paginate_button page-item next" id="example1_next" style="margin-left: 30px">
+                  <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link" th:href="@{'/firstlevel/risk_list_all/'(page3=${list_third.number+1},level=3)}" th:unless="${list_third.last}">下一页</a>
+                  </li>
+                  </ul>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="fourth_level_tab" role="tabpanel" aria-labelledby="fourth_level">
+                  <table id="table4" class="table table-bordered table-striped" style="width: 1290px">
+                  <thead style="width: 1288px;padding-right: 80px">
+                  <tr >
+                    <th style="text-align: center;width:30px;height:49px ">序号</th>
+                    <th style="text-align: center;width: 54px;height:49px">编号</th>
+                    <th style="text-align: center;width:54px;height:49px">名称</th>
+                    <th style="text-align: center;width: 371px;height:49px">描述</th>
+                    <th style="text-align: center;width: 68px">风险事件</th>
+                    <th style="width: 50px">状态</th>
+                  <th style="display: none"></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr th:each="f,iterStat:${list_fourth}" style="width: 1288px">
+                  <td style="text-align: center;display: none" th:text="${f.id}" class="fid"></td>
+                    <td style="text-align: center" th:text="${iterStat.count+page4_plus}"></td>
+                  <td style="text-align: center" th:text="${f.fourthLevelRiskCode}"></td>
+                  <td style="text-align: center"  class="fourth_name">
+                    <a th:href="@{'/fourthlevel/list_fourth/'+${f.id}+'/4/'+'已发布'}" th:text="${f.fourthLevelRiskName}"></a>
+                  </td>
+                  <td style="text-align: center;" th:text="${f.fourthLevelRiskDescription}"></td>
+                  <td style="text-align: center"><a th:href="@{'/riskeventlibrary/related_fourth/'+${f.id}}"><i class="fa fa-globe"></i></a></td>
+                    <td>
+                      <span class="label label-table label-info">已发布</span>
+                    </td>
+                  </tr>
+                  </tbody>
+                  </table>
+                  <div class="row">
+                  <div class="col-sm-12 col-md-5">
+                  <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">共 <span th:text="${Total_page4}"></span>页 <span th:text="${Total_elements4}"></span>条</div>
+                  </div>
+                  <div class="col-sm-12 col-md-7">
+                  <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                  <ul class="pagination" style="margin-left: 386px">
+                  <li class="paginate_button page-item previous " id="example1_previous" >
+                  <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link" th:href="@{'/firstlevel/risk_list_all/'(page4=${list_fourth.number+1},level=4)}" th:unless="${list_fourth.first}" >上一页</a>
+                  </li>
+                  <li class="paginate_button page-item previous "  style="margin-left: 50px;margin-top: 8px">
+                  当前页数:  <span th:text="${current_elements4}+1"></span>
+                  </li>
+                  <li class="paginate_button page-item next" id="example1_next" style="margin-left: 30px">
+                  <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link" th:href="@{'/firstlevel/risk_list_all/'(page4=${list_fourth.number+1},level=4)}" th:unless="${list_fourth.last}">下一页</a>
+                  </li>
+                  </ul>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <div class="modal modal-info fade" id="modal-info">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">创建一级风险</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <form role="form" th:action="@{'/firstlevel/add/'+'企业战略'}" th:object="${fo}">
+                <div class="modal-body">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label >风险编号</label>
+                      <input type="text" class="form-control"  placeholder="请输入一级风险编号" th:field="*{firstLevelRiskCode}"  id="firstLevelRiskCode"/>
+                    </div>
+                    <div class="form-group">
+                      <label >风险名称</label>
+                      <input type="text" class="form-control"  placeholder="请输入一级风险名称" th:field="*{firstLevelRiskName}" id="firstLevelRiskName"/>
+                    </div>
+                    <div class="form-group">
+                      <label>风险描述</label>
+                      <textarea class="form-control" rows="3"   placeholder="请输入一级风险描述" th:field="*{firstLevelRiskDescription}" id="firstLevelRiskDescription"></textarea>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                    <div class="modal-dialog modal-sm" role="document">
+                      <div class="modal-content">
+                        ...
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <input type="button" class="btn btn-outline" id="add_submit" value="提交"/>
+                  <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal modal-success fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="review_ing">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title">系统提示</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <span>您确认要提交一级风险：</span><span  style="color: red" th:each="f:${risk_list.content}"  th:text="${f.firstLevelRiskName}"></span> ？
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left"  id="review_confirm" >
+                  <a th:href="@{'/firstlevel/review_ing/'+${id}}" style="color:white">
+                    确认
+                  </a>
+                </button>
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal modal-info fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="publish">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title">系统提示</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <span>您确认要发布一级风险：</span><span  style="color: red" th:each="f:${risk_list.content}"  th:text="${f.firstLevelRiskName}"></span> ？
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left"  id="review_confirm" >
+                  <a th:href="@{'/firstlevel/publish_ing/'+${id}}" style="color:white">
+                    确认
+                  </a>
+                </button>
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal modal-warning fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="reviewer">
+          <div class="modal-dialog modal-sm" role="document" style="max-width: 673px;max-height: 500px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title">风险审批</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <form id="comment_form">
+              <div class="modal-body">
+                <input type="text" th:value="${id}" style="display: none" name="comment_id"/>
+                <textarea class="form-control" rows="3" placeholder="Enter ..." name="comment" id="comment"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left"  id="review_pass" >
+                    审批通过
+                </button>
+                <button type="button" class="btn btn-outline pull-left"  id="review_failure" >
+                    审批失败
+                </button>
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal" style="color: black">关闭</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal modal-danger fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="add_failure">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              风险名称或编号已存在，请重新提交!
+            </div>
+          </div>
+        </div>
+        <div class="modal modal-success fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="del">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h6 class="modal-title">系统提示</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                您确认要删除  <span>一级风险：</span><span id="del_name" style="color: red"></span>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left"  id="del_confirm" data-dismiss="modal">确认</button>
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.modal -->
+
+
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.0-alpha
+    </div>
+    <strong>Copyright &copy; 2014-2018 <a href="#">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="/datatables/jquery.dataTables.min.js"></script>
+<script src="/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- SlimScroll -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $('#table').DataTable({
+      "paging": false,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": false,
+      "autoWidth": true
+    });
+      $('#table2').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+      });
+      $('#table3').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+      });
+      $('#table4').DataTable({
+          "paging": false,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": false,
+          "autoWidth": true
+      });
+  });
+</script>
+<script th:inline="javascript">
+  $(document).ready(function () {
+      var level=[[${level}]];
+      if(level==1){
+          $("#first_level").click()
+      }else if(level==3){
+          $("#third_level").click()
+      }
+      else if(level==4){
+          $("#fourth_level").click()
+      }else if(level==2){
+          $("#second_level").click()
+      };
+  })
+</script>
+<script th:inline="javascript">
+    //<![CDATA[
+    $(function () {
+
+        $("#add_submit").click(function () {
+
+            var firstLevelRiskCode= $("#firstLevelRiskCode").val();
+            var firstLevelRiskName= $("#firstLevelRiskName").val();
+            var firstLevelRiskDescription= $("#firstLevelRiskDescription").val();
+            if(firstLevelRiskCode !='' && firstLevelRiskName !='' && firstLevelRiskDescription !=''){
+                $("#add_submit").attr("type","submit");
+                $('#add_submit').click()
+            }else {
+                alert("输入不能有空!")
+            }
+            $('#add_ready').modal('show');
+            $("#add_submit_confirm").click(function () {
+
+            })
+        });
+        $(".fa-trash-o").click(function () {
+            var fid = $(this).parent().siblings(".fid").html();
+            $("#del_name").html($(this).parent().siblings(".first_name").html());
+            $("#del").modal('show');
+            $("#del_confirm").click(function () {
+                window.location.href = '/firstlevel/del/' + fid;
+            });
+        });
+        var add_success=[[${add_success}]];
+        var first_name=[[${first_name}]];
+        var status=[[${status}]];
+        if(add_success==1){
+            $("#add_first_level_success").html(first_name);
+            $('#add_success').modal('show')
+        }else if(add_success==0){
+            alert("输入名称或编号已存在!")
+        }
+        $(".see_second_level").click(function () {
+            var id = $(this).parent().siblings(".fid").html();
+            window.location.href='/secondlevel/list_Financial_thematic/'+id+"/"+status
+        });
+        $(".see_third_level").click(function () {
+            var id = $(this).parent().siblings(".fid").html();
+            window.location.href='/thirdlevel/list_third/'+id+"/"+"1"+"/"+status
+        });
+        $(".see_fourth_level").click(function () {
+            var id = $(this).parent().siblings(".fid").html();
+            window.location.href='/fourthlevel/list_fourth/'+id+"/"+"1"+"/"+status
+        });
+        $(".fa-download").click(function () {
+            var id = $(this).parent().siblings(".fid").html();
+            window.location.href='/firstlevel/download/'+id
+        });
+
+
+
+
+        //审批成功 审批失败
+        $("#review_pass").click(function () {
+            $("#comment_form").attr("action","/firstlevel/review_pass");
+            $(this).attr("type","submit");
+            $(this).click()
+        });
+        $("#review_failure").click(function () {
+            $("#comment_form").attr("action","/firstlevel/review_failure");
+            $(this).attr("type","submit");
+            $(this).click()
+        })
+    })
+    //]]>
+</script>
+</body>
+</html>

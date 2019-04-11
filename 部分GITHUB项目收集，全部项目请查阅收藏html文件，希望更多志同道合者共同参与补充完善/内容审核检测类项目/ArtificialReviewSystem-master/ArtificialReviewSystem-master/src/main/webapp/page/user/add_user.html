@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>新增用户</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../../assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../../assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../../assets/css/animate.css" rel="stylesheet">
+    <link href="../../assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="../../assets/css/style.css?v=4.1.0" rel="stylesheet">
+</head>
+<body class="gray-bg top-navigation">
+
+<div id="wrapper">
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom white-bg">
+            <nav class="navbar navbar-static-top" role="navigation">
+                <div class="navbar-header">
+                    <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                        <i class="fa fa-reorder"></i>
+                    </button>
+                    <a href="user.html" class="navbar-brand">用户信息管理</a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar">
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <a id="save">
+                                <i class="fa fa-file-text"></i> 保存
+                            </a>
+                        </li>
+                    </ul>
+                    <!--<ul class="nav navbar-top-links navbar-right">-->
+                        <!--<li>-->
+                            <!--<a id="back">-->
+                                <!--<i class="fa fa-reply"></i> 返回-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                </div>
+            </nav>
+        </div>
+        <div class="wrapper wrapper-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>新建用户</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <form role="form" class="form-horizontal" id="userform" >
+                                    <div class="ibox-content">
+                                        <input style="display: none" type="text" name="userId" id="userId">
+                                        <div class="form-group ">
+                                            <label for="userName" class="col-sm-2 control-label">姓名：</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="userName" name="userName" required/>
+                                            </div>
+                                        </div>
+                                        <!--<div class="form-group ">-->
+                                            <!--<label  class="col-sm-2 control-label">性别：</label>-->
+                                            <!--<div class="col-sm-8">-->
+                                                <!--<input type="radio" name="sex"value="男" class="radio-inline" checked>男-->
+                                                <!--<input type="radio" name="sex"  value="女"   class="radio-inline">女-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+
+                                        <div class="form-group col-sm-6">
+                                            <label for="deptId" class="col-sm-4 control-label">部门：</label>
+                                            <div class="col-sm-8">
+                                                <select id="deptId" name="deptId" class="form-control" required onclick="getBackOptions(baseUrl+'/dept/list.do',this)">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="officePhone" class="col-sm-4 control-label">办公电话：</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="officePhone" name="officePhone" required/>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group col-sm-6">
+                                            <label for="phone" class="col-sm-4 control-label">手机：</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="phone" name="phone" required/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="remark" class="col-sm-4 control-label">备注：</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="remark" name="remark"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" style="display: none;" id="btn1">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 全局js -->
+<script src="../../assets/js/jquery.min.js?v=2.1.4"></script>
+<script src="../../assets/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="../../assets/js/jquery.serializejson.js"></script>
+<script src="../../assets/js/myjs.js"></script>
+
+<!-- 自定义js -->
+<script src="../../assets/js/content.js?v=1.0.0"></script>
+
+</body>
+<script type="text/javascript">
+    $("document").ready(function () {
+        var url=window.location.search;
+        var str=url.substr(1);
+        var strs=str.split("=");
+        $("#userId").val(strs[1]);
+
+
+        getBackOptions(baseUrl+'/dept/list.do',$("#deptId"))
+    })
+    $("#save").click(function() {
+        $("#btn1").click();
+    })
+    $("form").on('submit',function (e) {
+        e.preventDefault();
+        var userId=$("#userId").val();
+        var params=$("#userform").serializeJSON();
+        $.ajax({
+            type:'post',
+            url:baseUrl+'/user/addUser.do',
+            data:params,
+            dataType:'json',
+            success:function (data) {
+                if(data.status==0){
+                    alert("插入成功");
+                    url = baseUrl+"/page/user/user.html?userId="+userId;
+                    window.location.href=url;
+                }else {
+                    alert(data.msg);
+                    return false
+                }
+            },
+            error:function (data) {
+                console.info("发生了错误",data);
+            }
+        })
+    })
+    $("#back").click(function(){
+        window.history.go(-1);
+    })
+</script>
+</html>

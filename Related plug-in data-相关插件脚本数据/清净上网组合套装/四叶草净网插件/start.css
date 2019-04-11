@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*body { visibility:hidden};*/
+
+
+
+
+
+
+/*
+.imgBlur { -webkit-filter: contrast(0.8) brightness(0.8);}
+
+.imgNone { -webkit-filter: contrast(0.005);}
+*/
+
+
+.user_panel_fhzd_plugin{
+			
+			font-size:12 px;
+			position:fixed;
+			left:50%;
+			top:5%;
+			z-index:99998;
+			margin-left:-165px;
+
+			
+
+			
+}
+
+.div_display_none img{-webkit-filter: contrast(0.005);}
+
+
+/*
+#user_panel_fhzd_plugin table{
+	font-size:12 px;
+}
+*/

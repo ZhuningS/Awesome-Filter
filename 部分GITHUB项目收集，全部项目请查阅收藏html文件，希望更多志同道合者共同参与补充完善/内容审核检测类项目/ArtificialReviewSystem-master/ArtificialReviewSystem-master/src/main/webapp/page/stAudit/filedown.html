@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>附件</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../../assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../../assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../../assets/css/animate.css" rel="stylesheet">
+    <link href="../../assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="../../assets/css/style.css?v=4.1.0" rel="stylesheet">
+    <!--sweetalert-->
+    <!--<link rel="stylesheet" type="text/css" href="path/to/sweetalert2/dist/sweetalert2.min.css">-->
+    <link href="../../assets/css/sweetalert.css" rel="stylesheet">
+    <style>
+        .form-tr{
+            width: auto;
+        }
+        .formTitle {
+            width:250px !important;
+            font-size:15px !important;
+            color:#888 !important;
+            border:1px solid #ccc;
+        }
+        .formValue {
+            width:250px !important;
+            border:1px solid #ccc;
+        }
+        .formTitle2 {
+            width:200px !important;
+            font-size:15px !important;
+            color:#888 !important;
+            border:1px solid #ccc;
+        }
+        .formValue2 {
+            width:300px !important;
+            border:1px solid #ccc;
+        }
+        ul li{
+            display: inline-block;
+            float: left;
+        }
+    </style>
+</head>
+<body class="gray-bg top-navigation">
+
+<div id="page-wrapper" class="gray-bg">
+    <div class="row border-bottom white-bg">
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button aria-controls="navbar" aria-expanded="false"
+                        data-target="#navbar" data-toggle="collapse"
+                        class="navbar-toggle collapsed" type="button">
+                    <i class="fa fa-reorder"></i>
+                </button>
+                <a href="stAudit.html" class="navbar-brand">科委形式审核</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-top-links navbar-right ">
+                    <li><a id="enterpriseDetail">
+                        企业信息
+                    </a></li>
+                    <li><a id="projectdetail">
+                        项目信息
+                    </a></li>
+                    <li><a id="persions">
+                        项目参与人员
+                    </a></li>
+                    <li><a id="projectbudget">
+                        项目开发预算
+                    </a></li>
+                    <li><a id="file">
+                    附件
+                    </a></li>
+                </ul>
+                <!--<ul class="nav navbar-top-links navbar-right">-->
+                <!--<li><a id="linkmanlist">-->
+                <!--加计扣除联系人-->
+                <!--</a></li>-->
+                <!--</ul>-->
+            </div>
+        </nav>
+    </div>
+    <div class="wrapper wrapper-content center-block">
+        <div class="container">
+            <div class="col-lg-10">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h2>附件审核</h2>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table">
+                            <tbody>
+                            <tr class="form-tr">
+                                <th class="formTitle">1 优惠明细表或辅助账汇总表：</th>
+                                <td class="formValue">
+                                    <label id="sdds" name="project">
+                                        <!--<button id="edit"  type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="downloadfile(\'' + "getLiquorDetail.do" + '\',\'' + row.msgId + '\',\'' +row.type + '\')">下载</button>-->
+                                        <a href="javascript:void(0);" onclick="downloadfile(this.id)" id="1000"></a>
+                                    </label>
+                                    <div>
+                                        <input type="checkbox" id="checkremark0"
+                                               style="width:18px;height:18px">
+                                        <label style="color:red">建议修改</label>
+                                        <input type="text" maxlength="1000" id="checkcontent0"
+                                               style="width:40%;" placeholder="最多可输入1000个字" hidden="hidden">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="form-tr">
+                                <th class="formTitle">2 项目立项决议文件：</th>
+                                <td class="formValue">
+                                    <label id="technical" name="technical">
+                                         <a href="javascript:void(0);" onclick="downloadfile(this.id)" id="2000"></a>
+                                    </label>
+                                    <div>
+                                        <input type="checkbox" id="checkremark1"
+                                               style="width:18px;height:18px">
+                                        <label style="color:red">建议修改</label>
+                                        <input type="text" maxlength="1000" id="checkcontent1"
+                                               style="width:40%;" placeholder="最多可输入1000个字" hidden="hidden">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="form-tr">
+                                <th class="formTitle">3 申报单位诚信承诺书：</th>
+                                <td class="formValue">
+                                    <label id="rbeb" name="rbeb">
+                                        <a href="javascript:void(0);" onclick="downloadfile(this.id)" id="3000"></a></label>
+                                    <div>
+                                        <input type="checkbox" id="checkremark2"
+                                               style="width:18px;height:18px">
+                                        <label style="color:red">建议修改</label>
+                                        <input type="text" maxlength="1000" id="checkcontent2"
+                                               style="width:40%;" placeholder="最多可输入1000个字" hidden="hidden">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="form-tr">
+                                <th class="formTitle">4 研究开发项目的效用情况说明、研究成果报告等资料：</th>
+                                <td class="formValue">
+                                    <label id="trts" name="trts">
+                                        <a href="javascript:void(0);" onclick="downloadfile(this.id)" id="4000"></a>
+                                    </label>
+                                    <div>
+                                        <input type="checkbox" id="checkremark3"
+                                               style="width:18px;height:18px">
+                                        <label style="color:red">建议修改</label>
+                                        <input type="text" maxlength="1000" id="checkcontent3"
+                                               style="width:40%;" placeholder="最多可输入1000个字" hidden="hidden">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="form-tr">
+                                <th class="formTitle">5 经科技行政主管部门登记的委托、合作研究开发项目的合同：</th>
+                                <td class="formValue">
+                                    <label id="cip" name="cip">
+                                        <a href="javascript:void(0);" onclick="downloadfile(this.id)" id="5000"></a>
+                                    </label>
+                                    <div>
+                                        <input type="checkbox" id="checkremark4"
+                                               style="width:18px;height:18px">
+                                        <label style="color:red">建议修改</label>
+                                        <input type="text" maxlength="1000" id="checkcontent4"
+                                               style="width:40%;" placeholder="最多可输入1000个字" hidden="hidden">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="form-tr">
+                                <th class="formTitle">6 集中研发项目研发费决算表、集中研发费用分摊明细情况表和实际分享收益比例等资料：</th>
+                                <td class="formValue">
+                                    <label id="wbrdc" name="wbrdc">
+                                        <a href="javascript:void(0);" onclick="downloadfile(this.id)" id="6000"></a>
+                                    </label>
+                                    <div>
+                                        <input type="checkbox" id="checkremark5"
+                                               style="width:18px;height:18px">
+                                        <label style="color:red">建议修改</label>
+                                        <input type="text" maxlength="1000" id="checkcontent5"
+                                               style="width:40%;" placeholder="最多可输入1000个字" hidden="hidden">
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--审核结果-->
+
+        <div class="container">
+            <div class="ibox float-e-margins col-lg-10">
+                <!--<div class="ibox-title">-->
+                <!--<h5>科委形式审核意见</h5>-->
+                <!--</div>-->
+                <div class="ibox-content">
+
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th class="formTitle">是否通过</th>
+                            <td>
+
+                                <!--<div class="col-sm-8">-->
+                                <!--</div>-->
+                                <input type="radio" name="auditresult" id="auditresult1" value="12" class="radio-inline" >通过
+                                <input type="radio" name="auditresult" id="auditresult2" value="10"   class="radio-inline" checked>不通过
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="formTitle">审核状态：</th>
+                            <td class="formValue">
+                                <label>
+                                    <button id="button" class="btn btn-sm btn-primary">收集修改提示数据</button>
+                                </label>
+                            </td>
+                        </tr>
+                        <!--<tr>-->
+                            <!--<th class="formTitle">科委形式审核意见：</th>-->
+                            <!--<td class="formValue">-->
+                                <!--<label id="opinion"></label>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <tr  id="auditopinionId">
+                        <!--<tr hidden="hidden" id="auditopinionId">-->
+                            <th class="formTitle2">科委形式审核意见</th>
+                            <!--<th class="formTitle2">追加修改意见</th>-->
+                            <!--<label for="updateOption" class="col-sm-3 control-label">追加修改意见</label>-->
+                            <td class="formValue2"> <textarea class="form-control" rows="4"  id="updateOption" placeholder="人工审核意见" aria-required="true" required></textarea></td>
+                        </tr>
+                        <tr >
+                            <td align="center" colspan="2"><button id="btn1" class="btn btn-sm btn-primary">提交审核结果</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- 全局js -->
+<script src="../../assets/js/jquery.min.js?v=2.1.4"></script>
+<script src="../../assets/js/bootstrap.min.js?v=3.3.6"></script>
+
+<!-- 自定义js -->
+<script src="../../assets/js/content.js?v=1.0.0"></script>
+<script src="../../assets/js/myjs.js"></script>
+
+<!-- Bootstrap table -->
+<script src="../../assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="../../assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<!--弹窗模板-->
+<!--<script src="https://cdn.bootcss.com/sweetalert/2.1.0/sweetalert.min.js"></script>-->
+<script src="../../assets/js/sweetalert-dev.min.js"></script>
+<!-- Peity -->
+<script src="../../assets/js/demo/bootstrap-table-demo.js"></script>
+</body>
+<script type="text/javascript">
+    $("#back").click(function() {
+        window.history.go(-1);
+    })
+    $("document").ready(function () {
+        var url=window.location.search;
+        var str=url.substr(1);
+        var strs=str.split("=");
+        $("#sn").val(strs[1]);
+
+//       a= <button id="edit"  type="button" class="RoleOfD btn btn-primary  btn-sm" style="margin-right:15px;" onclick="downloadfile(\'' + "getLiquorDetail.do" + '\',\'' + row.msgId + '\',\'' +row.type + '\')">下载</button>
+
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            data:{'sn':strs[1]},
+            url:baseUrl+'/stAudit/getlistFile.do',
+            success:function (data) {
+                if(data.status==0){
+                    for(var p in data.data){
+                        console.info(data.data[p])
+                        for(var j=1000;j<7000;j=j+1000){
+                            if(parseInt(data.data[p].typeCode)==j){
+                                $("#"+j+"").text(data.data[p].name)
+                                console.info(data.data[p].typeCode)
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            data:{'sn':strs[1]},
+            url:baseUrl+'/stAudit/getOpinion.do',
+            success:function (data) {
+                if(data.status==0){
+//                    $("#opinion").text(data.data)
+                    $("#updateOption").val(data.data)
+                }
+            }
+        })
+    })
+
+    $("#checkremark0").click(function () {
+        if(this.checked){
+            $("#checkcontent0").removeAttr("hidden");
+        }else {
+            $("#checkcontent0").attr("hidden","hidden");
+        }
+    })
+    $("#checkremark1").click(function () {
+        if(this.checked){
+            $("#checkcontent1").removeAttr("hidden");
+        }else {
+            $("#checkcontent1").attr("hidden","hidden");
+        }
+    })
+    $("#checkremark2").click(function () {
+        if(this.checked){
+            $("#checkcontent2").removeAttr("hidden");
+        }else {
+            $("#checkcontent2").attr("hidden","hidden");
+        }
+    })
+    $("#checkremark3").click(function () {
+        if(this.checked){
+            $("#checkcontent3").removeAttr("hidden");
+        }else {
+            $("#checkcontent3").attr("hidden","hidden");
+        }
+    })
+    $("#checkremark4").click(function () {
+        if(this.checked){
+            $("#checkcontent4").removeAttr("hidden");
+        }else {
+            $("#checkcontent4").attr("hidden","hidden");
+        }
+    })
+    $("#checkremark5").click(function () {
+        if(this.checked){
+            $("#checkcontent5").removeAttr("hidden");
+        }else {
+            $("#checkcontent5").attr("hidden","hidden");
+        }
+    })
+    $("#checkremark6").click(function () {
+        if(this.checked){
+            $("#checkcontent6").removeAttr("hidden");
+        }else {
+            $("#checkcontent6").attr("hidden","hidden");
+        }
+    })
+
+
+
+
+
+    $("#button").click(function () {
+        var projectContext=''
+        console.info("+++++++++______++++++++++"+$("#opinion").val())
+        var temp = $("#checkcontent0").val();
+        if(temp.length>2){
+            projectContext=projectContext+"【1 优惠明细表或辅助账汇总表】:"+temp+";"
+        }
+        temp = $("#checkcontent1").val();
+        if(temp.length>2){
+            projectContext=projectContext+"【2 项目立项决议文件】:"+temp+";"
+        }
+        temp = $("#checkcontent2").val();
+        if(temp.length>2){
+            projectContext=projectContext+"【3 申报单位诚信承诺书】:"+temp+";"
+        }
+        temp = $("#checkcontent3").val();
+        if(temp.length>2){
+            projectContext=projectContext+"【4 研究开发项目的效用情况说明、研究成果报告等资料】:"+temp+";"
+        }
+        temp = $("#checkcontent4").val();
+        if(temp.length>2){
+            projectContext=projectContext+"【5 经科技行政主管部门登记的委托、合作研究开发项目的合同】:"+temp+";"
+        }
+        temp = $("#checkcontent5").val();
+        if(temp.length>2){
+            projectContext=projectContext+"【6 集中研发项目研发费决算表、集中研发费用分摊明细情况表和实际分享收益比例等资料：】:"+temp+";"
+        }
+//        temp = $("#checkcontent6").val();
+//        if(temp.length>2){
+//            projectContext=projectContext+"【项目进度安排】:"+temp+";"
+//        }
+
+//        $("#updateOption").val(projectContext);
+        var option =  $("#updateOption").val()
+        $("#updateOption").val(option + projectContext);
+    })
+
+
+    $("#auditresult1").click(function () {
+        $("#auditopinionId").attr("hidden","hidden");
+    })
+    $("#auditresult2").click(function () {
+        $("#auditopinionId").removeAttr("hidden");
+    })
+
+    $("#btn1").click(function () {
+        var auditresult1=$("#auditresult1").val()
+
+        var option=$("#updateOption").val();
+
+        if($('#auditresult2').is(':checked')) {
+            auditresult1=$("#auditresult2").val()
+            if(option==""){
+                alert("审核意见不能为空")
+                return false;
+            }
+        }
+        var url=window.location.search;
+        var str=url.substr(1);
+        var strs=str.split("=");
+        swal({
+            title: "您确定要提交这条信息吗",
+            text: "提交后进入到下一个环节，请谨慎操作！",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "提交",
+            cancelButtonText:"取消",
+            closeOnCancel:false,
+            closeOnConfirm: false
+        },function (isConfirm) {
+            if(isConfirm){
+                swal({title:"提交成功",
+                    text:"提交形式审核结果成功",
+                    type:"success"},function () {
+                    $.ajax({
+                        type:'post',
+                        data:{"opinion":option,"sn":strs[1],"status":auditresult1},
+                        dataType:'json',
+                        url:baseUrl+'/stAudit/postOpinion.do',
+                        success:function (data) {
+                            if(data.status==0){
+                                alert("提交人工审核意见成功")
+                                window.location.href=baseUrl+"/page/stAudit/stAudit.html"
+//                    init()
+                            }
+                        },
+                        error:function (data) {
+                            console.info(data)
+                        }
+                    })
+                })
+            }else {
+                swal({title:"已取消",
+                    text:"你取消了形式审核",
+                    type:"error"})
+            }
+        })
+
+    })
+
+    function downloadfile(id) {
+        var url=window.location.search;
+        var str=url.substr(1);
+        var strs=str.split("=");
+        window.location.href=baseUrl+"/stAudit/downloadFile.do?sn="+strs[1]+"&id="+id;
+   }
+//    function downloadfile(id){
+//        var url=window.location.search;
+//        var str=url.substr(1);
+//        var strs=str.split("=");
+//        window.location.href=baseUrl+"/stAudit/downloadFile.do?sn="+strs[1]+"&id="+id;
+//    }
+</script>
+</html>

@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duruo.dao.CorpMapper" >
+  <resultMap id="BaseResultMap" type="com.duruo.po.Corp" >
+    <result column="CORP_INFO_ID" property="corpInfoId" jdbcType="VARCHAR" />
+    <result column="ORGAN_CODE" property="organCode" jdbcType="VARCHAR" />
+    <result column="ENTITY_ID" property="entityId" jdbcType="VARCHAR" />
+    <result column="CORP_NAME" property="corpName" jdbcType="VARCHAR" />
+    <result column="CORP_TYPE" property="corpType" jdbcType="VARCHAR" />
+    <result column="PERSON_NAME" property="personName" jdbcType="VARCHAR" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="ZIP" property="zip" jdbcType="VARCHAR" />
+    <result column="TELEPHONE" property="telephone" jdbcType="VARCHAR" />
+    <result column="ESTABLISH_DATE" property="establishDate" jdbcType="VARCHAR" />
+    <result column="REG_CAPITAL" property="regCapital" jdbcType="DECIMAL" />
+    <result column="CURRENCY" property="currency" jdbcType="VARCHAR" />
+    <result column="BUSINESS_SCOPE" property="businessScope" jdbcType="VARCHAR" />
+    <result column="PERSON_CERT_TYPE" property="personCertType" jdbcType="VARCHAR" />
+    <result column="PERSON_CERT_CODE" property="personCertCode" jdbcType="VARCHAR" />
+    <result column="INDUSTRY_CODE" property="industryCode" jdbcType="VARCHAR" />
+    <result column="ORGANIZERS" property="organizers" jdbcType="VARCHAR" />
+    <result column="FUNDING_SRC" property="fundingSrc" jdbcType="VARCHAR" />
+    <result column="REG_NO" property="regNo" jdbcType="VARCHAR" />
+    <result column="RECEIVING_ORGAN" property="receivingOrgan" jdbcType="VARCHAR" />
+    <result column="REPEAL_REASON" property="repealReason" jdbcType="VARCHAR" />
+    <result column="REPEAL_DATE" property="repealDate" jdbcType="VARCHAR" />
+    <result column="CHANGE_DATE" property="changeDate" jdbcType="VARCHAR" />
+    <result column="CHANGE_ITEM" property="changeItem" jdbcType="VARCHAR" />
+    <result column="REPEAL_ORGAN" property="repealOrgan" jdbcType="VARCHAR" />
+    <result column="BRANCH_NUM" property="branchNum" jdbcType="VARCHAR" />
+    <result column="REPRESENT_NUM" property="representNum" jdbcType="VARCHAR" />
+    <result column="REG_UPD_DATE" property="regUpdDate" jdbcType="VARCHAR" />
+    <result column="TAXPAYERS_CODE" property="taxpayersCode" jdbcType="VARCHAR" />
+    <result column="TAX_CODE" property="taxCode" jdbcType="VARCHAR" />
+    <result column="TAX_REG_DATE" property="taxRegDate" jdbcType="VARCHAR" />
+    <result column="TAX_CHGE_CONTENT" property="taxChgeContent" jdbcType="VARCHAR" />
+    <result column="TAX_CHGE_DATE" property="taxChgeDate" jdbcType="VARCHAR" />
+    <result column="TAX_REPEAL_REASON" property="taxRepealReason" jdbcType="VARCHAR" />
+    <result column="TAX_REPEAL_DATE" property="taxRepealDate" jdbcType="VARCHAR" />
+    <result column="TAX_REPEAL_ORGAN" property="taxRepealOrgan" jdbcType="VARCHAR" />
+    <result column="BUSINESS_ADDRESS" property="businessAddress" jdbcType="VARCHAR" />
+    <result column="TAX_UPD_DATE" property="taxUpdDate" jdbcType="VARCHAR" />
+    <result column="ORGANCODE_DATE" property="organcodeDate" jdbcType="VARCHAR" />
+    <result column="ORGCODE_CHGDATE" property="orgcodeChgdate" jdbcType="VARCHAR" />
+    <result column="ORGCODE_REPEALDATE" property="orgcodeRepealdate" jdbcType="VARCHAR" />
+    <result column="QS_UPD_DATE" property="qsUpdDate" jdbcType="VARCHAR" />
+    <result column="BD_RESULT" property="bdResult" jdbcType="VARCHAR" />
+    <result column="QYK_ID" property="qykId" jdbcType="VARCHAR" />
+    <result column="UPD_TIME" property="updTime" jdbcType="VARCHAR" />
+    <result column="FUNDS_CODE" property="fundsCode" jdbcType="VARCHAR" />
+    <result column="FUNDS_OPEN_DATE" property="fundsOpenDate" jdbcType="VARCHAR" />
+    <result column="FUNDS_REPEAL_DATE" property="fundsRepealDate" jdbcType="VARCHAR" />
+    <result column="FUNDSADD_CODE" property="fundsaddCode" jdbcType="VARCHAR" />
+    <result column="FUNDSADD_OPEN_DATE" property="fundsaddOpenDate" jdbcType="VARCHAR" />
+    <result column="FUNDSADD_REPEAL_DATE" property="fundsaddRepealDate" jdbcType="VARCHAR" />
+    <result column="FUNDS_UPD_DATE" property="fundsUpdDate" jdbcType="VARCHAR" />
+    <result column="SOCIAL_SECURITY_CODE" property="socialSecurityCode" jdbcType="VARCHAR" />
+    <result column="SOCIAL_SECURITY_UPD_DATE" property="socialSecurityUpdDate" jdbcType="VARCHAR" />
+    <result column="SOCIAL_SECURITY_OPEN_DATE" property="socialSecurityOpenDate" jdbcType="VARCHAR" />
+    <result column="FUNDSADD_UPD_DATE" property="fundsaddUpdDate" jdbcType="VARCHAR" />
+    <result column="SOCIAL_SECURITY_REPEAL_DATE" property="socialSecurityRepealDate" jdbcType="VARCHAR" />
+    <result column="LK_STATUS" property="lkStatus" jdbcType="CHAR" />
+    <result column="IS_ZMQ" property="isZmq" jdbcType="VARCHAR" />
+    <result column="TRIM_CORP_NAME" property="trimCorpName" jdbcType="VARCHAR" />
+    <result column="CORP_STATUS" property="corpStatus" jdbcType="VARCHAR" />
+    <result column="INSERT_TIME" property="insertTime" jdbcType="VARCHAR" />
+    <result column="IS_GSL" property="isGsl" jdbcType="CHAR" />
+    <result column="UNI_SC_ID" property="uniScId" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.duruo.po.Corp" >
+    insert into corp_info_all (CORP_INFO_ID, ORGAN_CODE, ENTITY_ID, 
+      CORP_NAME, CORP_TYPE, PERSON_NAME, 
+      ADDRESS, AREA_CODE, ZIP, 
+      TELEPHONE, ESTABLISH_DATE, REG_CAPITAL, 
+      CURRENCY, BUSINESS_SCOPE, PERSON_CERT_TYPE, 
+      PERSON_CERT_CODE, INDUSTRY_CODE, ORGANIZERS, 
+      FUNDING_SRC, REG_NO, RECEIVING_ORGAN, 
+      REPEAL_REASON, REPEAL_DATE, CHANGE_DATE, 
+      CHANGE_ITEM, REPEAL_ORGAN, BRANCH_NUM, 
+      REPRESENT_NUM, REG_UPD_DATE, TAXPAYERS_CODE, 
+      TAX_CODE, TAX_REG_DATE, TAX_CHGE_CONTENT, 
+      TAX_CHGE_DATE, TAX_REPEAL_REASON, TAX_REPEAL_DATE, 
+      TAX_REPEAL_ORGAN, BUSINESS_ADDRESS, TAX_UPD_DATE, 
+      ORGANCODE_DATE, ORGCODE_CHGDATE, ORGCODE_REPEALDATE, 
+      QS_UPD_DATE, BD_RESULT, QYK_ID, 
+      UPD_TIME, FUNDS_CODE, FUNDS_OPEN_DATE, 
+      FUNDS_REPEAL_DATE, FUNDSADD_CODE, FUNDSADD_OPEN_DATE, 
+      FUNDSADD_REPEAL_DATE, FUNDS_UPD_DATE, SOCIAL_SECURITY_CODE, 
+      SOCIAL_SECURITY_UPD_DATE, SOCIAL_SECURITY_OPEN_DATE, 
+      FUNDSADD_UPD_DATE, SOCIAL_SECURITY_REPEAL_DATE, 
+      LK_STATUS, IS_ZMQ, TRIM_CORP_NAME, 
+      CORP_STATUS, INSERT_TIME, IS_GSL, 
+      UNI_SC_ID)
+    values (#{corpInfoId,jdbcType=VARCHAR}, #{organCode,jdbcType=VARCHAR}, #{entityId,jdbcType=VARCHAR}, 
+      #{corpName,jdbcType=VARCHAR}, #{corpType,jdbcType=VARCHAR}, #{personName,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, #{zip,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{establishDate,jdbcType=VARCHAR}, #{regCapital,jdbcType=DECIMAL}, 
+      #{currency,jdbcType=VARCHAR}, #{businessScope,jdbcType=VARCHAR}, #{personCertType,jdbcType=VARCHAR}, 
+      #{personCertCode,jdbcType=VARCHAR}, #{industryCode,jdbcType=VARCHAR}, #{organizers,jdbcType=VARCHAR}, 
+      #{fundingSrc,jdbcType=VARCHAR}, #{regNo,jdbcType=VARCHAR}, #{receivingOrgan,jdbcType=VARCHAR}, 
+      #{repealReason,jdbcType=VARCHAR}, #{repealDate,jdbcType=VARCHAR}, #{changeDate,jdbcType=VARCHAR}, 
+      #{changeItem,jdbcType=VARCHAR}, #{repealOrgan,jdbcType=VARCHAR}, #{branchNum,jdbcType=VARCHAR}, 
+      #{representNum,jdbcType=VARCHAR}, #{regUpdDate,jdbcType=VARCHAR}, #{taxpayersCode,jdbcType=VARCHAR}, 
+      #{taxCode,jdbcType=VARCHAR}, #{taxRegDate,jdbcType=VARCHAR}, #{taxChgeContent,jdbcType=VARCHAR}, 
+      #{taxChgeDate,jdbcType=VARCHAR}, #{taxRepealReason,jdbcType=VARCHAR}, #{taxRepealDate,jdbcType=VARCHAR}, 
+      #{taxRepealOrgan,jdbcType=VARCHAR}, #{businessAddress,jdbcType=VARCHAR}, #{taxUpdDate,jdbcType=VARCHAR}, 
+      #{organcodeDate,jdbcType=VARCHAR}, #{orgcodeChgdate,jdbcType=VARCHAR}, #{orgcodeRepealdate,jdbcType=VARCHAR}, 
+      #{qsUpdDate,jdbcType=VARCHAR}, #{bdResult,jdbcType=VARCHAR}, #{qykId,jdbcType=VARCHAR}, 
+      #{updTime,jdbcType=VARCHAR}, #{fundsCode,jdbcType=VARCHAR}, #{fundsOpenDate,jdbcType=VARCHAR}, 
+      #{fundsRepealDate,jdbcType=VARCHAR}, #{fundsaddCode,jdbcType=VARCHAR}, #{fundsaddOpenDate,jdbcType=VARCHAR}, 
+      #{fundsaddRepealDate,jdbcType=VARCHAR}, #{fundsUpdDate,jdbcType=VARCHAR}, #{socialSecurityCode,jdbcType=VARCHAR}, 
+      #{socialSecurityUpdDate,jdbcType=VARCHAR}, #{socialSecurityOpenDate,jdbcType=VARCHAR}, 
+      #{fundsaddUpdDate,jdbcType=VARCHAR}, #{socialSecurityRepealDate,jdbcType=VARCHAR}, 
+      #{lkStatus,jdbcType=CHAR}, #{isZmq,jdbcType=VARCHAR}, #{trimCorpName,jdbcType=VARCHAR}, 
+      #{corpStatus,jdbcType=VARCHAR}, #{insertTime,jdbcType=VARCHAR}, #{isGsl,jdbcType=CHAR}, 
+      #{uniScId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duruo.po.Corp" >
+    insert into corp_info_all
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="corpInfoId != null" >
+        CORP_INFO_ID,
+      </if>
+      <if test="organCode != null" >
+        ORGAN_CODE,
+      </if>
+      <if test="entityId != null" >
+        ENTITY_ID,
+      </if>
+      <if test="corpName != null" >
+        CORP_NAME,
+      </if>
+      <if test="corpType != null" >
+        CORP_TYPE,
+      </if>
+      <if test="personName != null" >
+        PERSON_NAME,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="zip != null" >
+        ZIP,
+      </if>
+      <if test="telephone != null" >
+        TELEPHONE,
+      </if>
+      <if test="establishDate != null" >
+        ESTABLISH_DATE,
+      </if>
+      <if test="regCapital != null" >
+        REG_CAPITAL,
+      </if>
+      <if test="currency != null" >
+        CURRENCY,
+      </if>
+      <if test="businessScope != null" >
+        BUSINESS_SCOPE,
+      </if>
+      <if test="personCertType != null" >
+        PERSON_CERT_TYPE,
+      </if>
+      <if test="personCertCode != null" >
+        PERSON_CERT_CODE,
+      </if>
+      <if test="industryCode != null" >
+        INDUSTRY_CODE,
+      </if>
+      <if test="organizers != null" >
+        ORGANIZERS,
+      </if>
+      <if test="fundingSrc != null" >
+        FUNDING_SRC,
+      </if>
+      <if test="regNo != null" >
+        REG_NO,
+      </if>
+      <if test="receivingOrgan != null" >
+        RECEIVING_ORGAN,
+      </if>
+      <if test="repealReason != null" >
+        REPEAL_REASON,
+      </if>
+      <if test="repealDate != null" >
+        REPEAL_DATE,
+      </if>
+      <if test="changeDate != null" >
+        CHANGE_DATE,
+      </if>
+      <if test="changeItem != null" >
+        CHANGE_ITEM,
+      </if>
+      <if test="repealOrgan != null" >
+        REPEAL_ORGAN,
+      </if>
+      <if test="branchNum != null" >
+        BRANCH_NUM,
+      </if>
+      <if test="representNum != null" >
+        REPRESENT_NUM,
+      </if>
+      <if test="regUpdDate != null" >
+        REG_UPD_DATE,
+      </if>
+      <if test="taxpayersCode != null" >
+        TAXPAYERS_CODE,
+      </if>
+      <if test="taxCode != null" >
+        TAX_CODE,
+      </if>
+      <if test="taxRegDate != null" >
+        TAX_REG_DATE,
+      </if>
+      <if test="taxChgeContent != null" >
+        TAX_CHGE_CONTENT,
+      </if>
+      <if test="taxChgeDate != null" >
+        TAX_CHGE_DATE,
+      </if>
+      <if test="taxRepealReason != null" >
+        TAX_REPEAL_REASON,
+      </if>
+      <if test="taxRepealDate != null" >
+        TAX_REPEAL_DATE,
+      </if>
+      <if test="taxRepealOrgan != null" >
+        TAX_REPEAL_ORGAN,
+      </if>
+      <if test="businessAddress != null" >
+        BUSINESS_ADDRESS,
+      </if>
+      <if test="taxUpdDate != null" >
+        TAX_UPD_DATE,
+      </if>
+      <if test="organcodeDate != null" >
+        ORGANCODE_DATE,
+      </if>
+      <if test="orgcodeChgdate != null" >
+        ORGCODE_CHGDATE,
+      </if>
+      <if test="orgcodeRepealdate != null" >
+        ORGCODE_REPEALDATE,
+      </if>
+      <if test="qsUpdDate != null" >
+        QS_UPD_DATE,
+      </if>
+      <if test="bdResult != null" >
+        BD_RESULT,
+      </if>
+      <if test="qykId != null" >
+        QYK_ID,
+      </if>
+      <if test="updTime != null" >
+        UPD_TIME,
+      </if>
+      <if test="fundsCode != null" >
+        FUNDS_CODE,
+      </if>
+      <if test="fundsOpenDate != null" >
+        FUNDS_OPEN_DATE,
+      </if>
+      <if test="fundsRepealDate != null" >
+        FUNDS_REPEAL_DATE,
+      </if>
+      <if test="fundsaddCode != null" >
+        FUNDSADD_CODE,
+      </if>
+      <if test="fundsaddOpenDate != null" >
+        FUNDSADD_OPEN_DATE,
+      </if>
+      <if test="fundsaddRepealDate != null" >
+        FUNDSADD_REPEAL_DATE,
+      </if>
+      <if test="fundsUpdDate != null" >
+        FUNDS_UPD_DATE,
+      </if>
+      <if test="socialSecurityCode != null" >
+        SOCIAL_SECURITY_CODE,
+      </if>
+      <if test="socialSecurityUpdDate != null" >
+        SOCIAL_SECURITY_UPD_DATE,
+      </if>
+      <if test="socialSecurityOpenDate != null" >
+        SOCIAL_SECURITY_OPEN_DATE,
+      </if>
+      <if test="fundsaddUpdDate != null" >
+        FUNDSADD_UPD_DATE,
+      </if>
+      <if test="socialSecurityRepealDate != null" >
+        SOCIAL_SECURITY_REPEAL_DATE,
+      </if>
+      <if test="lkStatus != null" >
+        LK_STATUS,
+      </if>
+      <if test="isZmq != null" >
+        IS_ZMQ,
+      </if>
+      <if test="trimCorpName != null" >
+        TRIM_CORP_NAME,
+      </if>
+      <if test="corpStatus != null" >
+        CORP_STATUS,
+      </if>
+      <if test="insertTime != null" >
+        INSERT_TIME,
+      </if>
+      <if test="isGsl != null" >
+        IS_GSL,
+      </if>
+      <if test="uniScId != null" >
+        UNI_SC_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="corpInfoId != null" >
+        #{corpInfoId,jdbcType=VARCHAR},
+      </if>
+      <if test="organCode != null" >
+        #{organCode,jdbcType=VARCHAR},
+      </if>
+      <if test="entityId != null" >
+        #{entityId,jdbcType=VARCHAR},
+      </if>
+      <if test="corpName != null" >
+        #{corpName,jdbcType=VARCHAR},
+      </if>
+      <if test="corpType != null" >
+        #{corpType,jdbcType=VARCHAR},
+      </if>
+      <if test="personName != null" >
+        #{personName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null" >
+        #{zip,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="establishDate != null" >
+        #{establishDate,jdbcType=VARCHAR},
+      </if>
+      <if test="regCapital != null" >
+        #{regCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="businessScope != null" >
+        #{businessScope,jdbcType=VARCHAR},
+      </if>
+      <if test="personCertType != null" >
+        #{personCertType,jdbcType=VARCHAR},
+      </if>
+      <if test="personCertCode != null" >
+        #{personCertCode,jdbcType=VARCHAR},
+      </if>
+      <if test="industryCode != null" >
+        #{industryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="organizers != null" >
+        #{organizers,jdbcType=VARCHAR},
+      </if>
+      <if test="fundingSrc != null" >
+        #{fundingSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="regNo != null" >
+        #{regNo,jdbcType=VARCHAR},
+      </if>
+      <if test="receivingOrgan != null" >
+        #{receivingOrgan,jdbcType=VARCHAR},
+      </if>
+      <if test="repealReason != null" >
+        #{repealReason,jdbcType=VARCHAR},
+      </if>
+      <if test="repealDate != null" >
+        #{repealDate,jdbcType=VARCHAR},
+      </if>
+      <if test="changeDate != null" >
+        #{changeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="changeItem != null" >
+        #{changeItem,jdbcType=VARCHAR},
+      </if>
+      <if test="repealOrgan != null" >
+        #{repealOrgan,jdbcType=VARCHAR},
+      </if>
+      <if test="branchNum != null" >
+        #{branchNum,jdbcType=VARCHAR},
+      </if>
+      <if test="representNum != null" >
+        #{representNum,jdbcType=VARCHAR},
+      </if>
+      <if test="regUpdDate != null" >
+        #{regUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="taxpayersCode != null" >
+        #{taxpayersCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxCode != null" >
+        #{taxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRegDate != null" >
+        #{taxRegDate,jdbcType=VARCHAR},
+      </if>
+      <if test="taxChgeContent != null" >
+        #{taxChgeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="taxChgeDate != null" >
+        #{taxChgeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRepealReason != null" >
+        #{taxRepealReason,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRepealDate != null" >
+        #{taxRepealDate,jdbcType=VARCHAR},
+      </if>
+      <if test="taxRepealOrgan != null" >
+        #{taxRepealOrgan,jdbcType=VARCHAR},
+      </if>
+      <if test="businessAddress != null" >
+        #{businessAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="taxUpdDate != null" >
+        #{taxUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="organcodeDate != null" >
+        #{organcodeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="orgcodeChgdate != null" >
+        #{orgcodeChgdate,jdbcType=VARCHAR},
+      </if>
+      <if test="orgcodeRepealdate != null" >
+        #{orgcodeRepealdate,jdbcType=VARCHAR},
+      </if>
+      <if test="qsUpdDate != null" >
+        #{qsUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="bdResult != null" >
+        #{bdResult,jdbcType=VARCHAR},
+      </if>
+      <if test="qykId != null" >
+        #{qykId,jdbcType=VARCHAR},
+      </if>
+      <if test="updTime != null" >
+        #{updTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fundsCode != null" >
+        #{fundsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fundsOpenDate != null" >
+        #{fundsOpenDate,jdbcType=VARCHAR},
+      </if>
+      <if test="fundsRepealDate != null" >
+        #{fundsRepealDate,jdbcType=VARCHAR},
+      </if>
+      <if test="fundsaddCode != null" >
+        #{fundsaddCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fundsaddOpenDate != null" >
+        #{fundsaddOpenDate,jdbcType=VARCHAR},
+      </if>
+      <if test="fundsaddRepealDate != null" >
+        #{fundsaddRepealDate,jdbcType=VARCHAR},
+      </if>
+      <if test="fundsUpdDate != null" >
+        #{fundsUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="socialSecurityCode != null" >
+        #{socialSecurityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="socialSecurityUpdDate != null" >
+        #{socialSecurityUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="socialSecurityOpenDate != null" >
+        #{socialSecurityOpenDate,jdbcType=VARCHAR},
+      </if>
+      <if test="fundsaddUpdDate != null" >
+        #{fundsaddUpdDate,jdbcType=VARCHAR},
+      </if>
+      <if test="socialSecurityRepealDate != null" >
+        #{socialSecurityRepealDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lkStatus != null" >
+        #{lkStatus,jdbcType=CHAR},
+      </if>
+      <if test="isZmq != null" >
+        #{isZmq,jdbcType=VARCHAR},
+      </if>
+      <if test="trimCorpName != null" >
+        #{trimCorpName,jdbcType=VARCHAR},
+      </if>
+      <if test="corpStatus != null" >
+        #{corpStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="insertTime != null" >
+        #{insertTime,jdbcType=VARCHAR},
+      </if>
+      <if test="isGsl != null" >
+        #{isGsl,jdbcType=CHAR},
+      </if>
+      <if test="uniScId != null" >
+        #{uniScId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectByUniScId" resultMap="BaseResultMap" parameterType="map">
+    SELECT *
+    FROM CORP_INFO_ALL
+    WHERE UNI_SC_ID =  #{uniScId,jdbcType=VARCHAR}
+  </select>
+</mapper>

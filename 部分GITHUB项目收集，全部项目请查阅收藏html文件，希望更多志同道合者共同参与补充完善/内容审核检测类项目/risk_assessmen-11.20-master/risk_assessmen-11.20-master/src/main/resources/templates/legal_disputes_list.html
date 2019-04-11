@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>AdminLTE 3 | Data Tables</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/datatables/dataTables.bootstrap4.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <link rel="stylesheet" href="/css/original_ADminLTE.min.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <div  th:include="top::topbar"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100%">
+    <!-- Brand Logo -->
+    <!-- Sidebar -->
+    <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header bg-purple">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>风险清单</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item" style="color: white"><a href="#" style="color: white">首页</a></li>
+              <li class="breadcrumb-item active" style="color: white;cursor: pointer">风险管理策略</li>
+              <li class="breadcrumb-item active" style="color: white;cursor: pointer">风险清单</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+
+        <!-- /.modal -->
+
+
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.0-alpha
+    </div>
+    <strong>Copyright &copy; 2014-2018 <a href="#">AdminLTE.io</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="/datatables/jquery.dataTables.min.js"></script>
+<script src="/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- SlimScroll -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
+<script th:inline="javascript">
+    //<![CDATA[
+    $(function () {
+        $("#add_submit").click(function () {
+            var firstLevelRiskCode= $("#firstLevelRiskCode").val();
+            var firstLevelRiskName= $("#firstLevelRiskName").val();
+            var firstLevelRiskDescription= $("#firstLevelRiskDescription").val();
+            if(firstLevelRiskCode !='' && firstLevelRiskName !='' && firstLevelRiskDescription !=''){
+                $("#add_submit").attr("type","submit");
+                $('#add_submit').click()
+            }else {
+                alert("输入不能有空!")
+            }
+            $('#add_ready').modal('show');
+            $("#add_submit_confirm").click(function () {
+
+            })
+        });
+        $(".fa-trash-o").click(function () {
+            var fid = $(this).parent().siblings(".fid").html();
+            $("#del_name").html($(this).parent().siblings(".first_name").html());
+            $("#del").modal('show');
+            $("#del_confirm").click(function () {
+                window.location.href = '/firstlevel/del/' + fid;
+            });
+        });
+        var add_success=[[${add_success}]];
+        var first_name=[[${first_name}]];
+        var status=[[${status}]];
+        if(add_success==1){
+            $("#add_first_level_success").html(first_name);
+            $('#add_success').modal('show')
+        }else if(add_success==0){
+            alert("输入名称或编号已存在!")
+        }
+        $(".see_second_level").click(function () {
+            var id = $(this).parent().siblings(".fid").html();
+            window.location.href='/secondlevel/list_Financial_thematic/'+id+"/"+status
+        });
+        $(".see_third_level").click(function () {
+            var id = $(this).parent().siblings(".fid").html();
+            window.location.href='/thirdlevel/list_third/'+id+"/"+"1"+"/"+status
+        });
+        $(".see_fourth_level").click(function () {
+            var id = $(this).parent().siblings(".fid").html();
+            window.location.href='/fourthlevel/list_fourth/'+id+"/"+"1"+"/"+status
+        });
+        $(".fa-download").click(function () {
+            var id = $(this).parent().siblings(".fid").html();
+            window.location.href='/firstlevel/download/'+id
+        });
+
+
+
+
+        //审批成功 审批失败
+        $("#review_pass").click(function () {
+            $("#comment_form").attr("action","/firstlevel/review_pass");
+            $(this).attr("type","submit");
+            $(this).click()
+        });
+        $("#review_failure").click(function () {
+            $("#comment_form").attr("action","/firstlevel/review_failure");
+            $(this).attr("type","submit");
+            $(this).click()
+        })
+    })
+    //]]>
+</script>
+</body>
+</html>

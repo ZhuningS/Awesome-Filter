@@ -1,0 +1,81 @@
+<style>
+	:host {
+	    margin: 0px;
+	    padding: 0px;
+	    color: #FFFFFF;
+	    position: fixed;
+	    z-index: 2147483646;
+	    right: 10px;
+	    top: 10px;
+	    visibility: hidden;
+	    opacity: 0;
+	    transition: opacity .5s 0s, visibility 0s .5s
+	}
+	:host(.opened) {
+	    visibility: visible;
+	    opacity: 1;
+	    transition: visibility 0s 0s, opacity .5s 0s
+	}
+	:host(.scanning-complete) #close {
+	    background-color: #AEFF39
+	}
+	#header {
+	    background-color: #008BEB;
+	    line-height: 35px;
+	    overflow: hidden;
+	    -webkit-transition: max-height 0.8s;
+	    transition: max-height 0.8s, opacity 1s;
+	    font-family: "Lucida Sans Unicode"
+	}
+	#title {
+	    width: 155px;
+	    margin-left: 5px;
+	    font-size: 16px
+	}
+	#close {
+	    float: right;
+	    height: 10px;
+	    padding: 0px 2px 0px 2px;
+	    background-color: #39AEFF;
+	    font-size: 12px
+	}
+	#background {
+	    width: 170px;
+	    opacity: 0.9;
+	    background-color: #0068B0;
+	    -webkit-transition: max-height 0.8s;
+	    transition: max-height 0.8s, opacity 1s
+	}
+	#list {
+	    padding: 10px 0px 10px 5px;
+	    margin: 0px;
+	    text-align: left;
+	    font-size: 12px;
+	    font-family: "Lucida Sans Unicode"
+	}
+	.entry {
+	    width: 160px;
+	    height: 25px;
+	    line-height: 25px;
+	    color: #B0DFFF
+	}
+	.right {
+	    width: 65px;
+	    float: right;
+	    overflow: hidden
+	}
+	a.close:link, a.close:active {
+	    text-decoration: none;
+	    color: #FFFFFF
+	}
+</style>
+<content>
+	<div id="header"><div id="title">Image Scanner<div id="close"><a class="close" href="#">x</a></div></div></div>
+	<div id="background">
+		<div id="list">
+			<div class="entry"><span id="images" class="left">0/0</span><span class="right">Images</span></div>
+			<div class="entry"><span id="blocked" class="left">0</span><span class="right">Blocked</span></div>
+			<div class="entry"><span id="avg_pixels" class="left">0%</span><span class="right">Avg. Pixels</span></div>
+		</div>
+	</div>
+</content>

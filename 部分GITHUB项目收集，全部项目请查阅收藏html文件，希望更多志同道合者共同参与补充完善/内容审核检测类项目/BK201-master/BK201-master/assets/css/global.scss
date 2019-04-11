@@ -1,0 +1,33 @@
+@import "theme";
+
+body {
+  *, *:before, *:after
+  {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  *:focus, *:active {
+    outline-width: 0;
+  }
+}
+
+input {
+  vertical-align: middle;
+
+  &:-webkit-autofill {
+    box-shadow: 0 0 0 100px transparent inset !important;
+    background-color: transparent !important;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+}

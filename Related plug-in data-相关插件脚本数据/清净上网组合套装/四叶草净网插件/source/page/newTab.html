@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>净网-选项页</title>
+
+<style>
+
+body{ text-align:center; }
+.rightTop{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#333333;
+
+}
+
+
+.normalTxt{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#333333;
+
+
+}
+.pureListTop{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#000000;
+	font-weight: normal;
+	font-variant: normal;
+	font-style: normal;
+	line-height: normal;
+	text-decoration: none;
+}
+
+
+
+.storyLink{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#000000;
+	font-weight: normal;
+
+}
+
+.tipsTxt{
+	font-family:黑体,Verdana, Arial, Helvetica, sans-serif;
+	font-size:20px;
+	color:#000000;
+	font-weight:bold;
+
+}
+
+.linkDiv{
+
+width:187px;
+height:30px;
+background-color:#FFFFFF;
+padding-top:10px;
+
+border:solid;
+border-color:#CCCCCC;
+border-width:thin;
+}
+
+
+.recentlyLinkDiv{
+
+width:180px;
+height:95px;
+overflow:hidden;
+vertical-align:middle;
+text-align:center;
+padding-top:60px;
+
+
+border:solid;
+border-color:#CCCCCC;
+border-width:thin;
+
+}
+
+
+
+.recentlyImgDiv{
+
+
+vertical-align:middle;
+text-align:center;
+padding-top:4px;
+
+
+
+border:solid;
+border-color:#CCCCCC;
+border-width:thin;
+background:#FFFFFF;
+
+overflow:hidden;
+
+}
+
+
+
+a:link{ color:#333333/*颜色自定义*/;text-decoration:none} /* 未访问的链接 */ 
+a:visited{color:#333333/*颜色自定义*/;text-decoration:none} /* 已访问的链接 */ 
+a:hover{ color:#333333/*颜色自定义*/;text-decoration:none; font-weight:bold;}/* 鼠标在链接上 */ 
+a:active{ color:#000000/*颜色自定义*/;text-decoration:none}/* 点击激活链接 */ 
+
+
+
+
+
+#div_knowledge_frame {
+	position:fixed;
+	top:0px;
+	width:960px;
+	left:50%;
+	margin-left:-480px;
+	
+	border:inset;
+	border-width:1px;
+	border-color:#999999;
+	
+
+	
+}
+</style>
+</head>
+
+<body  leftmargin="0" topmargin="0" bgcolor="#f5f5f5">
+
+<!--一个看不到的绘画布-->
+<div id="div_knowledge_frame" style="display:none;">
+  <table width="960" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+	
+	<td>
+		<table width="960" border="0" cellspacing="0" cellpadding="0">
+		 <tr>
+		 	<td align="left" bgcolor="#E8E8E8" ><div style="color:#999999; font-size:14px; " id="div_knowledge_title">[今天宝箱的内容]</div></td>
+      <td align="right" bgcolor="#E8E8E8" ><a href="javascript:" id="div_knowledge_frame_close_btn" style="font-weight:normal"><div style="color:#999999; font-size:14px;">[关闭]</div></a></td>
+   
+		 </tr>
+		</table>	
+	</td>
+	
+	 </tr>
+    <tr>
+	
+      <td  bgcolor="#FFFFFF"  >
+	  	<table width="650" border="0" cellspacing="0" cellpadding="0" align="center">
+		 <tr>
+		 	<td align="center" bgcolor="#FFFFFF" id="div_knowledge_frame_content" >
+			
+			</td>
+   
+		 </tr>
+		</table>	
+	  
+	  </td>
+    </tr>
+  </table>
+</div>
+
+
+
+<canvas id="myCanvas" width="170" height="110" style=" position:fixed ;left:9px; top:50px;" >
+
+</canvas>
+
+
+<table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="rightTop" widtd="100%">
+  <tr>
+    <td align="center" valign="top">
+	
+	
+	
+	 
+	  
+	   <table width="960" border="0" cellspacing="0" cellpadding="0" style="font-size:28px">
+         <tr>
+           <th height="60" align="left" valign="middle" scope="row"><font id="title">净网 选项页</font>
+			 <br />
+             <font style="font-size:18px"> 问题反馈Q群:301048065</font></th>
+         </tr>
+       </table>
+	   
+	  
+	  
+	  
+	  
+	  
+	   <br />
+	   <table width="960" border="0" cellspacing="0" cellpadding="0">
+	   <tr>
+           <td height="25" align="left" valign="middle" bgcolor="#E6E6E6" scope="row">[是否使用系统自带的网站黑名单]
+             <input name="checkbox" type="checkbox" id="_check0"  />
+           </td>
+           <td height="25" align="left" valign="middle" bgcolor="#E6E6E6" scope="row">义工团队会不断收集用户举报的黄网，实现大范围的过滤，当然也有操审核当引起的误举报，请谅解。</td>
+         </tr>
+          <tr>
+           <td height="25" colspan="2" align="left" valign="middle" scope="row">&nbsp;</td>
+         </tr>
+         <tr>
+           <td height="25" align="left" valign="middle" bgcolor="#E6E6E6" scope="row">[在网站标题显示 涉黄关键词比例]
+             <input name="checkbox" type="checkbox" id="_check1"  />
+           </td>
+           <td height="25" align="left" valign="middle" bgcolor="#E6E6E6" scope="row">涉黄关键词比例数据，有助您设置“智能拦截黄网”模式，也有助于分析您常去网站的状况。</td>
+         </tr>
+          <tr>
+           <td height="25" colspan="2" align="left" valign="middle" scope="row">&nbsp;</td>
+         </tr>
+         
+         <tr>
+           <td height="25" colspan="2" align="left" valign="middle" scope="row">[我的网站黑名单(风险网站)]</td>
+         </tr>
+         <tr>
+         
+       
+           <td valign="top" bgcolor="#E6E6E6" scope="row"><label for="select"></label>
+             <label for="textfield"></label>
+             <textarea name="textfield2" cols="60" rows="15"  id="_black_list_text"></textarea></td>
+           <td valign="top" bgcolor="#E6E6E6" scope="row"><p>使用方法:<br />
+             1 域名必须以&quot;http://&quot;开头，并且不能有@,#,?等特殊符号 <br />
+             2 设定单个网站(格式:http://www.163.com, http://house.163.com)，并用回车分隔开。<br />
+             <br />
+             3 设定整个网站,如http://163.com,设定后，如ent.163.com,lady.163.com,news.163.com等，所有163的子域名都被列入过滤列表了，请慎用。 <br />
+             <br />
+           注：<br />
+           1 如果该网站同时在黑白名单里，将以黑名单为准。<br />
+           2 
+           插件的管理团队会不断更新一些全局的风险网站，因此有些网站，您并没设为黑名单，但每次打开仍然会提示为风险网站，请谅解。</p>
+           </td>
+         </tr>
+         <tr>
+           <td width="442" align="right" valign="top" scope="row"><input type="submit" name="Submit2" value="保存" id="_save_black_list_btn" /></td>
+           <td width="518" align="left" valign="top" scope="row"><label></label></td>
+         </tr>
+       </table>
+     <br />
+	   <table width="960" border="0" cellspacing="0" cellpadding="0">
+         <tr>
+           <td height="25" colspan="2" align="left" valign="middle" scope="row">[我的网站白名单(插件停止工作)]</td>
+         </tr>
+         <tr>
+           <td valign="top" bgcolor="#E6E6E6" scope="row"><label for="select"></label>
+               <label for="textfield"></label>
+               <textarea name="textarea" cols="60" rows="18"  id="_white_list_text"></textarea></td>
+           <td valign="top" bgcolor="#E6E6E6" scope="row"><p>使用方法:<br />
+            有时候有些我们常去的网站，如一些佛教/购物/戒淫等网站，我们不想影响里面的内容，那么可以设定为白名单，插件在这些网站将会停止工作，内容将会完整的被显示  <br />
+              <br />
+              1 域名必须以&quot;http://&quot;开头，并且不能有@,#,?等特殊符号 <br />
+             2 设定单个网站(格式:http://www.163.com , http://house.163.com)，并用回车分隔开。<br />
+             <br />
+             3 设定整个网站,如http://163.com,设定后，如ent.163.com,lady.163.com,news.163.com等，所有163的子域名都被列入白名单了，请慎用。 <br />
+             <br />
+             注：插件的管理团队会不断更新一些全局的白名单网站，因此有些网站，您并没设为白名单，但插件在某些网站会自动停止工作（如：<a href="http://www.namofo.org" target="_blank"><u>大悲拔苦戒邪淫网</u></a>），请谅解。</p>
+           </td>
+         </tr>
+         <tr>
+           <td width="442" align="right" valign="top" scope="row"><input type="submit" name="Submit22" value="保存" id="_save_white_list_btn"  /></td>
+           <td width="518" align="left" valign="top" scope="row"><label></label></td>
+         </tr>
+       </table>
+       <br />
+       <table width="960" border="0" cellspacing="0" cellpadding="0">
+         <tr>
+           <td height="25" colspan="2" align="left" valign="middle" scope="row">[我的关键词列表]</td>
+         </tr>
+         <tr>
+           <td valign="top" bgcolor="#E6E6E6" scope="row"><label for="select"></label>
+               <label for="textfield"></label>
+               <textarea name="textarea2" cols="60" rows="18"  id="_my_key_word"></textarea></td>
+           <td valign="top" bgcolor="#E6E6E6" scope="row"><p>使用方法:<br />
+             有时候插件并不能完美的过滤涉黄内容，因此，这里可以由您自定义一些关键词，但这里设定要非常小心，否则影响可大了；</p>
+             <p>例如关键词“开放”，看上去通常是描述一些色情内容，但如果某个超连接的内容是:<br />
+               “改革开放取得了重大成绩”<br />
+               那么这条内容就会被误杀，不能显示了，希望要谨慎使用。<br />
+               如果使用中遇到误过滤严重，请清空这个关键词列表试试。<br />
+               <br />
+               1 关键词，请用回车换行分隔开，使用时要尽量注意各种情况和上下文.<br />
+               <br />
+               注：插件的管理团队会不断更新一些全局的关键词，因此有些内容，您并没设定关键词，但内容仍然会被过滤，请谅解。</p></td>
+         </tr>
+         <tr>
+           <td width="442" align="right" valign="top" scope="row"><input type="submit" name="Submit222" value="保存" id="_save_my_key_word_btn"></td>
+           <td width="518" align="left" valign="top" scope="row"><label></label></td>
+         </tr>
+       </table>
+       
+       
+       
+        <br />
+       <table width="960" border="0" cellspacing="0" cellpadding="0">
+         <tr>
+           <td height="25" colspan="2" align="left" valign="middle" scope="row">[限制访问模式 - 允许访问网址]</td>
+         </tr>
+         <tr>
+           <td valign="top" bgcolor="#E6E6E6" scope="row"><label for="select"></label>
+               <label for="textfield"></label>
+             <textarea name="textarea2" cols="60" rows="18"  id="_my_limit"></textarea></td>
+           <td valign="top" bgcolor="#E6E6E6" scope="row"><p>使用方法:<br />
+十分适合家长使用的模式，可以防止孩子访问一些乱七八糟的网站！ 开启了“限制访问模式”后，只有本列表的网址才能访问，其他网址一律被禁止！<br />
+  </p>
+             <p>输入格式：网站名 +空格+ 网址<br />
+              1 域名必须以&quot;http://&quot;开头，并且不能有@,#,?等特殊符号 <br />
+              2 如(格式:http://www.163.com , http://house.163.com)，并用回车分隔开。<br />
+  <br />
+              3 设定整个网站,如http://163.com,设定后，如ent.163.com,lady.163.com,news.163.com等，所有163的子域名都被列入可访问列表。 <br />
+  <br />
+           </p></td>
+         </tr>
+         <tr>
+           <td width="442" align="right" valign="top" scope="row"><input type="submit" name="Submit222" value="保存" id="_save_my_limit_btn"></td>
+           <td width="518" align="left" valign="top" scope="row"><label></label></td>
+         </tr>
+       </table>
+       
+       
+       
+       
+       <br />
+       <table width="960" border="0" cellspacing="0" cellpadding="0">
+         <tr>
+           <td height="25" colspan="2" align="left" valign="middle" scope="row">[我的白名单贴吧-不过滤]</td>
+         </tr>
+         <tr>
+           <td valign="top" bgcolor="#E6E6E6" scope="row"><label for="select"></label>
+               <label for="textfield"></label>
+             <textarea name="textarea2" cols="60" rows="18"  id="_my_wtb"></textarea></td>
+           <td valign="top" bgcolor="#E6E6E6" scope="row"><p>使用方法:<br />
+           如&quot;陈大惠吧&quot;，里面很多正面的内容，我们不想被过滤，那么可以在这里输入，并用回车把多个贴吧分隔开.<br />
+  </p>
+             <p><br />
+  <br />
+           </p></td>
+         </tr>
+         <tr>
+           <td width="442" align="right" valign="top" scope="row"><input type="submit" name="Submit222" value="保存" id="_save_my_wtb_btn"></td>
+           <td width="518" align="left" valign="top" scope="row"><label></label></td>
+         </tr>
+       </table>
+       
+       
+       
+       <br />
+       <table width="960" border="0" cellspacing="0" cellpadding="0">
+         <tr>
+           <td height="25" colspan="2" align="left" valign="middle" scope="row">[我的黑名单贴吧-禁止访问]</td>
+         </tr>
+         <tr>
+           <td valign="top" bgcolor="#E6E6E6" scope="row"><label for="select"></label>
+               <label for="textfield"></label>
+             <textarea name="textarea2" cols="60" rows="18"  id="_my_btb"></textarea></td>
+           <td valign="top" bgcolor="#E6E6E6" scope="row"><p>使用方法:<br />
+           如&quot;李毅吧&quot;，里面太多低俗内容，那么可以在这里输入，并用回车把多个贴吧分隔开.<br />
+  </p>
+             <p><br />
+  <br />
+           </p></td>
+         </tr>
+         <tr>
+           <td width="442" align="right" valign="top" scope="row"><input type="submit" name="Submit222" value="保存" id="_save_my_btb_btn"></td>
+           <td width="518" align="left" valign="top" scope="row"><label></label></td>
+         </tr>
+       </table>
+       
+       
+       
+       <br />
+       <br />
+       <table width="960" border="0" cellspacing="0" cellpadding="0">
+	  
+        <tr>
+		
+          <td align="left" valign="top" scope="row"><p id="_middle_txt" class="normalTxt" > </p></td>
+        </tr>
+      </table>
+	  
+	  
+	
+	  
+	  
+	
+	  
+    </td>
+  </tr>
+</table>
+
+
+
+
+<script src="../../../jquery.js"></script>
+<script src="/source/page/newtab/newTab.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duruo.dao.AuditDataMapper" >
+  <resultMap id="BaseResultMap" type="com.duruo.po.AuditData" >
+    <id column="msg_id" property="msgId" jdbcType="VARCHAR" />
+    <result column="bm_id" property="bmId" jdbcType="INTEGER" />
+    <result column="media_id" property="mediaId" jdbcType="VARCHAR" />
+    <result column="msg_type" property="msgType" jdbcType="VARCHAR" />
+    <result column="pic_url" property="picUrl" jdbcType="VARCHAR" />
+    <result column="auditresult" property="auditresult" jdbcType="TINYINT" />
+    <result column="auditopinion" property="auditopinion" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    msg_id, bm_id, media_id, msg_type, pic_url, auditresult, auditopinion, status, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from audit_data
+    where msg_id = #{msgId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from audit_data
+    where msg_id = #{msgId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.duruo.po.AuditData" >
+    insert into audit_data (msg_id, bm_id, media_id, 
+      msg_type, pic_url, auditresult, 
+      auditopinion, status, create_time)
+    values (#{msgId,jdbcType=VARCHAR}, #{bmId,jdbcType=INTEGER}, #{mediaId,jdbcType=VARCHAR},
+      #{msgType,jdbcType=VARCHAR}, #{picUrl,jdbcType=VARCHAR}, #{auditresult,jdbcType=TINYINT}, 
+      #{auditopinion,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duruo.po.AuditData" >
+    insert into audit_data
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="msgId != null" >
+        msg_id,
+      </if>
+      <if test="bmId != null" >
+        bm_id,
+      </if>
+      <if test="mediaId != null" >
+        media_id,
+      </if>
+      <if test="msgType != null" >
+        msg_type,
+      </if>
+      <if test="picUrl != null" >
+        pic_url,
+      </if>
+      <if test="auditresult != null" >
+        auditresult,
+      </if>
+      <if test="auditopinion != null" >
+        auditopinion,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="msgId != null" >
+        #{msgId,jdbcType=VARCHAR},
+      </if>
+      <if test="bmId != null" >
+        #{bmId,jdbcType=INTEGER},
+      </if>
+      <if test="mediaId != null" >
+        #{mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="msgType != null" >
+        #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="picUrl != null" >
+        #{picUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="auditresult != null" >
+        #{auditresult,jdbcType=TINYINT},
+      </if>
+      <if test="auditopinion != null" >
+        #{auditopinion,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duruo.po.AuditData" >
+    update audit_data
+    <set >
+      <if test="bmId != null" >
+        bm_id = #{bmId,jdbcType=INTEGER},
+      </if>
+      <if test="mediaId != null" >
+        media_id = #{mediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="msgType != null" >
+        msg_type = #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="picUrl != null" >
+        pic_url = #{picUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="auditresult != null" >
+        auditresult = #{auditresult,jdbcType=TINYINT},
+      </if>
+      <if test="auditopinion != null" >
+        auditopinion = #{auditopinion,jdbcType=VARCHAR},
+      </if>
+      <if test=" status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where msg_id = #{msgId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duruo.po.AuditData" >
+    update audit_data
+    set bm_id = #{bmId,jdbcType=INTEGER},
+      media_id = #{mediaId,jdbcType=VARCHAR},
+      msg_type = #{msgType,jdbcType=VARCHAR},
+      pic_url = #{picUrl,jdbcType=VARCHAR},
+      auditresult = #{auditresult,jdbcType=TINYINT},
+      auditopinion = #{auditopinion,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where msg_id = #{msgId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectBybmId" resultMap="BaseResultMap" parameterType="map" >
+    select
+    <include refid="Base_Column_List" />
+    from audit_data
+    where bm_id = #{bmId,jdbcType=INTEGER}
+    and status=0
+    ORDER BY create_time DESC
+--      order by createTime
+  </select>
+  <select id="selectUnDo" resultType="int" parameterType="integer">
+    select count(1)
+    FROM audit_data
+    WHERE bm_id = #{bmId,jdbcType=INTEGER}
+    and status = 0
+  </select>
+</mapper>

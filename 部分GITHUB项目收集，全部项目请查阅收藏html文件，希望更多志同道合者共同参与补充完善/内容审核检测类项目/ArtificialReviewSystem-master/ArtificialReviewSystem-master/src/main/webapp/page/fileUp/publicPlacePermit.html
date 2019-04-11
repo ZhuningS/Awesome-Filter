@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>上海市公共场所卫生许可证申请材料</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="../../assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../../assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../../assets/css/animate.css" rel="stylesheet">
+    <link href="../../assets/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <link href="../../assets/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="../../assets/css/sweetalert.css" rel="stylesheet">
+    <style>
+        td {
+            font-size: 17px !important;
+            color: #555 !important;
+            border: 1px solid #ccc;
+            height: 50px;
+        }
+
+        th {
+            font-size: 17px !important;
+            color: #555 !important;
+            border: 1px solid #ccc;
+        }
+        p{
+            font-size: 15px !important;
+        }
+    </style>
+</head>
+<body class="gray-bg top-navigation">
+
+<div id="wrapper" >
+    <div id="page-wrapper" class="gray-bg">
+        <div class="wrapper wrapper-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>公共场所卫生许可证申请材料</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="table-responsive">
+                                    <form name="liquorFile"  id="form" action="/uploadFile/aiUpload.do" method="post" enctype="multipart/form-data">
+                                        <table id="liquoTable">
+                                            <!--data-search="true">-->
+                                            <thead>
+                                            <tr>
+                                                <th width="5%">编号</th>
+                                                <th width="45">材料名称</th>
+                                                <th width="30%">文件上传</th>
+                                                <th width="20%">模板下载</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>企业（个体）营业执照（或民办非企业单位登记证书、事业单位法人证书、社会统一信用代码证、组织机构代码证等经营主体证明文件）复印件</td>
+                                                <td>
+                                                    <input  type="file" name="企业（个体）营业执照（或民办非企业单位登记证书、事业单位法人证书、社会统一信用代码证、组织机构代码证等经营主体证明文件）复印件" >
+                                                    </input>
+                                                </td>
+                                                <!--<td><input type="button" value="模板下载"></td>-->
+                                            </tr>
+                                            <tr>
+                                                <td width="5%">2</td>
+                                                <td width="45%">上海市公共场所卫生许可证申请书</td>
+                                                <td width="30%">
+                                                    <div width="30%" >
+                                                        <input type="file" name="上海市公共场所卫生许可证申请书" width="50px" hidden="hidden">
+                                                        </input>
+                                                    </div>
+
+                                                </td>
+                                                <td width="20%">
+                                                    <a href="/assets/templateDownload/publicPlace/template.docx" download="公共卫生场所申请书模板.docx">模板下载</a>
+                                                    <input type="button" id="downloadWord" value="申请表.doc" class="btn-info"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>主要设备和设施的材料清单</td>
+                                                <td>
+                                                    <input type="file" name="主要设备和设施的材料清单" >
+                                                    </input>
+                                                </td>
+                                                <!--<td><input type="button" value="模板下载"></td>-->
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>法定代表人（负责人）身份证明（验看原件，复印件留档保存（委托办理的另提供受委托人身份证原件及复印件和委托书））</td>
+                                                <td>
+                                                    <input type="file" name="法定代表人（负责人）身份证明（验看原件，复印件留档保存（委托办理的另提供受委托人身份证原件及复印件和委托书））" >
+                                                    </input>
+
+                                                </td>
+                                                <!--<td><input type="button" value="模板下载"></td>-->
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>公共场所卫生管理制度</td>
+                                                <td>
+                                                    <input type="file" name="公共场所卫生管理制度" >
+                                                    </input>
+                                                </td>
+                                                <!--<td><input type="button" value="模板下载"></td>-->
+                                            </tr>
+
+                                            <tr>
+                                                <td>6</td>
+                                                <td>取得计量认证合格证书的公共场所卫生技术服务机构出具的一年内的公共场所卫生检测或评价报告；使用集中空调通风系统的，还应当提供集中空调通风系统卫生检测或评价报告；</td>
+                                                <td>
+                                                    <input  type="file" name="取得计量认证合格证书的公共场所卫生技术服务机构出具的一年内的公共场所卫生检测或评价报告；使用集中空调通风系统的，还应当提供集中空调通风系统卫生检测或评价报告；"  >
+                                                    </input>
+                                                </td>
+                                                <!--<td><input type="button" value="模板下载"></td>-->
+                                            </tr>
+
+                                            <tr>
+                                                <td>7</td>
+                                                <td>从业人员名单和健康合格证明（可在取得《上海市公共场所卫生许可证》后两个月内提交，审核后原件归还）（可选）</td>
+                                                <td>
+                                                    <input  type="file" name="从业人员名单和健康合格证明（可在取得《上海市公共场所卫生许可证》后两个月内提交，审核后原件归还）（可选）">
+                                                    </input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>公共场所地址方位示意图、平面图和卫生设施平面布局图</td>
+                                                <td>
+                                                        <input  type="file" name="公共场所地址方位示意图、平面图和卫生设施平面布局图" >
+                                                        </input>
+                                                </td>
+                                                <!--<td><input type="button" value="模板下载"></td>-->
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>委托书（可选）</td>
+                                                <td>
+                                                    <input  type="file" name="委托书">
+                                                    </input>
+                                                </td>
+                                                <!--<td>-->
+                                                    <!--<a href="/assets/templateDownload/liquor/mandate.docx">模板下载</a>-->
+                                                <!--</td>-->
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>委托人身份证明（可选）</td>
+                                                <td>
+                                                    <input  type="file" name="委托人身份证明" >
+                                                    </input>
+                                                </td>
+                                                <!--<td><input type="button" value="模板下载"></td>-->
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--<h1>使用spring mvc提供的类的方法上传文件</h1>-->
+                                        <!--<input type="file" name="file">-->
+                                        <input name="deptId" value="25" style="display: none">
+                                        <input type="text" name="MsgId" id="MsgId"  style="display: none">
+                                        <!--事项id-->
+                                        <input name="matterId" id="matterId" value="5356" style="display: none">
+                                        <input name="matterName" id="matterName" value="上海市公共场所卫生许可证" style="display: none">
+                                        <input name="deptName" id="deptName" value="徐汇区卫生和计划生育委员会" style="display: none">
+                                        <input name="flowName" id="flowName" value="公共卫生流程" style="display: none">
+                                        <div  align="center">
+                                            <input type="button" id="button1" value="上传文件" class="btn-primary btn-lg" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>提示信息</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <p>上传文件格式要求:
+                                    制成JPG文件格式的实物扫描件上传，
+                                    如有多个图片，可把图片粘贴进Word文
+                                    档里，然后上传word文档</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 全局js -->
+<script src="../../assets/js/jquery.min.js?v=2.1.4"></script>
+<script src="../../assets/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="../../assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../../assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../../assets/js/plugins/layer/layer.min.js"></script>
+<!-- 自定义js -->
+<script src="../../assets/js/myjs.js"></script>
+<script src="../../assets/js/hplus.js?v=4.1.0"></script>
+<!-- Bootstrap table -->
+<script src="../../assets/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="../../assets/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+<script src="../../assets/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<!--弹窗模板-->
+<!--<script src="https://cdn.bootcss.com/sweetalert/2.1.0/sweetalert.min.js"></script>-->
+<script src="../../assets/js/sweetalert-dev.min.js"></script>
+
+<!-- Peity -->
+<script src="../../assets/js/demo/bootstrap-table-demo.js"></script>
+
+</body>
+<script type="text/javascript">
+
+    $("document").ready(function () {
+        var url=window.location.search;
+        var str=url.substr(1);
+        var strs=str.split("=");
+        $("#MsgId").val(strs[1]);
+        if(strs[1]!=null){
+            var matterName =$("#matterName").val();
+            $.ajax({
+                type:'post',
+                url:baseUrl+"/wechat/sentPublicPlace.do",
+                dataType:'json',
+                data:{"weChatId":strs[1],"matterName":matterName},
+                success:function (data) {
+                    if(data.status==0){
+                        console.info(data)
+                        $("#downloadWord").removeAttr("hidden");
+                    }else if(data.status==1) {
+                        hiddButton()
+                    }else {
+                        $("#downloadWord").attr("hidden");
+
+                        console.info(data)
+                    }
+                },
+                error:function (data) {
+                    console.info(data)
+                }
+            })
+        }
+    })
+
+    //查询本地数据库看有么有该文件
+    function hiddButton(){
+        var msgId = $("#MsgId").val();
+        var type ="上海市公共场所卫生许可证申请书"
+        var matterName =$("#matterName").val();
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            url:baseUrl+'/download/fileIsEmpty.do',
+            data:{"msgId":msgId,"matterName":matterName,"type":type},
+            success:function (data) {
+                if(data.status==0){
+                    $("#downloadWord").removeAttr("hidden");
+                }else {
+
+                    $("#downloadWord").attr("hidden");
+                }
+                console.info(data)
+            },
+            error:function (data) {
+                console.info(data)
+            }
+        })
+    }
+
+    $("#downloadWord").click(function () {
+        var msgId = $("#MsgId").val();
+        var type ="上海市公共场所卫生许可证申请书"
+        var url = baseUrl+"/download/getSingleFile.do?msgId="+msgId+"&type="+type;
+        url=encodeURI(encodeURI(url));
+        window.location.href=url
+    })
+
+    $("#button1").click(function () {
+//        var formData = new FormData($())
+
+        swal({
+            title: "您确定要上传这些文件吗",
+            text: "提交后进入到下一个环节，请谨慎操作！",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "提交",
+            cancelButtonText:"取消",
+            closeOnCancel:false,
+            closeOnConfirm: false
+        },function (isConfirm) {
+            if(isConfirm){
+                swal({title:"提交成功",
+                        text:"上传文件成功成功",
+                        type:"success"},
+                    function () {
+
+                        document.getElementById("form").submit();
+                    })
+            }else {
+                swal({title:"已取消",
+                    text:"你取消了上传文件",
+                    type:"error"})
+            }
+        })
+
+    })
+</script>
+</html>

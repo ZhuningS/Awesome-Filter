@@ -1,0 +1,5 @@
+img:not([data-web-cleaner-ready]):not([data-web-cleaner-blocked]),
+div[style]:not([data-web-cleaner-ready]):not([data-web-cleaner-blocked]),
+p[style]:not([data-web-cleaner-ready]):not([data-web-cleaner-blocked]) {
+	filter: blur(15px);
+}

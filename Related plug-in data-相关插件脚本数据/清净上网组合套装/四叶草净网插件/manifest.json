@@ -1,0 +1,72 @@
+﻿{
+  "name" : "净网",
+  "version" : "3.4",
+  "description" : "本插件是一款专门过滤网页低俗图文的插件，还有专门为家长定制的'限制访问模式'，过滤原理是通过关键词,CSS、用户举报等过滤网页里大量的低俗图文，让广大网民和孩子拥有绿色的保护伞！插件还会拦截色情网站，低俗贴吧等，期望给你最清静的网络环境！",
+  "icons": { 
+    "16": "16.png",             
+    "48": "32.png",            
+    "128": "128.png"
+  }, 
+  "web_accessible_resources": [
+    "48.png"
+  ],
+  "permissions": [
+  "tabs", "http://*/*","https://*/*",
+  "contextMenus",
+  "webRequest",
+  "notifications",
+	"webRequestBlocking"
+  ],
+  "background" : {
+    "scripts": ["jquery.js","background/switch_lan.js","background/filterImgRequest.js","webConfirm.js","background/screenShot.js","background/update.js","background.js"]
+  },
+  "content_scripts" : [
+	{
+      "matches" : [
+        "http://*/*","https://*/*"
+      ],
+	  "css" : ["jqui/jquery-ui.min.css","jqui/jquery-ui.structure.min.css","jqui/jquery-ui.theme.min.css"],
+	  "js" : ["jquery.js","mousetrap.min.js","jqui/jquery-ui.js"],
+      "run_at" : "document_start",
+      "all_frames" : true
+    },
+  	{
+      "matches" : [
+        "http://*/*","https://*/*"
+      ],
+	 "css" : ["start.css"],
+      "run_at" : "document_start",
+      "all_frames" : false
+    },
+	{
+      "matches" : [
+        "http://*/*","https://*/*"
+      ],
+	  "js" : ["contentStart.js"],
+      "run_at" : "document_start",
+      "all_frames" : true
+    },
+    {
+      "matches" : [
+        "http://*/*","https://*/*"
+      ],
+      "js" : ["contentscript.js"],
+      "run_at" : "document_end",
+      "all_frames" : false
+    }
+	
+  ],
+  "browser_action" : {
+      "default_title" : "净网",
+      "default_icon" : "32.png",
+	  "default_popup": "menu.html"
+     
+  },
+  "options_page":"source/page/newTab.html",
+
+  "manifest_version": 2
+  
+}
+
+
+

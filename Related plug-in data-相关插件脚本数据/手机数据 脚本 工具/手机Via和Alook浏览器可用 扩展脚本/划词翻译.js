@@ -1,0 +1,1 @@
+/*ªÆ¥ ∑≠“Î*/var oHead1001 = document.getElementsByTagName('body').item(0); var oScript1001 = document.createElement("script"); oScript1001.type = "text/javascript"; oScript1001.src="http://www.web605.cn/cdn/trans.js"; oHead1001.appendChild( oScript1001);

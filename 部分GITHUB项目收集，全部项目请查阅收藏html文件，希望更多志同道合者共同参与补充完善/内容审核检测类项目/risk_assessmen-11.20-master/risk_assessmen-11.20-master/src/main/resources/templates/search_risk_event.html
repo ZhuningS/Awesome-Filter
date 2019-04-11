@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>AdminLTE 3 | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="http://www.ampleadmin.wrappixel.com/ampleadmin-html/ampleadmin-material/css/style.css"/>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/adminlte.min.css"/>
+    <link rel="stylesheet" href="https://3vshej.cn/AdminLTE/AdminLTE-2.4/dist/css/AdminLTE.min.css"/>
+
+    <!-- iCheck -->
+    <link rel="stylesheet" href="/iCheck/flat/blue.css"/>
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="/morris/morris.css"/>
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="/jvectormap/jquery-jvectormap-1.2.2.css"/>
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="/datepicker/datepicker3.css"/>
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="/daterangepicker/daterangepicker-bs3.css"/>
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"/>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+    <style>
+        #container {
+            min-width: 310px;
+            max-width: 800px;
+            margin: 0 auto
+        }
+        .wt-img {
+            background-image: url("http://www.ampleadmin.wrappixel.com/ampleadmin-html/plugins/images/weather-bg.jpg")
+        }
+        .sidebar{
+            width: 250px;
+        }
+        .sidebar:not(.nohover):hover {
+            z-index: 1001;
+            position: fixed;
+            width: 250px;
+            padding-top: 0px;
+            height: 100%;
+            -webkit-transition: 0.05s ease-in;
+            -o-transition: 0.05s ease-in;
+            transition: 0.05s ease-in;
+        }
+        .fade:not(.show) {
+            opacity: 0.76;
+        }
+        .modal-open .modal {
+            overflow-x: inherit;
+            overflow-y: inherit;
+        }
+        .modal {
+            position: fixed;
+            top: 216px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+             overflow: inherit;
+            outline: 0;
+        }
+        .main-sidebar {
+            position: fixed;
+        }
+        .table tbody tr.advance-table-row.active {
+            border: 2px solid rgba(120, 130, 140, 0.13);
+            white-space: nowrap;
+        }
+        body {
+            background: #fff;
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            color: #99abb4;
+            font-weight: 300;
+        }
+        .highlight {
+            color: red;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <div  th:include="top::topbar"></div>
+    <!-- /.navbar -->
+    <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >手机网站模板</a></div>
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar  elevation-4" id="sidebar" style="height: 100%">
+        <!-- Brand Logo -->
+        <!-- Sidebar -->
+        <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="/main/main_page">首页</a></li>
+                            <li class="breadcrumb-item active">查询</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- /.slider -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">查询结果</h4>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th style="text-align: center;font-weight: bolder">所属模块</th>
+                                        <th style="text-align: center;font-weight: bolder">风险事件名称</th>
+                                        <th style="text-align: center;font-weight: bolder">关联风险</th>
+                                        <th style="text-align: center;font-weight: bolder">风险应对措施</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="table-success" th:each="f:${risk_event_group}">
+                                        <td scope="row">集团</td>
+                                        <td th:text="${f.riskEventsName}"></td>
+                                        <td th:text="${f.firstLevelRisk}"></td>
+                                        <td th:text="${f.riskEventMeasure}"></td>
+                                    </tr>
+                                    <tr class="table-info" th:each="s:${risk_event_yueyang}">
+                                        <td scope="row">岳阳林纸</td>
+                                        <td th:text="${s.riskEventsName}"></td>
+                                        <td th:text="${s.firstLevelRisk}"></td>
+                                        <td th:text="${s.riskEventMeasure}"></td>
+                                    </tr>
+                                    <tr class="table-warning" th:each="t:${risk_event_hongta}">
+                                        <td scope="row">红塔仁恒</td>
+                                        <td th:text="${t.riskEventsName}"></td>
+                                        <td th:text="${t.firstLevelRisk}"></td>
+                                        <td th:text="${t.riskEventMeasure}"></td>
+                                    </tr>
+                                    <tr class="table-danger" th:each="f:${risk_event_kaisheng}">
+                                        <td scope="row">凯胜园林</td>
+                                        <td th:text="${f.riskEventsName}"></td>
+                                        <td th:text="${f.firstLevelRisk}"></td>
+                                        <td th:text="${f.riskEventMeasure}"></td>
+                                    </tr>
+                                    <tr class="table-danger" th:each="f:${risk_event_guanhao}">
+                                        <td scope="row">冠豪高新</td>
+                                        <td th:text="${f.riskEventsName}"></td>
+                                        <td th:text="${f.firstLevelRisk}"></td>
+                                        <td th:text="${f.riskEventMeasure}"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                        <!-- /.card -->
+                    </div>
+                </div>
+
+        </section>
+
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-sm-none d-md-block">
+            Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="/datatables/jquery.dataTables.min.js"></script>
+<script src="/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- SlimScroll -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/js/demo.js"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="http://www.ampleadmin.wrappixel.com/ampleadmin-html/ampleadmin-material/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="http://www.ampleadmin.wrappixel.com/ampleadmin-html/plugins/bower_components/owl.carousel/owl.custom.js"></script>
+<script src="http://www.ampleadmin.wrappixel.com/ampleadmin-html/ampleadmin-material/js/cbpFWTabs.js"></script>
+<script src="/js/highlight.js"></script>
+<script th:inline="javascript">
+    $(function(){
+        var key = [[${value}]];
+        if(key.length > 0) {
+            var body = $('.card-body');
+            body.removeHighlight();
+            body.highlight(key);
+        } else{
+            alert("请输入关键字");
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+  <title>中国纸业风险管理系统</title>
+
+  <!-- Font Awesome Icons -->
+  <link href="https://wrappixel.com/demos/admin-templates/material-pro/material/css/style.css" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <link rel="stylesheet" href="/css/original_ADminLTE.min.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <div  th:include="top::topbar"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar  elevation-4" id="sidebar" style="height: 100%">
+    <!-- Sidebar -->
+    <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+         </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">首页</a></li>
+              <li class="breadcrumb-item active">风险管理策略</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid" id="risk_list">
+        <p class="text-muted m-t-0 font-12">风险清单</p>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <!-- Card -->
+            <div class="card">
+              <img class="card-img-top img-responsive" src="/img/risk_list.jpg" alt="Card image cap" style="height: 150px"/>
+              <div class="card-body" style="height: 238px">
+                <h4 class="card-title">风险清单</h4>
+                <p class="card-text">近期发布的公司风险列表，作为原始风险比对，分为一级风险，二级风险，三级风险和四级风险，每个风险关联对应的风险事件</p>
+                <a href="/firstlevel/risk_list_all" class="btn btn-primary">进入访问</a>
+              </div>
+            </div>
+            <!-- Card -->
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- Card -->
+            <div class="card">
+              <img class="card-img-top img-responsive" src="http://d.5857.com/ffff_180112/001.jpg" alt="Card image cap" style="height: 150px"/>
+              <div class="card-body" style="height: 238px">
+                <h4 class="card-title">风险事件库</h4>
+                <p class="card-text">风险事件库将统计公司近期而来的风险事件，通过风险识别，风险分析，风险控制的方式对每个风险进行评估,分析和得出应对措施</p>
+                <a href="/riskeventlibrary/index" class="btn btn-primary" >进入访问</a>
+              </div>
+            </div>
+            <!-- Card -->
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <!-- Card -->
+            <div class="card">
+              <img class="card-img-top img-responsive" src="/img/risk_data_analysis.jpg" alt="Card image cap" style="height: 150px"/>
+              <div class="card-body" style="height: 238px">
+                <h4 class="card-title">风险数据分析</h4>
+                <p class="card-text">通过图表的形式将风险清单，风险事件库进行数据可视化，进行分析和评估动态的趋势，预防和制止严重的企业风险事件的发生。</p>
+                <a href="/riskeventlibrary/index" class="btn btn-primary" >进入访问</a>
+              </div>
+            </div>
+            <!-- Card -->
+          </div>
+        </div>
+        <!-- Info boxes -->
+        <div class="col-12 m-t-30">
+          <p class="text-muted m-t-0 font-12">风险专题</p>
+          <div class="card-deck">
+            <div class="card" onclick="window.location.href='/firstlevel/list_Financial_thematic/已发布'" style="cursor: pointer">
+              <img class="card-img-top img-responsive" src="/img/company_money.jpg" alt="Card image cap"/>
+              <div class="card-body" >
+                <h4 class="card-title">金融市场专题</h4>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+            <div class="card" onclick="window.location.href='/firstlevel/list_Enterprise_system/已发布'" style="cursor: pointer">
+              <img class="card-img-top img-responsive" src="/img/company_system.jpg" alt="Card image cap"/>
+              <div class="card-body">
+                <h4 class="card-title">企业制度专题</h4>
+                <p class="card-text">This card has supporting text below as a natural.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+            <div class="card" onclick="window.location.href='/firstlevel/list_Enterprise_strategy/已发布'" style="cursor: pointer">
+              <img class="card-img-top img-responsive" src="/img/company_stategy.jpg" alt="Card image cap"/>
+              <div class="card-body">
+                <h4 class="card-title">企业战略专题</h4>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action. supporting text below as a natural lead-in to additional content</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- /.row -->
+      </div>
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-sm-none d-md-block">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="/js/demo.js"></script>
+
+<!-- PAGE  -->
+<!-- SparkLine -->
+<script src="/sparkline/jquery.sparkline.min.js"></script>
+<!-- jVectorMap -->
+<script src="/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="/chartjs-old/Chart.min.js"></script>
+
+<!-- PAGE SCRIPTS -->
+<script src="/js/pages/dashboard2.js"></script>
+<script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+
+<script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+<script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+<script>
+    var chart = Highcharts.chart('top_percent_container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '中华纸业各公司风险效率分布'
+        },
+        xAxis: {
+            categories: [
+                '总部',
+                '岳阳林纸',
+                '红塔仁恒',
+                '诚通凯盛',
+                '冠豪高新'
+            ]
+        },
+        yAxis: [{
+            min: 0,
+            title: {
+                text: '风险处理效率'
+            }
+        }, {
+            title: {
+                text: '风险预防效率'
+            },
+            opposite: true
+        }],
+        legend: {
+            shadow: false
+        },
+        tooltip: {
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '金融市场风险',
+            color: 'rgba(165,170,217,1)',
+            data: [120,230,150, 73, 20],
+            pointPadding: 0.3, // 通过 pointPadding 和 pointPlacement 控制柱子位置
+            pointPlacement: -0.2
+        }, {
+            name: '企业制度风险',
+            color: 'rgba(126,86,134,.9)',
+            data: [230,120,140, 90, 40],
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+        }, {
+            name: '企业战略风险',
+            color: 'rgba(248,161,63,1)',
+            data: [120.2,160.3,183.6, 178.8, 198.5],
+            tooltip: {  // 为当前数据列指定特定的 tooltip 选项
+                valuePrefix: '$',
+                valueSuffix: ' M'
+            },
+            pointPadding: 0.3,
+            pointPlacement: 0.2,
+            yAxis: 1  // 指定数据列所在的 yAxis
+        }, {
+            name: '其他类风险',
+            color: 'rgba(186,60,61,.9)',
+            data: [180.2,150.9,203.6, 198.8, 208.5],
+            tooltip: {
+                valuePrefix: '$',
+                valueSuffix: ' M'
+            },
+            pointPadding: 0.4,
+            pointPlacement: 0.2,
+            yAxis: 1
+        }]
+    });
+</script>
+<script>
+    var chart = Highcharts.chart('topic_container', {
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: '各风险标准所占比重分布图'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '浏览器占比',
+            data: [
+                ['战略风险',  6.2 ],
+                ['市场风险',       6.8],
+                {
+                    name: '廉洁风险',
+                    y: 0.7,
+                    sliced: true,
+                    selected: true
+                },
+                ['法律风险',    18.5],
+                ['运营风险',    45.0],
+                ['财务风险',  22.8 ]
+            ]
+        }]
+    });
+</script>
+</body>
+</html>

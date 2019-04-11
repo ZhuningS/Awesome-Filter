@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>人工审核系统</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link rel="shortcut icon" href="favicon.ico"> <link href="../assets/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../assets/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../assets/css/animate.css" rel="stylesheet">
+    <link href="../assets/css/style.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg pace-done " style="overflow:hidden">
+    <div id="wrapper">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span>当前用户</span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <!--<b class="caret"></b>-->
+                                <span class="clear">
+                                    <span class="text-muted text-xs block" id="chcname"></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <!--<li><a class="J_menuItem" href="form_avatar.html">修改头像</a>-->
+                                <!--</li>-->
+                                <li><a class="J_menuItem" href="#" onclick="goOneSelf()">修改密码</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="../login.html">安全退出</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="xiaoxi">
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">消息审核</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <!--<li>-->
+                                <!--<a class="J_menuItem" href="/page/msg/msg_audit.html">消息审核</a>-->
+                            <!--</li>-->
+                            <li>
+                                <a class="J_menuItem" href="../page/documentHanding/todo/todoList.html">待处理列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="../page/documentHanding/done/doneList.html">已审核列表</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">人社</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="../page/documentHanding/demo/qncyToDoList.html">青年创业待审核列表</a>
+                            </li>
+                            <!--<li>-->
+                                <!--<a class="J_menuItem" href="/page/documentHanding/demo/qncyDetail.html">青年创业详情</a>-->
+                            <!--</li>-->
+                            <li>
+                                <a class="J_menuItem" href="../page/documentHanding/demo/qncyDoneList.html">青年创业已审核列表</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="xingshi">
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">研发加计扣除</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="../page/stAudit/stAudit.html">形式审核</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="../page/stAudit/stAuditTemp.html">数据采集测试</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="managePersion">
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label">人员管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="/persionMessage/save.do./page/user/user.html">人员信息管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--左侧导航结束-->
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <!--<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>-->
+                    <div class="nav navbar-left col-sm-4" >
+                        <!--<span>人工审核系统</span>-->
+                        <h3 style="margin-left: 4%;margin-top: 4%">人工审核系统</h3>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-bell"></i> <span class="label label-primary" id="undoNum"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-alerts">
+                                <li>
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i>
+                                        <span class="text-muted text-xs" id="undoNumDetail"></span>
+                                        <span class="pull-right text-muted small">2分钟</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info"  href="../login.html">
+                                <i class="fa "></i> 退出
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+         
+            <div class="row J_mainContent" id="content-main">
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="../page/documentHanding/demo/qncyToDoList.html" frameborder="0" data-id="index_v1.html" seamless></iframe>
+            </div>
+            <div class="footer">
+                <div class="pull-right">
+                    <!--&copy; 2018-2025-->
+                </div>
+                <!--<div>-->
+                    <!--<strong>Copyright</strong>&copy; 2018-->
+                <!--</div>-->
+            </div>
+
+        </div>
+        <!--右侧部分结束-->
+        <!--右侧边栏开始-->
+        <div id="right-sidebar">
+            <div class="sidebar-container">
+
+
+            </div>
+        </div>
+        <!--右侧边栏结束-->
+        <!--mini聊天窗口开始-->
+        <!--<div class="small-chat-box fadeInRight animated">-->
+        <!--</div>-->
+        <!--<div id="small-chat">-->
+
+        <!--</div>-->
+        <!--mini聊天窗口结束-->
+    </div>
+
+    <!-- 全局js -->
+    <script src="../assets/js/jquery.min.js?v=2.1.4"></script>
+    <script src="../assets/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../assets/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../assets/js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="../assets/js/hplus.js?v=4.1.0"></script>
+    <script type="text/javascript" src="../assets/js/contabs.js"></script>
+    <script src="../assets/js/myjs.js"></script>
+    <!-- 第三方插件 -->
+    <script src="../assets/js/plugins/pace/pace.min.js"></script>
+<script >
+    //页面渲染完的时候给id为chcname的给一个值
+    $(document).ready(function () {
+       var str = getParam();
+       console.info("用户id"+str['id'])
+       $("#chcname").text(str['name'])
+        if(str['id']!="1"){
+//            $("#managePersion").attr("display","none");
+//            只是隐藏
+//            $("#managePersion").hide();
+            $("#managePersion").remove();
+        }
+
+        if(str['deptId']!="72"&&str['id']!="1"){
+            $("#xiaoxi").remove();
+            $("#xingshi").remove();
+        }
+        setInterval("startRequest()",1000*5);
+    })
+
+
+    function startRequest() {
+        var url=window.location.search;
+        var str=url.substr(1);
+        var strs=str.split("=");
+        $.ajax({
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            type:'post',
+            dataType:'json',
+            data:{'userId':strs[1]},
+            url:baseUrl+'/auditData/postMsg.do',
+            success:function (data) {
+                if(data.status==0){
+                    $("#undoNum").text(data.data)
+                    $("#undoNumDetail").text("您有"+data.data+"条未审核数据")
+                }else {
+                    alert(data.msg)
+                    window.location.href=baseUrl
+//                    return false;
+                }
+            },
+            error:function (data) {
+                console.info(data)
+            }
+        })
+    }
+
+    //跳转到个人资料页面
+    function goOneSelf() {
+        var str=getParam();
+        window.location.href="/admin/page/user/profile.html?userId="+str['id']
+    }
+    //获取url里面的参数当参数大于二的时候有用
+    function getParam() {
+        var url=window.location.search;//获取当前url ?后面的值
+        var theRequest = new Object();
+        if(url.indexOf("?")!=-1){
+            var str=url.substr(1);
+            var strs=str.split("&");
+            for(var i=0;i<str.length;i++){
+                str=strs[i].split("=");
+                theRequest[str[0]]=decodeURI(str[1]);
+            }
+        }
+        return theRequest;
+    }
+</script>
+
+</body>
+
+</html>

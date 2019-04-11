@@ -1,0 +1,93 @@
+{
+  "timeStamp": 1537110104141,
+  "version": "1.5.2",
+  "userSettings": {
+    "advancedUserEnabled": false,
+    "alwaysDetachLogger": false,
+    "autoUpdate": true,
+    "cloudStorageEnabled": true,
+    "collapseBlocked": true,
+    "colorBlindFriendly": false,
+    "contextMenuEnabled": true,
+    "dynamicFilteringEnabled": false,
+    "externalLists": [],
+    "firewallPaneMinimized": true,
+    "hyperlinkAuditingDisabled": true,
+    "ignoreGenericCosmeticFilters": false,
+    "largeMediaSize": 50,
+    "parseAllABPHideFilters": true,
+    "prefetchingDisabled": true,
+    "requestLogMaxEntries": 1000,
+    "showIconBadge": true,
+    "tooltipsDisabled": false,
+    "webrtcIPAddressHidden": false
+  },
+  "selectedFilterLists": [
+    "user-filters",
+    "assets.json",
+    "public_suffix_list.dat",
+    "ublock-resources",
+    "ublock-filters",
+    "ublock-badware",
+    "ublock-privacy",
+    "ublock-unbreak",
+    "easylist",
+    "malware-0",
+    "malware-1",
+    "plowe-0",
+    "CHN-0"
+  ],
+  "hiddenSettingsString": "assetFetchTimeout 30\nautoUpdateAssetFetchPeriod 120\nautoUpdatePeriod 4\nignoreRedirectFilters false\nignoreScriptInjectFilters false\nmanualUpdateAssetFetchPeriod 2000\npopupFontSize unset\nsuspendTabsUntilReady false\nuserResourcesLocation unset",
+  "netWhitelist": "about-scheme\naccount.aliyun.com\nbehind-the-scene\nchrome-extension-scheme\nchrome-scheme\ngetpocket.com\ngithub.com\nicloud.com\njianshu.com\nloopconversation.about-scheme\nmindzip.net\nmoz-extension-scheme\nnote.youdao.com\nopera-scheme\npassport.aliyun.com\nsegmentfault.com\nshouqu.me\nveg001.com\nvivaldi-scheme\nwww.aliyun.com\nwww.icloud.com\nwww.yilan.io\nyinxiang.com",
+  "dynamicFilteringString": "behind-the-scene * 3p-frame noop\nbehind-the-scene * 3p noop",
+  "urlFilteringString": "",
+  "hostnameSwitchesString": "",
+  "userFilters": "!Fix Google Analytics WebPage\n@@||google-analytics.com^\n@@||*$domain=analytics.google.com\n\n! 2018/8/18 下午2:18:30 https://qdan.me/category/lifestyle?from=header\n||dn-qdan.qbox.me/cover/2015/4/13/407d55d6009c60f5a9ea85f1bc8521c8?imageView2/1/w/640/h/300/interlace/1$image\n\n! 2018/8/18 下午8:07:46 https://www.hao123.com/?t0=1\n||gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2018-07-30/709e3d38baf7b61a76b4d97e254909b2.jpg$image\n\n! 2018/8/18 下午8:07:57 https://www.hao123.com/?t0=1\n||gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2018-08-18/623a744b9b4c8819dee314e9cf6f46b8.jpg$image\n\n! 2018/8/18 下午8:08:05 https://www.hao123.com/?t0=1\n||gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2018-08-18/5931e22a3bc303232be607916351b81a.jpg$image\n\n! 2018/8/18 下午8:08:13 https://www.hao123.com/?t0=1\n||gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2018-08-18/c68aa50464935c91056fa6b89bdb725b.jpg$image\n\n! 2018/8/18 下午8:08:27 https://www.hao123.com/?t0=1\n||gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2018-08-18/a7e922a2178e5bfa7b40657acd9465c7.jpg$image\n\n! 2018/8/18 下午8:08:42 https://www.hao123.com/?t0=1\nwww.hao123.com##.mt10.g_clr.g-bg11.g-br3\n\n! 2018/8/18 下午8:39:23 https://www.hao123.com/index.htm\nwww.hao123.com###topzixun-over > .scrollable.topzixun-over-hidden > div:nth-of-type(2)\n\n! 2018/8/18 下午8:39:53 https://www.hao123.com/index.htm\nwww.hao123.com###layout-side\n\n! 2018/8/18 下午8:41:27 https://www.2345.com/?23024-0069\nwww.2345.com###right\n\n! 2018/8/18 下午8:42:35 https://www.2345.com/?23024-0069\nwww.2345.com###J_infoflowListHis\n\n! 2018/8/18 下午8:42:45 https://www.2345.com/?23024-0069\nwww.2345.com###mod_hotNews > .module_t\n\n! 2018/8/18 下午8:44:59 https://www.2345.com/?23024-0069\nwww.2345.com##li:nth-of-type(13) > .fred.txt\n\n! 2018/8/20 下午6:11:35 https://www.hao123.com/mid/14942413246292936970\n||gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2018-08-20/ca0a701ca23c8412dbd02664ab4b784c.jpg$image\n\n! 2018/8/20 下午11:49:19 https://www.2345.com/?23024-0069\nwww.2345.com###map_video > div\n\n! 2018/8/20 下午11:50:58 https://www.2345.com/?23024-0069\nwww.2345.com###map_these > div\n\n! 2018/8/20 下午11:51:15 https://www.2345.com/?23024-0069\nwww.2345.com###map_life > div\n\n! 2018/8/20 下午11:52:15 https://www.2345.com/?23024-0069\nwww.2345.com###J_kzjx\n\n! 2018/8/20 下午11:52:55 https://www.2345.com/?23024-0069\nwww.2345.com##.top_w\n\n! 2018/8/20 下午11:53:32 https://www.2345.com/?23024-0069\nwww.2345.com###yeYouList\n\n! 2018/8/20 下午11:54:42 https://www.2345.com/?23024-0069\n||www.2345.com/images/logo/logo_normal.png$image\n\n! 2018/8/26 上午7:36:37 http://mini.eastday.com/a/180823132241343.html?qid=02151&btype=index_jrdftt&subtype=toutiao&rcgid=2972e22d7e865099&ishot=1&recommendtype=-1&suptop=0&pgnum=1&idx=1\nmini.eastday.com##.ordernum1.left_chunk\n\n! 2018/8/26 上午7:36:53 http://mini.eastday.com/a/180823132241343.html?qid=02151&btype=index_jrdftt&subtype=toutiao&rcgid=2972e22d7e865099&ishot=1&recommendtype=-1&suptop=0&pgnum=1&idx=1\nmini.eastday.com##.clear-fix.xfcnt_lft\n\n! 2018/8/26 上午7:37:05 http://mini.eastday.com/a/180823132241343.html?qid=02151&btype=index_jrdftt&subtype=toutiao&rcgid=2972e22d7e865099&ishot=1&recommendtype=-1&suptop=0&pgnum=1&idx=1\nmini.eastday.com##.detail_room\n\n! 2018/8/26 上午7:41:18 https://www.2345.com/?23024-0069\nwww.2345.com##a[href^=\"http://day.2345.com/20180825386973.html\"]\n\n! 2018/8/26 上午7:41:32 https://www.2345.com/?23024-0069\nwww.2345.com##.top-extra\n\n! 2018/8/30 下午5:03:43 https://www.2345.com/?39291\nwww.2345.com##.first > a[href=\"http://2345licai.com/gupiao/\"]\n\n! 2018/8/30 下午5:04:03 https://www.2345.com/?39291\nwww.2345.com###J_infoflowHot\n\n! 2018/9/1 下午9:39:25 https://www.2345.com/?39291\nwww.2345.com##.mz-list:nth-of-type(2) > li:nth-of-type(3) > .txt\n\n! 2018/9/1 下午9:39:53 https://www.2345.com/?39291\nwww.2345.com##.mz-list:nth-of-type(2) > li:nth-of-type(4) > .txt\n\n! 2018/9/3 上午12:09:59 https://1024ss.com/s#q=%E5%A5%B3%E7%94%9F\n||1024ss.com/img/qgroup.jpg$image\n\n! 2018/9/3 上午12:10:40 https://1024ss.com/\n1024ss.com##.warning\n\n! 2018/9/7 下午7:18:18 https://freewechat.com/\nfreewechat.com##li:nth-of-type(12) > a[href^=\"/\"]\n\n! 2018/9/8 下午12:33:26 https://www.sohu.com/a/112498577_388624\nwww.sohu.com###right-side-bar\n\n! 2018/9/9 下午12:33:52 https://www.sogou.com/sgo?query=%E9%B8%A0%E6%91%A9%E6%90%9C%E4%B9%A6&hdq=sogou-clse-7221e5c8ec6b08ef-0099&lxod=0_18_1_-1_1&lxea=6-2-A-8.9.0.2223-3-CN3702-0-0-2-92C2100C2741D1517E95CB2CA1C7039A-27&lxoq=jiumo&lkx=0&ie=utf8\nwww.sogou.com###sogou_vr_11014701_wrap_0\n\n! 2018/9/9 下午1:34:23 https://www.2345.com/?39291\nwww.2345.com###search-hot-word\n\n! 2018/9/9 下午2:13:58 https://finance.ifeng.com/a/20180908/16493204_0.shtml\nfinance.ifeng.com##.ipad_none.iphone_none.blockR:nth-of-type(5)\n\n! 2018/9/9 下午4:24:15 http://www.doczj.com/list_203/75\n||img.alicdn.com/imgextra/i1/58543928/O1CN011et4Cb9VEHHBdkX_!!58543928.jpg$image\n\n! 2018/9/9 下午11:43:57 https://www.2345.com/?39291\nwww.2345.com###fix-search-hot-word\n\n! 2018/9/9 下午11:44:25 https://www.2345.com/?39291\nwww.2345.com##li:nth-of-type(5) > .menu-hd.txt\n\n! 2018/9/11 上午12:36:47 http://kikibt.cc/item/BcGBAQAgBATAlVB6jYPe_iN0B5Q7Vj6pCF6l7XE7otIqQzaS05gP.html\nkikibt.cc##.rsearch.dd\n\n! 2018/9/11 上午12:37:04 http://kikibt.cc/item/BcGBAQAgBATAlVB6jYPe_iN0B5Q7Vj6pCF6l7XE7otIqQzaS05gP.html\nkikibt.cc##.rtorrents.dd\n\n! 2018/9/11 上午12:38:08 http://kikibt.cc/item/BcGBAQAgBATAlVB6jYPe_iN0B5Q7Vj6pCF6l7XE7otIqQzaS05gP.html\n||kikibt.cc/static/images/logo.png$image\n\n! 2018/9/12 上午2:41:08 http://kikibt.cc/search/e9q-6-nkRgA/1-0-0.html\nkikibt.cc##.item:nth-of-type(1) > .related\n\n! 2018/9/12 上午2:41:25 http://kikibt.cc/search/e9q-6-nkRgA/1-0-0.html\nkikibt.cc##.item:nth-of-type(2) > .related\n\n! 2018/9/12 上午2:41:39 http://kikibt.cc/search/e9q-6-nkRgA/1-0-0.html\nkikibt.cc##.item:nth-of-type(4) > .related\n\n! 2018/9/12 上午2:41:49 http://kikibt.cc/search/e9q-6-nkRgA/1-0-0.html\nkikibt.cc##.item:nth-of-type(3) > .related\n\n! 2018/9/12 上午2:41:58 http://kikibt.cc/search/e9q-6-nkRgA/1-0-0.html\nkikibt.cc##.item:nth-of-type(5) > .related\n\n! 2018/9/12 上午2:42:05 http://kikibt.cc/search/e9q-6-nkRgA/1-0-0.html\nkikibt.cc##.item:nth-of-type(7) > .related\n\n! 2018/9/12 上午2:42:12 http://kikibt.cc/search/e9q-6-nkRgA/1-0-0.html\nkikibt.cc##.item:nth-of-type(8) > .related\n\n! 2018/9/12 上午2:42:19 http://kikibt.cc/search/e9q-6-nkRgA/1-0-0.html\nkikibt.cc##.item:nth-of-type(9) > .related\n\n! 2018/9/12 上午2:42:27 http://kikibt.cc/search/e9q-6-nkRgA/1-0-0.html\nkikibt.cc##.item:nth-of-type(10) > .related\n\n! 2018/9/12 上午2:42:37 http://kikibt.cc/search/e9q-6-nkRgA/1-0-0.html\nkikibt.cc##.item:nth-of-type(6) > .related\n\n! 2018/9/12 上午2:51:13 http://kikibt.cc/search/e7pjx4vljY5hz-asf7F-LQA/1-0-0.html\nkikibt.cc##.hotwords > dd\n\n! 2018/9/12 上午11:26:03 https://www.baidu.com/\nwww.baidu.com###s_wrap\n\n! 2018/9/12 上午11:46:55 https://fo.ifeng.com/special/jinianliuzuhuineng/tanjing/detail_2013_04/01/23755779_0.shtml\nfo.ifeng.com##.right\n\n! 2018/9/12 下午9:49:42 https://www.baidu.com/\nwww.baidu.com###s_menu_gurd\n\n! 2018/9/12 下午10:34:14 https://www.2345.com/?39291\nwww.2345.com##li:nth-of-type(2) > .menu-hd.txt\n\n! 2018/9/14 下午4:40:26 https://www.baidu.com/s?ie=UTF-8&wd=csdn\nwww.baidu.com###content_right\n\n! 2018/9/14 下午6:21:15 https://www.google.com/search?&q=%E5%BE%90%E4%B8%AD%E7%BA%A6&safe=active\nwww.google.com##.ab_ctl > span\n\n! 2018/9/15 下午5:29:44 http://www.veryhuo.com/down/html/73406.html\n||utf2.liehuo.net/desvfeh?dae=14z&sez=2zz&ze=t014733z&hpq=gsso-29-1E-1Evvv-Zudqxgtn-Zbnl-1Ecnvm-1Egslk-1E623z5-Zgslk&zwe=0&pln=0426zz2606214&leo=_0w_0&loo=0238w3101&atlo=000zz1&zpi=GSLKZONRS&zy=2&lo=238w077&wjp=0&yay=FAJ&lwn=0255w617&lyo=0238w520&wne=1&zne=z&zeo=z&swt=1$subdocument\n",
+  "filterLists": {
+    "assets/user/filters.txt": {
+      "off": false
+    },
+    "assets.json": {
+      "off": false
+    },
+    "assets/thirdparties/publicsuffix.org/list/effective_tld_names.dat": {
+      "off": false
+    },
+    "assets/ublock/resources.txt": {
+      "off": false
+    },
+    "assets/ublock/filters.txt": {
+      "off": false
+    },
+    "assets/ublock/badware.txt": {
+      "off": false
+    },
+    "assets/ublock/privacy.txt": {
+      "off": false
+    },
+    "assets/ublock/unbreak.txt": {
+      "off": false
+    },
+    "assets/thirdparties/easylist-downloads.adblockplus.org/easylist.txt": {
+      "off": false
+    },
+    "assets/thirdparties/www.malwaredomainlist.com/hostslist/hosts.txt": {
+      "off": false
+    },
+    "assets/thirdparties/mirror1.malwaredomains.com/files/justdomains": {
+      "off": false
+    },
+    "assets/thirdparties/pgl.yoyo.org/as/serverlist": {
+      "off": false
+    },
+    "https://easylist-downloads.adblockplus.org/easylistchina.txt": {
+      "off": false
+    },
+    "assets/ublock/experimental.txt": {
+      "off": true
+    },
+    "assets/thirdparties/easylist-downloads.adblockplus.org/easyprivacy.txt": {
+      "off": true
+    }
+  }
+}

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duruo.dao.GsquestionMapper" >
+  <resultMap id="BaseResultMap" type="com.duruo.po.Gsquestion" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="style" property="style" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="ask_content" property="askContent" jdbcType="VARCHAR" />
+    <result column="statu" property="statu" jdbcType="INTEGER" />
+    <result column="reply_content" property="replyContent" jdbcType="VARCHAR" />
+    <result column="consultant" property="consultant" jdbcType="VARCHAR" />
+    <result column="ask_time" property="askTime" jdbcType="TIMESTAMP" />
+    <result column="back_time" property="backTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, style, title, ask_content, statu, reply_content, consultant, ask_time, back_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from gsquestion
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from gsquestion
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.duruo.po.Gsquestion" >
+    insert into gsquestion (id, style, title, 
+      ask_content, statu, reply_content, 
+      consultant, ask_time, back_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{style,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{askContent,jdbcType=VARCHAR}, #{statu,jdbcType=INTEGER}, #{replyContent,jdbcType=VARCHAR}, 
+      #{consultant,jdbcType=VARCHAR}, #{askTime,jdbcType=TIMESTAMP}, #{backTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.duruo.po.Gsquestion" >
+    insert into gsquestion
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="style != null" >
+        style,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="askContent != null" >
+        ask_content,
+      </if>
+      <if test="statu != null" >
+        statu,
+      </if>
+      <if test="replyContent != null" >
+        reply_content,
+      </if>
+      <if test="consultant != null" >
+        consultant,
+      </if>
+      <if test="askTime != null" >
+        ask_time,
+      </if>
+      <if test="backTime != null" >
+        back_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="style != null" >
+        #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="askContent != null" >
+        #{askContent,jdbcType=VARCHAR},
+      </if>
+      <if test="statu != null" >
+        #{statu,jdbcType=INTEGER},
+      </if>
+      <if test="replyContent != null" >
+        #{replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="consultant != null" >
+        #{consultant,jdbcType=VARCHAR},
+      </if>
+      <if test="askTime != null" >
+        #{askTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backTime != null" >
+        #{backTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duruo.po.Gsquestion" >
+    update gsquestion
+    <set >
+      <if test="style != null" >
+        style = #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="askContent != null" >
+        ask_content = #{askContent,jdbcType=VARCHAR},
+      </if>
+      <if test="statu != null" >
+        statu = #{statu,jdbcType=INTEGER},
+      </if>
+      <if test="replyContent != null" >
+        reply_content = #{replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="consultant != null" >
+        consultant = #{consultant,jdbcType=VARCHAR},
+      </if>
+      <if test="askTime != null" >
+        ask_time = #{askTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="backTime != null" >
+        back_time = #{backTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duruo.po.Gsquestion" >
+    update gsquestion
+    set style = #{style,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      ask_content = #{askContent,jdbcType=VARCHAR},
+      statu = #{statu,jdbcType=INTEGER},
+      reply_content = #{replyContent,jdbcType=VARCHAR},
+      consultant = #{consultant,jdbcType=VARCHAR},
+      ask_time = #{askTime,jdbcType=TIMESTAMP},
+      back_time = #{backTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="list" resultMap="BaseResultMap" parameterType="map">
+    SELECT <include refid="Base_Column_List"/>
+    FROM gsquestion
+    <where>
+      <if test="title !=null and title !='' ">
+        AND title LIKE "%"#{title,jdbcType=VARCHAR}"%"
+      </if>
+      <if test="askContent !=null and askContent != '' ">
+        AND ask_content LIKE  "%"#{askContent,jdbcType=VARCHAR}"%"
+      </if>
+      <if test="replyContent !=null and replyContent != '' ">
+        AND reply_content LIKE  "%"#{replyContent,jdbcType=VARCHAR}"%"
+      </if>
+    </where>
+    order by ask_time desc
+  </select>
+</mapper>

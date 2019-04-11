@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duruo.dao.EnterpriseMapper" >
+  <resultMap id="BaseResultMap" type="com.duruo.po.Enterprise" >
+    <id column="creditcode" property="creditcode" jdbcType="VARCHAR" />
+    <result column="realname" property="realname" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="contactsname" property="contactsname" jdbcType="VARCHAR" />
+    <result column="contactsphone" property="contactsphone" jdbcType="VARCHAR" />
+    <result column="contactspost" property="contactspost" jdbcType="VARCHAR" />
+    <result column="landline" property="landline" jdbcType="VARCHAR" />
+    <result column="registdate" property="registdate" jdbcType="VARCHAR" />
+    <result column="companyaptitude" property="companyaptitude" jdbcType="VARCHAR" />
+    <result column="companytypeid" property="companytypeid" jdbcType="VARCHAR" />
+    <result column="attachmentlogoid" property="attachmentlogoid" jdbcType="VARCHAR" />
+    <result column="leasefile" property="leasefile" jdbcType="VARCHAR" />
+    <result column="registcapital" property="registcapital" jdbcType="VARCHAR" />
+    <result column="legalperson" property="legalperson" jdbcType="VARCHAR" />
+    <result column="registadress" property="registadress" jdbcType="VARCHAR" />
+    <result column="businessaddress" property="businessaddress" jdbcType="VARCHAR" />
+    <result column="serviceareaid" property="serviceareaid" jdbcType="VARCHAR" />
+    <result column="servicessubcatalogids" property="servicessubcatalogids" jdbcType="VARCHAR" />
+    <result column="ywsr" property="ywsr" jdbcType="VARCHAR" />
+    <result column="zcze" property="zcze" jdbcType="VARCHAR" />
+    <result column="jobsnumber" property="jobsnumber" jdbcType="VARCHAR" />
+    <result column="zzry" property="zzry" jdbcType="VARCHAR" />
+    <result column="fwqyhc" property="fwqyhc" jdbcType="VARCHAR" />
+    <result column="zzqk" property="zzqk" jdbcType="VARCHAR" />
+    <result column="introduce" property="introduce" jdbcType="VARCHAR" />
+    <result column="taxamount" property="taxamount" jdbcType="VARCHAR" />
+    <result column="profit" property="profit" jdbcType="VARCHAR" />
+    <result column="ismatchingbase" property="ismatchingbase" jdbcType="VARCHAR" />
+    <result column="oldenterprise" property="oldenterprise" jdbcType="VARCHAR" />
+    <result column="oldposition" property="oldposition" jdbcType="VARCHAR" />
+    <result column="weworkdirectory" property="weworkdirectory" jdbcType="VARCHAR" />
+    <result column="overtcipher" property="overtcipher" jdbcType="VARCHAR" />
+    <result column="coordinate" property="coordinate" jdbcType="VARCHAR" />
+    <result column="scopebusiness" property="scopebusiness" jdbcType="VARCHAR" />
+    <result column="usertype" property="usertype" jdbcType="VARCHAR" />
+    <result column="worktelephone" property="worktelephone" jdbcType="VARCHAR" />
+    <result column="department" property="department" jdbcType="VARCHAR" />
+    <result column="annualrevenue" property="annualrevenue" jdbcType="VARCHAR" />
+    <result column="annualtax" property="annualtax" jdbcType="VARCHAR" />
+    <result column="expectedbenefit" property="expectedbenefit" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    creditcode, realname, email, mobile, userid, contactsname, contactsphone, contactspost, 
+    landline, registdate, companyaptitude, companytypeid, attachmentlogoid, leasefile, 
+    registcapital, legalperson, registadress, businessaddress, serviceareaid, servicessubcatalogids, 
+    ywsr, zcze, jobsnumber, zzry, fwqyhc, zzqk, introduce, taxamount, profit, ismatchingbase, 
+    oldenterprise, oldposition, weworkdirectory, overtcipher, coordinate, scopebusiness, 
+    usertype, worktelephone, department, annualrevenue, annualtax, expectedbenefit
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from enterprise
+    where creditcode = #{creditcode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from enterprise
+    where creditcode = #{creditcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.duruo.po.Enterprise" >
+    insert into enterprise (creditcode, realname, email, 
+      mobile, userid, contactsname, 
+      contactsphone, contactspost, landline, 
+      registdate, companyaptitude, companytypeid, 
+      attachmentlogoid, leasefile, registcapital, 
+      legalperson, registadress, businessaddress, 
+      serviceareaid, servicessubcatalogids, ywsr, 
+      zcze, jobsnumber, zzry, 
+      fwqyhc, zzqk, introduce, 
+      taxamount, profit, ismatchingbase, 
+      oldenterprise, oldposition, weworkdirectory, 
+      overtcipher, coordinate, scopebusiness, 
+      usertype, worktelephone, department, 
+      annualrevenue, annualtax, expectedbenefit
+      )
+    values (#{creditcode,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{contactsname,jdbcType=VARCHAR}, 
+      #{contactsphone,jdbcType=VARCHAR}, #{contactspost,jdbcType=VARCHAR}, #{landline,jdbcType=VARCHAR}, 
+      #{registdate,jdbcType=VARCHAR}, #{companyaptitude,jdbcType=VARCHAR}, #{companytypeid,jdbcType=VARCHAR}, 
+      #{attachmentlogoid,jdbcType=VARCHAR}, #{leasefile,jdbcType=VARCHAR}, #{registcapital,jdbcType=VARCHAR}, 
+      #{legalperson,jdbcType=VARCHAR}, #{registadress,jdbcType=VARCHAR}, #{businessaddress,jdbcType=VARCHAR}, 
+      #{serviceareaid,jdbcType=VARCHAR}, #{servicessubcatalogids,jdbcType=VARCHAR}, #{ywsr,jdbcType=VARCHAR}, 
+      #{zcze,jdbcType=VARCHAR}, #{jobsnumber,jdbcType=VARCHAR}, #{zzry,jdbcType=VARCHAR}, 
+      #{fwqyhc,jdbcType=VARCHAR}, #{zzqk,jdbcType=VARCHAR}, #{introduce,jdbcType=VARCHAR}, 
+      #{taxamount,jdbcType=VARCHAR}, #{profit,jdbcType=VARCHAR}, #{ismatchingbase,jdbcType=VARCHAR}, 
+      #{oldenterprise,jdbcType=VARCHAR}, #{oldposition,jdbcType=VARCHAR}, #{weworkdirectory,jdbcType=VARCHAR}, 
+      #{overtcipher,jdbcType=VARCHAR}, #{coordinate,jdbcType=VARCHAR}, #{scopebusiness,jdbcType=VARCHAR}, 
+      #{usertype,jdbcType=VARCHAR}, #{worktelephone,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, 
+      #{annualrevenue,jdbcType=VARCHAR}, #{annualtax,jdbcType=VARCHAR}, #{expectedbenefit,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.duruo.po.Enterprise" >
+    insert into enterprise
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="creditcode != null" >
+        creditcode,
+      </if>
+      <if test="realname != null" >
+        realname,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="contactsname != null" >
+        contactsname,
+      </if>
+      <if test="contactsphone != null" >
+        contactsphone,
+      </if>
+      <if test="contactspost != null" >
+        contactspost,
+      </if>
+      <if test="landline != null" >
+        landline,
+      </if>
+      <if test="registdate != null" >
+        registdate,
+      </if>
+      <if test="companyaptitude != null" >
+        companyaptitude,
+      </if>
+      <if test="companytypeid != null" >
+        companytypeid,
+      </if>
+      <if test="attachmentlogoid != null" >
+        attachmentlogoid,
+      </if>
+      <if test="leasefile != null" >
+        leasefile,
+      </if>
+      <if test="registcapital != null" >
+        registcapital,
+      </if>
+      <if test="legalperson != null" >
+        legalperson,
+      </if>
+      <if test="registadress != null" >
+        registadress,
+      </if>
+      <if test="businessaddress != null" >
+        businessaddress,
+      </if>
+      <if test="serviceareaid != null" >
+        serviceareaid,
+      </if>
+      <if test="servicessubcatalogids != null" >
+        servicessubcatalogids,
+      </if>
+      <if test="ywsr != null" >
+        ywsr,
+      </if>
+      <if test="zcze != null" >
+        zcze,
+      </if>
+      <if test="jobsnumber != null" >
+        jobsnumber,
+      </if>
+      <if test="zzry != null" >
+        zzry,
+      </if>
+      <if test="fwqyhc != null" >
+        fwqyhc,
+      </if>
+      <if test="zzqk != null" >
+        zzqk,
+      </if>
+      <if test="introduce != null" >
+        introduce,
+      </if>
+      <if test="taxamount != null" >
+        taxamount,
+      </if>
+      <if test="profit != null" >
+        profit,
+      </if>
+      <if test="ismatchingbase != null" >
+        ismatchingbase,
+      </if>
+      <if test="oldenterprise != null" >
+        oldenterprise,
+      </if>
+      <if test="oldposition != null" >
+        oldposition,
+      </if>
+      <if test="weworkdirectory != null" >
+        weworkdirectory,
+      </if>
+      <if test="overtcipher != null" >
+        overtcipher,
+      </if>
+      <if test="coordinate != null" >
+        coordinate,
+      </if>
+      <if test="scopebusiness != null" >
+        scopebusiness,
+      </if>
+      <if test="usertype != null" >
+        usertype,
+      </if>
+      <if test="worktelephone != null" >
+        worktelephone,
+      </if>
+      <if test="department != null" >
+        department,
+      </if>
+      <if test="annualrevenue != null" >
+        annualrevenue,
+      </if>
+      <if test="annualtax != null" >
+        annualtax,
+      </if>
+      <if test="expectedbenefit != null" >
+        expectedbenefit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="creditcode != null" >
+        #{creditcode,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsname != null" >
+        #{contactsname,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsphone != null" >
+        #{contactsphone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactspost != null" >
+        #{contactspost,jdbcType=VARCHAR},
+      </if>
+      <if test="landline != null" >
+        #{landline,jdbcType=VARCHAR},
+      </if>
+      <if test="registdate != null" >
+        #{registdate,jdbcType=VARCHAR},
+      </if>
+      <if test="companyaptitude != null" >
+        #{companyaptitude,jdbcType=VARCHAR},
+      </if>
+      <if test="companytypeid != null" >
+        #{companytypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentlogoid != null" >
+        #{attachmentlogoid,jdbcType=VARCHAR},
+      </if>
+      <if test="leasefile != null" >
+        #{leasefile,jdbcType=VARCHAR},
+      </if>
+      <if test="registcapital != null" >
+        #{registcapital,jdbcType=VARCHAR},
+      </if>
+      <if test="legalperson != null" >
+        #{legalperson,jdbcType=VARCHAR},
+      </if>
+      <if test="registadress != null" >
+        #{registadress,jdbcType=VARCHAR},
+      </if>
+      <if test="businessaddress != null" >
+        #{businessaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceareaid != null" >
+        #{serviceareaid,jdbcType=VARCHAR},
+      </if>
+      <if test="servicessubcatalogids != null" >
+        #{servicessubcatalogids,jdbcType=VARCHAR},
+      </if>
+      <if test="ywsr != null" >
+        #{ywsr,jdbcType=VARCHAR},
+      </if>
+      <if test="zcze != null" >
+        #{zcze,jdbcType=VARCHAR},
+      </if>
+      <if test="jobsnumber != null" >
+        #{jobsnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="zzry != null" >
+        #{zzry,jdbcType=VARCHAR},
+      </if>
+      <if test="fwqyhc != null" >
+        #{fwqyhc,jdbcType=VARCHAR},
+      </if>
+      <if test="zzqk != null" >
+        #{zzqk,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null" >
+        #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="taxamount != null" >
+        #{taxamount,jdbcType=VARCHAR},
+      </if>
+      <if test="profit != null" >
+        #{profit,jdbcType=VARCHAR},
+      </if>
+      <if test="ismatchingbase != null" >
+        #{ismatchingbase,jdbcType=VARCHAR},
+      </if>
+      <if test="oldenterprise != null" >
+        #{oldenterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="oldposition != null" >
+        #{oldposition,jdbcType=VARCHAR},
+      </if>
+      <if test="weworkdirectory != null" >
+        #{weworkdirectory,jdbcType=VARCHAR},
+      </if>
+      <if test="overtcipher != null" >
+        #{overtcipher,jdbcType=VARCHAR},
+      </if>
+      <if test="coordinate != null" >
+        #{coordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="scopebusiness != null" >
+        #{scopebusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null" >
+        #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="worktelephone != null" >
+        #{worktelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="annualrevenue != null" >
+        #{annualrevenue,jdbcType=VARCHAR},
+      </if>
+      <if test="annualtax != null" >
+        #{annualtax,jdbcType=VARCHAR},
+      </if>
+      <if test="expectedbenefit != null" >
+        #{expectedbenefit,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duruo.po.Enterprise" >
+    update enterprise
+    <set >
+      <if test="realname != null" >
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsname != null" >
+        contactsname = #{contactsname,jdbcType=VARCHAR},
+      </if>
+      <if test="contactsphone != null" >
+        contactsphone = #{contactsphone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactspost != null" >
+        contactspost = #{contactspost,jdbcType=VARCHAR},
+      </if>
+      <if test="landline != null" >
+        landline = #{landline,jdbcType=VARCHAR},
+      </if>
+      <if test="registdate != null" >
+        registdate = #{registdate,jdbcType=VARCHAR},
+      </if>
+      <if test="companyaptitude != null" >
+        companyaptitude = #{companyaptitude,jdbcType=VARCHAR},
+      </if>
+      <if test="companytypeid != null" >
+        companytypeid = #{companytypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentlogoid != null" >
+        attachmentlogoid = #{attachmentlogoid,jdbcType=VARCHAR},
+      </if>
+      <if test="leasefile != null" >
+        leasefile = #{leasefile,jdbcType=VARCHAR},
+      </if>
+      <if test="registcapital != null" >
+        registcapital = #{registcapital,jdbcType=VARCHAR},
+      </if>
+      <if test="legalperson != null" >
+        legalperson = #{legalperson,jdbcType=VARCHAR},
+      </if>
+      <if test="registadress != null" >
+        registadress = #{registadress,jdbcType=VARCHAR},
+      </if>
+      <if test="businessaddress != null" >
+        businessaddress = #{businessaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceareaid != null" >
+        serviceareaid = #{serviceareaid,jdbcType=VARCHAR},
+      </if>
+      <if test="servicessubcatalogids != null" >
+        servicessubcatalogids = #{servicessubcatalogids,jdbcType=VARCHAR},
+      </if>
+      <if test="ywsr != null" >
+        ywsr = #{ywsr,jdbcType=VARCHAR},
+      </if>
+      <if test="zcze != null" >
+        zcze = #{zcze,jdbcType=VARCHAR},
+      </if>
+      <if test="jobsnumber != null" >
+        jobsnumber = #{jobsnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="zzry != null" >
+        zzry = #{zzry,jdbcType=VARCHAR},
+      </if>
+      <if test="fwqyhc != null" >
+        fwqyhc = #{fwqyhc,jdbcType=VARCHAR},
+      </if>
+      <if test="zzqk != null" >
+        zzqk = #{zzqk,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null" >
+        introduce = #{introduce,jdbcType=VARCHAR},
+      </if>
+      <if test="taxamount != null" >
+        taxamount = #{taxamount,jdbcType=VARCHAR},
+      </if>
+      <if test="profit != null" >
+        profit = #{profit,jdbcType=VARCHAR},
+      </if>
+      <if test="ismatchingbase != null" >
+        ismatchingbase = #{ismatchingbase,jdbcType=VARCHAR},
+      </if>
+      <if test="oldenterprise != null" >
+        oldenterprise = #{oldenterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="oldposition != null" >
+        oldposition = #{oldposition,jdbcType=VARCHAR},
+      </if>
+      <if test="weworkdirectory != null" >
+        weworkdirectory = #{weworkdirectory,jdbcType=VARCHAR},
+      </if>
+      <if test="overtcipher != null" >
+        overtcipher = #{overtcipher,jdbcType=VARCHAR},
+      </if>
+      <if test="coordinate != null" >
+        coordinate = #{coordinate,jdbcType=VARCHAR},
+      </if>
+      <if test="scopebusiness != null" >
+        scopebusiness = #{scopebusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="usertype != null" >
+        usertype = #{usertype,jdbcType=VARCHAR},
+      </if>
+      <if test="worktelephone != null" >
+        worktelephone = #{worktelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        department = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="annualrevenue != null" >
+        annualrevenue = #{annualrevenue,jdbcType=VARCHAR},
+      </if>
+      <if test="annualtax != null" >
+        annualtax = #{annualtax,jdbcType=VARCHAR},
+      </if>
+      <if test="expectedbenefit != null" >
+        expectedbenefit = #{expectedbenefit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where creditcode = #{creditcode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duruo.po.Enterprise" >
+    update enterprise
+    set realname = #{realname,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=VARCHAR},
+      contactsname = #{contactsname,jdbcType=VARCHAR},
+      contactsphone = #{contactsphone,jdbcType=VARCHAR},
+      contactspost = #{contactspost,jdbcType=VARCHAR},
+      landline = #{landline,jdbcType=VARCHAR},
+      registdate = #{registdate,jdbcType=VARCHAR},
+      companyaptitude = #{companyaptitude,jdbcType=VARCHAR},
+      companytypeid = #{companytypeid,jdbcType=VARCHAR},
+      attachmentlogoid = #{attachmentlogoid,jdbcType=VARCHAR},
+      leasefile = #{leasefile,jdbcType=VARCHAR},
+      registcapital = #{registcapital,jdbcType=VARCHAR},
+      legalperson = #{legalperson,jdbcType=VARCHAR},
+      registadress = #{registadress,jdbcType=VARCHAR},
+      businessaddress = #{businessaddress,jdbcType=VARCHAR},
+      serviceareaid = #{serviceareaid,jdbcType=VARCHAR},
+      servicessubcatalogids = #{servicessubcatalogids,jdbcType=VARCHAR},
+      ywsr = #{ywsr,jdbcType=VARCHAR},
+      zcze = #{zcze,jdbcType=VARCHAR},
+      jobsnumber = #{jobsnumber,jdbcType=VARCHAR},
+      zzry = #{zzry,jdbcType=VARCHAR},
+      fwqyhc = #{fwqyhc,jdbcType=VARCHAR},
+      zzqk = #{zzqk,jdbcType=VARCHAR},
+      introduce = #{introduce,jdbcType=VARCHAR},
+      taxamount = #{taxamount,jdbcType=VARCHAR},
+      profit = #{profit,jdbcType=VARCHAR},
+      ismatchingbase = #{ismatchingbase,jdbcType=VARCHAR},
+      oldenterprise = #{oldenterprise,jdbcType=VARCHAR},
+      oldposition = #{oldposition,jdbcType=VARCHAR},
+      weworkdirectory = #{weworkdirectory,jdbcType=VARCHAR},
+      overtcipher = #{overtcipher,jdbcType=VARCHAR},
+      coordinate = #{coordinate,jdbcType=VARCHAR},
+      scopebusiness = #{scopebusiness,jdbcType=VARCHAR},
+      usertype = #{usertype,jdbcType=VARCHAR},
+      worktelephone = #{worktelephone,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      annualrevenue = #{annualrevenue,jdbcType=VARCHAR},
+      annualtax = #{annualtax,jdbcType=VARCHAR},
+      expectedbenefit = #{expectedbenefit,jdbcType=VARCHAR}
+    where creditcode = #{creditcode,jdbcType=VARCHAR}
+  </update>
+  <select id="listEnterPrise" resultMap="BaseResultMap" parameterType="map">
+    SELECT <include refid="Base_Column_List"/>
+    FROM enterprise
+--     WHERE
+  </select>
+</mapper>

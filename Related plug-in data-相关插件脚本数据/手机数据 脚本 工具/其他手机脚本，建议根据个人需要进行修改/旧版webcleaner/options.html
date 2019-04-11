@@ -1,0 +1,220 @@
+<!doctype html>
+<!--
+This is the options page for the  extension
+		Author: Joseph Gray
+		Date Created: 10/22/2012
+		Date Updated: 11/5/2012
+		
+-->
+<html>
+	<head>
+		<title> Options</title>
+
+	</head>
+
+	<body>
+		<!-- Container div to ensure that anything after the heading can use the leftmost space of the page. -->
+		<div id = "header">
+
+			<!-- div for the logo image. -->
+			<div id = "logo" style = "padding: 10px; float: left;">
+
+				<!-- The link to the image. It must remain a constant size so that the div that contains it remains constant, so that the div containing the title will align with the bottom of the image. -->
+				<img src = "joseph'slogo.png" width = "150" height = "150">
+				
+			</div>
+
+			<!-- div for the title. It will be to the left of the logo, and aligned with the bottom of the logo. -->
+			<div id ="title" style ="padding-left: 20px; float: left; padding-top: 60px;">
+			
+				<h1 style = "font-size: 60px; font-weight: bold; font-family: 'Book Antiqua', 'Engravers MT', 'Times New Roman';"> Web Cleaner Options </h1>
+				
+			</div>
+
+			<!-- This next line ensures that the 'header' div will contain both 'logo' and 'title', and allow for other divs to fall beneath the header. -->
+			<div style = "clear: both;"></div>
+		</div> <!-- End of header div -->
+
+
+
+
+		<!-- The container div for all the text filter options. -->
+		<div id = "text_options" style = "padding: 30px; float: left; width: 600px; vertical-align: top;">
+		
+			<h1> Text Filter </h1>
+
+			<!-- The radio button form for turning the text filter on/off -->
+			<form id = "text_active">
+			
+				<input type = "radio" name = "text_on" value = "true">On
+				<input type = "radio" name = "text_on" value = "false">Off
+				
+			</form>
+			<br>
+			<p> The Text Filter works by searching for the words listed below in within the document. When it finds one of these words, it will replace it with '*'s.
+			Also, the filter will 'expand' the words, blocking a word if any part of that word appears in the list below. In other words, if you listed 'both' as a blocked word,
+			then the word 'bother' will also be blocked, since the word 'both' appears in 'bother'. Any websites entered into the 'Whitelisted Websites' box will not be filtered.</p>
+			
+			<!-- Container div for the two input boxes, so that they can go side-by-side and then other options can
+			come below them. The vertical alignment is top so that the two boxes are at the same height.-->
+			<div id = "text_boxes" style = "vertical-align: top;">
+
+				<!-- The div for the blocked words textbox. It is listed as inline-block so we can use vertical-align. -->
+				<div id = "word_box" style = "display: inline-block; float: left; vertical-align: top;">
+
+					<h2>Blocked Words</h2>
+
+					<!-- This will not have any words hard-coded into it, but will be dynamically filled with a JavaScript Function from the settings in localstorage. 
+					It is the text area where users put words that they want scrubbed out.-->
+					<textarea id = "blocked_words" rows = "8" columns = "60" style = "resize: none;">
+					</textarea>
+					
+				</div> <!-- End of word_box div -->
+
+				<!-- The div for the whitelisted websites box. It must have the same styling as the 'word_box' div, except that it has extra left padding to separate it from the 'word_box' div. -->
+				<div id = "website_box" style = "padding-left: 50px; display: inline-block; float: left; vertical-align: top;">
+
+					<h2>Whitelisted Websites</h2>
+
+					<!-- This is the text box where users can list the websites that they don't want scrubbed. -->
+					<textarea id = "whitelisted_websites" rows = "8" columns = "60" style = "resize: none;"></textarea>
+					
+				</div>
+
+				<!-- This is necessary to ensure that the wrapper div actually encompasses both box divs. -->
+				<div style = "clear: both;"></div>
+
+				<p>When entering words/websites into the above boxes, please only place one word/website per line with no punctuation. Also, please use the following format for websites: www.foxnews.com</p>
+			</div> <!-- End of text_boxes wrapper div. -->
+
+<!--
+			<!-- The container div for the radio button form that controls wether or not the word or the sentence is replaced. 
+			<div id = "replace_word/sentence/paragraph">
+
+				<!-- This form contains 2 radio buttons that allows the user to choose between replacing the entire word or replacing the sentence containing the word. 
+				<form id = "word_or_sentence">
+				
+					<input type = "radio" name = "WordOrSentence" value = "word"> Only replace the blocked word. <br>
+					<input type = "radio" name = "WordOrSentence" value = "sentence"> Replace the entire sentence containing the blocked word.
+					
+				</form> <!-- this ends the word_or_sentence form 
+-->
+				<br>
+
+				<!-- This form contains 2 checkboxes to allow the user to replace the entire page after a certain number of blocked words, or block the entire page after a certain number of blocked words. -->
+				<form id = "block_page/paragraph" style = "display: inline;">
+
+					<input type = "checkbox" id = "block_paragraph_checkbox" name = "block_paragraph"> Replace all paragraphs containing <input type = "text"  id = "num_for_paragraph" name = "number_for_paragraph" maxlength = "3" size = "2" style = "text-align: right; display: inline;">or more instances of blocked words. <br>
+					<input type = "checkbox" id = "block_webpage_checkbox" name = "block_webpage"> Block the webpage after finding <input type = "text" id = "num_for_webpage" name = "number_for_webpage" maxlength = "3" size = "2" style = "text-align: right; display: inline;">or more instances of blocked words on the webpage.
+				
+				</form> <!-- this ends the block_page/paragraph form -->
+
+			</div> <!-- End of replace_word/sentence div. -->
+			
+
+		</div><!-- End of text_options div. -->
+
+
+		<!-- The container div for all the image filter options. It will appear to the left of the text options. -->
+		<div id = "image_options" style = "margin-left: 100px; padding: 30px; float: left; vertical-align:top; width: 600px;">
+		
+			<h1> Image Filter </h1>
+
+			<!-- The radio button form for turning the image filter on/off -->
+			<form id = "image_active">
+			
+				<input type = "radio" name = "image_on" value = "true">On
+				<input type = "radio" name = "image_on" value = "false">Off
+				
+			</form>
+
+			<br>
+			
+			<p> The Image Filter works by searching an image name and search tags for any of the words listed below in the 'Words to Block Images On' box.
+			If a match is found, then the image will be blocked. As with the Text Filter, the words are expanded, so if a listed word appears as part of a word that
+			in the image name or tag, then the image will still be blocked. Any websites entered into the 'Whitelisted Websites' box will not be filtered. </p>
+
+			<!-- The div that contains the two text areas used to specify blocked words and whitelisted websites. -->
+			<div id = "image_text_boxes" style = "vertical-align: top;">
+
+				<!-- The div that holds the box that contains the words to block images on. -->
+				<div id = "image_word_box" style = "display: inline-block; float: left; vertical-align: top;">
+				
+					<h2>Words to Block Images On</h2>
+					
+					<textarea id = "image_blocked_words" rows = "8" columns = "60" style = "resize: none;">
+					</textarea>
+					
+				</div> <!-- The end of image_word_box div -->
+
+				<!-- The div that holds the box containing the whitelisted websites -->
+				<div id = "image_website_box" style = "padding-left: 50px; display: inline-block; float: left; vertical-align: top;">
+				
+					<h2>Whitelisted Websites</h2>
+					
+					<textarea id = "image_whitelisted_websites" rows = "8" columns = "60" style = "resize: none;"></textarea>
+					
+				</div> <!-- the end of image_website_box div -->
+
+				<!-- This is used to ensure that the container div wraps around the two floating divs -->
+				<div style = "clear: both;"></div>
+
+				<p>When entering words/websites into the above boxes, please only place one word/website per line with no punctuation. Also, please use the following format for websites: www.foxnews.com</p>
+
+			</div> <!-- The end of the image_text_boxes div -->
+			
+			<p> The Image Scanner is an additional option to the Image Filter. When turned on, if an image passes the Image Filter, it will be passed
+			into a scanner, where the number of skin pixels will be detected. Then, the number of skin pixels will be compared to the total number of pixels in the image
+			with the result being a percentage. If this percentage is above the percentage specified by the slider bar, then the image will be blocked.
+			<br>
+			<br>
+			NOTE: Due to the nature of this scanner, when it is working properly it may block close-up facial images.
+			</p>
+
+			<!-- The form that holds the checkbox indicating if the image scanner is on or off. -->
+			<form id = "image_scanner">
+			
+				<input type = "checkbox" name = "image_scanner_on" value = "true"> Use Image Scanner
+				
+			</form>
+
+			<br>
+
+			<!-- The slider bar for the sensitivity of the image scanner -->
+			<form id = "scanner_sensitivity">
+			
+				<input type = "range" min = "0" max = "100" step = "1">
+				<span id = "range2"></span>
+				
+			</form>
+
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+
+
+
+			<div id = "buttons" style = "float: right;">
+			
+				<p id = "saved_note" style = "display: inline;"></p>
+			
+				<form id = "save_button" style = "display: inline;">
+				
+					<input type = "button" value = "Save">
+					
+				</form>
+			</div> <!-- End of buttons div -->
+
+		</div> <!-- The end of the image_options div -->
+
+
+
+
+
+
+
+		<script src = "options.js"></script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+{
+   "background": {
+      "page": "background.html",
+      "persistent": false
+   },
+   "browser_action": {
+      "default_icon": "images/ba_icon_off.png"
+   },
+   "description": "隐藏网页里那些你不喜欢的词",
+   "icons": {
+      "128": "images/icon128.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnsnPCVhARqnI10OVQl2JgmVLnYpdXUImFTeU3+b1EhyRZIvlO7IiQ45KFGxGJan7xhgGE5p8aliqfr93eLi6yA7zWipeQEwkcK2K/sHXzQicOdWmbi1l8KyKAhokFVpC5qMeDULKROlRsiOAv38ocmIedglsBOWVYWdzVoG2UB2bBkiNnJPE5DDxPanAuJqvWx7DMbyFL1DPVo0KFnHM9dp9CSD4oL0C0LQ7tpCIu05PNraHwV2DRbxqmi4qJthn7rvtkbos45oOx2/D9uK6JIoFqR2+XQGtYNG+1Tj6+GGRo5qKObgPKZec0Kdl3S/tGSKxiHGXMkHxkHWK3+Me+wIDAQAB",
+   "manifest_version": 2,
+   "name": "藏词",
+   "options_ui": {
+      "chrome_style": true,
+      "open_in_tab": false,
+      "page": "options.html"
+   },
+   "permissions": [ "activeTab", "tabs", "storage", "*://*/*" ],
+   "short_name": "藏词",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.1.4"
+}

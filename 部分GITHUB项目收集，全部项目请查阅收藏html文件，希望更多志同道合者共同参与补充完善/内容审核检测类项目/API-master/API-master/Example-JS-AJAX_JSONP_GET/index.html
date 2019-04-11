@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ModerateContent.com - The FREE Content Moderation API</title>
+</head>
+<body style="font-family: verdana;">
+    <a href="https://www.moderatecontent.com" target="_blank"><img src="http://www.moderatecontent.com/img/logo.png" alt="ModerateContent.com" /></a><hr />
+    <h1>Example: Javascript - AJAX && JSONP && GET</h1>
+    <div id="this_is_where_we_put_the_results">Loading...</div>
+    <script>
+        
+        // URL to connect to the api http|https
+        
+        var ajax_url = "https://www.moderatecontent.com/api/";
+        
+        // URL of our image, change it to your URL
+        
+        var image_url = "http://www.moderatecontent.com/img/logo.png"; 
+        
+        // init a jsonp call, csll this each time you need to moderate a url
+        
+        function jsonp(url) {
+            
+            // init a <SCRIPT> tag to add to document head
+            
+            var head = document.head;
+            var script = document.createElement("script");
+            
+            // set the url for the api and the image
+
+            script.setAttribute("src", url);
+            
+            // this add, remove combo allows this function to be called repeatedly
+            
+            head.appendChild(script);
+            head.removeChild(script);
+        }
+        
+        // handle the response initiated by the jsonp request
+
+        function jsonp_callback(response_json) {
+            var el = document.getElementById("this_is_where_we_put_the_results");
+            if (response_json.error_code != 0){
+                
+                // error raised by the content moderation api
+                    
+                el.innerHTML = "Error - " + response_json.error + "<p><code>" + JSON.stringify(response_json) + "</code></p>";
+            } else {
+                
+                // no errors, the api rated our image
+                    
+                el.innerHTML = "Success<p><code>" + JSON.stringify(response_json) + "</code></p>";
+            }
+        }
+        
+        // init the jsonp call
+        
+        jsonp( ajax_url + "?url=" + image_url + "&callback=jsonp_callback" );
+        
+    </script>
+</body>
+</html>

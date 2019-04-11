@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
+  <title>AdminLTE 3 | Dashboard 2</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/datatables/dataTables.bootstrap4.min.css"/>
+  <link rel="stylesheet" href="/css/adminlte.min.css"/>
+  <link rel="stylesheet" href="https://3vshej.cn/AdminLTE/AdminLTE-2.4/dist/css/AdminLTE.min.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+  <style>
+    .operation{
+      padding-top: 200px;
+    }
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      box-shadow: inset 0 0 0 transparent;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+    .table td, .table th {
+      padding: 0;
+      vertical-align: top;
+      border-top: 1px solid #dee2e6;
+    }
+    .operation_origial_information{
+      width: 400px;
+    }
+    .table td, .table th{
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+    <div  th:include="top::topbar"></div>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="height: 100%">
+    <!-- Brand Logo -->
+    <!-- Sidebar -->
+    <div class="sidebar page-header-image page-header" th:include="sidebar::sidebar"></div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+              <h5>集团专题</h5>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">企业门户体系</a></li>
+              <li class="breadcrumb-item active">新闻热点</li>
+                <li class="breadcrumb-item active">集团专题</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <!-- /.slider -->
+          <div class="row">
+          <div class="col-12">
+              <div class="card">
+                  <div class="card-header">
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                          <ol class="carousel-indicators">
+                              <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
+                              <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+                              <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
+                          </ol>
+                          <div class="carousel-inner">
+                              <div class="carousel-item">
+                                  <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c567746b.jpg" alt="First slide"/>
+                              </div>
+                              <div class="carousel-item active carousel-item-left">
+                                  <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c5761ddc.jpg" alt="Second slide"/>
+                              </div>
+                              <div class="carousel-item carousel-item-next carousel-item-left">
+                                  <img class="d-block w-100" src="http://pic1.win4000.com/wallpaper/2018-05-23/5b052c5828fa0.jpg" alt="Third slide"/>
+                              </div>
+                          </div>
+                          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                          </a>
+                      </div>
+                  </div>
+                  <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+          </div>
+          </div>
+          <div class="row">
+              <div class="col-12 m-t-30">
+                  <h4 class="m-b-0"></h4>
+                  <p class="text-muted m-t-0 font-12">新闻热点</p>
+                  <div class="card-deck">
+                      <div class="card">
+                          <img class="card-img-top img-responsive" src="http://www.cppinet.com/ChinaWeb/kindeditor/attached/image/20170406/20170406162318_265.png" alt="Card image cap"/>
+                          <div class="card-body">
+                              <h4 class="card-title">习近平主席出访芬兰，见证中芬60亿浆纸项目签约</h4>
+                              <p class="card-text">当地时间4月5日，就在国家主席习近平对芬兰进行国事访问期间，国家开发银行于芬兰经济事务部分别与芬兰贸易投资旅游总署（Finpro）、阳光凯迪（芬兰）有限公司、中工国际及芬兰北方工业公司签署三个战略合作协议，项目总金额总计超过20亿欧元。
+                                  其中，中工国际工程股份有限公司罗艳董事长与芬兰北方生化公司黑肯·尼瓦拉主席在首都赫尔辛基签署了芬兰生物炼化厂（纸浆厂）项目商务合同。合同金额为8亿欧元，工期为30个月。根据该合同，中工国际将在芬兰拉普兰德地区凯米哈维市建设一座年产40万吨的生物炼化厂（纸浆厂），提供包括设计、供货、土建、安装、调试和人员培训等服务。这是中工国际明确将浆纸领域作为公司“三相联动”战略的发展方向之后签署的第一个浆纸领域商务合同。项目建设工期30个月，开车及性能测试时间12个月。
+                                  芬兰Boreal Bioref生物炼化厂（纸浆厂）项目交易对方为芬兰北方生化公司（Boreal Bioref Ltd.），注册地址为芬兰凯米哈维市库曼涅米街2号（Kuumaniemenkatu 2, 98100 Kemij?rvi, Finland），法定代表人为Heikki Nivala，该公司是凯米哈维市政府发起设立的林业项目开发公司。
+                                  芬兰Boreal Bioref生物炼化厂（纸浆厂）项目合同金额为8亿欧元，约合58.62亿元人民币。这次林浆项目成为中工国际“三相联动”战略的成功示范，北欧针叶浆是国内稀缺的重要资源，通过芬兰项目可以帮助中工进军浆纸产业，长期持续发展更添动力。本月初，中工国际出资3750欧元与瑞典林浆产业公司共同发起设立林浆产业基金管理公司，并出资不超过1亿美元发起设立林浆产业投资基金，产业基金以纸浆厂项目为核心，适当考虑向浆纸产业链上下游延伸。
+                                  这是习近平担任国家主席后，历次出访中，第三次签约制浆造纸行业的国际协议</p>
+                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          </div>
+                      </div>
+                      <div class="card">
+                          <img class="card-img-top img-responsive" src="http://img95.699pic.com/photo/50059/0689.jpg_wh300.jpg!/fh/300" alt="Card image cap"/>
+                          <div class="card-body">
+                              <h4 class="card-title">2018中国国际造纸创新发展论坛及2018国际造纸技术报告会将于8月底在上海举行</h4>
+                              <p class="card-text">为了促进我国造纸工业的发展，更好地展示造纸行业的科技发展成果，为造纸及相关行业搭建交流、沟通的平台，2018中国国际造纸科技展览会及会议将于2018年8月29—31日在上海世博展览馆举行。同期举办2018中国国际造纸科技展览会、2018中国国际造纸创新发展论坛、2018国际造纸技术报告会和企业技术交流会等活动。会议有关事项如下：
+                                  会议内容
+                                  （一）2018中国国际造纸创新发展论坛
+                                  2018年是中国改革开放四十周年，科技创新在中国经济发展过程中起到了至关重要的作用。创新是引领发展的第一动力，是建设现代化经济体系的战略支撑。党的十九大报告明确指出，加快建设创新型国家，加强国家创新体系建设，强化战略科技力量。当前，中国正在实施创新驱动发展战略，以应对复杂发展环境变化、提高中国核心竞争力，加快转变经济发展方式、保持我国经济持续健康发展。创新的本质是进化，创新的目的是发展。为此，由中国造纸学会、中国造纸协会、中国制浆造纸研究院有限公司共同主办的“2018中国国际造纸创新发展论坛”以“创新赋能生态•进化重塑未来”为主题，针对造纸行业的创新发展、生态构建、进化模式、未来趋势、前沿探索等热点话题，搭建以企业为主体、市场为导向的沟通合作平台。
+
+                                  主要议题
+                                  主旨演讲
+                                  • 政策解读：造纸产业政策规划及2035材料强国
+                                  战略解读
+                                  报告发布
+                                  • 2018中国造纸产业竞争力报告
+                                  • 2018中国造纸化学品产业发展报告
+                                  主题演讲
+                                  • 科技创新：科技创新驱动传统工业重获新动能
+                                  • 发展创新：全局战略思维决定企业发展路径
+                                  • 合作创新：芬兰浆纸领域投资政策和投资机会
+                                  • 技术创新： 北美浆纸行业现状对中国的影响及发展趋势和机会
+                                  • 市场分析：全球造纸原料动态与分析——也谈废纸
+                                  专题演讲
+                                  • 模式创新：打通产业生态链 再造服务新模式
+                                  • 装备创新：原料结构变化下的设备选型与配置
+                                  • 环保创新： 废纸制浆污泥全新解决方案 促进废纸纤维充分利用
+                                  高端对话
+                                  • 对话主题：创新生态进化论 迎接产业新周期
+                              </p>
+                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          </div>
+                      </div>
+                      <div class="card">
+                          <img class="card-img-top img-responsive" src="http://seopic.699pic.com/photo/50029/6409.jpg_wh1200.jpg" alt="Card image cap"/>
+                          <div class="card-body">
+                              <h4 class="card-title">新时代下的新机遇与新挑战，2018中国纸业高层峰会在鞍山成功举办</h4>
+                              <p class="card-text">会议正式开始后，中国造纸协会秘书长钱毅做了《纸业新时代面临的形势、机遇与挑战》的主旨报告。钱秘书长指出：中国造纸行业正处在重要的战略转型期，存在着产品结构不合理、部分产品结构性和阶段性过剩，原料对外依存度不断提高，技术创新能力不强，中小企业数量偏多及信息化水平、资源利用效率、环境治理能力较低等一系列问题，需要在转型期内解决。他表示：行业需团结在一起共同面对挑战，完成时代赋予的使命，推动造纸工业实现由大到强的战略转变，构建符合我国国情的现代造纸工业生产体系，实现绿色纸业发展目标。</p>
+                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-12 m-t-30">
+                  <p class="text-muted m-t-0 font-12">新闻热点</p>
+                  <!--<p class="text-muted m-t-0 font-12"><code>card-columns</code></p>-->
+                  <div class="card-columns">
+                      <div class="card">
+                          <img class="card-img-top img-fluid" src="http://img95.699pic.com/photo/50052/2903.jpg_wh300.jpg" alt="Card image cap"/>
+                          <div class="card-body">
+                              <h4 class="card-title">真空辊密封条临界接触密封新技术</h4>
+                              <p class="card-text">真空辊是造纸机最昂贵的辊筒之一，因密封条使用而导致的备用辊筒订购、停机换辊造成的生产损失、更换密封条、电力消耗等费用巨大。本文介绍一种真空辊密封条临界接触密封新技术，可以减少密封条与辊筒的磨擦，同时又保证了真空辊的密封条件。
+                                  1 真空辊密封条接触式密封技术
+                                  真空箱和筒体内壁之间必须采用密封装置进行良好的密封，如图1所示，主要有密封槽、密封条、弹性装置等部件组成。
+                                  为了降低真空辊的功率消耗和运行噪音、尽量延长密封条的使用时间，有国外造纸机械装备公司发明了一种“真空辊密封条无接触式密封技术”。该技术基本原理：在密封条的下部和侧面各有1个气胎，密封条下部的气胎可称为“加压气胎”，密封条侧面的气胎称为“锁紧气胎”。在使用时，“加压气胎”首先充气，使密封条接触辊筒内壁，然后“锁紧气胎”充气、“加压气胎”泄压，通过一种特殊的设计结构，密封条稍微回落并定位，此时密封条和辊筒内壁之间出现微小间隙，保证真空箱真空度的同时又避免了密封条的磨损。由于振动的存在，使用一段时间后，密封条可能会出现下落，此时密封条与筒体之间的间隙增大，真空箱的真空度因此受到影响而下降。此时，通过一套自动检测和控制系统，“加压气胎”和“锁定气胎”再次动作，使密封条和筒体内壁之间的间隙重新恢复到设定状态。如此周而复始，保证密封条密封性。
+                                  结构主要由密封槽、密封条、橡胶气胎组成，密封条和橡胶气胎都安装在密封槽内，密封条装在橡胶气胎的上部，密封条的上部和辊筒筒体的内壁接触，橡胶气胎装在密封槽的底部。密封槽的两侧槽口的高度不同，左侧密封槽的两侧内壁中部、右侧密封槽两侧内壁的上部都加工有凸台，密封条在相应部位加工有凹槽。
+                                  图2a是密封条刚开始使用时的结构，密封条侧面凹槽距密封槽侧壁凸台下部还有一段距离，在橡胶气胎的作用下，密封条压在筒体内壁上逐渐磨损并上移，直至如图2b所示，密封条侧面凹槽的下部靠上密封槽侧壁凸台下部，由于密封槽侧壁凸台的阻挡，密封条不能继续移动，密封条和筒体内壁之间达到临界接触状态，密封条不再继续磨损，此时，由于密封条和筒体内壁之间处于临界接触状态，在保证密封性的同时，密封条和筒体内壁之间的摩擦很小或没有摩擦，密封条和筒体内壁之间因摩擦而产生电力消耗也大幅度降低。
+                                  该技术可使密封条的寿命大幅度延长，功率消耗和运转噪音也大幅度降低。但结构复杂，密封条频繁的升降，仍然会造成密封条的磨损，密封条仍需定期更换。
+                              </p>
+                          </div>
+                      </div>
+                      <div class="card p-3">
+                          <p>国内外学者对纤维素改性利用进行了大量的研究，制备得到功能性新材料并在生物医药、化工、制浆造纸等领域取得新的突破。2,2,6,6-四甲基哌啶-1-氧自由基(TEMPO)是一种哌啶类氮氧自由基，在含有TEMPO的共氧化体系下，当伯醇与仲醇同时存在时，能选择性氧化伯醇羟基对仲羟基没有影响，而且反应条件简单、温和。TEMPO/NaBr/NaClO是一种分步氧化，首先将伯羟基氧化成醛基，然后再氧化成羧基，本文主要探讨在TEMPO/NaBr/NaClO体系下，针叶材纤维素上C-6位伯羟基被氧化成醛基再到羧基的变化规律，研究了温度、时间、次氯酸钠对氧化反应的影响。</p>
+                          <footer>
+                              <small class="text-muted">
+                                  Someone famous in <cite title="Source Title">Source Title</cite>
+                              </small>
+                          </footer>
+                      </div>
+                      <div class="card">
+                          <img class="card-img-top img-fluid" src="http://img95.699pic.com/photo/50051/4092.jpg_wh300.jpg" alt="Card image cap"/>
+                          <div class="card-body">
+                              <h4 class="card-title">微细瓦楞纸板及其市场应用前景</h4>
+                              <p class="card-text">根据市场需求，瓦楞纸板按其强度、挺度、缓冲性能等可分为不同规格。瓦楞的楞型按照大小顺序，用英文字母依次排列为D、K、A、C、B、E、F、G、N、O，市场上最为常见的是A、B、C、E这4种楞型，从E-O楞统称为微细瓦楞。
+
+                                  微细瓦楞纸板的生产是个系统工程，从楞型设计、瓦楞辊结构和精度、单面机的形式、生产线所有设备的运行精度到用纸的选择、运行时与理想速度相匹配的纸张张力控制、温湿度控制、胶糊的调制和上胶量的控制以及纸板质量控制等，都有与A、C、B等常规瓦楞纸板对应的不同的特定要求。
+
+                                  微细瓦楞纸板的特点是楞数多、瓦楞原纸定量轻且强度低。以每300mm长度的瓦楞为例，G型楞数为185±12个，N型楞数为200±15个，O型楞数为267个，而B型楞数为50±2个。同样直径的一对瓦楞辊，微细瓦楞其啮合的楞数比B型瓦楞增加了3-5倍。</p>
+                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          </div>
+                      </div>
+                      <div class="card card-inverse card-primary p-3 text-center">
+                          <p>纸张充分浸湿后，通常强度会大幅度下降，此时的强度称为湿强度。如果纸张抄造过程中添加增强剂，纸张仍能保持干强度15%以上的湿强度，这样的增强剂称为湿强剂。纸张的湿强度为干强度15%以上，即为湿强纸。
+
+                              1935年，脲甲醛树脂（UF）作为表面施胶剂，热处理后便可使纸张具有一定的湿强度。随后又可开发出UF树脂，可以直接加入浆内。1942年，开发出三聚氰胺甲醛树脂（MF）。在1946年阳离子型改性UF树脂试制成功，价格较低，为大量生产湿强纸创造了条件。1960年，研制出聚酰胺聚胺环氧氯丙烷树脂（PPE或PAE）,在中碱性条件下熟化，提高纸张湿强度。
+
+                              水溶PVA纤维及低温水溶PVA纤维最早由日本开发出来。 20世纪70年代末我国开始研究PVA水溶纤维,1986年工业化生产水溶PVA纤维。水溶PVA纤维在纺织行业应用较早，充当功能性差别化纤维，逐步拓宽到造纸、医疗卫生等行业。
+
+                              本实验以一种低定量特种纸为研究对象，从化学助剂的选择和配比，以及特种纤维的选用，研究如何提高特种纸湿强。</p>
+                          <footer>
+                              <small>
+                                  Someone famous in <cite title="Source Title">Source Title</cite>
+                              </small>
+                          </footer>
+                      </div>
+                      <div class="card text-center">
+                          <div class="card-body">
+                              <h4 class="card-title">壁纸中增塑剂检测方法</h4>
+                              <p class="card-text">邻苯二甲酸酯，又称酞酸酯，缩写PAEs，是邻苯二甲酸形成的酯的统称。主要用于聚氯乙烯材料，令聚氯乙烯由硬塑胶变为有弹性的塑胶，起到增塑剂的作用。它被普遍应用于地板和壁纸中，对人体的健康有严重的危害。
+
+                                  1提取方法
+
+                                  增塑剂提取方法有：超声提取、微波提取、索勒斯提取和冲击提取等。要求提取速度快，提取时间短，样品与溶剂之间没有交叉污染，不需要接触，操作人员的健康损害更轻。
+
+                                  我国邻苯二甲酸酯的检测不仅要在基质覆盖检测中进行改进，而且还要引进一些先进的提取技术。
+
+                                  2检测方法
+
+                                  有气相色谱法、红外分光光度法、反相液相色谱法、傅立叶变换红外光谱法等。
+
+                                  2.1光谱法
+
+                                  采用衰减全反射傅立叶变换红外光谱技术，建立PVC中多种PAEs的定量测定方法。该方法可用于分析PVC中的四种PAEs，而不受矩阵的干扰，特别适用于装配线的质量控制。
+
+                                  2.2色谱及联用技术色谱法
+
+                                  色谱和组合技术色谱可以分离各种复杂混合物，气相色谱和高效液相色谱在PAEs检测中有很多应用。PAEs检测的主要方法是GB/T21911-21911的气相色谱法。
+
+                                  以苯甲酸苄酯为内标，同时建立17种PAEUSE-GC-MS方法，样品含量较少为内标定量；将邻苯二甲酸丙烯酯作为内标，建立了一种简单、快速、准确的测定PVC产品中7种PAEs的GC-MS法。
+
+                                  使用高效液相色谱法测定各种PVC产品中6种PAEs的方法，对PAEs的异构体均具有良好的分离度，显示了液相色谱(HPLC)方法的优越性。回收率为70.4%-113.6%，标准差为0.3%-5.8%。</p>
+                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          </div>
+                      </div>
+                      <div class="card">
+                          <img class="card-img img-fluid" src="http://img95.699pic.com/photo/50032/4527.jpg_wh300.jpg" alt="Card image"/>
+                      </div>
+                      <div class="card p-3 text-right">
+                          <p>主操作员接班后，要进行卫生处理，尤其是粉尘的吹扫工作，仔细检查纵刀磨损情况、纸张分切尺寸及令数，确认无误后再开机生产。重点观察叠纸部分抽吸箱运行情况，如发现叠纸部分存在抽吸不均现象，应及时加大抽吸箱吹风纸头气压，待纸张能平稳通过叠纸部时，叠纸部压纸轮及时向前提到合理位置。车速逐步提高到300m/min左右，观察理纸部分是否有折角、理纸不齐、窜纸等情况。调整正常后，切纸机可按照此设定情况使车速稳定在300m/min持续生产，副操作员及时配合主操作员更换栈板(目前切纸机具有不停机换栈板功能)。以80g/m2双胶纸(1800 mm纸辊)为例，规格为889mm×1194mm常规件纸，每车8个退纸架，整车上辊质量约为19.6t，从开始到分切完，大约用时80min。</p>
+                          <footer>
+                              <small class="text-muted">
+                                  Someone famous in <cite title="Source Title">Source Title</cite>
+                              </small>
+                          </footer>
+                      </div>
+                      <div class="card">
+                          <div class="card-body">
+                              <h4 class="card-title">高湿强特种纸的研究</h4>
+                              <p class="card-text">以一种低定量特种纸为研究对象，对纤维原料、打浆工艺、多元增强体系和特种增强纤维进行研究，研发高湿强特种纸。结果显示：雄狮浆成纸抗张强度优于思茅松浆；随着打浆度的提高，雄狮浆产生切断、压溃、润胀和分丝帚化，有利于对化学助剂的吸附，增加成纸纤维间结合点；多元增强体系增加PAE的留着，特种增强纤维水溶PVA纤维起到纤维粘结剂的作用，提高成纸的湿强度。
+
+
+
+                                  纸张充分浸湿后，通常强度会大幅度下降，此时的强度称为湿强度。如果纸张抄造过程中添加增强剂，纸张仍能保持干强度15%以上的湿强度，这样的增强剂称为湿强剂。纸张的湿强度为干强度15%以上，即为湿强纸。
+
+                                  1935年，脲甲醛树脂（UF）作为表面施胶剂，热处理后便可使纸张具有一定的湿强度。随后又可开发出UF树脂，可以直接加入浆内。1942年，开发出三聚氰胺甲醛树脂（MF）。在1946年阳离子型改性UF树脂试制成功，价格较低，为大量生产湿强纸创造了条件。1960年，研制出聚酰胺聚胺环氧氯丙烷树脂（PPE或PAE）,在中碱性条件下熟化，提高纸张湿强度。
+
+                                  水溶PVA纤维及低温水溶PVA纤维最早由日本开发出来。 20世纪70年代末我国开始研究PVA水溶纤维,1986年工业化生产水溶PVA纤维。水溶PVA纤维在纺织行业应用较早，充当功能性差别化纤维，逐步拓宽到造纸、医疗卫生等行业。
+
+                                  本实验以一种低定量特种纸为研究对象，从化学助剂的选择和配比，以及特种纤维的选用，研究如何提高特种纸湿强。</p>
+                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        <!-- Main row -->
+        <!-- /.row -->
+      </div><!--/. container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-sm-none d-md-block">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="/js/demo.js"></script>
+
+<!-- PAGE  -->
+<!-- SparkLine -->
+<script src="/sparkline/jquery.sparkline.min.js"></script>
+<!-- jVectorMap -->
+<script src="/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS 1.0.2 -->
+<script src="/chartjs-old/Chart.min.js"></script>
+
+<!-- PAGE SCRIPTS -->
+<script src="/js/pages/dashboard2.js"></script>
+<script th:inline="javascript">
+  $(function () {
+     var add_success=[[${add_success}]];
+     var del_success=[[${del_success}]];
+     var risk_library_edit=[[${risk_library_edit}]];
+     var risk_library_update_success=[[${risk_library_update_success}]];
+     if(add_success==1){
+         alert("创建成功!");
+     };
+     if(del_success==1){
+         alert("删除成功!")
+     };
+     if(risk_library_update_success==1){
+         alert("更新成功!")
+     };
+     if(risk_library_edit==1){
+         $("#modal-risk_library_edit").modal('show');
+     };
+     $(".fa-trash-o").click(function () {
+         var id= $(this).parent().siblings(".id").html();
+         $("#del_risk_library_ready").modal('show');
+         $("#del_confirm").click(function () {
+             window.location.href='/riskeventlibrary/del/'+id;
+         })
+     });
+      $(".fa-edit").click(function () {
+          var id= $(this).parent().siblings(".id").html();
+              window.location.href='/riskeventlibrary/edit/'+id;
+
+      });
+
+  })
+</script>
+<script>
+  $(function () {
+      $(".fa-eye").click(function () {
+          var id =$(this).parent().siblings(".id").html();
+          window.location.href='/riskeventlibrary/risk_recognize/'+id;
+      });
+      $(".fa-hourglass-end").click(function () {
+          var id =$(this).parent().siblings(".id").html();
+          window.location.href='/riskeventlibrary/risk_analysis/'+id;
+      });
+      $(".fa-hand-rock-o").click(function () {
+          var id =$(this).parent().siblings(".id").html();
+          window.location.href='/riskeventlibrary/risk_controller/'+id;
+      })
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ModerateContent.com - The FREE Content Moderation API</title>
+</head>
+<body style="font-family: verdana;">
+    <a href="https://www.moderatecontent.com" target="_blank"><img src="http://www.moderatecontent.com/img/logo.png" alt="ModerateContent.com" /></a><hr />
+    <h1>Example: Javascript - AJAX && POST</h1>
+    <div id="this_is_where_we_put_the_results">Loading...</div>
+    <script>
+        
+        // URL to connect to the api http|https
+        
+        var ajax_url = "https://www.moderatecontent.com/api/";
+        
+        // URL of our image, change it to your URL
+        
+        var image_url = "http://www.moderatecontent.com/img/logo.png"; 
+        
+        // handle all the states of a ajax call
+        
+        var handle_ajax_response = function() {
+            var el = document.getElementById("this_is_where_we_put_the_results");
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                
+                // successfull response from the api
+                
+                var json = JSON.parse(xhttp.responseText);
+                if (json.error_code == 0){
+                    
+                    // no errors, the api rated our image
+                    
+                    el.innerHTML = "Success<p><code>" + xhttp.responseText + "</code></p>";
+                } else {
+                    
+                    // error raised by the content moderation api
+                    
+                    el.innerHTML = "Error - " + json.error + " <p><code>" + xhttp.responseText + "</code></p>";
+                }
+            } else if (xhttp.readyState == 0) {  
+                
+                // error raised by the ajax call
+                
+                el.innerHTML = 'Error - Status:' + xhttp.status + ' Ready State:' + xhttp.readyState;
+            } else {
+                
+                // progress of ajax call
+                
+                el.innerHTML = 'Loading - Status:' + xhttp.status + ' Ready State:' + xhttp.readyState;
+            }
+        };
+        
+        // ajax call using XMLHttpRequest
+        
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = handle_ajax_response;
+        xhttp.open("POST", ajax_url, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("url=" + image_url);
+    </script>
+</body>
+</html>
