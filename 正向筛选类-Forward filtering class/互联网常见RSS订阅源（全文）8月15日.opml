@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head>
+    <title>Subscriptions of bloomly from Inoreader [https://www.inoreader.com]</title>
+  </head>
+  <body>
+    <outline text="Engadget 中国版 RSS Feed" title="Engadget 中国版 RSS Feed" type="rss" xmlUrl="http://cn.engadget.com/rss.xml" htmlUrl="http://cn.engadget.com/"/>
+    <outline text="极客公园-GeekPark" title="极客公园-GeekPark" type="rss" xmlUrl="http://feeds.geekpark.net/" htmlUrl="http://www.geekpark.net/"/>
+    <outline text="News and Updates - Apple Developer" title="News and Updates - Apple Developer" type="rss" xmlUrl="http://developer.apple.com/rss/adcheadlines.rss" htmlUrl="http://developer.apple.com/news/"/>
+    <outline text="爱…稀奇~{新鲜:科技:创意:有趣}" title="爱…稀奇~{新鲜:科技:创意:有趣}" type="rss" xmlUrl="http://www.ixiqi.com/feed" htmlUrl="http://www.ixiqi.com/"/>
+    <outline text="PingWest中文网" title="PingWest中文网" type="rss" xmlUrl="http://www.pingwest.com/feed/" htmlUrl="http://www.pingwest.com/"/>
+    <outline text="IT之家" title="IT之家" type="rss" xmlUrl="http://www.ithome.com/rss/" htmlUrl="http://www.ithome.com/"/>
+    <outline text="The Verge -  Science Posts" title="The Verge -  Science Posts" type="rss" xmlUrl="http://www.theverge.com/science/rss/index.xml" htmlUrl="http://www.theverge.com/science"/>
+    <outline text="少数派" title="少数派" type="rss" xmlUrl="http://sspai.com/feed" htmlUrl="http://sspai.com/feed"/>
+    <outline text="Six Colors" title="Six Colors" type="rss" xmlUrl="http://feedpress.me/sixcolors" htmlUrl="http://www.sixcolors.com/"/>
+    <outline text="花花世界" title="花花世界" type="rss" xmlUrl="https://sodue.com/feed" htmlUrl="https://sodue.com/"/>
+    <outline text="IT业界_腾讯科技" title="IT业界_腾讯科技" type="rss" xmlUrl="http://www.feedsoso.com/feed/sqqwrj" htmlUrl="http://tech.qq.com/"/>
+    <outline text="互联网_腾讯科技" title="互联网_腾讯科技" type="rss" xmlUrl="http://www.feedsoso.com/feed/2hh4oj" htmlUrl="http://tech.qq.com/"/>
+    <outline text="MacStories" title="MacStories" type="rss" xmlUrl="http://feeds.feedburner.com/macstoriesnet" htmlUrl="http://www.macstories.net/"/>
+    <outline text="9to5Mac" title="9to5Mac" type="rss" xmlUrl="http://9to5mac.com/feed/" htmlUrl="http://9to5mac.com/"/>
+    <outline text="小众软件" title="小众软件" type="rss" xmlUrl="http://feed.appinn.com/" htmlUrl="http://www.appinn.com/"/>
+    <outline text="36氪 | 关注互联网创业" title="36氪 | 关注互联网创业" type="rss" xmlUrl="http://www.36kr.com/feed" htmlUrl="http://www.36kr.com/"/>
+    <outline text="爱范儿 · Beats of Bits" title="爱范儿 · Beats of Bits" type="rss" xmlUrl="http://www.ifanr.com/feed" htmlUrl="http://www.ifanr.com/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign="/>
+    <outline text="月光博客" title="月光博客" type="rss" xmlUrl="http://feed.williamlong.info/" htmlUrl="http://www.williamlong.info/"/>
+    <outline text="知乎每日精选" title="知乎每日精选" type="rss" xmlUrl="http://www.zhihu.com/rss" htmlUrl="http://www.zhihu.com/"/>
+    <outline text="Daring Fireball" title="Daring Fireball" type="rss" xmlUrl="http://daringfireball.net/index.xml" htmlUrl="http://daringfireball.net/"/>
+    <outline text="异次元软件世界" title="异次元软件世界" type="rss" xmlUrl="http://feed.iplaysoft.com/" htmlUrl="http://www.iplaysoft.com/"/>
+    <outline text="Macworld" title="Macworld" type="rss" xmlUrl="http://rss.macworld.com/macworld/feeds/main" htmlUrl="http://www.macworld.com/"/>
+    <outline text="科技要闻-新浪科技 [expanded by feedex.net]" title="科技要闻-新浪科技 [expanded by feedex.net]" type="rss" xmlUrl="http://ftr.fivefilters.org/makefulltextfeed.php?url=https%3A%2F%2Ffeedex.net%2Ffeed%2Frss.sina.com.cn%2Ftech%2Frollnews.xml&amp;max=3" htmlUrl="https://feedex.net/feed/rss.sina.com.cn/tech/rollnews.xml"/>
+    <outline text="MacRumors: Mac News and Rumors - Front Page" title="MacRumors: Mac News and Rumors - Front Page" type="rss" xmlUrl="http://www.macrumors.com/macrumors.xml" htmlUrl="http://www.macrumors.com/"/>
+    <outline text="cnBeta.COM 全文" title="cnBeta.COM 全文" type="rss" xmlUrl="http://rssdiy.com/u/2/cnbeta.xml" htmlUrl="http://www.cnbeta.com/"/>
+    <outline text="Solidot" title="Solidot" type="rss" xmlUrl="http://feeds.feedburner.com/solidot" htmlUrl="http://www.solidot.org/"/>
+    <outline text="TechCrunch 中文版" title="TechCrunch 中文版" type="rss" xmlUrl="https://techcrunch.cn/feed/" htmlUrl="http://techcrunch.cn"/>
+    <outline text="TechWeb" title="TechWeb" type="rss" xmlUrl="http://www.techweb.com.cn/rss/hotnews.xml" htmlUrl="http://www.techweb.com.cn/rss/hotnews.xml"/>
+    <outline text="V2EX - 创意" title="V2EX - 创意" type="rss" xmlUrl="https://www.v2ex.com/feed/tab/creative.xml" htmlUrl="https://www.v2ex.com/"/>
+    <outline text="威锋网-首页- 最新RSS订阅" title="威锋网-首页- 最新RSS订阅" type="rss" xmlUrl="https://www.feng.com/rss.xml" htmlUrl="http://www.feng.com/index.shtml"/>
+    <outline text="雷锋网" title="雷锋网" type="rss" xmlUrl="https://www.leiphone.com/feed/categoryRss/name/sponsor" htmlUrl="https://www.leiphone.com/"/>
+  </body>
+</opml>

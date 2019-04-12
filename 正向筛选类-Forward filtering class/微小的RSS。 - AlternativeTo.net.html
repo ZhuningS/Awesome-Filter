@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Tiny Tiny RSS. - AlternativeTo.net</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/combine/npm/hogan.js@3.0.2/dist/hogan-3.0.2.min.js,npm/algoliasearch@3.30.0/dist/algoliasearch.min.js,npm/autocomplete.js@0.31.0/dist/autocomplete.min.js"></script>
+<script>
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='/Scripts/jquery-2.1.1.min.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+
+    var fb_appid = ;
+</script>
+<script async src="/assets/js/ads.js"></script>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="shortcut icon" href="//alternativeto.net/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" title="AlternativeTo" href="/os-software.xml" />
+<link href="https://plus.google.com/109480227713813493496" rel="publisher" />
+<link title="AlternativeTo - News" type="application/rss+xml" rel="alternate" href="https://alternativeto.net/news/feed/" />
+<script type="text/javascript">
+    var customPath = "/assets/fonts";
+    var blockAds = false;
+    var algoliaPrefix = '';
+    var loginView = '';
+</script>
+<script type="text/javascript">var protocol=document.location.protocol;"https:"!=protocol&&(protocol="http:");var count=document.createElement("script");count.type="text/javascript";count.async=!0;count.src=protocol+"//hello.myfonts.net/count/352259";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(count,s);var browserName,browserVersion,webfontType;if("undefined"==typeof woffEnabled){var woffEnabled=!0}var svgEnabled=0,woff2Enabled=1;if("undefined"!=typeof customPath){var path=customPath}else{var scripts=document.getElementsByTagName("SCRIPT"),script=scripts[scripts.length-1].src;script.match("://")||"/"==script.charAt(0)||(script="./"+script);path=script.replace(/\\/g,"/").replace(/\/[^\/]*\/?$/,"")}var wfpath=path+"/webfonts/",browsers=[{regex:"MSIE (\\d+\\.\\d+)",versionRegex:"new Number(RegExp.$1)",type:[{version:9,type:"woff"},{version:5,type:"eot"}]},{regex:"Trident/(\\d+\\.\\d+); (.+)?rv:(\\d+\\.\\d+)",versionRegex:"new Number(RegExp.$3)",type:[{version:11,type:"woff"}]},{regex:"Firefox[/s](\\d+\\.\\d+)",versionRegex:"new Number(RegExp.$1)",type:[{version:3.6,type:"woff"},{version:3.5,type:"ttf"}]},{regex:"Edge/(\\d+\\.\\d+)",versionRegex:"new Number(RegExp.$1)",type:[{version:12,type:"woff"}]},{regex:"Chrome/(\\d+\\.\\d+)",versionRegex:"new Number(RegExp.$1)",type:[{version:36,type:"woff2"},{version:6,type:"woff"},{version:4,type:"ttf"}]},{regex:"Mozilla.*Android (\\d+\\.\\d+).*AppleWebKit.*Safari",versionRegex:"new Number(RegExp.$1)",type:[{version:4.1,type:"woff"},{version:3.1,type:"svg#wf"},{version:2.2,type:"ttf"}]},{regex:"Mozilla.*(iPhone|iPad).* OS (\\d+)_(\\d+).* AppleWebKit.*Safari",versionRegex:"new Number(RegExp.$2) + (new Number(RegExp.$3) / 10)",unhinted:!0,type:[{version:5,type:"woff"},{version:4.2,type:"ttf"},{version:1,type:"svg#wf"}]},{regex:"Mozilla.*(iPhone|iPad|BlackBerry).*AppleWebKit.*Safari",versionRegex:"1.0",type:[{version:1,type:"svg#wf"}]},{regex:"Version/(\\d+\\.\\d+)(\\.\\d+)? Safari/(\\d+\\.\\d+)",versionRegex:"new Number(RegExp.$1)",type:[{version:5.1,type:"woff"},{version:3.1,type:"ttf"}]},{regex:"Opera/(\\d+\\.\\d+)(.+)Version/(\\d+\\.\\d+)(\\.\\d+)?",versionRegex:"new Number(RegExp.$3)",type:[{version:24,type:"woff2"},{version:11.1,type:"woff"},{version:10.1,type:"ttf"}]}],browLen=browsers.length,suffix="",i=0;a:for(;i<browLen;i++){var regex=new RegExp(browsers[i].regex);if(regex.test(navigator.userAgent)){browserVersion=eval(browsers[i].versionRegex);var typeLen=browsers[i].type.length;for(j=0;j<typeLen;j++){if(browserVersion>=browsers[i].type[j].version&&(1==browsers[i].unhinted&&(suffix="_unhinted"),webfontType=browsers[i].type[j].type,"woff"!=webfontType||woffEnabled)&&("woff2"!=webfontType||woff2Enabled)&&("svg#wf"!=webfontType||svgEnabled)){break a}}}else{webfontType="woff"}}/(Macintosh|Android)/.test(navigator.userAgent)&&"svg#wf"!=webfontType&&(suffix="_unhinted");var head=document.getElementsByTagName("head")[0],stylesheet=document.createElement("style");stylesheet.setAttribute("type","text/css");head.appendChild(stylesheet);for(var fonts=[{fontFamily:"ProximaNova-Bold",url:wfpath+"301A6B_0"+suffix+"_0."+webfontType},{fontFamily:"ProximaNova-Regular",url:wfpath+"301A6B_1"+suffix+"_0."+webfontType},{fontFamily:"ProximaNova-Semibold",url:wfpath+"301A6B_2"+suffix+"_0."+webfontType},{fontFamily:"ProximaNovaCond-Regular",url:wfpath+"301A6B_3"+suffix+"_0."+webfontType},{fontFamily:"ProximaNovaCond-Semibold",url:wfpath+"301A6B_4"+suffix+"_0."+webfontType},{fontFamily:"ProximaNovaCond-Bold",url:wfpath+"352259_5"+suffix+"_0."+webfontType}],len=fonts.length,css="",i=0;i<len;i++){var format="svg#wf"==webfontType?'format("svg")':"ttf"==webfontType?'format("truetype")':"eot"==webfontType?"":'format("'+webfontType+'")',css=css+("@font-face{font-family: "+fonts[i].fontFamily+";src:url("+fonts[i].url+")"+format+";");fonts[i].fontWeight&&(css+="font-weight: "+fonts[i].fontWeight+";");fonts[i].fontStyle&&(css+="font-style: "+fonts[i].fontStyle+";");css+="}"}stylesheet.styleSheet?stylesheet.styleSheet.cssText=css:stylesheet.innerHTML=css;</script>
+<script>
+
+    var adBlock = "False";
+
+    if (window.canRunAds === undefined) {
+        // adblocker detected, show fallback
+        adBlock = "True";
+    }
+
+    
+
+    dataLayer = [{
+    'adsenseBlocked': 'False',
+    'noIndexOrCanonical': 'DoIndex',
+    'loggedIn': 'False',
+                'abTestNumber2': '-1',
+                        'sponsoredAlternative': 'None',
+            'adBlock': adBlock,
+    'isCopywrited': 'False',
+    }];
+
+</script>
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P4GVLG');
+</script>
+<link rel="stylesheet" href="/assets/compiled/styles-normal-6f7c0bfe96.css" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@AlternativeTo" />
+<meta property="og:title" content="Tiny Tiny RSS." />
+<meta property="og:url" content="https://alternativeto.net/list/8197/tiny-tiny-rss-" />
+<meta property="og:description" content="" />
+<meta property="og:image" content="https://alt2-lists-covers.imgix.net/nasa-53884.jpg?h=630&w=1200&blend64=aHR0cHM6Ly9hbHQyLWNvdmVyLWljb25zLmltZ2l4Lm5ldC9saXN0LTgxOTctMTU1MDc4MjIxMi1jb3Zlci5wbmc%2Fcz05NjcyMzQzNDU1ZmZkYTE5ZWJmNWI0MGY1MTFkMGE0ZQ%3D%3D&s=e6c42a486639fcbb79e9f3742c500730" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="AlternativeTo" />
+<meta property="fb:app_id" />
+<script src="/assets/compiled/list-21e242b65c.js" defer></script>
+<meta name="description" content="" />
+<link rel="canonical" href="https://alternativeto.net/list/8197/tiny-tiny-rss-" />
+<meta name="viewport" content="width=device-width" />
+</head>
+<body role="document">
+
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-P4GVLG"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<header>
+<div class="main simple-main-new">
+<div class="container">
+<div class="row">
+<div class="col-xs-4 " style="text-align: center;">
+<a href="/" class="brand with-tagline">
+<span class="brand-tagline">Made with</span>
+<img alt="AlternativeTo" src="/assets/images/logo-new.svg" />
+</a>
+</div>
+
+<nav role="navigation">
+<ul class="nav navbar-nav navbar-right navbar-user">
+<li class="dropdown hidden-xs">
+<button class="dropdown-toggle link-button list-not-logged-in" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="icon-list-bullet"></i><span>Lists</span></button>
+<ul id="customListMenu" class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
+</ul>
+</li>
+<li class="hidden-xs"><a rel="nofollow" class="link-button" href="https://alternativeto.net/account/signup">Sign up</a></li>
+<li class="hidden-xs"><a rel="nofollow" class="link-button" href="https://alternativeto.net/account/login">Login</a></li>
+<li class="dropdown">
+<button data-link-action="dot menu" class="dropdown-toggle link-button" data-toggle="dropdown" title="Other" role="button" aria-expanded="false"><i class="icon-dots"></i></button>
+<ul class="dropdown-menu" role="menu">
+<li><a rel="nofollow" href="https://alternativeto.net/account/signup">Sign up</a></li>
+<li><a rel="nofollow" href="#loginDialog" data-toggle="modal" data-target="#loginDialog" data-redirecturl="/list/8197/tiny-tiny-rss-" class="notloggedin">Login</a></li>
+<li class="divider"></li>
+<li><a href="/about/privacy/">Privacy</a></li>
+<li class="divider"></li>
+<li><a href="/discussions/">Forum</a></li>
+<li><a href="/lists/">Lists</a></li>
+<li class="divider"></li>
+<li><a href="/faq/">FAQ</a></li>
+<li><a href="http://blog.alternativeto.net">Blog</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+
+</div>
+</div>
+</div>
+</header>
+<div class="container customList">
+<div class="row">
+<div class="col-xs-12 col-md-8 col-md-push-2">
+<img class="list-cover-photo" width="1520" height="760" src="https://alt2-lists-covers.imgix.net/nasa-53884.jpg?h=760&amp;w=1520&amp;blend64=aHR0cHM6Ly9hbHQyLWNvdmVyLWljb25zLmltZ2l4Lm5ldC9saXN0LTgxOTctMTU1MDc4MjIxMi1jb3Zlci5wbmc%2Fcz05NjcyMzQzNDU1ZmZkYTE5ZWJmNWI0MGY1MTFkMGE0ZQ%3D%3D&amp;s=fd8c7390b6c17d038672104e87af7f2e" />
+<h1 class="huge">Tiny Tiny RSS.</h1>
+<div class="row">
+<div class="col-sm-9">
+<p class="article-meta">
+<span>
+<span class="user-meta">
+A List by
+<span style="background-color: #9765FC" class="imageHolder profile-image pull-left">F</span>
+<a data-container="body" data-placement="bottom" data-toggle="popover-ajax" data-url="/user/fantasiafun77/modal" rel="nofollow" tabindex="0">fantasiafun77</a>
+</span> Created <span title='2019/2/21 8:25:29'>2月 2019</span>
+| <span id="voteNumber">1</span> Like
+</span>
+</p>
+</div>
+ <div class="col-sm-3 text-right-sm" style="padding-top: 10px;">
+</div>
+</div>
+<div class="list-description">
+</div>
+<br>
+<div class="custom-item-list">
+<ul id="FullCustomList" class="app-list has-text-element" data-listid="8197" data-track="tiny-tiny-rss-" data-indexpos="25" data-pagesize="25">
+<li>
+<article class="row app-list-item">
+<div class="col-xs-10 col-sm-10 col-md-11 col-lg-12">
+<h3>
+<a data-link-action="Tiny Tiny RSS." href="/software/moonmoon/">moonmoon</a> <span class="hidden-xs alternatives">
+&nbsp;218 alternatives
+| <a rel='nofollow' href="http://moonmoon.org/">Website <i class="icon-external-link-sm"></i></a>
+</span>
+</h3>
+<p class="meta-subtitle"><span class="label label-pricing">
+<span class="pricing-free">Free</span>
+</span>
+<span class="label label-platform icon-terminal-sm platform-icon">Self-Hosted</span>
+<a rel='nofollow' href="http://moonmoon.org/">Website <i class="icon-external-link-sm"></i></a></p>
+<div class="itemDesc read-more-box">
+<p class="text"><p>Moonmoon is a web based aggregator similar to <a href='//alternativeto.net/software/planet/'><img alt='Small Planet icon' class='mini-app-icon' src='//d2.alternativeto.net/dist/icons/planet_1324.png?width=36&height=36&mode=crop&upscale=false' />Planet</a> . It can be used to blend articles from different blogs with same interests into a single page.</p>
+<p>Moonmoon is stupidly simple: it only aggregates feeds and spits them out in one single page. It does not archive articles, it does not do comments nor votes.</p>
+</p>
+<p class="fade-area">&nbsp;</p>
+</div>
+<p class="read-more-button"><i class="icon-down-open"></i></p>
+<div class="icon-and-like">
+<div class="image-wrapper ">
+<img src="/assets/images/bg.png" data-src="//d2.alternativeto.net/dist/icons/moonmoon_16630.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive jq_unveil" alt="moonmoon icon">
+<noscript>
+            <img src="//d2.alternativeto.net/dist/icons/moonmoon_16630.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive" alt="moonmoon icon" />
+        </noscript>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
+</div>
+</article>
+</li>
+<li>
+<article class="row app-list-item">
+<div class="col-xs-10 col-sm-10 col-md-11 col-lg-12">
+<h3>
+<a data-link-action="Tiny Tiny RSS." href="/software/quiterss/">QuiteRSS</a> <span class="hidden-xs alternatives">
+&nbsp;228 alternatives
+| <a rel='nofollow' href="https://quiterss.org/">Website <i class="icon-external-link-sm"></i></a>
+</span>
+</h3>
+<p class="meta-subtitle"><span class="label label-pricing">
+<span class="pricing-free">Free</span>
+</span>
+<span class="label label-platform icon-apple platform-icon">Mac</span>
+<span class="label label-platform icon-windows platform-icon">Windows</span>
+<span class="label label-platform icon-linux platform-icon">Linux</span>
+<span class="label label-platform icon-laptop platform-icon">BSD</span>
+<span class="label label-platform icon-laptop platform-icon">PortableApps.com</span>
+<a rel='nofollow' href="https://quiterss.org/">Website <i class="icon-external-link-sm"></i></a></p>
+<div class="itemDesc read-more-box">
+<p class="text"><p>Features:</p>
+<p>Feed and news filters: new, unread, starred, deleted (for news until restart application)<br />
+User filters<br />
+Proxy configuration: automatic or manual<br />
+Feed import wizard: Search feed URL if site URL was entered<br />
+Embedded browser (Webkit core)<br />
+Mark news starred<br />
+Automatic update feeds: on startup, by timer<br />
+Automatic cleanup on close using criteria<br />
+Enable/Disable images in news preview<br />
+Ability to quickly hide feed tree (for comfortable viewing)<br />
+Open feed or news in own tab<br />
+Quick news filter and quick search in browser<br />
+Sound and/or Popup notification on new news<br />
+Show new or unread news counter on tray icon<br />
+Minimize on system tray: on start, on close, on minimize<br />
+Import/Export feeds (OPML-files)<br />
+Portable (Windows)<br />
+Free working set (Windows)<br />
+Shortcuts<br />
+Check for updates<br />
+Cross-platform<br />
+Multilingual (English, Arabic, Bulgarian, Chinese (China), Chinese (Taiwan), Czech, Dutch, Farsi, Finnish, French, Galician, German, Greek, Hungarian, Italian, Japanese, Korean, Lithuanian, Polish, Portuguese (Brazil), Portuguese (Portugal), Romanian, Russian, Serbian, Slovak, Spanish, Swedish, Tajik, Turkish, Ukrainian, Vietnamese)<br />
+Open-source ;)</p>
+</p>
+<p class="fade-area">&nbsp;</p>
+</div>
+<p class="read-more-button"><i class="icon-down-open"></i></p>
+<div class="icon-and-like">
+<div class="image-wrapper ">
+<img src="/assets/images/bg.png" data-src="//d2.alternativeto.net/dist/icons/quiterss_25377.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive jq_unveil" alt="QuiteRSS icon">
+<noscript>
+            <img src="//d2.alternativeto.net/dist/icons/quiterss_25377.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive" alt="QuiteRSS icon" />
+        </noscript>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
+</div>
+</article>
+</li>
+<li>
+<article class="row app-list-item">
+<div class="col-xs-10 col-sm-10 col-md-11 col-lg-12">
+<h3>
+<a data-link-action="Tiny Tiny RSS." href="/software/inoreader/">Inoreader</a> <span class="hidden-xs alternatives">
+&nbsp;258 alternatives
+| <a rel='nofollow' href="https://www.inoreader.com">Website <i class="icon-external-link-sm"></i></a>
+</span>
+</h3>
+<p class="meta-subtitle"><span class="label label-pricing">
+<span class="pricing-free">Freemium</span>
+</span>
+<span class="label label-platform icon-cloud-sm platform-icon">Web</span>
+<span class="label label-platform icon-android platform-icon">Android</span>
+<span class="label label-platform icon-mobile platform-icon">iPhone</span>
+<span class="label label-platform icon-laptop platform-icon">Chrome OS</span>
+<span class="label label-platform icon-android platform-icon">Android Tablet</span>
+<a href="#" class="label label-platform toggle-more">...</a>
+<span class="more">
+<span class="label label-platform icon-windows platform-icon">Windows Phone</span>
+<span class="label label-platform icon-tablet platform-icon">iPad</span>
+<span class="label label-platform icon-chrome platform-icon">Chrome</span>
+<span class="label label-platform icon-laptop platform-icon">Safari</span>
+<span class="label label-platform icon-tablet platform-icon">Kindle Fire</span>
+<span class="label label-platform icon-laptop platform-icon">Opera</span>
+<span class="label label-platform icon-firefox platform-icon">Firefox</span>
+</span>
+<a rel='nofollow' href="https://www.inoreader.com">Website <i class="icon-external-link-sm"></i></a></p>
+<div class="itemDesc read-more-box">
+<p class="text"><p>Dive into your favorite content.<br />
+The content reader for power users who want to save time.</p>
+</p>
+<p class="fade-area">&nbsp;</p>
+</div>
+<p class="read-more-button"><i class="icon-down-open"></i></p>
+<div class="icon-and-like">
+<div class="image-wrapper ">
+<img src="/assets/images/bg.png" data-src="//d2.alternativeto.net/dist/icons/inoreader_123977.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive jq_unveil" alt="Inoreader icon">
+<noscript>
+            <img src="//d2.alternativeto.net/dist/icons/inoreader_123977.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive" alt="Inoreader icon" />
+        </noscript>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
+</div>
+</article>
+</li>
+<li>
+<article class="row app-list-item">
+<div class="col-xs-10 col-sm-10 col-md-11 col-lg-12">
+<h3>
+<a data-link-action="Tiny Tiny RSS." href="/software/birdreader/">BirdReader</a> <span class="hidden-xs alternatives">
+&nbsp;232 alternatives
+| <a rel='nofollow' href="https://github.com/glynnbird/birdreader">Website <i class="icon-external-link-sm"></i></a>
+</span>
+</h3>
+<p class="meta-subtitle"><span class="label label-pricing">
+<span class="pricing-free">Free</span>
+</span>
+<span class="label label-platform icon-cloud-sm platform-icon">Web</span>
+<a rel='nofollow' href="https://github.com/glynnbird/birdreader">Website <i class="icon-external-link-sm"></i></a></p>
+<div class="itemDesc read-more-box">
+<p class="text"><p>birdreader - Home-made, Open-source <a href='//alternativeto.net/software/google-reader/'><img alt='Small Google Reader icon' class='mini-app-icon' src='//d2.alternativeto.net/dist/icons/google-reader_68176.png?width=36&height=36&mode=crop&upscale=false' />Google Reader</a> replacement powered by <a href='//alternativeto.net/software/node-js/'><img alt='Small Node.js icon' class='mini-app-icon' src='//d2.alternativeto.net/dist/icons/node-js_99733.png?width=36&height=36&mode=crop&upscale=false' />Node.js</a> and <a href='//alternativeto.net/software/couchdb/'><img alt='Small CouchDB icon' class='mini-app-icon' src='//d2.alternativeto.net/dist/icons/couchdb_114231.png?width=36&height=36&mode=crop&upscale=false' />CouchDB</a> (Cloudant). Allows importing of Google Reader feeds, tagging, searching, favouriting and social media links.</p>
+<p>BirdReader is designed to be installed on your own webserver or laptop, running Node.js. e.g.</p>
+<p>on an old PC<br />
+on a cloud server e.g. AWS Micro server (free!)<br />
+on a Raspberry Pi</p>
+<p>Features</p>
+<p>import your old Google Reader subscriptions<br />
+fetches RSS every 5 minutes<br />
+web-based aggregated newsfeed<br />
+- mark articles as read<br />
+- delete articles without reading<br />
+- 'star' articles<br />
+- add a new feed<br />
+- sorted in newest-first order<br />
+- bootstrap-based, responsive layout<br />
+- tagging/untagging of feeds<br />
+- Twitter/Facebook sharing<br />
+- basic HTTP authentication (optional)<br />
+- filter read/unread/starred streams by tag<br />
+- filter read/unread/starred streams by feed<br />
+- full-text search<br />
+- icons for feeds and articles<br />
+- expand all<br />
+- browse-mode - go through unread articles one-by-one, full screen<br />
+- API.</p>
+</p>
+<p class="fade-area">&nbsp;</p>
+</div>
+<p class="read-more-button"><i class="icon-down-open"></i></p>
+<div class="icon-and-like">
+<div class="image-wrapper ">
+<img src="/assets/images/bg.png" data-src="//d2.alternativeto.net/dist/icons/birdreader_30513.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive jq_unveil" alt="BirdReader icon">
+<noscript>
+            <img src="//d2.alternativeto.net/dist/icons/birdreader_30513.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive" alt="BirdReader icon" />
+        </noscript>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
+</div>
+</article>
+</li>
+<li>
+<article class="row app-list-item">
+<div class="col-xs-10 col-sm-10 col-md-11 col-lg-12">
+<h3>
+<a data-link-action="Tiny Tiny RSS." href="/software/protopage/">Protopage</a> <span class="hidden-xs alternatives">
+&nbsp;192 alternatives
+| <a rel='nofollow' href="http://www.protopage.com/">Website <i class="icon-external-link-sm"></i></a>
+</span>
+</h3>
+<p class="meta-subtitle"><span class="label label-pricing">
+<span class="pricing-free">Free</span>
+</span>
+<span class="label label-platform icon-cloud-sm platform-icon">Web</span>
+<a rel='nofollow' href="http://www.protopage.com/">Website <i class="icon-external-link-sm"></i></a></p>
+<div class="itemDesc read-more-box">
+<p class="text"><p>The best iGoogle alternative. Chris Pirillo calls Protopage &quot;The best designed&quot;.</p>
+<p>Protopage is your own personal page, which you can access from any computer or mobile phone.</p>
+<p>Use it to read your own selection of news and blogs, keep bookmarks, to-do lists, sticky notes, and much more</p>
+</p>
+<p class="fade-area">&nbsp;</p>
+</div>
+<p class="read-more-button"><i class="icon-down-open"></i></p>
+<div class="icon-and-like">
+<div class="image-wrapper ">
+<img src="/assets/images/bg.png" data-src="//d2.alternativeto.net/dist/icons/protopage_18805.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive jq_unveil" alt="Protopage icon">
+<noscript>
+            <img src="//d2.alternativeto.net/dist/icons/protopage_18805.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive" alt="Protopage icon" />
+        </noscript>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
+</div>
+</article>
+</li>
+<li>
+<article class="row app-list-item">
+<div class="col-xs-10 col-sm-10 col-md-11 col-lg-12">
+<h3>
+<a data-link-action="Tiny Tiny RSS." href="/software/freshrss/">FreshRSS</a> <span class="hidden-xs alternatives">
+&nbsp;87 alternatives
+| <a rel='nofollow' href="https://freshrss.org/">Website <i class="icon-external-link-sm"></i></a>
+</span>
+</h3>
+<p class="meta-subtitle"><span class="label label-pricing">
+<span class="pricing-free">Free</span>
+</span>
+<span class="label label-platform icon-terminal-sm platform-icon">Self-Hosted</span>
+<span class="label label-platform icon-laptop platform-icon">Cloudron</span>
+<a rel='nofollow' href="https://freshrss.org/">Website <i class="icon-external-link-sm"></i></a></p>
+<div class="itemDesc read-more-box">
+ <p class="text"><p>FreshRSS is a free, self-hosted RSS aggregator. It is quite lightweight, fast (it can manage +100k articles without complaining) and powerful (e.g. shortcuts, filters, responsive design, multi-views, multi-themes, multi-users, statistics, provides a Google Reader API, etc.)</p>
+<p>It is able to import feeds from OPML files and / or JSON files generated by Google Reader via Takeout.</p>
+<p>To conclude, it is still a project in active development, so feel free to give a hand to help and have a look to the demo: <a href='http://demo.freshrss.org/' rel='nofollow'>http://demo.freshrss.org/ </a></p>
+</p>
+<p class="fade-area">&nbsp;</p>
+</div>
+<p class="read-more-button"><i class="icon-down-open"></i></p>
+<div class="icon-and-like">
+<div class="image-wrapper ">
+<img src="/assets/images/bg.png" data-src="//d2.alternativeto.net/dist/icons/freshrss_52404.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive jq_unveil" alt="FreshRSS icon">
+<noscript>
+            <img src="//d2.alternativeto.net/dist/icons/freshrss_52404.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive" alt="FreshRSS icon" />
+        </noscript>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
+</div>
+</article>
+</li>
+<li>
+<article class="row app-list-item">
+<div class="col-xs-10 col-sm-10 col-md-11 col-lg-12">
+<h3>
+<a data-link-action="Tiny Tiny RSS." href="/software/blogtrottr/">Blogtrottr</a> <span class="hidden-xs alternatives">
+&nbsp;215 alternatives
+| <a rel='nofollow' href="http://blogtrottr.com/">Website <i class="icon-external-link-sm"></i></a>
+</span>
+</h3>
+<p class="meta-subtitle"><span class="label label-pricing">
+<span class="pricing-free">Freemium</span>
+</span>
+<span class="label label-platform icon-cloud-sm platform-icon">Web</span>
+<a rel='nofollow' href="http://blogtrottr.com/">Website <i class="icon-external-link-sm"></i></a></p>
+<div class="itemDesc read-more-box">
+<p class="text"><p>Blogtrottr delivers updates from all of your favourite news, feeds, and blogs directly to your email inbox, giving you the flexibility to stay updated whilst on the go.</p>
+</p>
+<p class="fade-area">&nbsp;</p>
+</div>
+<p class="read-more-button"><i class="icon-down-open"></i></p>
+<div class="icon-and-like">
+<div class="image-wrapper ">
+<img src="/assets/images/bg.png" data-src="//d2.alternativeto.net/dist/icons/blogtrottr_94224.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive jq_unveil" alt="Blogtrottr icon">
+<noscript>
+            <img src="//d2.alternativeto.net/dist/icons/blogtrottr_94224.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive" alt="Blogtrottr icon" />
+        </noscript>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
+</div>
+</article>
+</li>
+<li>
+<article class="row app-list-item">
+<div class="col-xs-10 col-sm-10 col-md-11 col-lg-12">
+<h3>
+<a data-link-action="Tiny Tiny RSS." href="/software/newsblur/">NewsBlur</a> <span class="hidden-xs alternatives">
+&nbsp;248 alternatives
+| <a rel='nofollow' href="https://www.newsblur.com/">Website <i class="icon-external-link-sm"></i></a>
+</span>
+</h3>
+<p class="meta-subtitle"><span class="label label-pricing">
+<span class="pricing-free">Freemium</span>
+</span>
+<span class="label label-platform icon-cloud-sm platform-icon">Web</span>
+<span class="label label-platform icon-android platform-icon">Android</span>
+<span class="label label-platform icon-mobile platform-icon">iPhone</span>
+<span class="label label-platform icon-tablet platform-icon">iPad</span>
+<span class="label label-platform icon-terminal-sm platform-icon">Self-Hosted</span>
+<a href="#" class="label label-platform toggle-more">...</a>
+<span class="more">
+<span class="label label-platform icon-tablet platform-icon">Kindle Fire</span>
+</span>
+<a rel='nofollow' href="https://www.newsblur.com/">Website <i class="icon-external-link-sm"></i></a></p>
+<div class="itemDesc read-more-box">
+<p class="text"><p>NewsBlur is a personal news reader that brings people together to talk about the world. It shows you the original site and allows you to read stories directly off the site while keeping track of what you read. It also filters and highlights stories you like and dislike. NewsBlur has an active community of shared stories, published on each user's blurblog.</p>
+</p>
+<p class="fade-area">&nbsp;</p>
+</div>
+<p class="read-more-button"><i class="icon-down-open"></i></p>
+<div class="icon-and-like">
+<div class="image-wrapper ">
+<img src="/assets/images/bg.png" data-src="//d2.alternativeto.net/dist/icons/newsblur_10115.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive jq_unveil" alt="NewsBlur icon">
+<noscript>
+            <img src="//d2.alternativeto.net/dist/icons/newsblur_10115.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive" alt="NewsBlur icon" />
+        </noscript>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
+</div>
+</article>
+</li>
+<li>
+<article class="row app-list-item">
+<div class="col-xs-10 col-sm-10 col-md-11 col-lg-12">
+<h3>
+<a data-link-action="Tiny Tiny RSS." href="/software/feedly/">Feedly</a> <span class="hidden-xs alternatives">
+&nbsp;264 alternatives
+| <a rel='nofollow' href="https://feedly.com/">Website <i class="icon-external-link-sm"></i></a>
+</span>
+</h3>
+<p class="meta-subtitle"><span class="label label-pricing">
+<span class="pricing-free">Freemium</span>
+</span>
+<span class="label label-platform icon-cloud-sm platform-icon">Web</span>
+<span class="label label-platform icon-android platform-icon">Android</span>
+<span class="label label-platform icon-mobile platform-icon">iPhone</span>
+<span class="label label-platform icon-laptop platform-icon">Chrome OS</span>
+<span class="label label-platform icon-android platform-icon">Android Tablet</span>
+<a href="#" class="label label-platform toggle-more">...</a>
+<span class="more">
+<span class="label label-platform icon-tablet platform-icon">iPad</span>
+<span class="label label-platform icon-wristwatch platform-icon">Apple Watch</span>
+<span class="label label-platform icon-chrome platform-icon">Chrome</span>
+<span class="label label-platform icon-laptop platform-icon">Safari</span>
+<span class="label label-platform icon-tablet platform-icon">Kindle Fire</span>
+<span class="label label-platform icon-firefox platform-icon">Firefox</span>
+</span>
+<a rel='nofollow' href="https://feedly.com/">Website <i class="icon-external-link-sm"></i></a></p>
+<div class="itemDesc read-more-box">
+<p class="text"><p>Feedly is a better way to organize, read and share the content of your favorite sites.<br />
+It weaves the content from the RSS feeds of your favorite websites into a fun magazine-like experience and provides seamless integration with social networks.</p>
+<p>Better Personalization -<br />
+Organize your favorite blogs, news sites and Youtube channels and access them all in one place (or sync with Twitter and Facebook).</p>
+<p>Better Browsing -<br />
+Feedly transforms web sites into beautiful cards which load quickly and are easy to read.</p>
+<p>Better Sharing -<br />
+Easily save articles across devices or share them with your friends on Twitter, Facebook, Google+ or LinkedIn. Directly or via Buffer, Pocket or Instapaper.</p>
+<p>At home, at work or on the go -<br />
+You can add feedly to all the devices you love. Your phone, tablet and computer are always in sync.</p>
+<p>Feedly compatible news reader apps are for example:</p>
+<p><a href='//alternativeto.net/software/newsify/'><img alt='Small Newsify icon' class='mini-app-icon' src='//d2.alternativeto.net/dist/icons/newsify_115766.jpg?width=36&height=36&mode=crop&upscale=false' />Newsify</a> (iOS)<br />
+<a href='//alternativeto.net/software/press/'><img alt='Small Press icon' class='mini-app-icon' src='//d2.alternativeto.net/dist/icons/press_22948.png?width=36&height=36&mode=crop&upscale=false' />Press</a> (Android)<br />
+<a href='//alternativeto.net/software/nextgen-reader/'><img alt='Small Nextgen Reader icon' class='mini-app-icon' src='//d2.alternativeto.net/dist/icons/nextgen-reader_15746.png?width=36&height=36&mode=crop&upscale=false' />Nextgen Reader</a> (Windows Phone)</p>
+<p>List with more apps: <a href='http://blog.feedly.com/2013/06/19/feedly-cloud/' rel='nofollow'>http://blog.feedly.com/2013/06/19/feedly-cloud/ </a></p>
+</p>
+<p class="fade-area">&nbsp;</p>
+</div>
+<p class="read-more-button"><i class="icon-down-open"></i></p>
+<div class="icon-and-like">
+<div class="image-wrapper ">
+<img src="/assets/images/bg.png" data-src="//d2.alternativeto.net/dist/icons/feedly_90005.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive jq_unveil" alt="Feedly icon">
+<noscript>
+            <img src="//d2.alternativeto.net/dist/icons/feedly_90005.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive" alt="Feedly icon" />
+        </noscript>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
+</div>
+</article>
+</li>
+<li>
+<article class="row app-list-item">
+<div class="col-xs-10 col-sm-10 col-md-11 col-lg-12">
+<h3>
+<a data-link-action="Tiny Tiny RSS." href="/software/feeddemon/">FeedDemon</a> <span class="hidden-xs alternatives">
+&nbsp;233 alternatives
+| <a rel='nofollow' href="http://www.feeddemon.com/">Website <i class="icon-external-link-sm"></i></a>
+</span>
+</h3>
+<p class="meta-subtitle"><span class="label label-pricing">
+<span class="pricing-free">Free</span>
+</span>
+<span class="label label-platform icon-windows platform-icon">Windows</span>
+<a rel='nofollow' href="http://www.feeddemon.com/">Website <i class="icon-external-link-sm"></i></a></p>
+<div class="itemDesc read-more-box">
+<p class="text"><p>FeedDemon is a popular RSS reader for Windows, with an easy-to-use interface that makes it a snap to stay informed with the latest news and information.</p>
+<p>Tagging<br />
+Assign your own keywords to items, making it easy to classify and locate articles you've previously read.</p>
+<p>Watches<br />
+Tell FeedDemon to let you know when your keywords appear in any feed you're subscribed to.</p>
+<p>Search Feeds<br />
+Get alerted when your keywords appear in any feed, regardless of whether you're subscribed to it.</p>
+<p>Podcasts<br />
+Let FeedDemon automatically download audio files and copy them to your iPod or other media device.</p>
+</p>
+<p class="fade-area">&nbsp;</p>
+</div>
+<p class="read-more-button"><i class="icon-down-open"></i></p>
+<div class="icon-and-like">
+<div class="image-wrapper ">
+<img src="/assets/images/bg.png" data-src="//d2.alternativeto.net/dist/icons/feeddemon_82251.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive jq_unveil" alt="FeedDemon icon">
+<noscript>
+            <img src="//d2.alternativeto.net/dist/icons/feeddemon_82251.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive" alt="FeedDemon icon" />
+        </noscript>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
+</div>
+</article>
+</li>
+<li>
+<article class="row app-list-item">
+<div class="col-xs-10 col-sm-10 col-md-11 col-lg-12">
+<h3>
+<a data-link-action="Tiny Tiny RSS." href="/software/google-reader/">Google Reader</a> <span class="hidden-xs alternatives">
+&nbsp;213 alternatives
+| <a rel='nofollow' href="https://www.google.com/reader/about/">Website <i class="icon-external-link-sm"></i></a>
+</span>
+</h3>
+<p class="meta-subtitle"><span class="label label-pricing">
+<span class="pricing-free">Free</span>
+</span>
+<span class="label label-platform icon-cloud-sm platform-icon">Web</span>
+<span class="label label-platform icon-android platform-icon">Android</span>
+<span class="label label-platform icon-laptop platform-icon">Java Mobile</span>
+<span class="label label-platform icon-android platform-icon">Android Tablet</span>
+<a rel='nofollow' href="https://www.google.com/reader/about/">Website <i class="icon-external-link-sm"></i></a></p>
+<div class="itemDesc read-more-box">
+<p class="text"><p>Google Reader was a Web-based aggregator, capable of reading Atom and RSS feeds online or offline.</p>
+</p>
+<p class="fade-area">&nbsp;</p>
+</div>
+<p class="read-more-button"><i class="icon-down-open"></i></p>
+<div class="icon-and-like">
+<div class="image-wrapper ">
+<img src="/assets/images/bg.png" data-src="//d2.alternativeto.net/dist/icons/google-reader_68176.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive jq_unveil" alt="Google Reader icon">
+<noscript>
+            <img src="//d2.alternativeto.net/dist/icons/google-reader_68176.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive" alt="Google Reader icon" />
+        </noscript>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
+</div>
+</article>
+</li>
+<li>
+<article class="row app-list-item">
+<div class="col-xs-10 col-sm-10 col-md-11 col-lg-12">
+<h3>
+<a data-link-action="Tiny Tiny RSS." href="/software/socialscud/">SocialScud</a> <span class="hidden-xs alternatives">
+&nbsp;122 alternatives
+| <a rel='nofollow' href="https://socialscud.com/">Website <i class="icon-external-link-sm"></i></a>
+</span>
+</h3>
+<p class="meta-subtitle"><span class="label label-pricing">
+<span class="pricing-free">Freemium</span>
+</span>
+<span class="label label-platform icon-cloud-sm platform-icon">Web</span>
+<a rel='nofollow' href="https://socialscud.com/">Website <i class="icon-external-link-sm"></i></a></p>
+<div class="itemDesc read-more-box">
+<p class="text"><p>Automatically share/publish your RSS feeds on social networks such as Twitter, Facebook Account, Facebook Pages, LinkedIn, Tumblr, Medium, and more.</p>
+</p>
+<p class="fade-area">&nbsp;</p>
+</div>
+<p class="read-more-button"><i class="icon-down-open"></i></p>
+<div class="icon-and-like">
+<div class="image-wrapper ">
+<img src="/assets/images/bg.png" data-src="//d2.alternativeto.net/dist/icons/socialscud_110949.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive jq_unveil" alt="SocialScud icon">
+<noscript>
+            <img src="//d2.alternativeto.net/dist/icons/socialscud_110949.png?width=64&amp;height=64&amp;mode=crop&amp;upscale=false" class="center-block img-responsive" alt="SocialScud icon" />
+        </noscript>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-11 col-lg-12">
+</div>
+</article>
+</li>
+</ul>
+</div>
+<p></p>
+<hr>
+<div class="row">
+<div class="col-sm-9">
+<p class="article-meta">
+<span>
+<span class="user-meta">
+A List by
+<span style="background-color: #9765FC" class="imageHolder profile-image pull-left">F</span>
+<a data-container="body" data-placement="bottom" data-toggle="popover-ajax" data-url="/user/fantasiafun77/modal" rel="nofollow" tabindex="0">fantasiafun77</a>
+</span> Created <span title='2019/2/21 8:25:29'>2月 2019</span>
+| <span id="voteNumber">1</span> Like
+</span>
+</p>
+<p class="article-meta"></p>
+<div class="share-buttons">
+<a class='btn btn-facebook ga_share btn-sm' title="Share on Facebook" data-link-action='Share List' onclick='ShareUrlFacebook("https://alternativeto.net/list/8197/tiny-tiny-rss-", "Tiny Tiny RSS.")'><i class="icon-facebook"></i>Share</a>
+<a class="btn btn-twitter ga_share btn-sm" title="Share on Twitter" data-link-action='Share List' onclick='ShareUrlTwitter("https://alternativeto.net/list/8197/tiny-tiny-rss-", "Tiny Tiny RSS.")'><i class="icon-twitter"></i>Tweet</a>
+<a href="https://plus.google.com/share?url=https://alternativeto.net/list/8197/tiny-tiny-rss-" title="Share on Google+" target="_blank" data-link-action='Share List' class="btn btn-googleplus ga_share btn-sm"><i class="icon-google-plus"></i></a>
+<a href="https://www.reddit.com/submit?url=https://alternativeto.net/list/8197/tiny-tiny-rss-&title=Tiny Tiny RSS." title="Share on reddit" data-link-action='Share List' target="_blank" data-placement="top" class="btn btn-reddit ga_share btn-sm"><i class="icon-reddit"></i></a>
+</div>
+</div>
+<div class="col-sm-3 text-right-sm" style="padding-top: 10px;">
+<a href="/lists/" class='btn btn-primary btn-block'>Browse all lists</a>
+<a href='#loginDialog' data-toggle='modal' data-target='#loginDialog' data-redirecturl='/list/8197/tiny-tiny-rss-' class='notloggedin btn btn-block'>Sign up to create a list</a>
+</div>
+</div>
+<hr />
+<h3 class="underline">Comments on Tiny Tiny RSS.</h3>
+<div id="discussionsList" data-indexpos="" data-pagesize="">
+<div id="emptyMessage">
+<h3>Echo echo ... Feels empty in here</h3>
+<p>
+Maybe you want to be the first to submit a comment?
+</p>
+</div>
+</div>
+<a href='#loginDialog' data-toggle='modal' data-target='#loginDialog' data-redirecturl='/list/8197/tiny-tiny-rss-' class='notloggedin btn btn-block'>Sign up to comment, it's simple!</a>
+</div>
+</div>
+</div>
+<div class="modal fade" id="loginDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog modal-sm" role="document">
+<div class="modal-content">
+</div>
+</div>
+</div>
+<div id="bottomNotifier" class="darkNotifier" style="display: none">
+</div>
+<div class="modal fade" id="userInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog modal-sm" role="document">
+<div class="modal-content">
+</div>
+</div>
+</div>
+<script src="/assets/compiled/main-0481664faf.js" defer></script>
+<script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "http://alternativeto.net",
+    "potentialAction": {
+    "@type": "SearchAction",
+    "target": "http://alternativeto.net/browse/search/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+    }
+    }
+</script>
+</body>
+</html>
