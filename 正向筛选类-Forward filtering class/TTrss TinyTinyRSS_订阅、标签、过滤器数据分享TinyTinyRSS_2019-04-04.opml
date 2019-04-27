@@ -119,9 +119,7 @@
     <outline text="生活方式">
       <outline type="rss" text="IT 公论" xmlUrl="http://www.ipn.li/itgonglun/feed"/>
       <outline type="rss" text="但丁Law约会社交系列 博客" xmlUrl="http://blog.sina.com.cn/rss/1875393475.xml" htmlUrl="http://blog.sina.com.cn/dantelaw"/>
-      <outline type="rss" text="全部文章" xmlUrl="http://192.168.1.104:1280/ttrss/public.php?op=rss&amp;id=-4&amp;key=7zki2a5c6bf23194885"/>
       <outline type="rss" text="少数派" xmlUrl="http://www.sspai.com/feed" htmlUrl="https://sspai.com"/>
-      <outline type="rss" text="最新更新的文章" xmlUrl="http://192.168.1.104:1280/ttrss/public.php?op=rss&amp;id=-3&amp;key=1n2d4g5c471c3b0085d"/>
       <outline type="rss" text="极客范 - GeekFan.net" xmlUrl="http://www.geekfan.net/feed/"/>
     </outline>
     <outline text="豆瓣简书论坛">
@@ -169,7 +167,6 @@
       <outline type="rss" text="人间指南" xmlUrl="http://renjianzhinan.fm/podcast.xml"/>
       <outline type="rss" text="十月杂志网 - 杂志下载" xmlUrl="http://shiyue.me/forum.php?mod=rss&amp;fid=36&amp;auth=0"/>
       <outline type="rss" text="《华夏教师》杂志" xmlUrl="http://blog.sina.com.cn/rss/1263467257.xml" htmlUrl="http://blog.sina.com.cn/qnxlzz"/>
-      <outline type="rss" text="历史研习社" xmlUrl="http://feedmaker.kindle4rss.com/feeds/mingqinghistory.weixin.xml" htmlUrl="http://weixin.sogou.com/weixin?type=1&amp;s_from=input&amp;query=%E5%8E%86%E5%8F%B2%E7%A0%94%E4%B9%A0%E7%A4%BE"/>
       <outline type="rss" text="原版杂志E书格子铺 的微博rss" xmlUrl="http://rss.weibodangan.com/weibo/rss/3940449064"/>
       <outline type="rss" text="大人物" xmlUrl="http://feeds.feedburner.com/cool3c-daman"/>
       <outline type="rss" text="天空之边" xmlUrl="https://liyin.date/rss2.xml"/>
