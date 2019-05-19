@@ -2,15 +2,17 @@
 
 反垃圾与不良信息的工具、技术、经验，防治信息焦虑等信息病，保护精神卫生与身心健康。当信息的主人，而不是奴隶。
 
-希望全方位、多层次过滤。已经集成绝大部分常用过滤，比如对内容过滤、url拦截过滤、精确的部分过滤、图片过滤，知乎豆瓣、简书天涯、贴吧等常用平台的过滤。
-
-方便省心，一步到位式过滤筛选。
+希望全方位、多层次过滤。已经集成绝大部分常用过滤，比如对内容过滤、url拦截过滤、精确的部分过滤、图片过滤，知乎豆瓣、简书天涯、贴吧等常用平台的过滤。方便省心，一步到位式过滤筛选。
 
 相关配置数据、常用关键词库在相应文件夹，请根据需要自取。
 
 目前国内面向企业和媒体的信息过滤、审核多，但面向个人的太少。
 
-文章地址：https://915.im/y57hYX
+Information management library for individuals and families (focusing on information filtering and content filtering).Tools, techniques and experience for anti-spam and adverse information, prevention and treatment of information anxiety and other information diseases, and protection of mental health and physical and mental health. Be the master of the message, not the slave.
+
+Hope omni-directional, mutiple level filters. Most commonly used filters have been integrated, such as content filtering, url interception filtering, accurate partial filtering, image filtering, and filtering on popular platforms such as zhihu.com, tianya and tieba.Convenient and convenient, one-step filtering and screening.
+
+文章地址：https://www.zhihu.com/people/cloud-88-84/posts
 
 
 - #GITHUB等项目收集，希望更多志同道合者共同参与补充完善
@@ -46,8 +48,8 @@
 
  前言：
 
- 大多数人可能不需要什么太高太远的，但也没必要成为某些东西的傀儡和牺牲品。  独立自主，做个有心人。关于信息过滤、内容筛选，反三俗反互联网垃圾与不良信息，保护脑与心灵的干净，不定期分享一些技术、工具、经验。
- 由于近期工作学习较忙，暂时只发布信息内容处理、信息过滤部分，未能好好整理。其中的设置可能并不适用于每一个人，重要的是，我们要有想去改变的意识。
+ 大多数人可能不想要太高太远的，但也没必要成为某些东西的傀儡和牺牲品。  独立自主，做个有心人。关于信息过滤、内容筛选，反三俗反互联网垃圾与不良信息，保护脑袋与心灵的干净，不定期分享一些技术、工具、经验。
+ 由于近期工作学习较忙，暂时只发布信息内容处理、信息过滤部分，未能好好整理。其中的设置可能并不完全贴合于每个人，重要的是，我们要有想去改变的意识、思维和实践方法。
 
 https://915.im/y57hYX
 
