@@ -6,7 +6,7 @@
 
 相关配置数据、常用关键词库在相应文件夹，请根据需要自取。
 
-目前国内面向企业和媒体的信息过滤、审核多，但面向个人的太少。
+目前国内面向企业和媒体的信息过滤与筛选多，但太粗浅，而且面向个人的太少。
 
 Information management library for individuals and families (focusing on information filtering and content filtering).Tools, techniques and experience for anti-spam and adverse information, prevention and treatment of information anxiety and other information diseases, and protection of mental health and physical and mental health. Be the master of the message, not the slave.
 
@@ -30,7 +30,7 @@ Hope omni-directional, mutiple level filters. Most commonly used filters have be
 
 可能用到的一些其他工具和脚本也附在相关文件夹。正向筛选类请私信我邮箱。
 
-[联系邮箱：langyangx@yeah.net](mailto:langyangx@yeah.net)（如果在具体实践方面 有问题或困难,欢迎联系我）
+[联系邮箱：langyangx@yeah.net](mailto:langyangx@yeah.net)（如果有什么建议，或者在具体实践方面 有问题或困难,欢迎联系）
 
  Telegraph文章（需科学上网）：
 
