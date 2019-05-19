@@ -1,4 +1,4 @@
-关于面向个人、家庭的信息管理库（侧重信息过滤与内容筛选）.
+关于面向个人、家庭的信息管理库分享（侧重信息过滤与内容筛选）.
 
 反垃圾与不良信息的工具、技术、经验，防治信息焦虑等信息病，保护精神卫生与身心健康。当信息的主人，而不是奴隶。
 
@@ -6,13 +6,15 @@
 
 相关配置数据、常用关键词库在相应文件夹，请根据需要自取。
 
-目前国内面向企业和媒体的信息过滤与筛选多，但太粗浅，而且面向个人的太少。
+国内个人或家庭类的内容筛选、过滤防护工具出奇的少而粗浅，更多的内容安全（信息过滤、内容审核、文本分析等）集中在平台端和服务器，主要面向企业用户和媒体。
 
 Information management library for individuals and families (focusing on information filtering and content filtering).Tools, techniques and experience for anti-spam and adverse information, prevention and treatment of information anxiety and other information diseases, and protection of mental health and physical and mental health. Be the master of the message, not the slave.
 
 Hope omni-directional, mutiple level filters. Most commonly used filters have been integrated, such as content filtering, url interception filtering, accurate partial filtering, image filtering, and filtering on popular platforms such as zhihu.com, tianya and tieba.Convenient and convenient, one-step filtering and screening.
 
 文章地址：https://www.zhihu.com/people/cloud-88-84/posts
+
+***\*\#tags \#keywords\**：工具关键词：精确过滤**内容拦截器，过滤器，Intercept，屏蔽替换隐藏，滤除，killfile，封锁，ProfanityFilter，anti-spam，anti-NSFW,anti-annoy,儿童未成年人保护，安全上网，家长控制，反黄，过程中参考了很多，净网类、过滤拦截、屏蔽替换、内容审核。。
 
 
 - #GITHUB等项目收集，希望更多志同道合者共同参与补充完善
@@ -30,7 +32,7 @@ Hope omni-directional, mutiple level filters. Most commonly used filters have be
 
 可能用到的一些其他工具和脚本也附在相关文件夹。正向筛选类请私信我邮箱。
 
-[联系邮箱：langyangx@yeah.net](mailto:langyangx@yeah.net)（如果有什么建议，或者在具体实践方面 有问题或困难,欢迎联系）
+[联系邮箱：langyangx@yeah.net](mailto:langyangx@yeah.net)（如果有什么建议/或者在具体实践方面 有问题或困难,欢迎联系）
 
  Telegraph文章（需科学上网）：
 
@@ -48,10 +50,10 @@ Hope omni-directional, mutiple level filters. Most commonly used filters have be
 
  前言：
 
- 大多数人可能不想要太高太远的，但也没必要成为某些东西的傀儡和牺牲品。  独立自主，做个有心人。关于信息过滤、内容筛选，反三俗反互联网垃圾与不良信息，保护脑袋与心灵的干净，不定期分享一些技术、工具、经验。
- 由于近期工作学习较忙，暂时只发布信息内容处理、信息过滤部分，未能好好整理。其中的设置可能并不完全贴合于每个人，重要的是，我们要有想去改变的意识、思维和实践方法。
+ 大多数人可能都觉得，不想要太高太远的，但其实也没必要成为某些东西的傀儡和牺牲品。  独立自主，做个有心人。关于信息过滤、内容筛选，反三俗反互联网垃圾与不良信息，保护脑袋与心灵的干净，不定期分享一些技术、工具、经验。
+ 由于近期工作学习较忙，暂时只发布信息内容处理、信息过滤部分，未能好好整理。大部分工具都是开源共享的，其中的设置可能并不完全贴合于每个人，可以自行调整。更重要的是，我们要有想去改变的意识、思维和实践方法。
 
-https://915.im/y57hYX
+https://www.zhihu.com/people/cloud-88-84/posts
 
 #适合注重内在干净、精神卫生与身心健康的人们。保护精神卫生与身心健康，实现信息过滤与内容筛选，防沉迷，保护未成年儿童、注重内在的有心人以及其他所有可爱的人。
 
