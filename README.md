@@ -1,6 +1,6 @@
 <center><b>关于面向个人、家庭的信息管理库分享（侧重信息过滤与内容筛选）</b></center>
 
-===
+---
 
 反垃圾与不良信息的工具、技术、经验，防治信息焦虑等信息病，保护精神卫生与身心健康。当信息的主人，而不是奴隶。
 
@@ -14,11 +14,9 @@
 
 > Hope omni-directional, mutiple level filters. Most commonly used filters have been integrated, such as content filtering, url interception filtering, accurate partial filtering, image filtering, and filtering on popular platforms such as zhihu.com, tianya and tieba.Convenient and convenient, one-step filtering and screening.
 
-
-
+***
 ***\*\#tags \#keywords\**：工具关键词：精确过滤**内容拦截器，过滤器，Intercept，屏蔽替换隐藏，滤除，killfile，封锁，ProfanityFilter，anti-spam，anti-NSFW,anti-annoy,儿童未成年人保护，安全上网，家长控制，反黄，过程中参考了很多，净网类、过滤拦截、屏蔽替换、内容审核。。
 
-***
 | Article | https://www.zhihu.com/people/cloud-88-84/posts |
 | :------ | :--------------------------------------------- |
 | Email   | langyangx@yeah.net                             |
