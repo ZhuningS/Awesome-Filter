@@ -22,10 +22,6 @@
 | Email   | langyangx@yeah.net                             |
 ***
 
-文章地址：https://www.zhihu.com/people/cloud-88-84/posts
-
-[联系邮箱：langyangx@yeah.net](mailto:langyangx@yeah.net)（如果有什么建议/或者在具体实践方面 有问题或困难,欢迎联系）
-
 
 - #GITHUB等项目收集，希望更多志同道合者共同参与补充完善
 - #Intelligent information management - anti-spam and bad information-智能信息管理 负面过滤 反垃圾与不良信息
@@ -41,6 +37,12 @@
 相关领域收藏库（包括开发相关）：集中了各种”黑科技“、开发版等工具，有兴趣折腾可以试一下。
 
 可能用到的一些其他工具和脚本也附在相关文件夹。正向筛选类请私信我邮箱。
+
+文章地址：https://www.zhihu.com/people/cloud-88-84/posts
+
+[联系邮箱：langyangx@yeah.net](mailto:langyangx@yeah.net)（如果有什么建议/或者在具体实践方面 有问题或困难,欢迎联系）
+
+------
 
  Telegraph文章（需科学上网）：
 
