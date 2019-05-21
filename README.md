@@ -1,20 +1,32 @@
-关于面向个人、家庭的信息管理库分享（侧重信息过滤与内容筛选）.
+<center><b>关于面向个人、家庭的信息管理库分享（侧重信息过滤与内容筛选）</b></center>
+
+===
 
 反垃圾与不良信息的工具、技术、经验，防治信息焦虑等信息病，保护精神卫生与身心健康。当信息的主人，而不是奴隶。
 
-希望全方位、多层次过滤。已经集成绝大部分常用过滤，比如对内容过滤、url拦截过滤、精确的部分过滤、图片过滤，知乎豆瓣、简书天涯、贴吧等常用平台的过滤。方便省心，一步到位式过滤筛选。
+> 希望全方位、多层次过滤。已经集成绝大部分常用过滤，比如对内容过滤、url拦截过滤、精确的部分过滤、图片过滤，知乎豆瓣、简书天涯、贴吧等常用平台的过滤。方便省心，一步到位式过滤筛选。
 
-相关配置数据、常用关键词库在相应文件夹，请根据需要自取。
+>相关配置数据、常用关键词库在相应文件夹，请根据需要自取。
 
-国内个人或家庭类的内容筛选、过滤防护工具出奇的少而粗浅，更多的内容安全（信息过滤、内容审核、文本分析等）集中在平台端和服务器，主要面向企业用户和媒体。
+> 国内个人或家庭类的内容筛选、过滤防护工具出奇的少而粗浅，更多的内容安全（信息过滤、内容审核、文本分析等）集中在平台端和服务器，主要面向企业用户和媒体。
 
-Information management library for individuals and families (focusing on information filtering and content filtering).Tools, techniques and experience for anti-spam and adverse information, prevention and treatment of information anxiety and other information diseases, and protection of mental health and physical and mental health. Be the master of the message, not the slave.
+> Information management library for individuals and families (focusing on information filtering and content filtering).Tools, techniques and experience for anti-spam and adverse information, prevention and treatment of information anxiety and other information diseases, and protection of mental health and physical and mental health. Be the master of the message, not the slave.
 
-Hope omni-directional, mutiple level filters. Most commonly used filters have been integrated, such as content filtering, url interception filtering, accurate partial filtering, image filtering, and filtering on popular platforms such as zhihu.com, tianya and tieba.Convenient and convenient, one-step filtering and screening.
+> Hope omni-directional, mutiple level filters. Most commonly used filters have been integrated, such as content filtering, url interception filtering, accurate partial filtering, image filtering, and filtering on popular platforms such as zhihu.com, tianya and tieba.Convenient and convenient, one-step filtering and screening.
+
+
+
+***\*\#tags \#keywords\**：工具关键词：精确过滤**内容拦截器，过滤器，Intercept，屏蔽替换隐藏，滤除，killfile，封锁，ProfanityFilter，anti-spam，anti-NSFW,anti-annoy,儿童未成年人保护，安全上网，家长控制，反黄，过程中参考了很多，净网类、过滤拦截、屏蔽替换、内容审核。。
+
+***
+| Article | https://www.zhihu.com/people/cloud-88-84/posts |
+| :------ | :--------------------------------------------- |
+| Email   | langyangx@yeah.net                             |
+***
 
 文章地址：https://www.zhihu.com/people/cloud-88-84/posts
 
-***\*\#tags \#keywords\**：工具关键词：精确过滤**内容拦截器，过滤器，Intercept，屏蔽替换隐藏，滤除，killfile，封锁，ProfanityFilter，anti-spam，anti-NSFW,anti-annoy,儿童未成年人保护，安全上网，家长控制，反黄，过程中参考了很多，净网类、过滤拦截、屏蔽替换、内容审核。。
+[联系邮箱：langyangx@yeah.net](mailto:langyangx@yeah.net)（如果有什么建议/或者在具体实践方面 有问题或困难,欢迎联系）
 
 
 - #GITHUB等项目收集，希望更多志同道合者共同参与补充完善
@@ -32,8 +44,6 @@ Hope omni-directional, mutiple level filters. Most commonly used filters have be
 
 可能用到的一些其他工具和脚本也附在相关文件夹。正向筛选类请私信我邮箱。
 
-[联系邮箱：langyangx@yeah.net](mailto:langyangx@yeah.net)（如果有什么建议/或者在具体实践方面 有问题或困难,欢迎联系）
-
  Telegraph文章（需科学上网）：
 
 - [前言-04-09-2](https://telegra.ph/前言-04-09-2)
@@ -47,6 +57,7 @@ Hope omni-directional, mutiple level filters. Most commonly used filters have be
 - [补充其他需注意需警惕的地方-04-09](https://telegra.ph/补充其他需注意需警惕的地方-04-09)
 - [关于附件以及其他分享-04-09](https://telegra.ph/关于附件以及其他分享-04-09)
 
+<svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
 
  前言：
 
