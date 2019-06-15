@@ -1,0 +1,2 @@
+新版发布地址：
+https://github.com/Xyrio/RSSOwlnix/releases
