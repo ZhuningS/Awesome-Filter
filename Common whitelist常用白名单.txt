@@ -1,5 +1,5 @@
 [TOC]
-白名单参考(主要各种专业类/工具类/机构组织网站)
+白名单参考(主要各种技术类专业类/工具类/机构组织网站)
 note.youdao.com
 yinxiang.com
 github.com
