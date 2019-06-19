@@ -8,47 +8,49 @@ Feedburner目前在大陆被墙。以下订阅地址，不能直接点开。请�
 
 NEXT@36氪   //20170308新增
 http://feeds.feedburner.com/L/next
-　
+
 FT中文网 - 一周十大热门文章
 http://feeds.feedburner.com/herokuapp/fttop10
-　
+
 FT中文网 - 今日焦点
 http://feeds.feedburner.com/herokuapp/ftnews
-　
+
 新京报
 http://feeds.feedburner.com/bjnews1
-　
+
 BBC中文网
 http://feeds.feedburner.com/BBC_Chinese.......http://feeds.feedburner.com/52/NOxB
-　
+
 纽约时报中文网 国际纵览
 http://feeds.feedburner.com/52/lclb
-　
+
 Tech2Pocket
 http://feeds.feedburner.com/Tech2pocket
-　
+
 子夜书社（Podcast 需用支持m3u8的播客客户端订阅）
 http://feeds.feedburner.com/xbdlm
-　
+
 中华读书报
 http://feeds.feedburner.com/52/TFHc
-　
+
 新京报•书评周刊
 http://feeds.feedburner.com/xinjingbao_book
-　
+
 南方都市报•阅读周刊
 http://feeds.feedburner.com/nandu_book
-　
+
 东方早报•上海书评
 http://feeds.feedburner.com/shanghaibook
-　
+
 财新周刊
 http://feeds.feedburner.com/52/tEtn
-　
+
 V2EX 周报（一周热门）
 http://feeds.feedburner.com/52/azhb
 
 —————————
+
+
 
 【推荐的RSS工具】
 
@@ -90,10 +92,28 @@ http://feeds.feedburner.com/52/azhb
 
 19. github-issues-rss：Github Issue 转 rss  20170612新增
 
-\20. reddit：链接后面，参数前面，加.rss即可。如 <https://www.reddit.com/r/Anki/top/.rss?sort=top&t=week&limit=5> limit控制条目数量  20170720新增
+20. reddit：链接后面，参数前面，加.rss即可。如 <https://www.reddit.com/r/Anki/top/.rss?sort=top&t=week&limit=5> limit控制条目数量  20170720新增
 
-\21. [fetchrss](http://fetchrss.com/instagram)：Instagram 转 RSS  20180116新增
+21. [fetchrss](http://fetchrss.com/instagram)：Instagram 转 RSS  20180116新增
 
-\22. [twitrss](https://twitrss.me/)：Twitter 转 RSS  20180116新增  —————————  【不再维护的RSS源：阅读价值不高、兴趣转移等】  豆瓣新上线的美剧（评分＞8.0）  （节制**，不看电视剧了） <http://feeds.feedburner.com/177/WYCr> 　 新浪新知／新闻极客 <http://feeds.feedburner.com/herokuapp/sinaxz> 　 知乎前端 <http://feeds.feedburner.com/52/NKBp> 　 知乎热门回答（内容太水，很多抖机灵） <http://feeds.feedburner.com/52/KziC> 　 豆瓣最受欢迎的书评 <http://feeds.feedburner.com/52/IITF> 　 豆瓣热点内容 <http://feeds.feedburner.com/52/VIgP> 　 知乎编辑推荐（和知乎官方源约95%一致） <http://feeds.feedburner.com/52/DkCm>
+22. [twitrss](https://twitrss.me/)：Twitter 转 RSS  20180116新增  —————————  
+
+
+
+【不再维护的RSS源：阅读价值不高、兴趣转移等】  
+
+豆瓣新上线的美剧（评分＞8.0）  （节制**，不看电视剧了） <http://feeds.feedburner.com/177/WYCr> 　 
+
+新浪新知／新闻极客 <http://feeds.feedburner.com/herokuapp/sinaxz> 　 
+
+知乎前端 <http://feeds.feedburner.com/52/NKBp> 　 
+
+知乎热门回答（内容太水，很多抖机灵） <http://feeds.feedburner.com/52/KziC> 　 
+
+豆瓣最受欢迎的书评 <http://feeds.feedburner.com/52/IITF> 　 
+
+豆瓣热点内容 <http://feeds.feedburner.com/52/VIgP> 　 
+
+知乎编辑推荐（和知乎官方源约95%一致） <http://feeds.feedburner.com/52/DkCm>
 
 【转载请注明本文链接：<https://www.douban.com/note/522518464/>】
