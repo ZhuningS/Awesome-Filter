@@ -1,7 +1,6 @@
+<h1 align="center"><center><strong><b>适用于个人/家庭的信息管理库分享（侧重信息过滤与内容筛选）</b></strong></center></h1>
 
-<center><strong><b>适用于个人/家庭的信息管理库分享（侧重信息过滤与内容筛选）</b></strong></center>
-
-<br><a href="https://t.me/dlts0987"><img border="0" src="https://img.shields.io/badge/channel-Telegram-green.svg" /></a>
+<br><a href="https://t.me/dlts0987"><img border="0" src="https://img.shields.io/badge/channel-Telegram-green.svg" /></a><a target="_blank" href=""><img src="https://i.imgur.com/JFhxHeR.png"></a>
 
 ---
 反垃圾与不良信息的工具、技术、经验，防治信息焦虑等信息病，保护精神卫生与身心健康。当信息的主人，而不是奴隶。
