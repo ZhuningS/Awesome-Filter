@@ -4,7 +4,7 @@
 ---
 反垃圾与不良信息的工具、技术、经验，防治信息焦虑等信息病，保护精神卫生与身心健康。当信息的主人，而不是奴隶。
 
-#### [简单快速上手：常用设置参考Quick Start Guide]([https://telegra.ph/Awesome-Filter%E7%AE%80%E5%8D%95%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE%E5%8F%82%E8%80%83Quick-Start-Guide-01-20-2](https://telegra.ph/Awesome-Filter简单快速上手常用设置参考Quick-Start-Guide-01-20-2))
+#### [简单快速上手：常用设置参考Quick Start Guide](https://telegra.ph/Awesome-Filter简单快速上手常用设置参考Quick-Start-Guide-01-20-2)
 
 #### **[常见平台信息处理效果展示-Effect picture](https://telegra.ph/常见平台信息处理效果展示-Effect-picture-01-20)**
 
@@ -14,11 +14,11 @@
 
 - [前言-04-09](https://telegra.ph/前言-04-09)
 
+- [个人家庭信息过滤方案-04-09](https://telegra.ph/个人家庭信息过滤方案-04-09)
+
 - [关于自定义社交媒体-灵活准确获取信息排除垃圾-01-20](https://telegra.ph/关于自定义社交媒体-灵活准确获取信息排除垃圾-01-20)
 
 - [关于信息输入-04-09](https://telegra.ph/关于信息输入-04-09)
-
-- [个人家庭信息过滤方案-04-09](https://telegra.ph/个人家庭信息过滤方案-04-09)
 
 - [关于小内存手机使用的一些经验以16GiPhone为例大多数可跨平台原理一样安卓可参考-04-09](https://telegra.ph/关于小内存手机使用的一些经验以16GiPhone为例大多可跨平台原理一样安卓可参考-04-09)
 
