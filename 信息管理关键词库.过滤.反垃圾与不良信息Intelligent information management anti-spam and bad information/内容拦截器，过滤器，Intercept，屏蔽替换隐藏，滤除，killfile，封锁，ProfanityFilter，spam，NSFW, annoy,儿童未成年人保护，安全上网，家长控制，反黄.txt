@@ -1,0 +1,4 @@
+[TOC]
+内容拦截器，大小过滤器，web cleaner, word filter, Intercept，屏蔽替换隐藏，滤除，killfile，封锁，ProfanityFilter，nsfw，儿童未成年人保护，安全上网，家长控制，反黄，绿色上网，防火墙
+
+参考了很多，以上只是软件部分，还参考了有关学习以及生活中一些灵感。

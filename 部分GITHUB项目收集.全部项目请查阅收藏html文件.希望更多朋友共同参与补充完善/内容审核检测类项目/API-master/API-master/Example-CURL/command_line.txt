@@ -1,5 +1,0 @@
-# GET request
-curl "https://www.moderatecontent.com/api/?url=http://www.moderatecontent.com/img/logo.png"
-
-# POST request
-curl --data "url=http://www.moderatecontent.com/img/logo.png"  https://www.moderatecontent.com/api/
