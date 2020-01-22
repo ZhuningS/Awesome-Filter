@@ -2,7 +2,7 @@
 <br><a href="https://t.me/dlts0987"><img border="0" src="https://img.shields.io/badge/channel-Telegram-green.svg" /></a>   <a target="_blank" href=""><img src="https://i.imgur.com/JFhxHeR.png"></a>
 
 ---
-反垃圾与不良信息的工具、技术、经验，防治信息焦虑等信息病，保护精神卫生与身心健康。当信息的主人，而不是奴隶。
+反垃圾与不良信息以及辅助戒网瘾的工具、技术、经验，防治信息焦虑等信息病，保护精神卫生与身心健康。当信息的主人，而不是奴隶。
 
 #### [简单快速上手：常用设置参考Quick Start Guide](https://telegra.ph/Awesome-Filter简单快速上手常用设置参考Quick-Start-Guide-01-20-2)
 
